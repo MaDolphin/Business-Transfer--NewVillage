@@ -49,9 +49,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/web/WEB-INF/conf" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.0.33" level="application_server_libraries" />
     <orderEntry type="library" name="Hibernate4" level="project" />
     <orderEntry type="library" name="JSTL" level="project" />
     <orderEntry type="library" name="Spring4" level="project" />
