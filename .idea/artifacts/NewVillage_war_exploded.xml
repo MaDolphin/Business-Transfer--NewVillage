@@ -12,6 +12,7 @@
           <element id="library" level="project" name="JSTL" />
           <element id="library" level="project" name="Spring4" />
           <element id="library" level="project" name="Struts2" />
+          <element id="library" level="project" name="DBConnection" />
         </element>
       </element>
     </root>

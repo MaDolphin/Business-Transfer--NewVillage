@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="DBConnection">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/DBConnection" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/DBConnection" recursive="false" />
+  </library>
+</component>

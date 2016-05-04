@@ -56,5 +56,6 @@
     <orderEntry type="library" name="JSTL" level="project" />
     <orderEntry type="library" name="Spring4" level="project" />
     <orderEntry type="library" name="Struts2" level="project" />
+    <orderEntry type="library" name="DBConnection" level="project" />
   </component>
 </module>
