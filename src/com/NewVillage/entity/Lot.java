@@ -1,0 +1,121 @@
+package com.NewVillage.entity;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.sql.Timestamp;
+
+/**
+ * Created by xfcq on 2016/5/4.
+ */
+@Entity
+public class Lot {
+    private int lotId;
+    private String userName;
+    private String address;
+    private String type;
+    private Integer capacity;
+    private String userType;
+    private Timestamp creatrTime;
+
+    @Id
+    @Column(name = "lotId", nullable = false)
+    public int getLotId() {
+        return lotId;
+    }
+
+    public void setLotId(int lotId) {
+        this.lotId = lotId;
+    }
+
+    @Basic
+    @Column(name = "userName", nullable = true, length = 1)
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    @Basic
+    @Column(name = "address", nullable = true, length = 50)
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Basic
+    @Column(name = "type", nullable = true, length = 1)
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Basic
+    @Column(name = "capacity", nullable = true)
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
+    @Basic
+    @Column(name = "userType", nullable = true, length = 1)
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    @Basic
+    @Column(name = "creatrTime", nullable = false)
+    public Timestamp getCreatrTime() {
+        return creatrTime;
+    }
+
+    public void setCreatrTime(Timestamp creatrTime) {
+        this.creatrTime = creatrTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Lot lot = (Lot) o;
+
+        if (lotId != lot.lotId) return false;
+        if (userName != null ? !userName.equals(lot.userName) : lot.userName != null) return false;
+        if (address != null ? !address.equals(lot.address) : lot.address != null) return false;
+        if (type != null ? !type.equals(lot.type) : lot.type != null) return false;
+        if (capacity != null ? !capacity.equals(lot.capacity) : lot.capacity != null) return false;
+        if (userType != null ? !userType.equals(lot.userType) : lot.userType != null) return false;
+        if (creatrTime != null ? !creatrTime.equals(lot.creatrTime) : lot.creatrTime != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = lotId;
+        result = 31 * result + (userName != null ? userName.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (capacity != null ? capacity.hashCode() : 0);
+        result = 31 * result + (userType != null ? userType.hashCode() : 0);
+        result = 31 * result + (creatrTime != null ? creatrTime.hashCode() : 0);
+        return result;
+    }
+}

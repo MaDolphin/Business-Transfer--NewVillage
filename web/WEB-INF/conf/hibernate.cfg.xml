@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+        <session-factory>
+                <property name="connection.url">jdbc:mysql://121.42.197.31:3306/newvil</property>
+                <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+                <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+                <!--<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>-->
+                <property name="connection.username">grp1</property>
+                <property name="connection.password">1234</property>
+                <property name="hibernate.c3p0.min_size">5</property>
+                <property name="hibernate.c3p0.max_size">20</property>
+                <property name="hibernate.c3p0.timeout">1800</property>
+                <property name="hibernate.c3p0.max_statements">50</property>
+                <property name="hibernate.autoReconnect">true</property>
+
+                <!-- 显示sql语句 -->
+                <property name="show_sql">true</property>
+                <property name="connection.useUnicode">true</property>
+                <property name="connection.characterEncoding">UTF-8</property>
+
+                <!-- 缓存设置 -->
+                <!--<property name="cache.provider_configuration_file_resource_path">/ehcache.xml</property>-->
+                <!--<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>-->
+                <!--<property name="cache.use_query_cache">true</property>-->
+
+                <mapping class="com.NewVillage.entity.BusinessCost"/>
+                <mapping class="com.NewVillage.entity.Check"/>
+                <mapping class="com.NewVillage.entity.CheckInfo"/>
+                <mapping class="com.NewVillage.entity.DesignFileCheck"/>
+                <mapping class="com.NewVillage.entity.Employee"/>
+                <mapping class="com.NewVillage.entity.Examination"/>
+                <mapping class="com.NewVillage.entity.Inspection"/>
+                <mapping class="com.NewVillage.entity.InvestigationSite"/>
+                <mapping class="com.NewVillage.entity.InvestigationWork"/>
+                <mapping class="com.NewVillage.entity.JobInfo"/>
+                <mapping class="com.NewVillage.entity.Lot"/>
+                <mapping class="com.NewVillage.entity.NewVillage"/>
+                <mapping class="com.NewVillage.entity.PayRecord"/>
+                <mapping class="com.NewVillage.entity.PowerDesign"/>
+                <mapping class="com.NewVillage.entity.PowerDesignReply"/>
+                <mapping class="com.NewVillage.entity.Processrecord"/>
+                <mapping class="com.NewVillage.entity.Refile"/>
+                <mapping class="com.NewVillage.entity.TraceTable"/>
+                <mapping class="com.NewVillage.entity.User"/>
+
+                <!-- DB schema will be updated if needed -->
+                <!-- <property name="hbm2ddl.auto">update</property> -->
+        </session-factory>
+</hibernate-configuration>
