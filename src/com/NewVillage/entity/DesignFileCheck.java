@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/5/4.
+ * Created by xfcq on 2016/6/1.
  */
 @Entity
 public class DesignFileCheck {

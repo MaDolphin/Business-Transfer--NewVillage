@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/5/4.
+ * Created by xfcq on 2016/6/1.
  */
 @Entity
 @Table(name = "PowerDesign_Reply", schema = "newvil", catalog = "")
