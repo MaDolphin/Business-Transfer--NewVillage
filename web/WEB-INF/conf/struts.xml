@@ -7,6 +7,9 @@
 <struts>
     <!--login-->
     <package name="common" extends="default-strut">
+        <!--action method-->
+
+        <!--JSP directing-->
 
     </package>
 
