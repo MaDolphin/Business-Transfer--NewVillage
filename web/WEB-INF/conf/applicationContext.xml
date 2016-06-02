@@ -13,15 +13,24 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
+    <bean id="costdao" class="com.NewVillage.daoimpl.CostDaoImp">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="receiptdao" class="com.NewVillage.daoimpl.ReceiptDaoImp">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+
+    <bean id="FinanceAction" class="com.NewVillage.action.FinanceAction">
+        <property name="costdao" ref="costdao"></property>
+        <property name="receiptdao" ref="receiptdao"></property>
+    </bean>
+
+
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="configLocation" value="/WEB-INF/conf/hibernate.cfg.xml"></property>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.connection.url">jdbc:mysql://121.42.197.31:3306/newvil</prop>
-                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
-            </props>
-        </property>
     </bean>
 
     <!-- 配置声明式事务管理（采用注解的方式） -->
