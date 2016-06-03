@@ -11,4 +11,9 @@ import java.util.List;
 //设计文件审核
 public interface DesignFileCheckDao {
     public List<DesignFileCheck> QueryAllDesignFileCheckMessage();
+    public void addDesignFileCheckRecord(DesignFileCheck designFileCheck);
+    public boolean deleteDesignFileCheckRecord(DesignFileCheck designFileCheck);
+    public DesignFileCheck queryDesignFileCheckRecordByID(int recordId);
+    public boolean existDesignFileCheckRecordById(int recordId);
+    public boolean updateDesignFileCheckRecord(DesignFileCheck designFileCheck);
 }
