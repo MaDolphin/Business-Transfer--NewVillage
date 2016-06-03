@@ -13,13 +13,16 @@
         </action>
         <!--JSP directing-->
 
+        <action name="main">
+            <result>right.jsp</result>
+        </action>
     </package>
 
     <!-- 1.业务员 1.3业务受理 1.8答复供电方案 -->
     <package name="Counter" extends="struts-default">
         <!--action method-->
         <action name="Counter_*" class="CounterAction" method="{1}">
-            <result name="success"></result>
+            <result name="addUserSuccess"></result>
             <result name="input"></result>
         </action>
         <!--JSP directing-->
