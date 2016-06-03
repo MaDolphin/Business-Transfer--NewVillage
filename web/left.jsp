@@ -6,10 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html style="margin-top: 10px">
 <!-- BEGIN HEAD -->
 <head>
-    <title>Class Admin Manager</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
@@ -34,7 +33,7 @@
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<%--<body style="background-color: #3d3d3d;width: 225px">--%>
+<body style="background-color: #3d3d3d;width: 225px">
 <!-- BEGIN HEADER -->
 <!-- END HEADER -->
 <!-- BEGIN CONTAINER -->

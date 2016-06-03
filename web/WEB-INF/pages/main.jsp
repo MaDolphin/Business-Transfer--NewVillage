@@ -34,7 +34,7 @@
 
 <frameset rows="88,*" name="wholeFrame" id="wholeFrame" title="wholeFrame" cols="*" frameborder="no" border="0" framespacing="0">
     <frame src="top.jsp" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
-    <frameset cols="225,*" frameborder="no" border="0" framespacing="0">
+    <frameset cols="225,*" frameborder="no" border="0" framespacing="0" >
         <frame src="left.jsp" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
 
         <frame src="right.jsp" name="rightFrame" id="rightFrame" title="rightFrame" />
