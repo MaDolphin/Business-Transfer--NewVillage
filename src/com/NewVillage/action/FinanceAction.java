@@ -4,7 +4,6 @@ import java.util.*;
 
 import com.NewVillage.dao.CostDao;
 import com.NewVillage.dao.ReceiptDao;
-import com.NewVillage.daoimpl.ReceiptDaoImp;
 import com.NewVillage.entity.BusinessCost;
 import com.NewVillage.entity.PayRecord;
 import com.opensymphony.xwork2.ActionSupport;
