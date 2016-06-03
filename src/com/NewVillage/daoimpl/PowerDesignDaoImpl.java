@@ -28,6 +28,16 @@ public class PowerDesignDaoImpl extends HibernateDaoSupport implements PowerDesi
     }
 
     @Override
+    public PowerDesign queryPowerDesignByNewID(int newid) {
+        List a=(List<PowerDesign>)this.getHibernateTemplate().find("from PowerDesign n where n.newId=? and n.status='0'",new Object[]{newid});
+        if(a.size()>0){
+            return (PowerDesign) a.get(0);
+        }else {
+            return null;
+        }
+    }
+
+    @Override
     public boolean deletePowerDesign(PowerDesign powerDesign) {
         try{
             this.getHibernateTemplate().delete(powerDesign);

@@ -35,8 +35,8 @@
     <package name="Investigator" extends="struts-default">
         <!--action method-->
         <action name="Investigator_*" class="InvestigatorAction" method="{1}">
-            <result name="success"></result>
-            <result name="input"></result>
+            <result name="addInvestigationSiteSuccess"></result>
+            <result name="addInvestigationSiteError"></result>
         </action>
         <!--JSP directing-->
 

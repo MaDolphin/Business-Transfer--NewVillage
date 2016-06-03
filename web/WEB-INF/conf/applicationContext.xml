@@ -130,6 +130,10 @@
     <bean id="InvestigatorAction" class="com.NewVillage.action.InvestigatorAction">
         <property name="investigationSiteDao" ref="investigationSiteDao"></property>
         <property name="investigationWorkDao" ref="investigationWorkDao"></property>
+        <property name="newVillageDao" ref="newVillageDao"></property>
+        <property name="processRecordDao" ref="ProcessRecordDao"></property>
+        <property name="powerDesignDao" ref="powerDesignDao"></property>
+        <property name="jobInfoDao" ref="jobInfoDao"></property>
     </bean>
 
     <bean id="PlanGroupAction" class="com.NewVillage.action.PlanGroupAction">

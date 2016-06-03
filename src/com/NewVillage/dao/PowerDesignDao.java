@@ -10,6 +10,7 @@ import java.util.List;
 public interface PowerDesignDao {
     public boolean addPowerDesign(PowerDesign powerDesign);
     public PowerDesign queryPowerDesignByID(int powerid);
+    public PowerDesign queryPowerDesignByNewID(int newid);
     public boolean deletePowerDesign(PowerDesign powerDesign);
     public boolean updatePowerDesign(PowerDesign powerDesign);
     public List<PowerDesign> allPowerDesignsByEmpID(int empid);

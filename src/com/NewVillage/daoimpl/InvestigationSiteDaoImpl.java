@@ -28,6 +28,16 @@ public class InvestigationSiteDaoImpl extends HibernateDaoSupport implements Inv
     }
 
     @Override
+    public InvestigationSite queryInvestigationSiteByNewID(int newid) {
+        List a=(List<InvestigationSite>)this.getHibernateTemplate().find("from InvestigationSite n where n.newId=? and n.status='0'",new Object[]{newid});
+        if(a.size()>0){
+            return (InvestigationSite) a.get(0);
+        }else {
+            return null;
+        }
+    }
+
+    @Override
     public boolean deleteInvestigationSite(InvestigationSite investigationSite) {
         try{
             this.getHibernateTemplate().delete(investigationSite);
