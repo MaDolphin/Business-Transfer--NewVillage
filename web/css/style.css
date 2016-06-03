@@ -463,10 +463,11 @@ Page container
 .page-container {
   margin: 0px;
   padding: 0px;
+  background-color: #fff;
 }
 
 .page-header-fixed .page-container {
-  margin-top: 42px;  
+  margin-top: 42px;
 }
 
 /***
@@ -882,7 +883,7 @@ Page content
 .page-content {  
   margin-top: 0px;   
   padding: 0px;
-  background-color: #fff; 
+  background-color: #fff;
 }
 
 .ie8 .page-content { 

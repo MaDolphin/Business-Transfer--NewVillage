@@ -27,7 +27,7 @@
 <!-- END PAGE LEVEL STYLES -->
 <link rel="shortcut icon" href="images/favicon.ico"/>
 </head>
-<body>
+<body style="height: 42px">
 <div class="header navbar navbar-inverse navbar-fixed-top">
     <!-- BEGIN TOP NAVIGATION BAR -->
     <div class="navbar-inner">
