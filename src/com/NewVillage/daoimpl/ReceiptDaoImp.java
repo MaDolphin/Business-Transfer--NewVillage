@@ -22,6 +22,17 @@ public class ReceiptDaoImp extends HibernateDaoSupport implements ReceiptDao {
     }
 
     @Override
+    public List<PayRecord> QueryRecord(String hql) {
+        List<PayRecord> list=null;
+        try{
+            list=(List<PayRecord>)this.getHibernateTemplate().find(hql);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
     public List<PayRecord> QueryAllRecord() {
         List<PayRecord> list=null;
         try{

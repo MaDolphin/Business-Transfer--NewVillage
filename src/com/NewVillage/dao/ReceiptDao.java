@@ -13,6 +13,7 @@ import java.util.List;
 public interface  ReceiptDao {
     public void addPayRecord(PayRecord record);
 
+    List<PayRecord> QueryRecord(String hql);
 
     List<PayRecord> QueryAllRecord();
 }
