@@ -13,30 +13,30 @@
 
     </package>
 
- <!--   &lt;!&ndash; 1.业务员 1.3业务受理 1.8答复供电方案 &ndash;&gt;
-    <package name="" extends="struts-default">
-        &lt;!&ndash;action method&ndash;&gt;
+    <!-- 1.业务员 1.3业务受理 1.8答复供电方案 -->
+    <package name="Counter" extends="struts-default">
+        <!--action method-->
 
-        &lt;!&ndash;JSP directing&ndash;&gt;
+        <!--JSP directing-->
 
-    </package>-->
+    </package>
 
     <!-- 2.勘查员 1.4现场勘查  -->
-    <package name="" extends="struts-default">
+    <package name="Investigator" extends="struts-default">
         <!--action method-->
 
         <!--JSP directing-->
     </package>
 
     <!-- 3.方案小组 1.6拟定供电方案-->
-    <package name="" extends="struts-default">
+    <package name="PlanGroup" extends="struts-default">
         <!--action method-->
 
         <!--JSP directing-->
     </package>
 
     <!-- 4.审批员 1.7审批 1.12设计文件审核 -->
-    <package name="" extends="struts-default">
+    <package name="Approval" extends="struts-default">
         <!--action method-->
 
         <!--JSP directing-->
@@ -45,7 +45,7 @@
     <!-- 5.财务 1.9确定费用 1.10业务收费 -->
     <package name="Finance" extends="struts-default">
         <!--action method-->
-        <action name="Finance*" class="FinanceAction" method="{1}">
+        <action name="Finance_*" class="FinanceAction" method="{1}">
             <result name="success"></result>
             <result name="input"></result>
         </action>
@@ -53,35 +53,35 @@
     </package>
 
     <!-- 6.监工 1.11供电工程进度跟踪 -->
-    <package name="" extends="struts-default">
+    <package name="Overseer" extends="struts-default">
         <!--action method-->
 
         <!--JSP directing-->
     </package>
 
     <!-- 7.检查员 1.13中间检查 -->
-    <package name="" extends="struts-default">
+    <package name="Checker" extends="struts-default">
         <!--action method-->
 
         <!--JSP directing-->
     </package>
 
     <!-- 8.报验员 1.14竣工报验 -->
-    <package name="" extends="struts-default">
+    <package name="Inspectioner" extends="struts-default">
         <!--action method-->
 
         <!--JSP directing-->
     </package>
 
     <!-- 9.验收小组 1.15竣工验收 -->
-    <package name="" extends="struts-default">
+    <package name="AcceptGroup" extends="struts-default">
         <!--action method-->
 
         <!--JSP directing-->
     </package>
 
     <!-- 10.归档员 1.16信息归档 1.17归档 -->
-    <package name="" extends="struts-default">
+    <package name="Filer" extends="struts-default">
         <!--action method-->
 
         <!--JSP directing-->
