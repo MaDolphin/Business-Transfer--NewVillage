@@ -72,12 +72,7 @@ public class FinanceAction extends ActionSupport{
 
     public String ExaminCost(){
         try{
-            if (businessCost.getCostId()==1)
-                costdao.ExaminCost(businessCost);
-            else if (businessCost.getCostId()==-1){
-                costdao.ExaminCost(businessCost);
-
-            }
+            costdao.ExaminCost(businessCost);
         }catch (Exception ex){
             ex.printStackTrace();
         }
@@ -88,7 +83,9 @@ public class FinanceAction extends ActionSupport{
     public String execute() {
         String flag=INPUT;
         try{
+            if (payRecord.getPayDep())
             receiptdao.addPayRecord(payRecord);
+
         }catch(Exception ex){
             ex.printStackTrace();
         }

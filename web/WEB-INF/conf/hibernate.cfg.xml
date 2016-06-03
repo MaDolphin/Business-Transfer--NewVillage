@@ -45,6 +45,7 @@
                 <mapping class="com.NewVillage.entity.Refile"/>
                 <mapping class="com.NewVillage.entity.TraceTable"/>
                 <mapping class="com.NewVillage.entity.User"/>
+                <mapping class="com.NewVillage.entity.Message"/>
 
                 <!-- DB schema will be updated if needed -->
                 <!-- <property name="hbm2ddl.auto">update</property> -->
