@@ -193,6 +193,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
     public String addTraceTableRecord(){
         try {
             TraceTable traceTable = new TraceTable();
+            Timestamp date=new Timestamp(System.currentTimeMillis());
             if (traceTableDao.queryTraceTableRecordByID(traceId) == null) {
                 traceTable.setTraceId(traceId);
                 traceTable.setResponsiblePerId(responsiblePerId);
@@ -207,7 +208,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
                 traceTable.setMidCheckResult(midCheckResult);
                 traceTable.setFinalInsResult(finalInsResult);
                 traceTable.setProAccountsResult(proAccountsResult);
-                traceTable.setCreateTime(createTime);
+                traceTable.setCreateTime(date);
                 traceTableDao.addTraceTableRecord(traceTable);
             }
         }catch (Exception ex) {
@@ -240,7 +241,6 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
         traceTable.setMidCheckResult(midCheckResult);
         traceTable.setFinalInsResult(finalInsResult);
         traceTable.setProAccountsResult(proAccountsResult);
-        traceTable.setCreateTime(createTime);
         if (traceTableDao.updateTraceTableRecord(traceTable)){
             return SUCCESS;
         }else {

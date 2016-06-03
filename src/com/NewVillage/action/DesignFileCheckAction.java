@@ -198,6 +198,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
     public String addDesignFileCheckRecord(){
         try {
             DesignFileCheck designFileCheck = new DesignFileCheck();
+            Timestamp date=new Timestamp(System.currentTimeMillis());
             if (designFileCheckDao.queryDesignFileCheckRecordByID(designFileId) == null) {
                 designFileCheck.setAccPerId(designFileId);
                 designFileCheck.setDesignUnit(designUnit);
@@ -213,7 +214,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
                 designFileCheck.setCheckOpinion(checkOpinion);
                 designFileCheck.setRegisterPerId(registerPerId);
                 designFileCheck.setRegisterTime(registerTime);
-                designFileCheck.setCreateTime(createTime);
+                designFileCheck.setCreateTime(date);
                 designFileCheckDao.addDesignFileCheckRecord(designFileCheck);
             }
         }catch (Exception ex) {
@@ -247,7 +248,6 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         designFileCheck.setCheckOpinion(checkOpinion);
         designFileCheck.setRegisterPerId(registerPerId);
         designFileCheck.setRegisterTime(registerTime);
-        designFileCheck.setCreateTime(createTime);
         if (designFileCheckDao.updateDesignFileCheckRecord(designFileCheck)){
             return SUCCESS;
         }else {
