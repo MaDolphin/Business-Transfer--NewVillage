@@ -109,6 +109,9 @@
                     <li>
                         <a href="adminInfoManager.action">管理员信息管理</a>
                     </li>
+                    <li>
+                        <a href="Overseer.action" target="rightFrame">进度跟踪</a>
+                    </li>
                 </ul>
             </li>
         </ul>

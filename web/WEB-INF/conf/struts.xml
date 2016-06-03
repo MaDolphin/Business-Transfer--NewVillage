@@ -75,7 +75,10 @@
     <!-- 6.监工 1.11供电工程进度跟踪 -->
     <package name="Overseer" extends="struts-default">
         <!--action method-->
-
+        <action name="Overseer_*" class="TraceTableAction" method="{1}">
+            <result name="success">WEB-INF/pages/TraceTable.jsp</result>
+            <result name="input"></result>
+        </action>
         <!--JSP directing-->
     </package>
 
