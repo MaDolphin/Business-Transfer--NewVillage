@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class DesignFileCheck {
@@ -30,7 +30,7 @@ public class DesignFileCheck {
     private String status;
 
     @Id
-    @Column(name = "designFileId")
+    @Column(name = "designFileId", nullable = false)
     public int getDesignFileId() {
         return designFileId;
     }
@@ -40,7 +40,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "designUnit")
+    @Column(name = "designUnit", nullable = true, length = 50)
     public String getDesignUnit() {
         return designUnit;
     }
@@ -50,7 +50,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "designLevel")
+    @Column(name = "designLevel", nullable = true, length = 50)
     public String getDesignLevel() {
         return designLevel;
     }
@@ -60,7 +60,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "submittedUnit")
+    @Column(name = "submittedUnit", nullable = true, length = 50)
     public String getSubmittedUnit() {
         return submittedUnit;
     }
@@ -70,7 +70,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "submittedTime")
+    @Column(name = "submittedTime", nullable = false)
     public Timestamp getSubmittedTime() {
         return submittedTime;
     }
@@ -80,7 +80,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "accPerId")
+    @Column(name = "accPerId", nullable = true)
     public Integer getAccPerId() {
         return accPerId;
     }
@@ -90,7 +90,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "checkPerId")
+    @Column(name = "checkPerId", nullable = true)
     public Integer getCheckPerId() {
         return checkPerId;
     }
@@ -100,7 +100,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "checkTime")
+    @Column(name = "checkTime", nullable = false)
     public Timestamp getCheckTime() {
         return checkTime;
     }
@@ -110,7 +110,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "civilDrawingNum")
+    @Column(name = "civilDrawingNum", nullable = true)
     public Integer getCivilDrawingNum() {
         return civilDrawingNum;
     }
@@ -120,7 +120,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "lineDrawingNum")
+    @Column(name = "lineDrawingNum", nullable = true)
     public Integer getLineDrawingNum() {
         return lineDrawingNum;
     }
@@ -130,7 +130,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "eleDrawingNum")
+    @Column(name = "eleDrawingNum", nullable = true)
     public Integer getEleDrawingNum() {
         return eleDrawingNum;
     }
@@ -140,7 +140,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "checkOpinion")
+    @Column(name = "checkOpinion", nullable = true, length = -1)
     public String getCheckOpinion() {
         return checkOpinion;
     }
@@ -150,7 +150,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "registerPerId")
+    @Column(name = "registerPerId", nullable = true)
     public Integer getRegisterPerId() {
         return registerPerId;
     }
@@ -160,7 +160,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "registerTime")
+    @Column(name = "registerTime", nullable = false)
     public Timestamp getRegisterTime() {
         return registerTime;
     }
@@ -170,7 +170,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -180,7 +180,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -190,7 +190,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

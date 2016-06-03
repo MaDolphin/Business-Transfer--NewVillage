@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class Examination {
@@ -21,7 +21,7 @@ public class Examination {
     private String status;
 
     @Id
-    @Column(name = "exId")
+    @Column(name = "exId", nullable = false)
     public int getExId() {
         return exId;
     }
@@ -31,7 +31,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "exPerId")
+    @Column(name = "exPerId", nullable = true, length = 10)
     public String getExPerId() {
         return exPerId;
     }
@@ -41,7 +41,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "exTime")
+    @Column(name = "exTime", nullable = false)
     public Timestamp getExTime() {
         return exTime;
     }
@@ -51,7 +51,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "exResult")
+    @Column(name = "exResult", nullable = true, length = 25)
     public String getExResult() {
         return exResult;
     }
@@ -61,7 +61,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "exOpinion")
+    @Column(name = "exOpinion", nullable = true, length = -1)
     public String getExOpinion() {
         return exOpinion;
     }
@@ -71,7 +71,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -81,7 +81,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -91,7 +91,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

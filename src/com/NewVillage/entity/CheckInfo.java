@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class CheckInfo {
@@ -18,7 +18,7 @@ public class CheckInfo {
     private Timestamp createTime;
 
     @Id
-    @Column(name = "checkInfoId")
+    @Column(name = "checkInfoId", nullable = false)
     public int getCheckInfoId() {
         return checkInfoId;
     }
@@ -28,7 +28,7 @@ public class CheckInfo {
     }
 
     @Basic
-    @Column(name = "checkInfoTime")
+    @Column(name = "checkInfoTime", nullable = false)
     public Timestamp getCheckInfoTime() {
         return checkInfoTime;
     }
@@ -38,7 +38,7 @@ public class CheckInfo {
     }
 
     @Basic
-    @Column(name = "qualified")
+    @Column(name = "qualified", nullable = true, length = 1)
     public String getQualified() {
         return qualified;
     }
@@ -48,7 +48,7 @@ public class CheckInfo {
     }
 
     @Basic
-    @Column(name = "checkNum")
+    @Column(name = "checkNum", nullable = true)
     public Integer getCheckNum() {
         return checkNum;
     }
@@ -58,7 +58,7 @@ public class CheckInfo {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }

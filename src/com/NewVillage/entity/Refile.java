@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class Refile {
@@ -19,7 +19,7 @@ public class Refile {
     private String status;
 
     @Id
-    @Column(name = "refileId")
+    @Column(name = "refileId", nullable = false)
     public int getRefileId() {
         return refileId;
     }
@@ -29,7 +29,7 @@ public class Refile {
     }
 
     @Basic
-    @Column(name = "fileId")
+    @Column(name = "fileId", nullable = true)
     public Integer getFileId() {
         return fileId;
     }
@@ -39,7 +39,7 @@ public class Refile {
     }
 
     @Basic
-    @Column(name = "filePlace")
+    @Column(name = "filePlace", nullable = true, length = 50)
     public String getFilePlace() {
         return filePlace;
     }
@@ -49,7 +49,7 @@ public class Refile {
     }
 
     @Basic
-    @Column(name = "refileTime")
+    @Column(name = "refileTime", nullable = false)
     public Timestamp getRefileTime() {
         return refileTime;
     }
@@ -59,7 +59,7 @@ public class Refile {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -69,7 +69,7 @@ public class Refile {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

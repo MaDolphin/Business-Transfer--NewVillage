@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class NewVillage {
@@ -27,7 +27,7 @@ public class NewVillage {
     private String status;
 
     @Id
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = false)
     public int getNewId() {
         return newId;
     }
@@ -37,7 +37,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "vilName")
+    @Column(name = "vilName", nullable = true, length = 10)
     public String getVilName() {
         return vilName;
     }
@@ -47,7 +47,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "adminArea")
+    @Column(name = "adminArea", nullable = true, length = 10)
     public String getAdminArea() {
         return adminArea;
     }
@@ -57,7 +57,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "eleAddress")
+    @Column(name = "eleAddress", nullable = true, length = 50)
     public String getEleAddress() {
         return eleAddress;
     }
@@ -67,7 +67,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "eleType")
+    @Column(name = "eleType", nullable = true)
     public Integer getEleType() {
         return eleType;
     }
@@ -77,7 +77,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "eleCapacity")
+    @Column(name = "eleCapacity", nullable = true)
     public Integer getEleCapacity() {
         return eleCapacity;
     }
@@ -87,7 +87,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "residentNum")
+    @Column(name = "residentNum", nullable = true)
     public Integer getResidentNum() {
         return residentNum;
     }
@@ -97,7 +97,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "userName")
+    @Column(name = "userName", nullable = true, length = 10)
     public String getUserName() {
         return userName;
     }
@@ -107,7 +107,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "userPtype")
+    @Column(name = "userPtype", nullable = true)
     public Integer getUserPtype() {
         return userPtype;
     }
@@ -117,7 +117,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "userPid")
+    @Column(name = "userPid", nullable = true, length = 25)
     public String getUserPid() {
         return userPid;
     }
@@ -127,7 +127,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "userTel")
+    @Column(name = "userTel", nullable = true, length = 25)
     public String getUserTel() {
         return userTel;
     }
@@ -137,7 +137,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -147,7 +147,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "newVilPerId")
+    @Column(name = "newVilPerId", nullable = true)
     public Integer getNewVilPerId() {
         return newVilPerId;
     }
@@ -157,7 +157,7 @@ public class NewVillage {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class TraceTable {
@@ -29,7 +29,7 @@ public class TraceTable {
     private String status;
 
     @Id
-    @Column(name = "traceId")
+    @Column(name = "traceId", nullable = false)
     public int getTraceId() {
         return traceId;
     }
@@ -39,7 +39,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "responsiblePerId")
+    @Column(name = "responsiblePerId", nullable = true)
     public Integer getResponsiblePerId() {
         return responsiblePerId;
     }
@@ -49,7 +49,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "responsibleUnit")
+    @Column(name = "responsibleUnit", nullable = true, length = 50)
     public String getResponsibleUnit() {
         return responsibleUnit;
     }
@@ -59,7 +59,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "supervisorUnit")
+    @Column(name = "supervisorUnit", nullable = true, length = 50)
     public String getSupervisorUnit() {
         return supervisorUnit;
     }
@@ -69,7 +69,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "proDesignResult")
+    @Column(name = "proDesignResult", nullable = true, length = -1)
     public String getProDesignResult() {
         return proDesignResult;
     }
@@ -79,7 +79,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "proFileResult")
+    @Column(name = "proFileResult", nullable = true, length = -1)
     public String getProFileResult() {
         return proFileResult;
     }
@@ -89,7 +89,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "budgetResult")
+    @Column(name = "budgetResult", nullable = true, length = -1)
     public String getBudgetResult() {
         return budgetResult;
     }
@@ -99,7 +99,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "chargeResult")
+    @Column(name = "chargeResult", nullable = true, length = -1)
     public String getChargeResult() {
         return chargeResult;
     }
@@ -109,7 +109,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "equipmentSupResult")
+    @Column(name = "equipmentSupResult", nullable = true, length = -1)
     public String getEquipmentSupResult() {
         return equipmentSupResult;
     }
@@ -119,7 +119,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "ConstructionResult")
+    @Column(name = "ConstructionResult", nullable = true, length = -1)
     public String getConstructionResult() {
         return constructionResult;
     }
@@ -129,7 +129,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "midCheckResult")
+    @Column(name = "midCheckResult", nullable = true, length = -1)
     public String getMidCheckResult() {
         return midCheckResult;
     }
@@ -139,7 +139,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "FinalInsResult")
+    @Column(name = "FinalInsResult", nullable = true, length = -1)
     public String getFinalInsResult() {
         return finalInsResult;
     }
@@ -149,7 +149,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "proAccountsResult")
+    @Column(name = "proAccountsResult", nullable = true, length = -1)
     public String getProAccountsResult() {
         return proAccountsResult;
     }
@@ -159,7 +159,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -169,7 +169,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -179,7 +179,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

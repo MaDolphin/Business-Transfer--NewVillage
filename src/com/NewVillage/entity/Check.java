@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class Check {
@@ -22,7 +22,7 @@ public class Check {
     private String status;
 
     @Id
-    @Column(name = "checkId")
+    @Column(name = "checkId", nullable = false)
     public int getCheckId() {
         return checkId;
     }
@@ -32,7 +32,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "checkPerId")
+    @Column(name = "checkPerId", nullable = true, length = 10)
     public String getCheckPerId() {
         return checkPerId;
     }
@@ -42,7 +42,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "checkTime")
+    @Column(name = "checkTime", nullable = false)
     public Timestamp getCheckTime() {
         return checkTime;
     }
@@ -52,7 +52,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "checkContent")
+    @Column(name = "checkContent", nullable = true, length = -1)
     public String getCheckContent() {
         return checkContent;
     }
@@ -62,7 +62,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "checkNum")
+    @Column(name = "checkNum", nullable = true)
     public Integer getCheckNum() {
         return checkNum;
     }
@@ -72,7 +72,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "chenckResult")
+    @Column(name = "chenckResult", nullable = true, length = -1)
     public String getChenckResult() {
         return chenckResult;
     }
@@ -82,7 +82,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -92,7 +92,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -102,7 +102,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

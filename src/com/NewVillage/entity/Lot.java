@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class Lot {
@@ -22,7 +22,7 @@ public class Lot {
     private String status;
 
     @Id
-    @Column(name = "lotId")
+    @Column(name = "lotId", nullable = false)
     public int getLotId() {
         return lotId;
     }
@@ -32,7 +32,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "userName")
+    @Column(name = "userName", nullable = true, length = 1)
     public String getUserName() {
         return userName;
     }
@@ -42,7 +42,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "address")
+    @Column(name = "address", nullable = true, length = 50)
     public String getAddress() {
         return address;
     }
@@ -52,7 +52,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "type")
+    @Column(name = "type", nullable = true, length = 1)
     public String getType() {
         return type;
     }
@@ -62,7 +62,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "capacity")
+    @Column(name = "capacity", nullable = true)
     public Integer getCapacity() {
         return capacity;
     }
@@ -72,7 +72,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "userType")
+    @Column(name = "userType", nullable = true, length = 1)
     public String getUserType() {
         return userType;
     }
@@ -82,7 +82,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "creatrTime")
+    @Column(name = "creatrTime", nullable = false)
     public Timestamp getCreatrTime() {
         return creatrTime;
     }
@@ -92,7 +92,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -102,7 +102,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

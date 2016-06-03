@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class InvestigationWork {
@@ -19,7 +19,7 @@ public class InvestigationWork {
     private String status;
 
     @Id
-    @Column(name = "invesId")
+    @Column(name = "invesId", nullable = false)
     public int getInvesId() {
         return invesId;
     }
@@ -29,7 +29,7 @@ public class InvestigationWork {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -39,7 +39,7 @@ public class InvestigationWork {
     }
 
     @Basic
-    @Column(name = "invesPerId")
+    @Column(name = "invesPerId", nullable = true)
     public Integer getInvesPerId() {
         return invesPerId;
     }
@@ -49,7 +49,7 @@ public class InvestigationWork {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -59,7 +59,7 @@ public class InvestigationWork {
     }
 
     @Basic
-    @Column(name = "InvesTime")
+    @Column(name = "InvesTime", nullable = false)
     public Timestamp getInvesTime() {
         return invesTime;
     }
@@ -69,7 +69,7 @@ public class InvestigationWork {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

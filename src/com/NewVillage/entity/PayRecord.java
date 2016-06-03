@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class PayRecord {
@@ -24,7 +24,7 @@ public class PayRecord {
     private String status;
 
     @Id
-    @Column(name = "payId")
+    @Column(name = "payId", nullable = false)
     public int getPayId() {
         return payId;
     }
@@ -34,7 +34,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -44,7 +44,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "payPerId")
+    @Column(name = "payPerId", nullable = true)
     public Integer getPayPerId() {
         return payPerId;
     }
@@ -54,7 +54,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "payDep")
+    @Column(name = "payDep", nullable = true, length = 10)
     public String getPayDep() {
         return payDep;
     }
@@ -64,7 +64,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "payTime")
+    @Column(name = "payTime", nullable = false)
     public Timestamp getPayTime() {
         return payTime;
     }
@@ -74,7 +74,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "Payment")
+    @Column(name = "Payment", nullable = true, precision = 0)
     public Double getPayment() {
         return payment;
     }
@@ -84,7 +84,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "sumPay")
+    @Column(name = "sumPay", nullable = true, precision = 0)
     public Double getSumPay() {
         return sumPay;
     }
@@ -94,7 +94,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "unpaidAmount")
+    @Column(name = "unpaidAmount", nullable = true, precision = 0)
     public Double getUnpaidAmount() {
         return unpaidAmount;
     }
@@ -104,7 +104,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "invioiceId")
+    @Column(name = "invioiceId", nullable = true)
     public Integer getInvioiceId() {
         return invioiceId;
     }
@@ -114,7 +114,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -124,7 +124,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

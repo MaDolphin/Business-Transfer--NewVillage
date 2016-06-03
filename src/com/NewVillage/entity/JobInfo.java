@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class JobInfo {
@@ -15,7 +15,7 @@ public class JobInfo {
     private Integer jobInfo;
 
     @Id
-    @Column(name = "empId")
+    @Column(name = "empId", nullable = false)
     public int getEmpId() {
         return empId;
     }
@@ -25,7 +25,7 @@ public class JobInfo {
     }
 
     @Basic
-    @Column(name = "jobNum")
+    @Column(name = "jobNum", nullable = true)
     public Integer getJobNum() {
         return jobNum;
     }
@@ -35,7 +35,7 @@ public class JobInfo {
     }
 
     @Basic
-    @Column(name = "jobInfo")
+    @Column(name = "jobInfo", nullable = true)
     public Integer getJobInfo() {
         return jobInfo;
     }

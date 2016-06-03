@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class BusinessCost {
@@ -20,7 +20,7 @@ public class BusinessCost {
     private String status;
 
     @Id
-    @Column(name = "costId")
+    @Column(name = "costId", nullable = false)
     public int getCostId() {
         return costId;
     }
@@ -30,7 +30,7 @@ public class BusinessCost {
     }
 
     @Basic
-    @Column(name = "costItem")
+    @Column(name = "costItem", nullable = true, length = 10)
     public String getCostItem() {
         return costItem;
     }
@@ -40,7 +40,7 @@ public class BusinessCost {
     }
 
     @Basic
-    @Column(name = "Charge")
+    @Column(name = "Charge", nullable = true, precision = 0)
     public Double getCharge() {
         return charge;
     }
@@ -50,7 +50,7 @@ public class BusinessCost {
     }
 
     @Basic
-    @Column(name = "Refund")
+    @Column(name = "Refund", nullable = true, precision = 0)
     public Double getRefund() {
         return refund;
     }
@@ -60,7 +60,7 @@ public class BusinessCost {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -70,7 +70,7 @@ public class BusinessCost {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -80,7 +80,7 @@ public class BusinessCost {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

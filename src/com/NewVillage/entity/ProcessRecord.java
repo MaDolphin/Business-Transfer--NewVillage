@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by xfcq on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class ProcessRecord {

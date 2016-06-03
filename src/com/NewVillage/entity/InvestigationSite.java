@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class InvestigationSite {
@@ -25,7 +25,7 @@ public class InvestigationSite {
     private String status;
 
     @Id
-    @Column(name = "invesSiteId")
+    @Column(name = "invesSiteId", nullable = false)
     public int getInvesSiteId() {
         return invesSiteId;
     }
@@ -35,7 +35,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "appCapacity")
+    @Column(name = "appCapacity", nullable = true)
     public Integer getAppCapacity() {
         return appCapacity;
     }
@@ -45,7 +45,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "supplyMode")
+    @Column(name = "supplyMode", nullable = true, length = 10)
     public String getSupplyMode() {
         return supplyMode;
     }
@@ -55,7 +55,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "voltageLevel")
+    @Column(name = "voltageLevel", nullable = true, length = 10)
     public String getVoltageLevel() {
         return voltageLevel;
     }
@@ -65,7 +65,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "powerComp")
+    @Column(name = "powerComp", nullable = true, length = 50)
     public String getPowerComp() {
         return powerComp;
     }
@@ -75,7 +75,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "invesSituation")
+    @Column(name = "invesSituation", nullable = true, length = 50)
     public String getInvesSituation() {
         return invesSituation;
     }
@@ -85,7 +85,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "powerId")
+    @Column(name = "powerId", nullable = true)
     public Integer getPowerId() {
         return powerId;
     }
@@ -95,7 +95,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "invesPerId")
+    @Column(name = "invesPerId", nullable = true)
     public Integer getInvesPerId() {
         return invesPerId;
     }
@@ -105,7 +105,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "RunTime")
+    @Column(name = "RunTime", nullable = false)
     public Timestamp getRunTime() {
         return runTime;
     }
@@ -115,7 +115,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -125,7 +125,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -135,7 +135,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }

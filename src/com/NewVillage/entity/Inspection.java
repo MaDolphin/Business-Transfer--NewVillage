@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by Dream on 2016/6/3.
  */
 @Entity
 public class Inspection {
@@ -24,7 +24,7 @@ public class Inspection {
     private String status;
 
     @Id
-    @Column(name = "insId")
+    @Column(name = "insId", nullable = false)
     public int getInsId() {
         return insId;
     }
@@ -34,7 +34,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "insUnit")
+    @Column(name = "insUnit", nullable = true, length = 1)
     public String getInsUnit() {
         return insUnit;
     }
@@ -44,7 +44,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "insPerId")
+    @Column(name = "insPerId", nullable = true)
     public Integer getInsPerId() {
         return insPerId;
     }
@@ -54,7 +54,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "accPerId")
+    @Column(name = "accPerId", nullable = true)
     public Integer getAccPerId() {
         return accPerId;
     }
@@ -64,7 +64,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "accTime")
+    @Column(name = "accTime", nullable = false)
     public Timestamp getAccTime() {
         return accTime;
     }
@@ -74,7 +74,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "insRequire")
+    @Column(name = "insRequire", nullable = true, length = -1)
     public String getInsRequire() {
         return insRequire;
     }
@@ -84,7 +84,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "insTime")
+    @Column(name = "insTime", nullable = false)
     public Timestamp getInsTime() {
         return insTime;
     }
@@ -94,7 +94,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "insNum")
+    @Column(name = "insNum", nullable = true)
     public Integer getInsNum() {
         return insNum;
     }
@@ -104,7 +104,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "createTime")
+    @Column(name = "createTime", nullable = false)
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -114,7 +114,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -124,7 +124,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }
