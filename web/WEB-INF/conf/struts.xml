@@ -91,21 +91,43 @@
     <!-- 7.检查员 1.13中间检查 -->
     <package name="Checker" extends="struts-default">
         <!--action method-->
+        <action name="check">
+            <result >WEB-INF/pages/CheckAdd.jsp</result>
+        </action>
 
+
+        <action name="Check_*" class="com.NewVillage.action.CheckAction" method="{1}">
+            <result name="success">WEB-INF/pages/CheckAdd.jsp</result>
+            <result name="input">WEB-INF/pages/CheckAdd.jsp</result>
+        </action>
         <!--JSP directing-->
     </package>
 
     <!-- 8.报验员 1.14竣工报验 -->
     <package name="Inspectioner" extends="struts-default">
         <!--action method-->
+        <action name="Inspect">
+            <result >WEB-INF/pages/InspectAdd.jsp</result>
+        </action>
 
+        <action name="Inspection_*" class="com.NewVillage.action.InspectionAction" method="{1}">
+            <result name="success">WEB-INF/pages/InspectAdd.jsp</result>
+            <result name="input">WEB-INF/pages/InspectAdd.jsp</result>
+        </action>
         <!--JSP directing-->
     </package>
 
     <!-- 9.验收小组 1.15竣工验收 -->
     <package name="AcceptGroup" extends="struts-default">
         <!--action method-->
+        <action name="CheckInfo">
+            <result >WEB-INF/pages/CheckInfoAdd.jsp</result>
+        </action>
 
+        <action name="CheckInfo_*" class="com.NewVillage.action.CheckInfoAction" method="{1}">
+            <result name="success">WEB-INF/pages/CheckInfoAdd.jsp</result>
+            <result name="input">WEB-INF/pages/CheckInfoAdd.jsp</result>
+        </action>
         <!--JSP directing-->
     </package>
 

@@ -4,6 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
@@ -13,7 +14,7 @@ import java.sql.Timestamp;
 public class Inspect {
     private int checkId;
     private String checkPerId;
-    private Timestamp checkTime;
+    private Date checkTime;
     private String checkContent;
     private Integer checkNum;
     private String chenckResult;
@@ -43,11 +44,11 @@ public class Inspect {
 
     @Basic
     @Column(name = "checkTime", nullable = false)
-    public Timestamp getCheckTime() {
+    public Date getCheckTime() {
         return checkTime;
     }
 
-    public void setCheckTime(Timestamp checkTime) {
+    public void setCheckTime(Date checkTime) {
         this.checkTime = checkTime;
     }
 

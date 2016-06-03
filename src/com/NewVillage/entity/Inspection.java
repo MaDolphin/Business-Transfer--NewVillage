@@ -4,6 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
@@ -15,9 +16,9 @@ public class Inspection {
     private String insUnit;
     private Integer insPerId;
     private Integer accPerId;
-    private Timestamp accTime;
+    private Date accTime;
     private String insRequire;
-    private Timestamp insTime;
+    private Date insTime;
     private Integer insNum;
     private Timestamp createTime;
     private Integer newId;
@@ -65,11 +66,11 @@ public class Inspection {
 
     @Basic
     @Column(name = "accTime", nullable = false)
-    public Timestamp getAccTime() {
+    public Date getAccTime() {
         return accTime;
     }
 
-    public void setAccTime(Timestamp accTime) {
+    public void setAccTime(Date accTime) {
         this.accTime = accTime;
     }
 
@@ -85,11 +86,11 @@ public class Inspection {
 
     @Basic
     @Column(name = "insTime", nullable = false)
-    public Timestamp getInsTime() {
+    public Date getInsTime() {
         return insTime;
     }
 
-    public void setInsTime(Timestamp insTime) {
+    public void setInsTime(Date insTime) {
         this.insTime = insTime;
     }
 

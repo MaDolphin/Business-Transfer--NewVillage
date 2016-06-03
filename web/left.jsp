@@ -114,6 +114,51 @@
                     </li>
                 </ul>
             </li>
+            <li class="">
+                <a href="javascript:;">
+                    <i class="icon-user"></i>
+                    <span class="title">中间检查管理</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="AddCheck.action" target="rightFrame">信息管理</a>
+                    </li>
+                    <li>
+                        <a href="check.action" target="rightFrame">填写检查表</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="javascript:;">
+                    <i class="icon-user"></i>
+                    <span class="title">竣工报验管理</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="#" target="rightFrame">信息管理</a>
+                    </li>
+                    <li>
+                        <a href="Inspect.action" target="rightFrame">填写报验表</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="javascript:;">
+                    <i class="icon-user"></i>
+                    <span class="title">竣工验收管理</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="#" target="rightFrame">信息管理</a>
+                    </li>
+                    <li>
+                        <a href="CheckInfo.action" target="rightFrame">填写验收资料信息表</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
         <!-- END SIDEBAR MENU -->
     </div>

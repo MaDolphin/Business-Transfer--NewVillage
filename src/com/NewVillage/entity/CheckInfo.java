@@ -4,18 +4,21 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
- * Created by Dream on 2016/6/3.
+ * Created by Brown on 2016/6/4.
  */
 @Entity
 public class CheckInfo {
     private int checkInfoId;
-    private Timestamp checkInfoTime;
+    private Date checkInfoTime;
     private String qualified;
     private Integer checkNum;
     private Timestamp createTime;
+    private Integer newId;
+    private String status;
 
     @Id
     @Column(name = "checkInfoId", nullable = false)
@@ -28,12 +31,12 @@ public class CheckInfo {
     }
 
     @Basic
-    @Column(name = "checkInfoTime", nullable = false)
-    public Timestamp getCheckInfoTime() {
+    @Column(name = "checkInfoTime", nullable = true)
+    public Date getCheckInfoTime() {
         return checkInfoTime;
     }
 
-    public void setCheckInfoTime(Timestamp checkInfoTime) {
+    public void setCheckInfoTime(Date checkInfoTime) {
         this.checkInfoTime = checkInfoTime;
     }
 
@@ -67,6 +70,26 @@ public class CheckInfo {
         this.createTime = createTime;
     }
 
+    @Basic
+    @Column(name = "newId", nullable = true)
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status", nullable = true, length = 10)
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -80,6 +103,8 @@ public class CheckInfo {
         if (qualified != null ? !qualified.equals(checkInfo.qualified) : checkInfo.qualified != null) return false;
         if (checkNum != null ? !checkNum.equals(checkInfo.checkNum) : checkInfo.checkNum != null) return false;
         if (createTime != null ? !createTime.equals(checkInfo.createTime) : checkInfo.createTime != null) return false;
+        if (newId != null ? !newId.equals(checkInfo.newId) : checkInfo.newId != null) return false;
+        if (status != null ? !status.equals(checkInfo.status) : checkInfo.status != null) return false;
 
         return true;
     }
@@ -91,6 +116,8 @@ public class CheckInfo {
         result = 31 * result + (qualified != null ? qualified.hashCode() : 0);
         result = 31 * result + (checkNum != null ? checkNum.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }
