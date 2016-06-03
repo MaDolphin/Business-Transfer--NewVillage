@@ -8,7 +8,12 @@
     <!--login-->
     <package name="common" extends="struts-default">
         <!--action method-->
-
+        <action name="home">
+            <result >WEB-INF/pages/main.jsp</result>
+        </action>
+        <action name="test">
+            <result >WEB-INF/pages/mainTest.jsp</result>
+        </action>
         <!--JSP directing-->
 
     </package>

@@ -53,6 +53,8 @@
     <div class="form-actions">
       <label class="checkbox" style="font-family: 微软雅黑;margin-left: 20px">
         <input type="checkbox" name="remember" value="1"/> 记住我
+        <a href="home.action">GO!</a>
+        <a href="test.action">GO to test!</a>
       </label>
       <button type="submit" class="btn green pull-right" style="font-family: 微软雅黑">
         登录 <i class="m-icon-swapright m-icon-white"></i>
