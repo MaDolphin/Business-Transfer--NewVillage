@@ -19,7 +19,9 @@
 <!-- BEGIN BODY -->
 <body style="background-color: white">
 <h1>首页</h1>
-<a href="Overseer_queryTraceTableRecordByID.action?traceId=10001" target="rightFrame">输入跟踪信息</a>
+<h3><a href="Overseer_queryTraceTableRecordByID.action?traceId=10001" target="rightFrame">输入跟踪信息</a></h3>
+<h3><a href="Overseer_queryTraceTableRecordByID.action?traceId=10001" target="rightFrame">查看是否存在新的工程</a></h3>
+<h3><a href="Overseer_queryTraceTableRecordByID.action?traceId=10001" target="rightFrame">查看正在处理的跟踪表</a></h3>
 
 <!-- BEGIN CORE PLUGINS -->
 <script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>

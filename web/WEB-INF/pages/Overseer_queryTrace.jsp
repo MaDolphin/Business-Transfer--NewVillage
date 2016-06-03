@@ -28,7 +28,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        新建进程进度跟踪记录：
+                        查看进程进度跟踪记录：
                     </h3>
                     <ul class="breadcrumb">
                         <li>
@@ -40,7 +40,7 @@
                             <a href="#">进度跟踪</a>
                             <span class="icon-angle-right"></span>
                         </li>
-                        <li><a href="#">新建进程进度跟踪记录</a></li>
+                        <li><a href="#">查看进程进度跟踪记录</a></li>
                     </ul>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="portlet_tab1" style="margin-left: -50px">
                                     <!-- BEGIN FORM-->
-                                    <form action="Overseer_updateTraceTableRecord.action" class="form-horizontal" >
+                                    <form class="form-horizontal" >
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group " >
@@ -173,8 +173,7 @@
                                             </div>
                                         </div>
                                         <div class="form-actions">
-                                            <button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>
-                                            <button type="button" class="btn">Cancel</button>
+                                            <a href="Overseer_updateTraceTableRecord.action?traceId=${sessionScope.traceTable.traceId}">进入修改</a>
                                         </div>
                                     </form>
                                     <!-- END FORM-->
@@ -191,9 +190,6 @@
     <!-- END PAGE -->
 </div>
 <!-- END CONTAINER -->
-<!-- BEGIN FOOTER -->
-<!-- END FOOTER -->
-<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
 <script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
 <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>

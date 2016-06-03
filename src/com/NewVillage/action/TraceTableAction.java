@@ -196,18 +196,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
             Timestamp date=new Timestamp(System.currentTimeMillis());
             if (traceTableDao.queryTraceTableRecordByID(traceId) == null) {
                 traceTable.setTraceId(traceId);
-                traceTable.setResponsiblePerId(responsiblePerId);
-                traceTable.setResponsibleUnit(responsibleUnit);
-                traceTable.setSupervisorUnit(supervisorUnit);
-                traceTable.setProDesignResult(proDesignResult);
-                traceTable.setProFileResult(proFileResult);
-                traceTable.setBudgetResult(budgetResult);
-                traceTable.setChargeResult(chargeResult);
-                traceTable.setEquipmentSupResult(equipmentSupResult);
-                traceTable.setConstructionResult(constructionResult);
-                traceTable.setMidCheckResult(midCheckResult);
-                traceTable.setFinalInsResult(finalInsResult);
-                traceTable.setProAccountsResult(proAccountsResult);
+                traceTable.setStatus("0");
                 traceTable.setCreateTime(date);
                 traceTableDao.addTraceTableRecord(traceTable);
             }
@@ -215,7 +204,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
             ex.printStackTrace();
             return INPUT;
         }
-        return SUCCESS;
+        return result="addSuccess";
     }
 
     public String deleteTraceTableRecord(){
@@ -242,7 +231,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
         traceTable.setFinalInsResult(finalInsResult);
         traceTable.setProAccountsResult(proAccountsResult);
         if (traceTableDao.updateTraceTableRecord(traceTable)){
-            return SUCCESS;
+            return result="updateSuccess";
         }else {
             return INPUT;
         }
@@ -251,6 +240,18 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
     public String queryTraceTableRecordByID(){
         try{
             TraceTable traceTable=traceTableDao.queryTraceTableRecordByID(traceId);
+            session.put("traceTable",traceTable);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return INPUT;
+        }
+        return result="querySuccess";
+    }
+
+    public String queryTraceTableRecordByIDAfterUpdate(){
+        try{
+            TraceTable tTable= (TraceTable)session.get("traceTable");
+            TraceTable traceTable=traceTableDao.queryTraceTableRecordByID(tTable.getTraceId());
             session.put("traceTable",traceTable);
         }catch (Exception ex){
             ex.printStackTrace();

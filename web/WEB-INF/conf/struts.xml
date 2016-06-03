@@ -79,9 +79,10 @@
             <result>WEB-INF/pages/Overseer_Home.jsp</result>
         </action>
         <action name="Overseer_*" class="TraceTableAction" method="{1}">
-            <result name="success">WEB-INF/pages/Overseer_addTrace.jsp</result>
-            <result name="input">WEB-INF/pages/Overseer_Home.jsp</result>
+            <result name="addSuccess">WEB-INF/pages/Overseer_addTrace.jsp</result>
             <result name="querySuccess">WEB-INF/pages/Overseer_updateTrace.jsp</result>
+            <result name="updateSuccess" type="chain">Overseer_queryTraceTableRecordByIDAfterUpdate</result>
+            <result name="input">WEB-INF/pages/Overseer_Home.jsp</result>
         </action>
 
         <!--JSP directing-->
