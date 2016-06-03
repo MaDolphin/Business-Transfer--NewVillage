@@ -52,8 +52,16 @@ public class CounterAction extends ActionSupport implements SessionAware {
     }
 
     public String AddUser(){
+        User userup = this.user;
+        userup.setUserTicket(Double.valueOf(0));
+        userup.setUserType(0);
+        userup.setUserLevel(0);
+        if(userDao.addUser(userup)){
+            return "addUserSuccess";
+        }else{
+            return "1";
+        }
 
-        return "addUserSuccess";
     }
 
 }

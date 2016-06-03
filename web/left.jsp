@@ -49,7 +49,7 @@
                 <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
             </li>
             <li class="start active ">
-                <a href="adminMain.action">
+                <a href="main.action" target="rightFrame">
                     <i class="icon-home"></i>
                     <span class="title">主页</span>
                     <span class="selected"></span>
