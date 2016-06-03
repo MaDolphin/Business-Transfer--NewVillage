@@ -14,7 +14,7 @@ public class CostDaoImpl extends HibernateDaoSupport implements CostDao {
     public List<BusinessCost> QueryAllCost() {
         List<BusinessCost> list=null;
         try{
-            list=(List<BusinessCost>)this.getHibernateTemplate().find("from BusinessCost");
+            list=(List<BusinessCost>)this.getHibernateTemplate().find("from BusinessCost u where u.status!='-1'");
         }catch (Exception ex){
             ex.printStackTrace();
         }
@@ -30,6 +30,15 @@ public class CostDaoImpl extends HibernateDaoSupport implements CostDao {
             ex.printStackTrace();
         }
         return cost;
+    }
+
+    @Override
+    public void addBusinessCost(BusinessCost businessCost) {
+        try{
+            this.getHibernateTemplate().save(businessCost);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     @Override

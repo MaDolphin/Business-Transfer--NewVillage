@@ -86,7 +86,7 @@
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <bean id="PowerDesignReplyDao" class="com.NewVillage.daoimpl.PowerDesignDaoImpl">
+    <bean id="PowerDesignReplyDao" class="com.NewVillage.daoimpl.PowerDesignReplyDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
@@ -120,6 +120,11 @@
         <property name="userDao" ref="userDao"></property>
         <property name="newVillageDao" ref="newVillageDao"></property>
         <property name="jobInfoDao" ref="jobInfoDao"></property>
+        <property name="investigationWorkDao" ref="investigationWorkDao"></property>
+        <property name="processRecordDao" ref="ProcessRecordDao"></property>
+        <property name="costDao" ref="costDao"></property>
+        <property name="powerDesignDao" ref="powerDesignDao"></property>
+        <property name="powerDesignReplyDao" ref="PowerDesignReplyDao"></property>
     </bean>
 
     <bean id="InvestigatorAction" class="com.NewVillage.action.InvestigatorAction">

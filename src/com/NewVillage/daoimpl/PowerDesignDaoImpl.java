@@ -60,4 +60,5 @@ public class PowerDesignDaoImpl extends HibernateDaoSupport implements PowerDesi
         List list = (List<PowerDesign>) this.getHibernateTemplate().find("from PowerDesign e where e.newId=? order by e.status desc ",new Object[]{newid});
         return list;
     }
+
 }

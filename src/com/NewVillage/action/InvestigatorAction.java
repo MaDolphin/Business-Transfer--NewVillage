@@ -50,4 +50,6 @@ public class InvestigatorAction extends ActionSupport implements SessionAware {
     public void setInvestigationWorkDao(InvestigationWorkDao investigationWorkDao) {
         this.investigationWorkDao = investigationWorkDao;
     }
+
+//    public String
 }

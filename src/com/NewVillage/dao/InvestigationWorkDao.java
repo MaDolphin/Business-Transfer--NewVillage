@@ -10,6 +10,7 @@ import java.util.List;
 public interface InvestigationWorkDao {
     public boolean addInvestigationWork(InvestigationWork investigationWork);
     public InvestigationWork queryInvestigationWorkByID(int investid);
+    public InvestigationWork queryInvestigationWorkByNewID(int newid);
     public boolean deleteInvestigationWork(InvestigationWork investigationWork);
     public boolean updateInvestigationWork(InvestigationWork investigationWork);
     public List<InvestigationWork> allInvestigationWorksByEmpID(int empid);

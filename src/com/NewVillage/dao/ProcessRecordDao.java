@@ -12,4 +12,5 @@ public interface ProcessRecordDao {
     public List<ProcessRecord> QueryProcess(String hql);
     public void addProcess(ProcessRecord processRecord);
     public void editProcess(ProcessRecord processRecord);
+    public ProcessRecord queryProcessRecordByNewVillage(int newid);
 }

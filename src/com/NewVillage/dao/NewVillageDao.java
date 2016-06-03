@@ -15,4 +15,5 @@ public interface NewVillageDao {
     public boolean deleteNewVillage(NewVillage newVillage);
     public boolean updateNewVillage(NewVillage newVillage);
     public List<NewVillage> allNewVillagesByEmpID(int empid);
+    List<NewVillage> queryAllNewVillage();
 }

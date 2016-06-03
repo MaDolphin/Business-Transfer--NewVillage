@@ -65,4 +65,9 @@ public class NewVillageDaoImpl extends HibernateDaoSupport implements NewVillage
         List a=(List<NewVillage>)this.getHibernateTemplate().find("from NewVillage n where n.newVilPerId=? order by n.status desc ",new Object[]{empid});
         return a;
     }
+
+    @Override
+    public List<NewVillage> queryAllNewVillage() {
+        return (List<NewVillage>)this.getHibernateTemplate().find("from NewVillage");
+    }
 }

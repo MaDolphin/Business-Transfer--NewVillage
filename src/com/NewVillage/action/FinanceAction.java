@@ -94,29 +94,11 @@ public class FinanceAction extends ActionSupport implements SessionAware{
         return SUCCESS;
     }
 
-    public String PayRecord(){
-        String flag=INPUT;
-        try{
-            session.put("businessCostInfo",businessCost);
-            String hql="from PayRecord u where u.newId='"+businessCost.getNewId()+"' and u.status='有效收款'";
-            List<PayRecord> pay=receiptdao.QueryRecord(hql);
-            if(pay.size()>=0&&pay.size()<3)
-                flag=SUCCESS;
-            switch (pay.size()){
-                case 0:session.put("perenct",20);break;
-                case 1:session.put("perenct",40);break;
-                case 2:session.put("perenct",40);break;
-            }
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-        return flag;
-    }
-
     public String ExaminCost(){
         Timestamp time=new Timestamp(System.currentTimeMillis());
         try{
             businessCost.setCreateTime(time);
+            businessCost.setStatus("1");
             costdao.ExaminCost(businessCost);
 
             //更改流程记录单中应收业务费单号
@@ -131,6 +113,25 @@ public class FinanceAction extends ActionSupport implements SessionAware{
         return SUCCESS;
     }
 
+    public String PayRecord(){
+        String flag=INPUT;
+        try{
+            session.put("businessCostInfo",businessCost);
+            String hql="from PayRecord u where u.newId='"+businessCost.getNewId()+"' and u.status='1'";
+            List<PayRecord> pay=receiptdao.QueryRecord(hql);
+            if(pay.size()>=0&&pay.size()<3)
+                flag=SUCCESS;
+            switch (pay.size()){
+                case 0:session.put("perenct",20);break;
+                case 1:session.put("perenct",40);break;
+                case 2:session.put("perenct",40);break;
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return flag;
+    }
+
     @Override
     public String execute() {
         String flag=INPUT;
@@ -140,7 +141,7 @@ public class FinanceAction extends ActionSupport implements SessionAware{
                 payRecord.setCreateTime(time);
                 Employee emp=(Employee) session.get("employee");
                 payRecord.setPayPerId(emp.getEmpId());
-                payRecord.setStatus("有效收款");
+                payRecord.setStatus("1");
                 receiptdao.addPayRecord(payRecord);
 
                 //更改流程记录单中实收业务费单号
@@ -153,14 +154,14 @@ public class FinanceAction extends ActionSupport implements SessionAware{
                 processRecord.setPayId(payRecord.getPayId());
                 processRecordDao.editProcess(processRecord);
 
-                //通知记录员进行消息记录
+                /*//通知记录员进行消息记录
                 Message message=new Message();
                 message.setStatus("0");
                 message.setNewId(payRecord.getNewId());
                 message.setRefund(payRecord.getPayId());
                 List<Employee> employees=employeeDao.QueryEmployeeByDep("记录员");
                 message.setEmpId(employees.get(0).getEmpId());
-                messageDao.addMessage(message);
+                messageDao.addMessage(message);*/
 
                 //改写用户的账户状态
                 NewVillage newVillage=newVillageDao.queryNewVillageByID(payRecord.getNewId());
