@@ -14,4 +14,5 @@ public interface EmployeeDao {
     public boolean updateEmployee(Employee employee);
     public boolean existEmployee(int empid,String password);
     public List<Employee> allEmployees();
+    public List<Employee> QueryEmployeeByDep(String dep);
 }

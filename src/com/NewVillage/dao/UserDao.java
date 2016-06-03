@@ -13,4 +13,5 @@ public interface UserDao {
     public boolean deleteUser(User user);
     public boolean updateUser(User user);
     public List<User> allUsers();
+    public List<User> queryUserByPid(String pid);
 }

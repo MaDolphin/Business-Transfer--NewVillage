@@ -63,4 +63,9 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
         List a=(List<Employee>)this.getHibernateTemplate().find("from Employee");
         return a;
     }
+
+    @Override
+    public List<Employee> QueryEmployeeByDep(String dep) {
+        return (List<Employee>)this.getHibernateTemplate().find("from Employee u where u.empDep=?");
+    }
 }

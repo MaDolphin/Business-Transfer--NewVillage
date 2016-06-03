@@ -54,4 +54,9 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         List a=(List<User>)this.getHibernateTemplate().find("from User");
         return a;
     }
+
+    @Override
+    public List<User> queryUserByPid(String pid) {
+        return (List<User>)this.getHibernateTemplate().find("from User u where u.userPid=?");
+    }
 }

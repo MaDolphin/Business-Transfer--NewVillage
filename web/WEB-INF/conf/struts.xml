@@ -72,7 +72,7 @@
         <!--JSP directing-->
     </package>
 
-    <!-- 6.监工 1.11供电工程进度跟踪 -->
+    <!-- 6.记录员 1.11供电工程进度跟踪 -->
     <package name="Overseer" extends="struts-default">
         <!--action method-->
         <action name="Overseer_*" class="TraceTableAction" method="{1}">

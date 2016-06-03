@@ -82,10 +82,27 @@
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
+    <bean id="ExaminAtionDao" class="com.NewVillage.daoimpl.ExaminationDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="PowerDesignReplyDao" class="com.NewVillage.daoimpl.PowerDesignDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="ProcessRecordDao" class="com.NewVillage.daoimpl.ProcessRecordDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
     <!--顾珏-->
     <bean id="FinanceAction" class="com.NewVillage.action.FinanceAction">
+        <property name="newVillageDao" ref="newVillageDao"></property>
+        <property name="employeeDao" ref="employeeDao"></property>
         <property name="costdao" ref="costDao"></property>
         <property name="receiptdao" ref="receiptDao"></property>
+        <property name="processRecordDao" ref="ProcessRecordDao"></property>
+        <property name="userDao" ref="userDao"></property>
+        <property name="messageDao" ref="messageDao"></property>
     </bean>
 
     <!--张松顺-->
@@ -118,17 +135,6 @@
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="configLocation" value="/WEB-INF/conf/hibernate.cfg.xml"></property>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.connection.url">jdbc:mysql://121.42.197.31:3306/newvil</prop>
-                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
-            </props>
-        </property>
-        <property name="annotatedClasses">
-            <list>
-                <value>com.NewVillage.entity.Inspect</value>
-            </list>
-        </property>
     </bean>
 
     <!-- 配置声明式事务管理（采用注解的方式） -->
