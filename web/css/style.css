@@ -367,7 +367,7 @@ Header and header elements.
 
 .header .navbar-inner {
   width: 100%;
-  margin-left: 0 0 0 110px;
+  /*margin-left: 0 0 0 110px;*/
   border: 0px;
   padding: 0px; 
   box-shadow: none;
@@ -463,10 +463,11 @@ Page container
 .page-container {
   margin: 0px;
   padding: 0px;
+  background-color: #fff;
 }
 
 .page-header-fixed .page-container {
-  margin-top: 42px;  
+  margin-top: 42px;
 }
 
 /***
@@ -882,7 +883,7 @@ Page content
 .page-content {  
   margin-top: 0px;   
   padding: 0px;
-  background-color: #fff; 
+  background-color: #fff;
 }
 
 .ie8 .page-content { 
@@ -896,7 +897,7 @@ Page content
 }
 
 .ie8 .page-content.no-min-height {
-    min-height: auto;
+    /*min-height: auto;*/
   }
 
 .page-full-width .page-content {
@@ -975,7 +976,7 @@ Dashboard date range panel
 } 
 
 .page-content .breadcrumb .dashboard-date-range .icon-calendar {
-  text-transform: normal;
+  /*text-transform: normal;*/
   color: #fff;
   margin-top: 0px;
   font-size: 14px;
@@ -1253,7 +1254,7 @@ Portlets
 .portlet.yellow > .portlet-title .caption, .portlet-title.yellow .caption,
 .portlet.red > .portlet-title .caption, .portlet-title.red .caption,
 .portlet.purple > .portlet-title .caption, .portlet-title.purple .caption,
-.portlet.grey > .portlet-title .caption, .portlet-title.dark-grey .caption, {
+.portlet.grey > .portlet-title .caption, .portlet-title.dark-grey .caption {
   color: #fff;
 }
 
@@ -2806,7 +2807,8 @@ Custom tabs
 }
     
 .tabs-left.tabbable-custom .nav-tabs > li { 
-  margin-right: 0; border-left: 2px solid transparent; margin-top: none; 
+  margin-right: 0; border-left: 2px solid transparent;
+  /*margin-top: none; */
 }
 
 .tabs-left.tabbable-custom .nav-tabs > li.active { 
@@ -2919,7 +2921,7 @@ Custom portlet tabs
   margin-right: 0px;
   border-left: 0;    
   border-right: 0;
-  background-color: none !important;
+  /*background-color: none !important;*/
   border-top-color:transparent !important;
 }
 
@@ -2930,7 +2932,7 @@ Custom portlet tabs
   margin-right: 0;
   border-left: 0;    
   border-right: 0;
-  background-color: none !important;
+  /*background-color: none !important;*/
   border-top-color:transparent;
   background-color: #fff;
 }  
@@ -4020,9 +4022,9 @@ Choosen plugin css changes
    margin-top: 1px;
 }
 
-.chzn-container-single .chzn-single > abr {
-   margin-top: 3px;
-}
+/*.chzn-container-single .chzn-single > abr {*/
+   /*margin-top: 3px;*/
+/*}*/
 
 .chzn-container-single .chzn-search input:focus,
 .chzn-container-single .chzn-search input:active {
@@ -5289,13 +5291,13 @@ Datatables Plugin(in v1.3)
 .dataTable .details td,
 .dataTable .details th {
   padding: 4px;
-  background-color: none !important;
+  /*background-color: none !important;*/
   border: 0;
 }
 
 .dataTable .details tr:hover td,
 .dataTable .details tr:hover th {
-  background-color: none !important;
+  /*background-color: none !important;*/
 }
 
 .dataTable .details tr:nth-child(odd) td,
