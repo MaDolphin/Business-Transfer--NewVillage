@@ -18,14 +18,14 @@
   <!-- BEGIN PAGE LEVEL STYLES -->
   <link href="css/login.css" rel="stylesheet" type="text/css"/>
   <!-- END PAGE LEVEL STYLES -->
-  <link rel="shortcut icon" href="images/backstage/favicon.ico" />
+  <link rel="shortcut icon" href="images/favicon.ico" />
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="login">
 <!-- BEGIN LOGO -->
 <div class="logo">
-  <img src="images/backstage/logo-big.png" alt="" />
+  <img src="images/logo-big.png" alt="" />
 </div>
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->
