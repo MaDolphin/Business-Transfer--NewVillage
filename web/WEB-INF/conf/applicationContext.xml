@@ -13,49 +13,94 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
-    <!--顾珏-->
-    <bean id="costdao" class="com.NewVillage.daoimpl.CostDaoImpl">
+    <!--Dao Mapping-->
+    <bean id="powerDesignDao" class="com.NewVillage.daoimpl.PowerDesignDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <bean id="receiptdao" class="com.NewVillage.daoimpl.ReceiptDaoImpl">
+    <bean id="investigationSiteDao" class="com.NewVillage.daoimpl.InvestigationSiteDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <bean id="FinanceAction" class="com.NewVillage.action.FinanceAction">
-        <property name="costdao" ref="costdao"></property>
-        <property name="receiptdao" ref="receiptdao"></property>
+    <bean id="investigationWorkDao" class="com.NewVillage.daoimpl.InvestigationWorkDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <!--张松顺-->
-    <bean id="traceTableAction" class="com.NewVillage.action.TraceTableAction">
-        <property name="traceTableDao" ref="traceTableDao"></property>
+    <bean id="newVillageDao" class="com.NewVillage.daoimpl.NewVillageDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
+
+    <bean id="jobInfoDao" class="com.NewVillage.daoimpl.JobInfoDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="employeeDao" class="com.NewVillage.daoimpl.EmployeeDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="userDao" class="com.NewVillage.daoimpl.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="costDao" class="com.NewVillage.daoimpl.CostDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="receiptDao" class="com.NewVillage.daoimpl.ReceiptDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
     <bean id="traceTableDao" class="com.NewVillage.daoimpl.TraceTableDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
-    </bean>
-
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="configLocation" value="/WEB-INF/conf/hibernate.cfg.xml"></property>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.connection.url">jdbc:mysql://121.42.197.31:3306/newvil</prop>
-                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
-            </props>
-        </property>
-    <bean id="designFileCheckAction" class="com.NewVillage.action.DesignFileCheckAction">
-        <property name="designFileCheckDao" ref="designFileCheckDao"></property>
     </bean>
 
     <bean id="designFileCheckDao" class="com.NewVillage.daoimpl.DesignFileCheckDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
+    <bean id="checkDao" class="com.NewVillage.daoimpl.CheckDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="inspectionDao" class="com.NewVillage.daoimpl.InspectionDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="lotDao" class="com.NewVillage.daoimpl.LotDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="checkInfoDao" class="com.NewVillage.daoimpl.CheckInfoDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="refileDao" class="com.NewVillage.daoimpl.RefileDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="messageDao" class="com.NewVillage.daoimpl.MessageDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <!--顾珏-->
+    <bean id="FinanceAction" class="com.NewVillage.action.FinanceAction">
+        <property name="costdao" ref="costDao"></property>
+        <property name="receiptdao" ref="receiptDao"></property>
+    </bean>
+
+    <!--张松顺-->
+    <bean id="TraceTableAction" class="com.NewVillage.action.TraceTableAction">
+        <property name="traceTableDao" ref="traceTableDao"></property>
+    </bean>
+
+    <bean id="DesignFileCheckAction" class="com.NewVillage.action.DesignFileCheckAction">
+        <property name="designFileCheckDao" ref="designFileCheckDao"></property>
+    </bean>
+
     <!--黄海琨-->
 
 
     <!--黄晓辉-->
-
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="configLocation" value="/WEB-INF/conf/hibernate.cfg.xml"></property>
@@ -69,6 +114,11 @@
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="save*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="delete*" propagation="REQUIRED" />
+            <tx:method name="find*" propagation="NOT_SUPPORTED"/>
+            <tx:method name="get*" propagation="NOT_SUPPORTED"/>
             <tx:method name="*" read-only="true"/>
         </tx:attributes>
     </tx:advice>

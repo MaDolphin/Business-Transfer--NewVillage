@@ -13,7 +13,7 @@ public class InvestigationWorkDaoImpl extends HibernateDaoSupport implements Inv
     @Override
     public boolean addInvestigationWork(InvestigationWork investigationWork) {
         try{
-            getHibernateTemplate().save(investigationWork);
+            this.getHibernateTemplate().save(investigationWork);
             return true;
         }catch (Exception ex){
             ex.printStackTrace();
@@ -30,7 +30,7 @@ public class InvestigationWorkDaoImpl extends HibernateDaoSupport implements Inv
     @Override
     public boolean deleteInvestigationWork(InvestigationWork investigationWork) {
         try{
-            getHibernateTemplate().delete(investigationWork);
+            this.getHibernateTemplate().delete(investigationWork);
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -41,7 +41,7 @@ public class InvestigationWorkDaoImpl extends HibernateDaoSupport implements Inv
     @Override
     public boolean updateInvestigationWork(InvestigationWork investigationWork) {
         try{
-            getHibernateTemplate().saveOrUpdate(investigationWork);
+            this.getHibernateTemplate().saveOrUpdate(investigationWork);
             return true;
         }catch (Exception e){
             e.printStackTrace();
