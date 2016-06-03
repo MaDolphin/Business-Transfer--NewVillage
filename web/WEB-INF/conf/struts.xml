@@ -13,13 +13,13 @@
 
     </package>
 
-    <!-- 1.业务员 1.3业务受理 1.8答复供电方案 -->
+ <!--   &lt;!&ndash; 1.业务员 1.3业务受理 1.8答复供电方案 &ndash;&gt;
     <package name="" extends="struts-default">
-        <!--action method-->
+        &lt;!&ndash;action method&ndash;&gt;
 
-        <!--JSP directing-->
+        &lt;!&ndash;JSP directing&ndash;&gt;
 
-    </package>
+    </package>-->
 
     <!-- 2.勘查员 1.4现场勘查  -->
     <package name="" extends="struts-default">
