@@ -1,8 +1,10 @@
 package com.NewVillage.action;
 
 import com.NewVillage.dao.TraceTableDao;
+import com.NewVillage.entity.TraceTable;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,7 +30,16 @@ public class TraceTableAction extends ActionSupport {
     public void setTraceDao(TraceTableDao traceDao) {
         this.traceDao = traceDao;
     }
-
+    public String QueryAllScheduleCondition(){
+        try{
+            List<TraceTable> traceTables=traceDao.QueryAllScheduleCondition();
+            session.put("traceTables",traceTables);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return INPUT;
+        }
+        return SUCCESS;
+    }
 
 
 }
