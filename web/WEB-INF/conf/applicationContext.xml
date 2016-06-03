@@ -29,14 +29,18 @@
 
     <!--张松顺-->
     <bean id="traceTableAction" class="com.NewVillage.action.TraceTableAction">
-        <property name="traceDao" ref="traceDao"></property>
+        <property name="traceTableDao" ref="traceTableDao"></property>
     </bean>
-    <bean id="traceDao" class="com.NewVillage.daoimpl.TraceTableDaoImpl">
+    <bean id="traceTableDao" class="com.NewVillage.daoimpl.TraceTableDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="configLocation" value="/WEB-INF/conf/hibernate.cfg.xml"></property>
+    <bean id="designFileCheckAction" class="com.NewVillage.action.DesignFileCheckAction">
+        <property name="designFileCheckDao" ref="designFileCheckDao"></property>
+    </bean>
+
+    <bean id="designFileCheckDao" class="com.NewVillage.daoimpl.DesignFileCheckDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
     <!--黄海琨-->
@@ -44,6 +48,10 @@
 
     <!--黄晓辉-->
 
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="configLocation" value="/WEB-INF/conf/hibernate.cfg.xml"></property>
+    </bean>
 
     <!-- 配置声明式事务管理（采用注解的方式） -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
