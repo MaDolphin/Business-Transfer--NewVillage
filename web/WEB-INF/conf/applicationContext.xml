@@ -120,6 +120,8 @@
         <property name="userDao" ref="userDao"></property>
         <property name="newVillageDao" ref="newVillageDao"></property>
         <property name="jobInfoDao" ref="jobInfoDao"></property>
+        <property name="investigationWorkDao" ref="investigationWorkDao"></property>
+        <property name="processRecordDao" ref="ProcessRecordDao"></property>
     </bean>
 
     <bean id="InvestigatorAction" class="com.NewVillage.action.InvestigatorAction">

@@ -49,4 +49,14 @@ public class ProcessRecordDaoImpl extends HibernateDaoSupport implements Process
             ex.printStackTrace();
         }
     }
+
+    @Override
+    public ProcessRecord queryProcessRecordByNewVillage(int newid) {
+        List a=(List<ProcessRecord>)this.getHibernateTemplate().find("from ProcessRecord n where n.newId=?",new Object[]{newid});
+        if(a.size()>0){
+            return (ProcessRecord) a.get(0);
+        }else {
+            return null;
+        }
+    }
 }

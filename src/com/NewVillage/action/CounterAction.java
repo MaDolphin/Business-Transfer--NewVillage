@@ -1,8 +1,6 @@
 package com.NewVillage.action;
 
-import com.NewVillage.dao.JobInfoDao;
-import com.NewVillage.dao.NewVillageDao;
-import com.NewVillage.dao.UserDao;
+import com.NewVillage.dao.*;
 import com.NewVillage.entity.*;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
@@ -17,9 +15,15 @@ public class CounterAction extends ActionSupport implements SessionAware {
     UserDao userDao;
     NewVillageDao newVillageDao;
     JobInfoDao jobInfoDao;
+    InvestigationWorkDao investigationWorkDao;
+    ProcessRecordDao processRecordDao;
     User user;
     NewVillage newVillage;
     private Map session;
+
+    public void setProcessRecordDao(ProcessRecordDao processRecordDao) {
+        this.processRecordDao = processRecordDao;
+    }
 
     public void setJobInfoDao(JobInfoDao jobInfoDao) {
         this.jobInfoDao = jobInfoDao;
@@ -31,6 +35,10 @@ public class CounterAction extends ActionSupport implements SessionAware {
 
     public void setNewVillageDao(NewVillageDao newVillageDao) {
         this.newVillageDao = newVillageDao;
+    }
+
+    public void setInvestigationWorkDao(InvestigationWorkDao investigationWorkDao) {
+        this.investigationWorkDao = investigationWorkDao;
     }
 
     public User getUser() {
@@ -77,6 +85,9 @@ public class CounterAction extends ActionSupport implements SessionAware {
         newVillageUp.setStatus("0");
         if(newVillageDao.addNewVillage(newVillageUp)){
             NewVillage newVillageGet = newVillageDao.queryNewVillageByUserTime(this.newVillage.getUserPid(),emp.getEmpId(),date);
+            ProcessRecord processRecord = new ProcessRecord();
+            processRecord.setNewId(newVillageGet.getNewId());
+            processRecordDao.addProcess(processRecord);
             JobInfo jobInfo = jobInfoDao.queryEmpByFreeDep("勘查员");
             InvestigationWork investigationWork = new InvestigationWork();
             investigationWork.setNewId(newVillageGet.getNewId());
@@ -86,12 +97,17 @@ public class CounterAction extends ActionSupport implements SessionAware {
             investigationWork.setInvesTime(date2);
             investigationWork.setCreateTime(date1);
             investigationWork.setStatus("0");
-            return "addNewVillageSuccess";
+            if(investigationWorkDao.addInvestigationWork(investigationWork)){
+                InvestigationWork investigationWork1 = investigationWorkDao.queryInvestigationWorkByNewID(newVillageGet.getNewId());
+                ProcessRecord processRecord1 = processRecordDao.queryProcessRecordByNewVillage(newVillageGet.getNewId());
+                processRecord1.setInvesId(investigationWork1.getInvesId());
+                processRecordDao.addProcess(processRecord1);
+                return "addNewVillageSuccess";
+            }else {
+                return "addNewVillageError";
+            }
         }else{
             return "addNewVillageError";
         }
     }
-
-
-
 }
