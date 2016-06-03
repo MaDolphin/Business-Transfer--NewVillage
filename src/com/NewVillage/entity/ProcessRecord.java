@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by 珏 on 2016/6/3.
+ * Created by xfcq on 2016/6/3.
  */
 @Entity
 public class ProcessRecord {
@@ -29,7 +29,7 @@ public class ProcessRecord {
     private String status;
 
     @Id
-    @Column(name = "processRecordId")
+    @Column(name = "processRecordId", nullable = false)
     public int getProcessRecordId() {
         return processRecordId;
     }
@@ -39,7 +39,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "newId")
+    @Column(name = "newId", nullable = true)
     public Integer getNewId() {
         return newId;
     }
@@ -49,7 +49,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "invesId")
+    @Column(name = "invesId", nullable = true)
     public Integer getInvesId() {
         return invesId;
     }
@@ -59,7 +59,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "invesSiteId")
+    @Column(name = "invesSiteId", nullable = true)
     public Integer getInvesSiteId() {
         return invesSiteId;
     }
@@ -69,7 +69,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "powerId")
+    @Column(name = "powerId", nullable = true)
     public Integer getPowerId() {
         return powerId;
     }
@@ -79,7 +79,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "exId")
+    @Column(name = "exId", nullable = true)
     public Integer getExId() {
         return exId;
     }
@@ -89,7 +89,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "replyId")
+    @Column(name = "replyId", nullable = true)
     public Integer getReplyId() {
         return replyId;
     }
@@ -99,7 +99,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "costId")
+    @Column(name = "costId", nullable = true)
     public Integer getCostId() {
         return costId;
     }
@@ -109,7 +109,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "payId")
+    @Column(name = "payId", nullable = true)
     public Integer getPayId() {
         return payId;
     }
@@ -119,7 +119,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "traceId")
+    @Column(name = "traceId", nullable = true)
     public Integer getTraceId() {
         return traceId;
     }
@@ -129,7 +129,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "designFileId")
+    @Column(name = "designFileId", nullable = true)
     public Integer getDesignFileId() {
         return designFileId;
     }
@@ -139,7 +139,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "checkId")
+    @Column(name = "checkId", nullable = true)
     public Integer getCheckId() {
         return checkId;
     }
@@ -149,7 +149,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "insId")
+    @Column(name = "insId", nullable = true)
     public Integer getInsId() {
         return insId;
     }
@@ -159,7 +159,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "lotId")
+    @Column(name = "lotId", nullable = true)
     public Integer getLotId() {
         return lotId;
     }
@@ -169,7 +169,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "checkInfoId")
+    @Column(name = "checkInfoId", nullable = true)
     public Integer getCheckInfoId() {
         return checkInfoId;
     }
@@ -179,7 +179,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "refileId")
+    @Column(name = "refileId", nullable = true)
     public Integer getRefileId() {
         return refileId;
     }
@@ -189,7 +189,7 @@ public class ProcessRecord {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, length = 10)
     public String getStatus() {
         return status;
     }
