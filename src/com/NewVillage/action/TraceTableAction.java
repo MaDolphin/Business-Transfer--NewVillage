@@ -32,7 +32,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
     private Timestamp createTime;
     private int newId;
     private String status;
-
+    private String result;
     public TraceTableDao getTraceTableDao() {
         return traceTableDao;
     }
@@ -256,6 +256,6 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
             ex.printStackTrace();
             return INPUT;
         }
-        return SUCCESS;
+        return result="querySuccess";
     }
 }

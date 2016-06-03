@@ -53,13 +53,13 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="portlet_tab1" style="margin-left: -50px">
                                     <!-- BEGIN FORM-->
-                                    <form action="#" class="form-horizontal" >
+                                    <form action="Overseer_addTraceTableRecord.action" target="rightFrame" class="form-horizontal" >
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group " >
                                                     <label class="control-label">进度跟踪记录编号 </label>
                                                     <div class="controls">
-                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" name="traceId" placeholder="请注意格式..." class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,7 +67,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">供电工程的负责人</label>
                                                     <div class="controls">
-                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" name="responsiblePerId" placeholder="请输入负责人ID" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,7 +77,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">供电工程负责单位</label>
                                                     <div class="controls">
-                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" name="responsibleUnit" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,7 +85,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">供电工程监理单位</label>
                                                     <div class="controls">
-                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" name="supervisorUnit" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,7 +95,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">立项设计结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="proDesignResult" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,7 +103,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">设计文件审核信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="proFileResult" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,7 +113,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">工程预算结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="budgetResult" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,7 +121,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">工程费用收取信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="chargeResult" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -131,7 +131,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">设备供应单位信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="equipmentSupResult" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,7 +139,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">施工单位结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="constructionResult" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,7 +149,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">中间检查结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="midCheckResult" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -157,7 +157,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">竣工验收结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="finalInsResult" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,7 +167,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">工程决算结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="proAccountsResult" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
