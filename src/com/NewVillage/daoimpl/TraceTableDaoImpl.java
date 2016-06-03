@@ -9,7 +9,7 @@ import java.util.List;
  * Created by Dream on 2016/6/3.
  */
 //进度跟踪DaoImp
-public class TraceDaoImpl extends HibernateDaoSupport implements TraceTableDao {
+public class TraceTableDaoImpl extends HibernateDaoSupport implements TraceTableDao {
     @Override
     public List<TraceTable> QueryAllScheduleCondition() {
         List<TraceTable> list=null;

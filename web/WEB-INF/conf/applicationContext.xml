@@ -31,7 +31,7 @@
     <bean id="traceTableAction" class="com.NewVillage.action.TraceTableAction">
         <property name="traceDao" ref="traceDao"></property>
     </bean>
-    <bean id="traceDao" class="com.NewVillage.daoimpl.TraceDaoImpl">
+    <bean id="traceDao" class="com.NewVillage.daoimpl.TraceTableDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
