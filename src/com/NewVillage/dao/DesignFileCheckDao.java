@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Dream on 2016/6/3.
  */
 
-//设计文件审核
+//设计文件审核Dao
 public interface DesignFileCheckDao {
     public List<DesignFileCheck> QueryAllDesignFileCheckMessage();
     public void addDesignFileCheckRecord(DesignFileCheck designFileCheck);
