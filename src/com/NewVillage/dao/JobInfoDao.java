@@ -11,5 +11,6 @@ public interface JobInfoDao {
     public boolean addJobInfo(JobInfo jobInfo);
     public boolean deleteJobInfo(JobInfo jobInfo);
     public boolean updateJobInfo(JobInfo jobInfo);
-    public List<JobInfo> allJobInfosByEmpID(int empid);
+    public JobInfo queryJobInfosByEmpID(int empid);
+    public JobInfo queryEmpByFreeDep(String empDep);
 }

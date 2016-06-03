@@ -7,10 +7,10 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by Dream on 2016/6/3.
+ * Created by xfcq on 2016/6/3.
  */
 @Entity
-public class Check {
+public class Inspect {
     private int checkId;
     private String checkPerId;
     private Timestamp checkTime;
@@ -116,17 +116,19 @@ public class Check {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Check check = (Check) o;
+        Inspect inspect = (Inspect) o;
 
-        if (checkId != check.checkId) return false;
-        if (checkPerId != null ? !checkPerId.equals(check.checkPerId) : check.checkPerId != null) return false;
-        if (checkTime != null ? !checkTime.equals(check.checkTime) : check.checkTime != null) return false;
-        if (checkContent != null ? !checkContent.equals(check.checkContent) : check.checkContent != null) return false;
-        if (checkNum != null ? !checkNum.equals(check.checkNum) : check.checkNum != null) return false;
-        if (chenckResult != null ? !chenckResult.equals(check.chenckResult) : check.chenckResult != null) return false;
-        if (createTime != null ? !createTime.equals(check.createTime) : check.createTime != null) return false;
-        if (newId != null ? !newId.equals(check.newId) : check.newId != null) return false;
-        if (status != null ? !status.equals(check.status) : check.status != null) return false;
+        if (checkId != inspect.checkId) return false;
+        if (checkPerId != null ? !checkPerId.equals(inspect.checkPerId) : inspect.checkPerId != null) return false;
+        if (checkTime != null ? !checkTime.equals(inspect.checkTime) : inspect.checkTime != null) return false;
+        if (checkContent != null ? !checkContent.equals(inspect.checkContent) : inspect.checkContent != null)
+            return false;
+        if (checkNum != null ? !checkNum.equals(inspect.checkNum) : inspect.checkNum != null) return false;
+        if (chenckResult != null ? !chenckResult.equals(inspect.chenckResult) : inspect.chenckResult != null)
+            return false;
+        if (createTime != null ? !createTime.equals(inspect.createTime) : inspect.createTime != null) return false;
+        if (newId != null ? !newId.equals(inspect.newId) : inspect.newId != null) return false;
+        if (status != null ? !status.equals(inspect.status) : inspect.status != null) return false;
 
         return true;
     }

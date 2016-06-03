@@ -27,7 +27,7 @@
                 <!--<property name="cache.use_query_cache">true</property>-->
 
                 <mapping class="com.NewVillage.entity.BusinessCost"/>
-                <mapping class="com.NewVillage.entity.Check"/>
+                <mapping class="com.NewVillage.entity.Inspect"/>
                 <mapping class="com.NewVillage.entity.CheckInfo"/>
                 <mapping class="com.NewVillage.entity.DesignFileCheck"/>
                 <mapping class="com.NewVillage.entity.Employee"/>

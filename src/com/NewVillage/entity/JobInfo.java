@@ -6,13 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Dream on 2016/6/3.
+ * Created by xfcq on 2016/6/3.
  */
 @Entity
 public class JobInfo {
     private int empId;
     private Integer jobNum;
     private Integer jobInfo;
+    private String empDep;
 
     @Id
     @Column(name = "empId", nullable = false)
@@ -44,6 +45,16 @@ public class JobInfo {
         this.jobInfo = jobInfo;
     }
 
+    @Basic
+    @Column(name = "empDep", nullable = true, length = 10)
+    public String getEmpDep() {
+        return empDep;
+    }
+
+    public void setEmpDep(String empDep) {
+        this.empDep = empDep;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -54,6 +65,7 @@ public class JobInfo {
         if (empId != jobInfo1.empId) return false;
         if (jobNum != null ? !jobNum.equals(jobInfo1.jobNum) : jobInfo1.jobNum != null) return false;
         if (jobInfo != null ? !jobInfo.equals(jobInfo1.jobInfo) : jobInfo1.jobInfo != null) return false;
+        if (empDep != null ? !empDep.equals(jobInfo1.empDep) : jobInfo1.empDep != null) return false;
 
         return true;
     }
@@ -63,6 +75,7 @@ public class JobInfo {
         int result = empId;
         result = 31 * result + (jobNum != null ? jobNum.hashCode() : 0);
         result = 31 * result + (jobInfo != null ? jobInfo.hashCode() : 0);
+        result = 31 * result + (empDep != null ? empDep.hashCode() : 0);
         return result;
     }
 }

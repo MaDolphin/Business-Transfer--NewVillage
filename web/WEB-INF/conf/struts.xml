@@ -23,7 +23,9 @@
         <!--action method-->
         <action name="Counter_*" class="CounterAction" method="{1}">
             <result name="addUserSuccess"></result>
-            <result name="input"></result>
+            <result name="addUserError" ></result>
+            <result name="addNewVillageSuccess"></result>
+            <result name="addNewVillageError"></result>
         </action>
         <!--JSP directing-->
 

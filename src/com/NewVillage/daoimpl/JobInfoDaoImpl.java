@@ -44,8 +44,24 @@ public class JobInfoDaoImpl extends HibernateDaoSupport implements JobInfoDao {
     }
 
     @Override
-    public List<JobInfo> allJobInfosByEmpID(int empid) {
+    public JobInfo queryJobInfosByEmpID(int empid) {
         List list = (List<JobInfo>) this.getHibernateTemplate().find("from JobInfo e where e.empId=?",new Object[]{empid});
-        return list;
+        if(list.size() >0){
+            JobInfo jobInfo = (JobInfo) list.get(0);
+            return jobInfo;
+        }else {
+            return null;
+        }
+    }
+
+    @Override
+    public JobInfo queryEmpByFreeDep(String empDep) {
+        List list = (List<JobInfo>) this.getHibernateTemplate().find("from JobInfo e where e.empDep=? order by e.jobNum asc",new Object[]{empDep});
+        if(list.size() >0){
+            JobInfo jobInfo = (JobInfo) list.get(0);
+            return jobInfo;
+        }else {
+            return null;
+        }
     }
 }

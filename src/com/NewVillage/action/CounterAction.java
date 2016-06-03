@@ -1,12 +1,13 @@
 package com.NewVillage.action;
 
+import com.NewVillage.dao.JobInfoDao;
 import com.NewVillage.dao.NewVillageDao;
 import com.NewVillage.dao.UserDao;
-import com.NewVillage.entity.NewVillage;
-import com.NewVillage.entity.User;
+import com.NewVillage.entity.*;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
 
+import java.sql.Timestamp;
 import java.util.Map;
 
 /**
@@ -15,9 +16,14 @@ import java.util.Map;
 public class CounterAction extends ActionSupport implements SessionAware {
     UserDao userDao;
     NewVillageDao newVillageDao;
+    JobInfoDao jobInfoDao;
     User user;
     NewVillage newVillage;
     private Map session;
+
+    public void setJobInfoDao(JobInfoDao jobInfoDao) {
+        this.jobInfoDao = jobInfoDao;
+    }
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
@@ -52,16 +58,34 @@ public class CounterAction extends ActionSupport implements SessionAware {
     }
 
     public String AddUser(){
-        User userup = this.user;
-        userup.setUserTicket(Double.valueOf(0));
-        userup.setUserType(0);
-        userup.setUserLevel(0);
-        if(userDao.addUser(userup)){
+        User userUp = this.user;
+        userUp.setUserTicket(Double.valueOf(0));
+        userUp.setUserType(0);
+        userUp.setUserLevel(0);
+        if(userDao.addUser(userUp)){
             return "addUserSuccess";
         }else{
-            return "1";
+            return "addUserError";
         }
-
     }
+    public String AddNewVillage(){
+        Timestamp date = new Timestamp(System.currentTimeMillis());
+        Employee emp = (Employee) session.get("employee");
+        NewVillage newVillageUp = this.newVillage;
+        newVillageUp.setCreateTime(date);
+        newVillageUp.setNewVilPerId(emp.getEmpId());
+        newVillageUp.setStatus("0");
+        if(newVillageDao.addNewVillage(newVillageUp)){
+//            NewVillage newVillageGet = newVillageDao.
+            JobInfo jobInfo = jobInfoDao.queryEmpByFreeDep("勘查员");
+            InvestigationWork investigationWork = new InvestigationWork();
+//            investigationWork.setNewId();
+            return "addNewVillageSuccess";
+        }else{
+            return "addNewVillageError";
+        }
+    }
+
+
 
 }
