@@ -13,11 +13,12 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
-    <bean id="costdao" class="com.NewVillage.daoimpl.CostDaoImp">
+    <!--顾珏-->
+    <bean id="costdao" class="com.NewVillage.daoimpl.CostDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <bean id="receiptdao" class="com.NewVillage.daoimpl.ReceiptDaoImp">
+    <bean id="receiptdao" class="com.NewVillage.daoimpl.ReceiptDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
@@ -26,20 +27,23 @@
         <property name="receiptdao" ref="receiptdao"></property>
     </bean>
 
-
     <!--张松顺-->
     <bean id="traceTableAction" class="com.NewVillage.action.TraceTableAction">
         <property name="traceDao" ref="traceDao"></property>
     </bean>
-    <bean id="traceDao" class="com.NewVillage.daoimpl.TraceDaoImp">
+    <bean id="traceDao" class="com.NewVillage.daoimpl.TraceDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
-
-
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="configLocation" value="/WEB-INF/conf/hibernate.cfg.xml"></property>
     </bean>
+
+    <!--黄海琨-->
+
+
+    <!--黄晓辉-->
+
 
     <!-- 配置声明式事务管理（采用注解的方式） -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">

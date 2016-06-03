@@ -82,16 +82,13 @@ public class FinanceAction extends ActionSupport{
     @Override
     public String execute() {
         String flag=INPUT;
-        try{
-            String hql="from ProcessRceord u where u.newId='"+payRecord.getNewId()+"' order by u.createTime desc";
-            List<PayRecord> payRecords=receiptdao.QueryRecord(hql);
-            if(payRecords!=null)
-
-            receiptdao.addPayRecord(payRecord);
-
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
+//        try{
+//            if (payRecord.getNewId())
+//            receiptdao.addPayRecord(payRecord);
+//
+//        }catch(Exception ex){
+//            ex.printStackTrace();
+//        }
         return flag;
     }
 }

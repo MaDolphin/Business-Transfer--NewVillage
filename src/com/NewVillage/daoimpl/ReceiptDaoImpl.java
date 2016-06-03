@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by 珏 on 2016/6/2.
  */
-public class ReceiptDaoImp extends HibernateDaoSupport implements ReceiptDao {
+public class ReceiptDaoImpl extends HibernateDaoSupport implements ReceiptDao {
     @Override
     public void addPayRecord(PayRecord record) {
         try{
