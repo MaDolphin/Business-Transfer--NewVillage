@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class Refile {
@@ -15,9 +15,11 @@ public class Refile {
     private Integer fileId;
     private String filePlace;
     private Timestamp refileTime;
+    private Integer newId;
+    private String status;
 
     @Id
-    @Column(name = "refileId", nullable = false)
+    @Column(name = "refileId")
     public int getRefileId() {
         return refileId;
     }
@@ -27,7 +29,7 @@ public class Refile {
     }
 
     @Basic
-    @Column(name = "fileId", nullable = true)
+    @Column(name = "fileId")
     public Integer getFileId() {
         return fileId;
     }
@@ -37,7 +39,7 @@ public class Refile {
     }
 
     @Basic
-    @Column(name = "filePlace", nullable = true, length = 50)
+    @Column(name = "filePlace")
     public String getFilePlace() {
         return filePlace;
     }
@@ -47,13 +49,33 @@ public class Refile {
     }
 
     @Basic
-    @Column(name = "refileTime", nullable = false)
+    @Column(name = "refileTime")
     public Timestamp getRefileTime() {
         return refileTime;
     }
 
     public void setRefileTime(Timestamp refileTime) {
         this.refileTime = refileTime;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -67,6 +89,8 @@ public class Refile {
         if (fileId != null ? !fileId.equals(refile.fileId) : refile.fileId != null) return false;
         if (filePlace != null ? !filePlace.equals(refile.filePlace) : refile.filePlace != null) return false;
         if (refileTime != null ? !refileTime.equals(refile.refileTime) : refile.refileTime != null) return false;
+        if (newId != null ? !newId.equals(refile.newId) : refile.newId != null) return false;
+        if (status != null ? !status.equals(refile.status) : refile.status != null) return false;
 
         return true;
     }
@@ -77,6 +101,8 @@ public class Refile {
         result = 31 * result + (fileId != null ? fileId.hashCode() : 0);
         result = 31 * result + (filePlace != null ? filePlace.hashCode() : 0);
         result = 31 * result + (refileTime != null ? refileTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

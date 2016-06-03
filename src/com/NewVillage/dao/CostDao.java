@@ -9,5 +9,6 @@ import java.util.List;
  */
 public interface CostDao {
     public List<BusinessCost> QueryAllCost();
-    public void ExaminCost();
+    public void ExaminCost(BusinessCost businessCost);
+    BusinessCost QueryCostByID(int costId);
 }

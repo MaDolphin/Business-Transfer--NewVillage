@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class Lot {
@@ -18,9 +18,11 @@ public class Lot {
     private Integer capacity;
     private String userType;
     private Timestamp creatrTime;
+    private Integer newId;
+    private String status;
 
     @Id
-    @Column(name = "lotId", nullable = false)
+    @Column(name = "lotId")
     public int getLotId() {
         return lotId;
     }
@@ -30,7 +32,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "userName", nullable = true, length = 1)
+    @Column(name = "userName")
     public String getUserName() {
         return userName;
     }
@@ -40,7 +42,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "address", nullable = true, length = 50)
+    @Column(name = "address")
     public String getAddress() {
         return address;
     }
@@ -50,7 +52,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "type", nullable = true, length = 1)
+    @Column(name = "type")
     public String getType() {
         return type;
     }
@@ -60,7 +62,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "capacity", nullable = true)
+    @Column(name = "capacity")
     public Integer getCapacity() {
         return capacity;
     }
@@ -70,7 +72,7 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "userType", nullable = true, length = 1)
+    @Column(name = "userType")
     public String getUserType() {
         return userType;
     }
@@ -80,13 +82,33 @@ public class Lot {
     }
 
     @Basic
-    @Column(name = "creatrTime", nullable = false)
+    @Column(name = "creatrTime")
     public Timestamp getCreatrTime() {
         return creatrTime;
     }
 
     public void setCreatrTime(Timestamp creatrTime) {
         this.creatrTime = creatrTime;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -103,6 +125,8 @@ public class Lot {
         if (capacity != null ? !capacity.equals(lot.capacity) : lot.capacity != null) return false;
         if (userType != null ? !userType.equals(lot.userType) : lot.userType != null) return false;
         if (creatrTime != null ? !creatrTime.equals(lot.creatrTime) : lot.creatrTime != null) return false;
+        if (newId != null ? !newId.equals(lot.newId) : lot.newId != null) return false;
+        if (status != null ? !status.equals(lot.status) : lot.status != null) return false;
 
         return true;
     }
@@ -116,6 +140,8 @@ public class Lot {
         result = 31 * result + (capacity != null ? capacity.hashCode() : 0);
         result = 31 * result + (userType != null ? userType.hashCode() : 0);
         result = 31 * result + (creatrTime != null ? creatrTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

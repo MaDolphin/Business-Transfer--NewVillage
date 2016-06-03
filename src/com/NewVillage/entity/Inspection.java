@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class Inspection {
@@ -20,9 +20,11 @@ public class Inspection {
     private Timestamp insTime;
     private Integer insNum;
     private Timestamp createTime;
+    private Integer newId;
+    private String status;
 
     @Id
-    @Column(name = "insId", nullable = false)
+    @Column(name = "insId")
     public int getInsId() {
         return insId;
     }
@@ -32,7 +34,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "insUnit", nullable = true, length = 1)
+    @Column(name = "insUnit")
     public String getInsUnit() {
         return insUnit;
     }
@@ -42,7 +44,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "insPerId", nullable = true)
+    @Column(name = "insPerId")
     public Integer getInsPerId() {
         return insPerId;
     }
@@ -52,7 +54,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "accPerId", nullable = true)
+    @Column(name = "accPerId")
     public Integer getAccPerId() {
         return accPerId;
     }
@@ -62,7 +64,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "accTime", nullable = false)
+    @Column(name = "accTime")
     public Timestamp getAccTime() {
         return accTime;
     }
@@ -72,7 +74,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "insRequire", nullable = true, length = -1)
+    @Column(name = "insRequire")
     public String getInsRequire() {
         return insRequire;
     }
@@ -82,7 +84,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "insTime", nullable = false)
+    @Column(name = "insTime")
     public Timestamp getInsTime() {
         return insTime;
     }
@@ -92,7 +94,7 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "insNum", nullable = true)
+    @Column(name = "insNum")
     public Integer getInsNum() {
         return insNum;
     }
@@ -102,13 +104,33 @@ public class Inspection {
     }
 
     @Basic
-    @Column(name = "createTime", nullable = false)
+    @Column(name = "createTime")
     public Timestamp getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -127,6 +149,8 @@ public class Inspection {
         if (insTime != null ? !insTime.equals(that.insTime) : that.insTime != null) return false;
         if (insNum != null ? !insNum.equals(that.insNum) : that.insNum != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
+        if (newId != null ? !newId.equals(that.newId) : that.newId != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
     }
@@ -142,6 +166,8 @@ public class Inspection {
         result = 31 * result + (insTime != null ? insTime.hashCode() : 0);
         result = 31 * result + (insNum != null ? insNum.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

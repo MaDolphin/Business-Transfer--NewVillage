@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class User {
@@ -21,7 +21,7 @@ public class User {
     private String userPwd;
 
     @Id
-    @Column(name = "userId", nullable = false)
+    @Column(name = "userId")
     public int getUserId() {
         return userId;
     }
@@ -31,7 +31,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "userName", nullable = true, length = 10)
+    @Column(name = "userName")
     public String getUserName() {
         return userName;
     }
@@ -41,7 +41,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "userPtype", nullable = true)
+    @Column(name = "userPtype")
     public Integer getUserPtype() {
         return userPtype;
     }
@@ -51,7 +51,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "userPid", nullable = true, length = 25)
+    @Column(name = "userPid")
     public String getUserPid() {
         return userPid;
     }
@@ -61,7 +61,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "userTel", nullable = true, length = 25)
+    @Column(name = "userTel")
     public String getUserTel() {
         return userTel;
     }
@@ -71,7 +71,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "userTicket", nullable = true, precision = 0)
+    @Column(name = "userTicket")
     public Double getUserTicket() {
         return userTicket;
     }
@@ -81,7 +81,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "userType", nullable = true)
+    @Column(name = "userType")
     public Integer getUserType() {
         return userType;
     }
@@ -91,7 +91,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "userLevel", nullable = true)
+    @Column(name = "userLevel")
     public Integer getUserLevel() {
         return userLevel;
     }
@@ -101,7 +101,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "userPwd", nullable = true, length = 25)
+    @Column(name = "userPwd")
     public String getUserPwd() {
         return userPwd;
     }

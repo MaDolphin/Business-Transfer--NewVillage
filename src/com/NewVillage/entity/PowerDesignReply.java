@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 @Table(name = "PowerDesign_Reply", schema = "newvil", catalog = "")
@@ -18,9 +18,11 @@ public class PowerDesignReply {
     private Timestamp custReplyTime;
     private Integer replyType;
     private Timestamp createTime;
+    private Integer newId;
+    private String status;
 
     @Id
-    @Column(name = "replyId", nullable = false)
+    @Column(name = "replyId")
     public int getReplyId() {
         return replyId;
     }
@@ -30,7 +32,7 @@ public class PowerDesignReply {
     }
 
     @Basic
-    @Column(name = "replyPerId", nullable = true)
+    @Column(name = "replyPerId")
     public Integer getReplyPerId() {
         return replyPerId;
     }
@@ -40,7 +42,7 @@ public class PowerDesignReply {
     }
 
     @Basic
-    @Column(name = "replyTime", nullable = false)
+    @Column(name = "replyTime")
     public Timestamp getReplyTime() {
         return replyTime;
     }
@@ -50,7 +52,7 @@ public class PowerDesignReply {
     }
 
     @Basic
-    @Column(name = "custOpinion", nullable = true, length = -1)
+    @Column(name = "custOpinion")
     public String getCustOpinion() {
         return custOpinion;
     }
@@ -60,7 +62,7 @@ public class PowerDesignReply {
     }
 
     @Basic
-    @Column(name = "userId", nullable = true)
+    @Column(name = "userId")
     public Integer getUserId() {
         return userId;
     }
@@ -70,7 +72,7 @@ public class PowerDesignReply {
     }
 
     @Basic
-    @Column(name = "signoffTime", nullable = false)
+    @Column(name = "signoffTime")
     public Timestamp getSignoffTime() {
         return signoffTime;
     }
@@ -80,7 +82,7 @@ public class PowerDesignReply {
     }
 
     @Basic
-    @Column(name = "custReplyTime", nullable = false)
+    @Column(name = "custReplyTime")
     public Timestamp getCustReplyTime() {
         return custReplyTime;
     }
@@ -90,7 +92,7 @@ public class PowerDesignReply {
     }
 
     @Basic
-    @Column(name = "replyType", nullable = true)
+    @Column(name = "replyType")
     public Integer getReplyType() {
         return replyType;
     }
@@ -100,13 +102,33 @@ public class PowerDesignReply {
     }
 
     @Basic
-    @Column(name = "createTime", nullable = false)
+    @Column(name = "createTime")
     public Timestamp getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -126,6 +148,8 @@ public class PowerDesignReply {
             return false;
         if (replyType != null ? !replyType.equals(that.replyType) : that.replyType != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
+        if (newId != null ? !newId.equals(that.newId) : that.newId != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
     }
@@ -141,6 +165,8 @@ public class PowerDesignReply {
         result = 31 * result + (custReplyTime != null ? custReplyTime.hashCode() : 0);
         result = 31 * result + (replyType != null ? replyType.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

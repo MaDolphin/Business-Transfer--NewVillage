@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class DesignFileCheck {
@@ -26,9 +26,11 @@ public class DesignFileCheck {
     private Integer registerPerId;
     private Timestamp registerTime;
     private Timestamp createTime;
+    private Integer newId;
+    private String status;
 
     @Id
-    @Column(name = "designFileId", nullable = false)
+    @Column(name = "designFileId")
     public int getDesignFileId() {
         return designFileId;
     }
@@ -38,7 +40,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "designUnit", nullable = true, length = 50)
+    @Column(name = "designUnit")
     public String getDesignUnit() {
         return designUnit;
     }
@@ -48,7 +50,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "designLevel", nullable = true, length = 50)
+    @Column(name = "designLevel")
     public String getDesignLevel() {
         return designLevel;
     }
@@ -58,7 +60,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "submittedUnit", nullable = true, length = 50)
+    @Column(name = "submittedUnit")
     public String getSubmittedUnit() {
         return submittedUnit;
     }
@@ -68,7 +70,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "submittedTime", nullable = false)
+    @Column(name = "submittedTime")
     public Timestamp getSubmittedTime() {
         return submittedTime;
     }
@@ -78,7 +80,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "accPerId", nullable = true)
+    @Column(name = "accPerId")
     public Integer getAccPerId() {
         return accPerId;
     }
@@ -88,7 +90,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "checkPerId", nullable = true)
+    @Column(name = "checkPerId")
     public Integer getCheckPerId() {
         return checkPerId;
     }
@@ -98,7 +100,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "checkTime", nullable = false)
+    @Column(name = "checkTime")
     public Timestamp getCheckTime() {
         return checkTime;
     }
@@ -108,7 +110,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "civilDrawingNum", nullable = true)
+    @Column(name = "civilDrawingNum")
     public Integer getCivilDrawingNum() {
         return civilDrawingNum;
     }
@@ -118,7 +120,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "lineDrawingNum", nullable = true)
+    @Column(name = "lineDrawingNum")
     public Integer getLineDrawingNum() {
         return lineDrawingNum;
     }
@@ -128,7 +130,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "eleDrawingNum", nullable = true)
+    @Column(name = "eleDrawingNum")
     public Integer getEleDrawingNum() {
         return eleDrawingNum;
     }
@@ -138,7 +140,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "checkOpinion", nullable = true, length = -1)
+    @Column(name = "checkOpinion")
     public String getCheckOpinion() {
         return checkOpinion;
     }
@@ -148,7 +150,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "registerPerId", nullable = true)
+    @Column(name = "registerPerId")
     public Integer getRegisterPerId() {
         return registerPerId;
     }
@@ -158,7 +160,7 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "registerTime", nullable = false)
+    @Column(name = "registerTime")
     public Timestamp getRegisterTime() {
         return registerTime;
     }
@@ -168,13 +170,33 @@ public class DesignFileCheck {
     }
 
     @Basic
-    @Column(name = "createTime", nullable = false)
+    @Column(name = "createTime")
     public Timestamp getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -205,6 +227,8 @@ public class DesignFileCheck {
             return false;
         if (registerTime != null ? !registerTime.equals(that.registerTime) : that.registerTime != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
+        if (newId != null ? !newId.equals(that.newId) : that.newId != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
     }
@@ -226,6 +250,8 @@ public class DesignFileCheck {
         result = 31 * result + (registerPerId != null ? registerPerId.hashCode() : 0);
         result = 31 * result + (registerTime != null ? registerTime.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

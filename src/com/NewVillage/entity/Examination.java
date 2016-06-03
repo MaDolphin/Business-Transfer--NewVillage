@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class Examination {
@@ -17,9 +17,11 @@ public class Examination {
     private String exResult;
     private String exOpinion;
     private Timestamp createTime;
+    private Integer newId;
+    private String status;
 
     @Id
-    @Column(name = "exId", nullable = false)
+    @Column(name = "exId")
     public int getExId() {
         return exId;
     }
@@ -29,7 +31,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "exPerId", nullable = true, length = 10)
+    @Column(name = "exPerId")
     public String getExPerId() {
         return exPerId;
     }
@@ -39,7 +41,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "exTime", nullable = false)
+    @Column(name = "exTime")
     public Timestamp getExTime() {
         return exTime;
     }
@@ -49,7 +51,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "exResult", nullable = true, length = 25)
+    @Column(name = "exResult")
     public String getExResult() {
         return exResult;
     }
@@ -59,7 +61,7 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "exOpinion", nullable = true, length = -1)
+    @Column(name = "exOpinion")
     public String getExOpinion() {
         return exOpinion;
     }
@@ -69,13 +71,33 @@ public class Examination {
     }
 
     @Basic
-    @Column(name = "createTime", nullable = false)
+    @Column(name = "createTime")
     public Timestamp getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -91,6 +113,8 @@ public class Examination {
         if (exResult != null ? !exResult.equals(that.exResult) : that.exResult != null) return false;
         if (exOpinion != null ? !exOpinion.equals(that.exOpinion) : that.exOpinion != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
+        if (newId != null ? !newId.equals(that.newId) : that.newId != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
     }
@@ -103,6 +127,8 @@ public class Examination {
         result = 31 * result + (exResult != null ? exResult.hashCode() : 0);
         result = 31 * result + (exOpinion != null ? exOpinion.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

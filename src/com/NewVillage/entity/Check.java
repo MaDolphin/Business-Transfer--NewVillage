@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class Check {
@@ -18,9 +18,11 @@ public class Check {
     private Integer checkNum;
     private String chenckResult;
     private Timestamp createTime;
+    private Integer newId;
+    private String status;
 
     @Id
-    @Column(name = "checkId", nullable = false)
+    @Column(name = "checkId")
     public int getCheckId() {
         return checkId;
     }
@@ -30,7 +32,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "checkPerId", nullable = true, length = 10)
+    @Column(name = "checkPerId")
     public String getCheckPerId() {
         return checkPerId;
     }
@@ -40,7 +42,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "checkTime", nullable = false)
+    @Column(name = "checkTime")
     public Timestamp getCheckTime() {
         return checkTime;
     }
@@ -50,7 +52,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "checkContent", nullable = true, length = -1)
+    @Column(name = "checkContent")
     public String getCheckContent() {
         return checkContent;
     }
@@ -60,7 +62,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "checkNum", nullable = true)
+    @Column(name = "checkNum")
     public Integer getCheckNum() {
         return checkNum;
     }
@@ -70,7 +72,7 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "chenckResult", nullable = true, length = -1)
+    @Column(name = "chenckResult")
     public String getChenckResult() {
         return chenckResult;
     }
@@ -80,13 +82,33 @@ public class Check {
     }
 
     @Basic
-    @Column(name = "createTime", nullable = false)
+    @Column(name = "createTime")
     public Timestamp getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -103,6 +125,8 @@ public class Check {
         if (checkNum != null ? !checkNum.equals(check.checkNum) : check.checkNum != null) return false;
         if (chenckResult != null ? !chenckResult.equals(check.chenckResult) : check.chenckResult != null) return false;
         if (createTime != null ? !createTime.equals(check.createTime) : check.createTime != null) return false;
+        if (newId != null ? !newId.equals(check.newId) : check.newId != null) return false;
+        if (status != null ? !status.equals(check.status) : check.status != null) return false;
 
         return true;
     }
@@ -116,6 +140,8 @@ public class Check {
         result = 31 * result + (checkNum != null ? checkNum.hashCode() : 0);
         result = 31 * result + (chenckResult != null ? chenckResult.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

@@ -22,7 +22,25 @@ public class CostDaoImp extends HibernateDaoSupport implements CostDao {
     }
 
     @Override
-    public void ExaminCost() {
-
+    public BusinessCost QueryCostByID(int costId) {
+        BusinessCost cost=null;
+        try{
+            cost=(BusinessCost)this.getHibernateTemplate().get(BusinessCost.class,costId);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return cost;
     }
+
+    @Override
+    public void ExaminCost(BusinessCost businessCost) {
+        try{
+            this.getHibernateTemplate().update(businessCost);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+
+
 }

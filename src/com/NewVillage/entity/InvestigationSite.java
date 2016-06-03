@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class InvestigationSite {
@@ -21,9 +21,11 @@ public class InvestigationSite {
     private Integer invesPerId;
     private Timestamp runTime;
     private Timestamp createTime;
+    private Integer newId;
+    private String status;
 
     @Id
-    @Column(name = "invesSiteId", nullable = false)
+    @Column(name = "invesSiteId")
     public int getInvesSiteId() {
         return invesSiteId;
     }
@@ -33,7 +35,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "appCapacity", nullable = true)
+    @Column(name = "appCapacity")
     public Integer getAppCapacity() {
         return appCapacity;
     }
@@ -43,7 +45,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "supplyMode", nullable = true, length = 10)
+    @Column(name = "supplyMode")
     public String getSupplyMode() {
         return supplyMode;
     }
@@ -53,7 +55,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "voltageLevel", nullable = true, length = 10)
+    @Column(name = "voltageLevel")
     public String getVoltageLevel() {
         return voltageLevel;
     }
@@ -63,7 +65,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "powerComp", nullable = true, length = 50)
+    @Column(name = "powerComp")
     public String getPowerComp() {
         return powerComp;
     }
@@ -73,7 +75,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "invesSituation", nullable = true, length = 50)
+    @Column(name = "invesSituation")
     public String getInvesSituation() {
         return invesSituation;
     }
@@ -83,7 +85,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "powerId", nullable = true)
+    @Column(name = "powerId")
     public Integer getPowerId() {
         return powerId;
     }
@@ -93,7 +95,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "invesPerId", nullable = true)
+    @Column(name = "invesPerId")
     public Integer getInvesPerId() {
         return invesPerId;
     }
@@ -103,7 +105,7 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "RunTime", nullable = false)
+    @Column(name = "RunTime")
     public Timestamp getRunTime() {
         return runTime;
     }
@@ -113,13 +115,33 @@ public class InvestigationSite {
     }
 
     @Basic
-    @Column(name = "createTime", nullable = false)
+    @Column(name = "createTime")
     public Timestamp getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -140,6 +162,8 @@ public class InvestigationSite {
         if (invesPerId != null ? !invesPerId.equals(that.invesPerId) : that.invesPerId != null) return false;
         if (runTime != null ? !runTime.equals(that.runTime) : that.runTime != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
+        if (newId != null ? !newId.equals(that.newId) : that.newId != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
     }
@@ -156,6 +180,8 @@ public class InvestigationSite {
         result = 31 * result + (invesPerId != null ? invesPerId.hashCode() : 0);
         result = 31 * result + (runTime != null ? runTime.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

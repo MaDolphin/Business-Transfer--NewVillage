@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class TraceTable {
@@ -25,9 +25,11 @@ public class TraceTable {
     private String finalInsResult;
     private String proAccountsResult;
     private Timestamp createTime;
+    private Integer newId;
+    private String status;
 
     @Id
-    @Column(name = "traceId", nullable = false)
+    @Column(name = "traceId")
     public int getTraceId() {
         return traceId;
     }
@@ -37,7 +39,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "responsiblePerId", nullable = true)
+    @Column(name = "responsiblePerId")
     public Integer getResponsiblePerId() {
         return responsiblePerId;
     }
@@ -47,7 +49,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "responsibleUnit", nullable = true, length = 50)
+    @Column(name = "responsibleUnit")
     public String getResponsibleUnit() {
         return responsibleUnit;
     }
@@ -57,7 +59,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "supervisorUnit", nullable = true, length = 50)
+    @Column(name = "supervisorUnit")
     public String getSupervisorUnit() {
         return supervisorUnit;
     }
@@ -67,7 +69,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "proDesignResult", nullable = true, length = -1)
+    @Column(name = "proDesignResult")
     public String getProDesignResult() {
         return proDesignResult;
     }
@@ -77,7 +79,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "proFileResult", nullable = true, length = -1)
+    @Column(name = "proFileResult")
     public String getProFileResult() {
         return proFileResult;
     }
@@ -87,7 +89,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "budgetResult", nullable = true, length = -1)
+    @Column(name = "budgetResult")
     public String getBudgetResult() {
         return budgetResult;
     }
@@ -97,7 +99,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "chargeResult", nullable = true, length = -1)
+    @Column(name = "chargeResult")
     public String getChargeResult() {
         return chargeResult;
     }
@@ -107,7 +109,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "equipmentSupResult", nullable = true, length = -1)
+    @Column(name = "equipmentSupResult")
     public String getEquipmentSupResult() {
         return equipmentSupResult;
     }
@@ -117,7 +119,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "ConstructionResult", nullable = true, length = -1)
+    @Column(name = "ConstructionResult")
     public String getConstructionResult() {
         return constructionResult;
     }
@@ -127,7 +129,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "midCheckResult", nullable = true, length = -1)
+    @Column(name = "midCheckResult")
     public String getMidCheckResult() {
         return midCheckResult;
     }
@@ -137,7 +139,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "FinalInsResult", nullable = true, length = -1)
+    @Column(name = "FinalInsResult")
     public String getFinalInsResult() {
         return finalInsResult;
     }
@@ -147,7 +149,7 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "proAccountsResult", nullable = true, length = -1)
+    @Column(name = "proAccountsResult")
     public String getProAccountsResult() {
         return proAccountsResult;
     }
@@ -157,13 +159,33 @@ public class TraceTable {
     }
 
     @Basic
-    @Column(name = "createTime", nullable = false)
+    @Column(name = "createTime")
     public Timestamp getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -197,6 +219,8 @@ public class TraceTable {
         if (proAccountsResult != null ? !proAccountsResult.equals(that.proAccountsResult) : that.proAccountsResult != null)
             return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
+        if (newId != null ? !newId.equals(that.newId) : that.newId != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
     }
@@ -217,6 +241,8 @@ public class TraceTable {
         result = 31 * result + (finalInsResult != null ? finalInsResult.hashCode() : 0);
         result = 31 * result + (proAccountsResult != null ? proAccountsResult.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

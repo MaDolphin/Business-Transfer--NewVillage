@@ -6,10 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
-public class Processrecord {
+public class ProcessRecord {
     private int processRecordId;
     private Integer newId;
     private Integer invesId;
@@ -26,9 +26,10 @@ public class Processrecord {
     private Integer lotId;
     private Integer checkInfoId;
     private Integer refileId;
+    private String status;
 
     @Id
-    @Column(name = "processRecordId", nullable = false)
+    @Column(name = "processRecordId")
     public int getProcessRecordId() {
         return processRecordId;
     }
@@ -38,7 +39,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "newId", nullable = true)
+    @Column(name = "newId")
     public Integer getNewId() {
         return newId;
     }
@@ -48,7 +49,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "invesId", nullable = true)
+    @Column(name = "invesId")
     public Integer getInvesId() {
         return invesId;
     }
@@ -58,7 +59,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "invesSiteId", nullable = true)
+    @Column(name = "invesSiteId")
     public Integer getInvesSiteId() {
         return invesSiteId;
     }
@@ -68,7 +69,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "powerId", nullable = true)
+    @Column(name = "powerId")
     public Integer getPowerId() {
         return powerId;
     }
@@ -78,7 +79,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "exId", nullable = true)
+    @Column(name = "exId")
     public Integer getExId() {
         return exId;
     }
@@ -88,7 +89,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "replyId", nullable = true)
+    @Column(name = "replyId")
     public Integer getReplyId() {
         return replyId;
     }
@@ -98,7 +99,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "costId", nullable = true)
+    @Column(name = "costId")
     public Integer getCostId() {
         return costId;
     }
@@ -108,7 +109,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "payId", nullable = true)
+    @Column(name = "payId")
     public Integer getPayId() {
         return payId;
     }
@@ -118,7 +119,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "traceId", nullable = true)
+    @Column(name = "traceId")
     public Integer getTraceId() {
         return traceId;
     }
@@ -128,7 +129,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "designFileId", nullable = true)
+    @Column(name = "designFileId")
     public Integer getDesignFileId() {
         return designFileId;
     }
@@ -138,7 +139,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "checkId", nullable = true)
+    @Column(name = "checkId")
     public Integer getCheckId() {
         return checkId;
     }
@@ -148,7 +149,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "insId", nullable = true)
+    @Column(name = "insId")
     public Integer getInsId() {
         return insId;
     }
@@ -158,7 +159,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "lotId", nullable = true)
+    @Column(name = "lotId")
     public Integer getLotId() {
         return lotId;
     }
@@ -168,7 +169,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "checkInfoId", nullable = true)
+    @Column(name = "checkInfoId")
     public Integer getCheckInfoId() {
         return checkInfoId;
     }
@@ -178,7 +179,7 @@ public class Processrecord {
     }
 
     @Basic
-    @Column(name = "refileId", nullable = true)
+    @Column(name = "refileId")
     public Integer getRefileId() {
         return refileId;
     }
@@ -187,12 +188,22 @@ public class Processrecord {
         this.refileId = refileId;
     }
 
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Processrecord that = (Processrecord) o;
+        ProcessRecord that = (ProcessRecord) o;
 
         if (processRecordId != that.processRecordId) return false;
         if (newId != null ? !newId.equals(that.newId) : that.newId != null) return false;
@@ -210,6 +221,7 @@ public class Processrecord {
         if (lotId != null ? !lotId.equals(that.lotId) : that.lotId != null) return false;
         if (checkInfoId != null ? !checkInfoId.equals(that.checkInfoId) : that.checkInfoId != null) return false;
         if (refileId != null ? !refileId.equals(that.refileId) : that.refileId != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
     }
@@ -232,6 +244,7 @@ public class Processrecord {
         result = 31 * result + (lotId != null ? lotId.hashCode() : 0);
         result = 31 * result + (checkInfoId != null ? checkInfoId.hashCode() : 0);
         result = 31 * result + (refileId != null ? refileId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

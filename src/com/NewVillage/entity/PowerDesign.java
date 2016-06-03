@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class PowerDesign {
@@ -31,9 +31,10 @@ public class PowerDesign {
     private Timestamp createTime;
     private Integer powerDesignPerId;
     private String status;
+    private Integer newId;
 
     @Id
-    @Column(name = "powerId", nullable = false)
+    @Column(name = "powerId")
     public int getPowerId() {
         return powerId;
     }
@@ -43,7 +44,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerQuality", nullable = true, length = 10)
+    @Column(name = "powerQuality")
     public String getPowerQuality() {
         return powerQuality;
     }
@@ -53,7 +54,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerType", nullable = true, length = 10)
+    @Column(name = "powerType")
     public String getPowerType() {
         return powerType;
     }
@@ -63,7 +64,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerSupplyMode", nullable = true, length = 10)
+    @Column(name = "powerSupplyMode")
     public String getPowerSupplyMode() {
         return powerSupplyMode;
     }
@@ -73,7 +74,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerVoltage", nullable = true)
+    @Column(name = "powerVoltage")
     public Integer getPowerVoltage() {
         return powerVoltage;
     }
@@ -83,7 +84,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerCapacity", nullable = true)
+    @Column(name = "powerCapacity")
     public Integer getPowerCapacity() {
         return powerCapacity;
     }
@@ -93,7 +94,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerAddress", nullable = true, length = 50)
+    @Column(name = "powerAddress")
     public String getPowerAddress() {
         return powerAddress;
     }
@@ -103,7 +104,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerNum", nullable = true)
+    @Column(name = "powerNum")
     public Integer getPowerNum() {
         return powerNum;
     }
@@ -113,7 +114,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerLineNum", nullable = true)
+    @Column(name = "powerLineNum")
     public Integer getPowerLineNum() {
         return powerLineNum;
     }
@@ -123,7 +124,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerStation", nullable = true, length = 50)
+    @Column(name = "powerStation")
     public String getPowerStation() {
         return powerStation;
     }
@@ -133,7 +134,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerLine", nullable = true, length = 50)
+    @Column(name = "powerLine")
     public String getPowerLine() {
         return powerLine;
     }
@@ -143,7 +144,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerInMode", nullable = true, length = 10)
+    @Column(name = "powerInMode")
     public String getPowerInMode() {
         return powerInMode;
     }
@@ -153,7 +154,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerPoleId", nullable = true)
+    @Column(name = "powerPoleId")
     public Integer getPowerPoleId() {
         return powerPoleId;
     }
@@ -163,7 +164,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "checkPoint", nullable = true, length = 10)
+    @Column(name = "checkPoint")
     public String getCheckPoint() {
         return checkPoint;
     }
@@ -173,7 +174,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "protectMode", nullable = true, length = 10)
+    @Column(name = "protectMode")
     public String getProtectMode() {
         return protectMode;
     }
@@ -183,7 +184,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerDesignDraw", nullable = true)
+    @Column(name = "powerDesignDraw")
     public Integer getPowerDesignDraw() {
         return powerDesignDraw;
     }
@@ -193,7 +194,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "checkPointDraw", nullable = true)
+    @Column(name = "checkPointDraw")
     public Integer getCheckPointDraw() {
         return checkPointDraw;
     }
@@ -203,7 +204,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "createTime", nullable = false)
+    @Column(name = "createTime")
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -213,7 +214,7 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "powerDesignPerId", nullable = true)
+    @Column(name = "powerDesignPerId")
     public Integer getPowerDesignPerId() {
         return powerDesignPerId;
     }
@@ -223,13 +224,23 @@ public class PowerDesign {
     }
 
     @Basic
-    @Column(name = "status", nullable = true, length = 10)
+    @Column(name = "status")
     public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
     }
 
     @Override
@@ -264,6 +275,7 @@ public class PowerDesign {
         if (powerDesignPerId != null ? !powerDesignPerId.equals(that.powerDesignPerId) : that.powerDesignPerId != null)
             return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (newId != null ? !newId.equals(that.newId) : that.newId != null) return false;
 
         return true;
     }
@@ -290,6 +302,7 @@ public class PowerDesign {
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         result = 31 * result + (powerDesignPerId != null ? powerDesignPerId.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
         return result;
     }
 }

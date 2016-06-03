@@ -19,6 +19,7 @@ public class FinanceAction extends ActionSupport{
     private ReceiptDao receiptdao;
     private CostDao costdao;
     private PayRecord payRecord;
+    private BusinessCost businessCost;
     public void setSession(Map session) {
         this.session = session;
     }
@@ -35,6 +36,10 @@ public class FinanceAction extends ActionSupport{
         this.payRecord = payRecord;
     }
 
+    public void setBusinessCost(BusinessCost businessCost) {
+        this.businessCost = businessCost;
+    }
+
     public String QueryCost(){
         try{
             List<BusinessCost> businessCosts=costdao.QueryAllCost();
@@ -45,9 +50,34 @@ public class FinanceAction extends ActionSupport{
         return SUCCESS;
     }
 
+    public String QueryCostByID(){
+        try{
+            BusinessCost businessCosts=costdao.QueryCostByID(businessCost.getCostId());
+            session.put("businessCostInfo",businessCosts);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return SUCCESS;
+    }
+
+    public String QueryPayRecord(){
+        try{
+            List<PayRecord> payRecords=receiptdao.QueryAllRecord();
+            session.put("payRecords",payRecords);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return SUCCESS;
+    }
+
     public String ExaminCost(){
         try{
+            if (businessCost.getCostId()==1)
+                costdao.ExaminCost(businessCost);
+            else if (businessCost.getCostId()==-1){
+                costdao.ExaminCost(businessCost);
 
+            }
         }catch (Exception ex){
             ex.printStackTrace();
         }

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class PayRecord {
@@ -21,9 +21,10 @@ public class PayRecord {
     private Double unpaidAmount;
     private Integer invioiceId;
     private Timestamp createTime;
+    private String status;
 
     @Id
-    @Column(name = "payId", nullable = false)
+    @Column(name = "payId")
     public int getPayId() {
         return payId;
     }
@@ -33,7 +34,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "newId", nullable = true)
+    @Column(name = "newId")
     public Integer getNewId() {
         return newId;
     }
@@ -43,7 +44,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "payPerId", nullable = true)
+    @Column(name = "payPerId")
     public Integer getPayPerId() {
         return payPerId;
     }
@@ -53,7 +54,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "payDep", nullable = true, length = 10)
+    @Column(name = "payDep")
     public String getPayDep() {
         return payDep;
     }
@@ -63,7 +64,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "payTime", nullable = false)
+    @Column(name = "payTime")
     public Timestamp getPayTime() {
         return payTime;
     }
@@ -73,7 +74,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "Payment", nullable = true, precision = 0)
+    @Column(name = "Payment")
     public Double getPayment() {
         return payment;
     }
@@ -83,7 +84,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "sumPay", nullable = true, precision = 0)
+    @Column(name = "sumPay")
     public Double getSumPay() {
         return sumPay;
     }
@@ -93,7 +94,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "unpaidAmount", nullable = true, precision = 0)
+    @Column(name = "unpaidAmount")
     public Double getUnpaidAmount() {
         return unpaidAmount;
     }
@@ -103,7 +104,7 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "invioiceId", nullable = true)
+    @Column(name = "invioiceId")
     public Integer getInvioiceId() {
         return invioiceId;
     }
@@ -113,13 +114,23 @@ public class PayRecord {
     }
 
     @Basic
-    @Column(name = "createTime", nullable = false)
+    @Column(name = "createTime")
     public Timestamp getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -140,6 +151,7 @@ public class PayRecord {
             return false;
         if (invioiceId != null ? !invioiceId.equals(payRecord.invioiceId) : payRecord.invioiceId != null) return false;
         if (createTime != null ? !createTime.equals(payRecord.createTime) : payRecord.createTime != null) return false;
+        if (status != null ? !status.equals(payRecord.status) : payRecord.status != null) return false;
 
         return true;
     }
@@ -156,6 +168,7 @@ public class PayRecord {
         result = 31 * result + (unpaidAmount != null ? unpaidAmount.hashCode() : 0);
         result = 31 * result + (invioiceId != null ? invioiceId.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

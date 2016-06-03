@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by xfcq on 2016/6/1.
+ * Created by 珏 on 2016/6/3.
  */
 @Entity
 public class BusinessCost {
@@ -16,9 +16,11 @@ public class BusinessCost {
     private Double charge;
     private Double refund;
     private Timestamp createTime;
+    private Integer newId;
+    private String status;
 
     @Id
-    @Column(name = "costId", nullable = false)
+    @Column(name = "costId")
     public int getCostId() {
         return costId;
     }
@@ -28,7 +30,7 @@ public class BusinessCost {
     }
 
     @Basic
-    @Column(name = "costItem", nullable = true, length = 10)
+    @Column(name = "costItem")
     public String getCostItem() {
         return costItem;
     }
@@ -38,7 +40,7 @@ public class BusinessCost {
     }
 
     @Basic
-    @Column(name = "Charge", nullable = true, precision = 0)
+    @Column(name = "Charge")
     public Double getCharge() {
         return charge;
     }
@@ -48,7 +50,7 @@ public class BusinessCost {
     }
 
     @Basic
-    @Column(name = "Refund", nullable = true, precision = 0)
+    @Column(name = "Refund")
     public Double getRefund() {
         return refund;
     }
@@ -58,13 +60,33 @@ public class BusinessCost {
     }
 
     @Basic
-    @Column(name = "createTime", nullable = false)
+    @Column(name = "createTime")
     public Timestamp getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "newId")
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -79,6 +101,8 @@ public class BusinessCost {
         if (charge != null ? !charge.equals(that.charge) : that.charge != null) return false;
         if (refund != null ? !refund.equals(that.refund) : that.refund != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
+        if (newId != null ? !newId.equals(that.newId) : that.newId != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
     }
@@ -90,6 +114,8 @@ public class BusinessCost {
         result = 31 * result + (charge != null ? charge.hashCode() : 0);
         result = 31 * result + (refund != null ? refund.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (newId != null ? newId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }
