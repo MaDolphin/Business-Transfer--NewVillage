@@ -33,7 +33,7 @@ public class TraceTableDaoImpl extends HibernateDaoSupport implements TraceTable
     @Override
     public boolean deleteTraceTableRecord(TraceTable traceTable) {
         try{
-            getHibernateTemplate().delete(traceTable);
+            this.getHibernateTemplate().delete(traceTable);
             return true;
         }catch (Exception ex){
             ex.printStackTrace();
@@ -60,7 +60,7 @@ public class TraceTableDaoImpl extends HibernateDaoSupport implements TraceTable
     @Override
     public boolean updateTraceTableRecord(TraceTable traceTable) {
         try{
-            getHibernateTemplate().saveOrUpdate(traceTable);
+            this.getHibernateTemplate().saveOrUpdate(traceTable);
             return true;
         }catch (RuntimeException e){
             e.printStackTrace();
