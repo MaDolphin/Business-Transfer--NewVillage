@@ -83,7 +83,7 @@ public class FinanceAction extends ActionSupport{
     public String execute() {
         String flag=INPUT;
         try{
-            if (payRecord.getNewId())
+//            if (payRecord.getNewId())
             receiptdao.addPayRecord(payRecord);
 
         }catch(Exception ex){
