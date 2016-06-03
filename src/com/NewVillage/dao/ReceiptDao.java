@@ -15,5 +15,8 @@ public interface  ReceiptDao {
 
     List<PayRecord> QueryRecord(String hql);
 
+
     List<PayRecord> QueryAllRecord();
+
+    public PayRecord QueryRecordByID(int id);
 }

@@ -42,4 +42,15 @@ public class ReceiptDaoImpl extends HibernateDaoSupport implements ReceiptDao {
         }
         return list;
     }
+
+    @Override
+    public PayRecord QueryRecordByID(int id) {
+        PayRecord pay=null;
+        try{
+            pay=(PayRecord) this.getHibernateTemplate().get(PayRecord.class,id);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return pay;
+    }
 }
