@@ -99,6 +99,19 @@
 
     <!--黄海琨-->
 
+    <bean id="CounterAction" class="com.NewVillage.action.CounterAction">
+        <property name="userDao" ref="userDao"></property>
+        <property name="newVillageDao" ref="newVillageDao"></property>
+    </bean>
+
+    <bean id="InvestigatorAction" class="com.NewVillage.action.InvestigatorAction">
+        <property name="investigationSiteDao" ref="investigationSiteDao"></property>
+        <property name="investigationWorkDao" ref="investigationWorkDao"></property>
+    </bean>
+
+    <bean id="PlanGroupAction" class="com.NewVillage.action.PlanGroupAction">
+        <property name="powerDesignDao" ref="powerDesignDao"></property>
+    </bean>
 
     <!--黄晓辉-->
 

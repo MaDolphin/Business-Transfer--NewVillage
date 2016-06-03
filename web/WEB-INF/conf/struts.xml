@@ -21,7 +21,10 @@
     <!-- 1.业务员 1.3业务受理 1.8答复供电方案 -->
     <package name="Counter" extends="struts-default">
         <!--action method-->
-
+        <action name="Counter_*" class="CounterAction" method="{1}">
+            <result name="success"></result>
+            <result name="input"></result>
+        </action>
         <!--JSP directing-->
 
     </package>
@@ -29,14 +32,21 @@
     <!-- 2.勘查员 1.4现场勘查  -->
     <package name="Investigator" extends="struts-default">
         <!--action method-->
-
+        <action name="Investigator_*" class="InvestigatorAction" method="{1}">
+            <result name="success"></result>
+            <result name="input"></result>
+        </action>
         <!--JSP directing-->
+
     </package>
 
     <!-- 3.方案小组 1.6拟定供电方案-->
     <package name="PlanGroup" extends="struts-default">
         <!--action method-->
-
+        <action name="PlanGroup_*" class="PlanGroupAction" method="{1}">
+            <result name="success"></result>
+            <result name="input"></result>
+        </action>
         <!--JSP directing-->
     </package>
 
@@ -44,8 +54,8 @@
     <package name="Approval" extends="struts-default">
         <!--action method-->
         <action name="Approval_*" class="TraceTableAction" method="{1}">
-            <result name="success"> </result>
-            <result name="input">   </result>
+            <result name="success"></result>
+            <result name="input"></result>
         </action>
         <!--JSP directing-->
     </package>
