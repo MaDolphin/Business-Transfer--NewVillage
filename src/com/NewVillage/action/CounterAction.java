@@ -6,7 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
 
 import java.sql.Timestamp;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by xfcq on 2016/6/3.
@@ -16,9 +16,13 @@ public class CounterAction extends ActionSupport implements SessionAware {
     NewVillageDao newVillageDao;
     JobInfoDao jobInfoDao;
     InvestigationWorkDao investigationWorkDao;
-    ProcessRecordDao processRecordDao;
     User user;
     NewVillage newVillage;
+    private PowerDesignReplyDao powerDesignReplyDao;
+    private PowerDesignReply powerDesignReply;
+    private ProcessRecordDao processRecordDao;
+    private CostDao costDao;
+    private PowerDesignDao powerDesignDao;
     private Map session;
 
     public void setProcessRecordDao(ProcessRecordDao processRecordDao) {
@@ -41,6 +45,19 @@ public class CounterAction extends ActionSupport implements SessionAware {
         this.investigationWorkDao = investigationWorkDao;
     }
 
+    public void setCostDao(CostDao costDao) {
+        this.costDao = costDao;
+    }
+
+    public void setPowerDesignDao(PowerDesignDao powerDesignDao) {
+        this.powerDesignDao = powerDesignDao;
+    }
+
+    public void setPowerDesignReplyDao(PowerDesignReplyDao powerDesignReplyDao) {
+        this.powerDesignReplyDao = powerDesignReplyDao;
+    }
+
+
     public User getUser() {
         return user;
     }
@@ -55,6 +72,14 @@ public class CounterAction extends ActionSupport implements SessionAware {
 
     public void setNewVillage(NewVillage newVillage) {
         this.newVillage = newVillage;
+    }
+
+    public PowerDesignReply getPowerDesignReply() {
+        return powerDesignReply;
+    }
+
+    public void setPowerDesignReply(PowerDesignReply powerDesignReply) {
+        this.powerDesignReply = powerDesignReply;
     }
 
     public Map getSession() {
@@ -110,4 +135,48 @@ public class CounterAction extends ActionSupport implements SessionAware {
             return "addNewVillageError";
         }
     }
+
+    public String QueryNewVill(){
+        try{
+            List<NewVillage> newVillageList=newVillageDao.queryAllNewVillage();
+            session.put("newVillage",newVillageList);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return SUCCESS;
+    }
+
+    public String PowerDesignReply(){
+        Timestamp date = new Timestamp(System.currentTimeMillis());
+        try{
+            powerDesignReply.setStatus("1");
+            powerDesignReply.setCreateTime(date);
+            Employee emp=(Employee)session.get("employee");
+            powerDesignReply.setReplyPerId(emp.getEmpId());
+            powerDesignReplyDao.addPowerDesignReply(powerDesignReply);
+
+            //通过默认的数据 创建应收费用表单
+            BusinessCost businessCost=new BusinessCost();
+            businessCost.setStatus("0");
+            businessCost.setCreateTime(date);
+            businessCost.setNewId(powerDesignReply.getNewId());
+            List<PowerDesign> list=powerDesignDao.allPowerDesignsByNewID(powerDesignReply.getNewId());
+            PowerDesign powerDesign=list.get(0);
+            double charge=powerDesign.getPowerNum()*500+powerDesign.getPowerLineNum()*30;
+            businessCost.setCharge(charge);
+            businessCost.setCostItem("电源数量："+powerDesign.getPowerNum()+" 电线数量："+powerDesign.getPowerLineNum());
+            costDao.addBusinessCost(businessCost);
+
+            //更改流程记录单中应收业务费单号
+            String hql="from ProcessRecord u where u.newId='"+powerDesignReply.getNewId()+"'";
+            List<ProcessRecord> processRecords=processRecordDao.QueryProcess(hql);
+            ProcessRecord processRecord=processRecords.get(0);
+            processRecord.setReplyId(powerDesignReply.getReplyId());
+            processRecordDao.editProcess(processRecord);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return "PowerDesignReply";
+    }
+
 }
