@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Dream on 2016/6/3.
+ * Created by xfcq on 2016/6/3.
  */
 @Entity
 public class Employee {
@@ -15,6 +15,7 @@ public class Employee {
     private String empDep;
     private String empJob;
     private String empTel;
+    private String empPwd;
 
     @Id
     @Column(name = "empId", nullable = false)
@@ -66,6 +67,16 @@ public class Employee {
         this.empTel = empTel;
     }
 
+    @Basic
+    @Column(name = "empPwd", nullable = true, length = 255)
+    public String getEmpPwd() {
+        return empPwd;
+    }
+
+    public void setEmpPwd(String empPwd) {
+        this.empPwd = empPwd;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,6 +89,7 @@ public class Employee {
         if (empDep != null ? !empDep.equals(employee.empDep) : employee.empDep != null) return false;
         if (empJob != null ? !empJob.equals(employee.empJob) : employee.empJob != null) return false;
         if (empTel != null ? !empTel.equals(employee.empTel) : employee.empTel != null) return false;
+        if (empPwd != null ? !empPwd.equals(employee.empPwd) : employee.empPwd != null) return false;
 
         return true;
     }
@@ -89,6 +101,7 @@ public class Employee {
         result = 31 * result + (empDep != null ? empDep.hashCode() : 0);
         result = 31 * result + (empJob != null ? empJob.hashCode() : 0);
         result = 31 * result + (empTel != null ? empTel.hashCode() : 0);
+        result = 31 * result + (empPwd != null ? empPwd.hashCode() : 0);
         return result;
     }
 }

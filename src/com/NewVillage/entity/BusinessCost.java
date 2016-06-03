@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by Dream on 2016/6/3.
+ * Created by xfcq on 2016/6/3.
  */
 @Entity
 public class BusinessCost {
@@ -18,6 +18,7 @@ public class BusinessCost {
     private Timestamp createTime;
     private Integer newId;
     private String status;
+    private Integer payPrecent;
 
     @Id
     @Column(name = "costId", nullable = false)
@@ -89,6 +90,16 @@ public class BusinessCost {
         this.status = status;
     }
 
+    @Basic
+    @Column(name = "payPrecent", nullable = true)
+    public Integer getPayPrecent() {
+        return payPrecent;
+    }
+
+    public void setPayPrecent(Integer payPrecent) {
+        this.payPrecent = payPrecent;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,6 +114,7 @@ public class BusinessCost {
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
         if (newId != null ? !newId.equals(that.newId) : that.newId != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (payPrecent != null ? !payPrecent.equals(that.payPrecent) : that.payPrecent != null) return false;
 
         return true;
     }
@@ -116,6 +128,7 @@ public class BusinessCost {
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         result = 31 * result + (newId != null ? newId.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (payPrecent != null ? payPrecent.hashCode() : 0);
         return result;
     }
 }
