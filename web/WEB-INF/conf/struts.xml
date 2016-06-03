@@ -46,7 +46,7 @@
     <package name="Finance" extends="struts-default">
         <!--action method-->
         <action name="Finance_*" class="FinanceAction" method="{1}">
-            <result name="success"></result>
+            <result name="success"> </result>
             <result name="input"></result>
         </action>
         <!--JSP directing-->
