@@ -3,7 +3,7 @@ package com.NewVillage.daoimpl;
 import com.NewVillage.dao.NewVillageDao;
 import com.NewVillage.entity.NewVillage;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
-
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -26,6 +26,16 @@ public class NewVillageDaoImpl extends HibernateDaoSupport implements NewVillage
     public NewVillage queryNewVillageByID(int newid) {
         NewVillage newVillage = (NewVillage) (getHibernateTemplate().get(NewVillage.class,newid));
         return newVillage;
+    }
+
+    @Override
+    public NewVillage queryNewVillageByUserTime(String userpid, int empid, Timestamp time) {
+        List a=(List<NewVillage>)this.getHibernateTemplate().find("from NewVillage n where n.newVilPerId=? and n.createTime=? and n.userPid =?",new Object[]{empid,time,userpid});
+        if(a.size()>0){
+            return (NewVillage) a.get(0);
+        }else {
+            return null;
+        }
     }
 
     @Override

@@ -76,10 +76,16 @@ public class CounterAction extends ActionSupport implements SessionAware {
         newVillageUp.setNewVilPerId(emp.getEmpId());
         newVillageUp.setStatus("0");
         if(newVillageDao.addNewVillage(newVillageUp)){
-//            NewVillage newVillageGet = newVillageDao.
+            NewVillage newVillageGet = newVillageDao.queryNewVillageByUserTime(this.newVillage.getUserPid(),emp.getEmpId(),date);
             JobInfo jobInfo = jobInfoDao.queryEmpByFreeDep("勘查员");
             InvestigationWork investigationWork = new InvestigationWork();
-//            investigationWork.setNewId();
+            investigationWork.setNewId(newVillageGet.getNewId());
+            investigationWork.setInvesPerId(jobInfo.getEmpId());
+            Timestamp date1 = new Timestamp(System.currentTimeMillis());
+            Timestamp date2 = new Timestamp(System.currentTimeMillis()+86400000);
+            investigationWork.setInvesTime(date2);
+            investigationWork.setCreateTime(date1);
+            investigationWork.setStatus("0");
             return "addNewVillageSuccess";
         }else{
             return "addNewVillageError";

@@ -2,6 +2,7 @@ package com.NewVillage.dao;
 
 import com.NewVillage.entity.NewVillage;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -10,6 +11,7 @@ import java.util.List;
 public interface NewVillageDao {
     public boolean addNewVillage(NewVillage newVillage);
     public NewVillage queryNewVillageByID(int newid);
+    public NewVillage queryNewVillageByUserTime(String userpid,int empid,Timestamp time);
     public boolean deleteNewVillage(NewVillage newVillage);
     public boolean updateNewVillage(NewVillage newVillage);
     public List<NewVillage> allNewVillagesByEmpID(int empid);
