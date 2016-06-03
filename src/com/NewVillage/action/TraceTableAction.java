@@ -1,6 +1,6 @@
 package com.NewVillage.action;
 
-import com.NewVillage.dao.TraceDao;
+import com.NewVillage.dao.TraceTableDao;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.Map;
@@ -11,7 +11,7 @@ import java.util.Map;
 //1.11供电工程进度跟踪
 public class TraceTableAction extends ActionSupport {
     private Map session;
-    private TraceDao traceDao;
+    private TraceTableDao traceDao;
 
     public Map getSession() {
         return session;
@@ -21,11 +21,11 @@ public class TraceTableAction extends ActionSupport {
         this.session = session;
     }
 
-    public TraceDao getTraceDao() {
+    public TraceTableDao getTraceDao() {
         return traceDao;
     }
 
-    public void setTraceDao(TraceDao traceDao) {
+    public void setTraceDao(TraceTableDao traceDao) {
         this.traceDao = traceDao;
     }
 

@@ -9,6 +9,6 @@ import java.util.List;
  */
 
 //进度跟踪Dao
-public interface TraceDao {
+public interface TraceTableDao {
     public List<TraceTable> QueryAllScheduleCondition();
 }

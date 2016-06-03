@@ -21,18 +21,18 @@
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
+    <bean id="FinanceAction" class="com.NewVillage.action.FinanceAction">
+        <property name="costdao" ref="costdao"></property>
+        <property name="receiptdao" ref="receiptdao"></property>
+    </bean>
 
+
+    <!--张松顺-->
     <bean id="traceTableAction" class="com.NewVillage.action.TraceTableAction">
         <property name="traceDao" ref="traceDao"></property>
     </bean>
     <bean id="traceDao" class="com.NewVillage.daoimpl.TraceDaoImp">
         <property name="sessionFactory" ref="sessionFactory"></property>
-    </bean>
-
-
-    <bean id="FinanceAction" class="com.NewVillage.action.FinanceAction">
-        <property name="costdao" ref="costdao"></property>
-        <property name="receiptdao" ref="receiptdao"></property>
     </bean>
 
 
