@@ -1,4 +1,3 @@
-package com.JavaEE.util;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
