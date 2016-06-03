@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * Created by 珏 on 2016/6/2.
  */
-public class CostDaoImp extends HibernateDaoSupport implements CostDao {
+public class CostDaoImpl extends HibernateDaoSupport implements CostDao {
     @Override
     public List<BusinessCost> QueryAllCost() {
         List<BusinessCost> list=null;
