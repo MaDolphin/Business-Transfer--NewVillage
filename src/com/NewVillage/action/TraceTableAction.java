@@ -3,6 +3,7 @@ package com.NewVillage.action;
 import com.NewVillage.dao.TraceTableDao;
 import com.NewVillage.entity.TraceTable;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.Map;
  * Created by Dream on 2016/6/3.
  */
 //1.11供电工程进度跟踪
-public class TraceTableAction extends ActionSupport {
+public class TraceTableAction extends ActionSupport implements SessionAware{
     private Map session;
     private TraceTableDao traceTableDao;
     private int traceId;

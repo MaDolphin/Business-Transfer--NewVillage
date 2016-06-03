@@ -8,13 +8,14 @@ import com.NewVillage.dao.ReceiptDao;
 import com.NewVillage.entity.*;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
+import org.apache.struts2.interceptor.SessionAware;
 
 /**
  * Created by 珏 on 2016/6/2.
  *
  * 5.财务 1.9确定费用 1.10业务收费
  */
-public class FinanceAction extends ActionSupport{
+public class FinanceAction extends ActionSupport implements SessionAware{
     private Map session;
     private ReceiptDao receiptdao;
     private CostDao costdao;

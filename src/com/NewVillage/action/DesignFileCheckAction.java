@@ -3,6 +3,7 @@ package com.NewVillage.action;
 import com.NewVillage.dao.DesignFileCheckDao;
 import com.NewVillage.entity.DesignFileCheck;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.Map;
 /**
  * Created by Dream on 2016/6/3.
  */
-public class DesignFileCheckAction extends ActionSupport {
+public class DesignFileCheckAction extends ActionSupport implements SessionAware {
     private Map session;
     private DesignFileCheckDao designFileCheckDao;
     private int designFileId;
