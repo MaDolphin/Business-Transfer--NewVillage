@@ -39,38 +39,6 @@
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="configLocation" value="/WEB-INF/conf/hibernate.cfg.xml"></property>
-        <property name="annotatedClasses">
-            <list>
-                <value>com.NewVillage.entity.BusinessCostEntity</value>
-                <value>com.NewVillage.entity.CheckEntity</value>
-                <value>com.NewVillage.entity.CheckInfoEntity</value>
-                <value>com.NewVillage.entity.DesignFileCheckEntity</value>
-                <value>com.NewVillage.entity.EmployeeEntity</value>
-                <value>com.NewVillage.entity.ExaminationEntity</value>
-                <value>com.NewVillage.entity.InspectionEntity</value>
-                <value>com.NewVillage.entity.InvestigationSiteEntity</value>
-                <value>com.NewVillage.entity.InvestigationWorkEntity</value>
-                <value>com.NewVillage.entity.JobInfoEntity</value>
-                <value>com.NewVillage.entity.LotEntity</value>
-                <value>com.NewVillage.entity.NewVillageEntity</value>
-                <value>com.NewVillage.entity.PayRecordEntity</value>
-                <value>com.NewVillage.entity.PowerDesignEntity</value>
-                <value>com.NewVillage.entity.PowerDesignReplyEntity</value>
-                <value>com.NewVillage.entity.RefileEntity</value>
-                <value>com.NewVillage.entity.TraceTableEntity</value>
-                <value>com.NewVillage.entity.UserEntity</value>
-                <value>com.NewVillage.entity.MessageEntity</value>
-                <value>com.NewVillage.entity.ProcessRecordEntity</value>
-                <value>com.NewVillage.entity.Message</value>
-                <value>com.NewVillage.entity.ProcessRecord</value>
-            </list>
-        </property>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.connection.url">jdbc:mysql://121.42.197.31:3306/newvil</prop>
-                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
-            </props>
-        </property>
     </bean>
 
     <!-- 配置声明式事务管理（采用注解的方式） -->
