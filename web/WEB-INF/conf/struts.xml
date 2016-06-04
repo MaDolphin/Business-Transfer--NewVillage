@@ -29,9 +29,9 @@
     <package name="Counter" extends="struts-default">
         <!--action method-->
         <action name="Counter_*" class="CounterAction" method="{1}">
-            <result name="addUserSuccess" type="redirectAction">CounterShowNewVillage</result>
+            <result name="addUserSuccess"></result>
             <result name="addUserError" ></result>
-            <result name="addNewVillageSuccess"></result>
+            <result name="addNewVillageSuccess" type="redirectAction">CounterShowNewVillage</result>
             <result name="addNewVillageError"></result>
         </action>
         <!--JSP directing-->

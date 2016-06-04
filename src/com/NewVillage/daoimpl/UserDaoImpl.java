@@ -2,6 +2,7 @@ package com.NewVillage.daoimpl;
 
 import com.NewVillage.dao.UserDao;
 import com.NewVillage.entity.User;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import java.util.List;
@@ -25,6 +26,16 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     public User queryUserByID(int uid) {
         User user = (User) (getHibernateTemplate().get(User.class,uid));
         return user;
+    }
+
+    @Override
+    public User queryUserByuserPid(String pid) {
+        List a=(List<User>)this.getHibernateTemplate().find("from User u where u.userPid=?",new Object[]{pid});
+        if(a.size()>0){
+            return (User) a.get(0);
+        }else {
+            return null;
+        }
     }
 
     @Override
@@ -57,6 +68,6 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 
     @Override
     public List<User> queryUserByPid(String pid) {
-        return (List<User>)this.getHibernateTemplate().find("from User u where u.userPid=?");
+        return (List<User>)this.getHibernateTemplate().find("from User u where u.userPid=?",new Object[]{pid});
     }
 }

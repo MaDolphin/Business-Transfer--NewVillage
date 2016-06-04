@@ -44,7 +44,7 @@ public class ProcessRecordDaoImpl extends HibernateDaoSupport implements Process
     @Override
     public void editProcess(ProcessRecord processRecord) {
         try{
-            this.getHibernateTemplate().saveOrUpdate(processRecord);
+            this.getHibernateTemplate().update(processRecord);
         }catch (Exception ex){
             ex.printStackTrace();
         }

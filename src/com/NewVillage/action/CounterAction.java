@@ -102,32 +102,67 @@ public class CounterAction extends ActionSupport implements SessionAware {
         }
     }
     public String AddNewVillage(){
+
+        //add NewVillage
         Timestamp date = new Timestamp(System.currentTimeMillis());
         Employee emp = (Employee) session.get("employee");
         NewVillage newVillageUp = this.newVillage;
         newVillageUp.setCreateTime(date);
         newVillageUp.setNewVilPerId(emp.getEmpId());
         newVillageUp.setStatus("0");
+
+        //add user
+        if(userDao.queryUserByuserPid(newVillage.getUserPid()) == null){
+            User userUp = new User();
+            userUp.setUserName(newVillage.getUserName());
+            userUp.setUserPtype(newVillage.getUserPtype());
+            userUp.setUserPid(newVillage.getUserPid());
+            userUp.setUserTel(newVillage.getUserTel());
+            userUp.setUserPwd("1234");
+            userUp.setUserTicket(0.0);
+            userUp.setUserType(0);
+            userUp.setUserLevel(0);
+            userDao.addUser(userUp);
+        }
+
         if(newVillageDao.addNewVillage(newVillageUp)){
+            //add work to jobinfo
+            JobInfo job1 = jobInfoDao.queryJobInfosByEmpID(emp.getEmpId());
+            job1.setJobNum(job1.getJobNum()+1);
+            jobInfoDao.updateJobInfo(job1);
+
+            //find NewVillage id
             NewVillage newVillageGet = newVillageDao.queryNewVillageByUserTime(this.newVillage.getUserPid(),emp.getEmpId(),date);
+
+            //add NewVillage id to ProcessRecord
             ProcessRecord processRecord = new ProcessRecord();
             processRecord.setNewId(newVillageGet.getNewId());
             processRecordDao.addProcess(processRecord);
-            JobInfo jobInfo = jobInfoDao.queryEmpByFreeDep("勘查员");
+
+            //add InvestigationWork
+            JobInfo job2 = jobInfoDao.queryEmpByFreeDep("勘查员");
             InvestigationWork investigationWork = new InvestigationWork();
             investigationWork.setNewId(newVillageGet.getNewId());
-            investigationWork.setInvesPerId(jobInfo.getEmpId());
+            investigationWork.setInvesPerId(job2.getEmpId());
             Timestamp date1 = new Timestamp(System.currentTimeMillis());
             Timestamp date2 = new Timestamp(System.currentTimeMillis()+86400000);
             investigationWork.setInvesTime(date2);
             investigationWork.setCreateTime(date1);
             investigationWork.setStatus("0");
+
+            //add work to jobinfo
+            job2.setJobNum(job2.getJobNum()+1);
+            jobInfoDao.updateJobInfo(job2);
+
             if(investigationWorkDao.addInvestigationWork(investigationWork)){
+                //find InvestigationWork id
                 InvestigationWork investigationWork1 = investigationWorkDao.queryInvestigationWorkByNewID(newVillageGet.getNewId());
+                //add InvestigationWork id to ProcessRecord
                 ProcessRecord processRecord1 = processRecordDao.queryProcessRecordByNewVillage(newVillageGet.getNewId());
                 processRecord1.setInvesId(investigationWork1.getInvesId());
                 processRecord1.setStatus("勘查派工");
                 processRecordDao.editProcess(processRecord1);
+
                 return "addNewVillageSuccess";
             }else {
                 return "addNewVillageError";
