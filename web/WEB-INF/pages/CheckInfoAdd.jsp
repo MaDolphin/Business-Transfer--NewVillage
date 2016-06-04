@@ -15,9 +15,9 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
@@ -28,7 +28,7 @@
     <link href="css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" href="images/favicon.ico"/>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -68,25 +68,28 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="portlet_tab1" style="margin-left: -50px">
                                     <!-- BEGIN FORM-->
-                                    <form action="CheckInfo_add.action" target="rightFrame" method="post" class="form-horizontal" >
+                                    <%--<form action="CheckInfo_add.action" target="rightFrame" method="post"--%>
+                                    <form action="" target="rightFrame" method="post"
+                                          class="form-horizontal" id="form">
 
                                         <div class="row-fluid">
                                             <div class="span6 ">
-                                                <div class="control-group " >
+                                                <div class="control-group ">
                                                     <label class="control-label">验收次数</label>
                                                     <div class="controls">
-                                                        <input type="text" name="checkInfo.checkNum" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" name="checkInfo.checkNum" placeholder=""
+                                                               class="m-wrap large" style="width: 320px;height: 34px"/>
                                                     </div>
                                                 </div>
                                             </div>
-
 
 
                                             <div class="span6 ">
                                                 <div class="control-group">
                                                     <label class="control-label">验收时间</label>
                                                     <div class="controls">
-                                                        <input type="date" name="checkInfo.checkInfoTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="date" name="checkInfo.checkInfoTime" placeholder=""
+                                                               class="m-wrap large" style="width: 320px;height: 34px"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,12 +98,12 @@
                                         <div class="row-fluid">
 
                                             <div class="span6 ">
-                                                <div class="control-group " >
+                                                <div class="control-group ">
                                                     <label class="control-label">是否合格 </label>
                                                     <div class="controls">
                                                         <select name="checkInfo.qualified" id="qualified">
-                                                            <option value="合格" selected>合格</option>
-                                                            <option value="不合格" >不合格</option>
+                                                            <option value="1" selected>合格</option>
+                                                            <option value="2">不合格</option>
 
                                                         </select>
                                                     </div>
@@ -108,26 +111,24 @@
                                                 </div>
                                             </div>
                                             <%--<div class="span6 ">--%>
-                                                <%--<div class="control-group " >--%>
-                                                    <%--<label class="control-label">状态 </label>--%>
-                                                    <%--<div class="controls">--%>
-                                                        <%--<select name="checkInfo.status" id="status">--%>
-                                                            <%--<option value="作废" >作废</option>--%>
-                                                            <%--<option value="审批" >审批</option>--%>
-                                                            <%--<option value="未审批" selected>未审批</option>--%>
+                                            <%--<div class="control-group " >--%>
+                                            <%--<label class="control-label">状态 </label>--%>
+                                            <%--<div class="controls">--%>
+                                            <%--<select name="checkInfo.status" id="status">--%>
+                                            <%--<option value="作废" >作废</option>--%>
+                                            <%--<option value="审批" >审批</option>--%>
+                                            <%--<option value="未审批" selected>未审批</option>--%>
 
-                                                        <%--</select>--%>
-                                                    <%--</div>--%>
+                                            <%--</select>--%>
+                                            <%--</div>--%>
 
-                                                <%--</div>--%>
+                                            <%--</div>--%>
                                             <%--</div>--%>
                                         </div>
 
 
-
-
                                         <div class="form-actions">
-                                            <button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>
+                                            <button type="submit" class="btn blue" id="btn"><i class="icon-ok"></i> Save</button>
                                             <button type="reset" class="btn">Cancel</button>
                                         </div>
                                     </form>
@@ -161,17 +162,53 @@
 <script src="js/jquery.slimscroll.min.js" type="text/javascript"></script>
 <script src="js/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="js/jquery.uniform.min.js" type="text/javascript" ></script>
+<script src="js/jquery.uniform.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <script src="media/js/app.js"></script>
 <script>
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function () {
         // initiate layout and plugins
         App.init();
     });
 </script>
 <!-- END JAVASCRIPTS -->
-<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
+<script type="text/javascript">  var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37564768-1']);
+_gaq.push(['_setDomainName', 'keenthemes.com']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_trackPageview']);
+(function () {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();</script>
+</body>
 <!-- END BODY -->
+<script>
+    $('#btn').click(function () {
+
+        var $qualified = $('#qualified');
+
+        if ($qualified.val() == '2') {
+           alert("竣工验收不合格，将再次进行竣工报验");
+        }
+            $.ajax({
+                async: false,
+                url: "CheckInfo_add.action", //处理测试页面,注意返回内容，成功返回OK
+                type: "post",
+                data:$("#form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    if (data.result=="true"){
+                        window.location.reload(true);
+                    }
+                    }
+            });
+        return false;
+    });
+</script>
 </html>
 

@@ -165,15 +165,20 @@
     </package>
 
     <!-- 9.验收小组 1.15竣工验收 -->
-    <package name="AcceptGroup" extends="struts-default">
+    <!--<package name="AcceptGroup" extends="struts-default">-->
+    <package name="AcceptGroup" extends="json-default">
         <!--action method-->
         <action name="CheckInfo">
             <result >WEB-INF/pages/CheckInfoAdd.jsp</result>
         </action>
 
+        <!--<action name="CheckInfo_*" class="com.NewVillage.action.CheckInfoAction" method="{1}">-->
+            <!--<result name="success">WEB-INF/pages/CheckInfoAdd.jsp</result>-->
+            <!--<result name="input">WEB-INF/pages/CheckInfoAdd.jsp</result>-->
+        <!--</action> -->
+
         <action name="CheckInfo_*" class="com.NewVillage.action.CheckInfoAction" method="{1}">
-            <result name="success">WEB-INF/pages/CheckInfoAdd.jsp</result>
-            <result name="input">WEB-INF/pages/CheckInfoAdd.jsp</result>
+            <result type="json"></result>
         </action>
         <!--JSP directing-->
     </package>

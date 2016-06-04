@@ -1,4 +1,4 @@
-﻿1.NewVillage 小区新增申请信息
+﻿﻿1.NewVillage 小区新增申请信息
   -1：注销 0：创建 1：勘查派工中 2：现场勘查完毕
 
 2.InvestigationWork 勘查派工信息

@@ -1,6 +1,7 @@
 package com.NewVillage.action;
 
 import com.NewVillage.dao.CheckDao;
+import com.NewVillage.entity.DesignFileCheck;
 import com.NewVillage.entity.Employee;
 import com.NewVillage.entity.Inspect;
 import com.opensymphony.xwork2.ActionContext;
@@ -9,6 +10,8 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -72,14 +75,17 @@ public class CheckAction extends ActionSupport{
     ActionContext actionContext= ActionContext.getContext();
     Map session=actionContext.getSession();
     public String add() throws Exception{
+//        DesignFileCheck designFileCheck=new DesignFileCheck();
+//        List<DesignFileCheck> list=new ArrayList();
+//        list=checkDao.searchObject("2");
+//        designFileCheck=list.get(0);
+//        inspect.setNewId(designFileCheck.getNewId());
+
         Employee employee= (Employee) session.get("employee");
+
         inspect.setCheckPerId(String.valueOf(employee.getEmpId()));
         inspect.setCreateTime(timestamp);
-//        inspect.setCheckTime(checkTime);
-//        inspect.setCheckContent(checkContent);
-//        inspect.setCheckNum(Integer.valueOf(checkNum));
-//        inspect.setChenckResult(checkResult);
-        inspect.setNewId(2);
+        inspect.setNewId(1);
         inspect.setStatus("0");
         checkDao.addCheck(inspect);
         return "success";

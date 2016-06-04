@@ -2,6 +2,7 @@ package com.NewVillage.action;
 
 import com.NewVillage.dao.CheckDao;
 import com.NewVillage.dao.InspectionDao;
+import com.NewVillage.entity.DesignFileCheck;
 import com.NewVillage.entity.Employee;
 import com.NewVillage.entity.Inspect;
 import com.NewVillage.entity.Inspection;
@@ -9,6 +10,8 @@ import com.opensymphony.xwork2.ActionContext;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -58,17 +61,25 @@ public class InspectionAction {
     Map session=actionContext.getSession();
 
     public String add() throws Exception{
+//        DesignFileCheck designFileCheck=new DesignFileCheck();
+//        List<DesignFileCheck> list=new ArrayList();
+//
+//        list=checkDao.searchObject("2");
+//        designFileCheck=list.get(0);
+//        inspection.setNewId(designFileCheck.getNewId());
+//
         Employee employee= (Employee) session.get("employee");
-        inspection.setNewId(1);
         inspection.setInsPerId(employee.getEmpId());
-//        inspection.setAccTime(accTime);
-//        inspection.setInsTime(insTime);
+        inspection.setNewId(1);
+
         inspection.setStatus("0");
         inspection.setCreateTime(timestamp);
         inspectionDao.addInspect(inspection);
 
         Inspect inspect=new Inspect();
-        inspect.setStatus("1");
+        inspect=checkDao.searchInspect(1).get(0);
+        inspect.setStatus("0");
+        inspect.setCheckTime(inspect.getCheckTime());
         checkDao.updateObject(inspect);
 
         return "success";
