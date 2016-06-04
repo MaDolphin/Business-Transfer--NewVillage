@@ -78,11 +78,13 @@
         <action name="PlanGroup_*" class="PlanGroupAction" method="{1}">
             <result name="addPowerDesignSuccess" type="redirectAction">PlanGroupShowPowerDesign</result>
             <result name="addPowerDesignError" type="redirectAction">PlanGroupAddPowerDesign</result>
-            <result name="PowerDesignDetail">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
             <result name="acceptMessageSuccess" type="redirectAction">PlanGroupShowMessage</result>
-
         </action>
         <!--JSP directing-->
+        <action name="PlanGroupPowerDesignDetail" class="PlanGroupAction" method="InitPowerDesignDetail">
+            <result name="success">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
+        </action>
+
         <action name="PlanGroupShowMessage" class="PlanGroupAction" method="InitPowerDesignShow">
             <result name="success">/WEB-INF/pages/PlanGroup_ShowMessage.jsp</result>
         </action>

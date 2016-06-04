@@ -33,7 +33,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        供电方案信息列表：
+                        消息列表：
                     </h3>
                     <ul class="breadcrumb">
                         <li>

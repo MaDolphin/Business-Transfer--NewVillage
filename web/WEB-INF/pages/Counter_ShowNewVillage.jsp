@@ -76,7 +76,7 @@
                                     <td class="hidden-480">${cost.charge}</td>
                                     <td class="hidden-480">${cost.refund}</td>
                                     <c:if test="${cost.status == 0}">
-                                        <td><span class="label label-warning">为检验</span></td>
+                                        <td><span class="label label-warning">未检验</span></td>
                                     </c:if>
                                     <c:if test="${cost.status == 1}">
                                         <td><span class="label label-info">检验完成</span></td>

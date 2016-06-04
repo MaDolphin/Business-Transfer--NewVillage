@@ -25,6 +25,15 @@ public class PlanGroupAction extends ActionSupport implements SessionAware {
     private int messId;
     private Integer empId;
     private Integer newId;
+    private Integer powerId;
+
+    public Integer getPowerId() {
+        return powerId;
+    }
+
+    public void setPowerId(Integer powerId) {
+        this.powerId = powerId;
+    }
 
     public int getMessId() {
         return messId;
@@ -82,14 +91,10 @@ public class PlanGroupAction extends ActionSupport implements SessionAware {
         this.messageDao = messageDao;
     }
 
-    public String PowerDesignDetail(){
-        try{
-            PowerDesign powerDesigns= powerDesignDao.queryPowerDesignByID(powerDesign.getPowerId());
-            session.put("PowerDesignInfo",powerDesigns);
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
-        return "PowerDesignDetail";
+    public String InitPowerDesignDetail(){
+        PowerDesign powerDesigns= powerDesignDao.queryPowerDesignByID(powerId);
+        session.put("PowerDesignInfo",powerDesigns);
+        return SUCCESS;
     }
 
     public String InitPowerDesignShow(){

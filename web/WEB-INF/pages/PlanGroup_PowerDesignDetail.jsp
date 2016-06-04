@@ -29,7 +29,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        制定电源方案：
+                        电源方案详情：
                     </h3>
                     <ul class="breadcrumb">
                         <li>
@@ -38,7 +38,7 @@
                             <span class="icon-angle-right"></span>
                         </li>
                         <li>
-                            <a href="#">制定电源方案</a>
+                            <a href="#">电源方案详情</a>
                         </li>
                     </ul>
                 </div>
@@ -154,10 +154,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                            <c:if test="${Employee.empDep}=='审批员'">
+                                            <c:if test="${employee.empDep == '审批员'}">
                                                 <a href="Approval_Examin.jsp">审批</a>
                                             </c:if>
-                                            <c:if test="${Employee.empDep}=='业务员'">
+                                            <c:if test="${employee.empDep =='业务员'}">
                                                 <a href="Counter_PowerDesignReply.jsp">回复填写</a>
                                             </c:if>
 
