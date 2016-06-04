@@ -382,7 +382,8 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         try{
             Employee employee=(Employee)session.get("Employee");
             PowerDesign powerDesign=(PowerDesign)session.get("PowerDesignInfo");
-            examination.setExPerId(String.valueOf(employee.getEmpId()));
+            examination.setExPerId("7");
+//            examination.setExPerId(String.valueOf(employee.getEmpId()));
             examination.setCreateTime(time);
             examinationDao.addExamination(examination);
             List<Examination> examinations=examinationDao.queryExaminationByNewID(examination.getNewId());

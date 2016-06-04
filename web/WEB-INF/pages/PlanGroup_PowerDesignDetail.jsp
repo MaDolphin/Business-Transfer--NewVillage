@@ -68,7 +68,7 @@
                                                 <div class="control-group ">
                                                     <label class="control-label">新装单号</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="PowerDesign.newId" value="${PowerDesignInfo.newId}" readonly></textarea>
+                                                        <input class="large m-wrap" name="PowerDesign.newId" value="${PowerDesignInfo.newId}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -154,17 +154,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                            <c:if test="${employee.empDep == '审批员'}">
-                                                <a href="Approval_Examin.jsp">审批</a>
-                                            </c:if>
-                                            <c:if test="${employee.empDep =='业务员'}">
-                                                <a href="Counter_PowerDesignReply.jsp">回复填写</a>
-                                            </c:if>
 
-                                       <%-- <div class="form-actions">
-                                            <button type="submit" class="btn blue"><i class="icon-ok"></i>保存</button>
-                                            <button type="reset" class="btn">重置</button>
-                                        </div>--%>
+                                       <div class="form-actions">
+                                            <c:if test="${sessionScope.employee.empDep == '审批员'}">
+                                                <a href="ApprovalExamin.action" class="btn blue"><i class="icon-ok"></i>审批</a>
+                                            </c:if>
+                                            <c:if test="${sessionScope.employee.empDep =='业务员'}">
+                                                <a href="CounterPowerDesignReply.action" class="btn">回复填写</a>
+                                            </c:if>
+                                        </div>
                                     </form>
                                     <!-- END FORM-->
                                 </div>

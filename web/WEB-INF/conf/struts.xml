@@ -208,6 +208,12 @@
             <result type="json"></result>
         </action>
         <!--JSP directing-->
+        <action name="ApprovalExamin">
+            <result>WEB-INF/pages/Approval_Examin.jsp</result>
+        </action>
+        <action name="CounterPowerDesignReply">
+            <result>WEB-INF/pages/Counter_PowerDesignReply.jsp</result>
+        </action>
     </package>
 
     <!-- 10.归档员 1.16信息归档 1.17归档 -->
