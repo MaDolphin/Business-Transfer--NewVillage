@@ -1,15 +1,14 @@
 package com.NewVillage.action;
 
+import com.NewVillage.dao.InvestigationSiteDao;
 import com.NewVillage.dao.MessageDao;
 import com.NewVillage.dao.PowerDesignDao;
 import com.NewVillage.dao.ProcessRecordDao;
-import com.NewVillage.entity.Employee;
-import com.NewVillage.entity.Message;
-import com.NewVillage.entity.PowerDesign;
-import com.NewVillage.entity.ProcessRecord;
+import com.NewVillage.entity.*;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +20,7 @@ public class PlanGroupAction extends ActionSupport implements SessionAware {
     private ProcessRecordDao processRecordDao;
     private PowerDesignDao powerDesignDao;
     private PowerDesign powerDesign;
+    private InvestigationSiteDao investigationSiteDao;
     private Map session;
     private int messId;
     private Integer empId;
@@ -56,6 +56,10 @@ public class PlanGroupAction extends ActionSupport implements SessionAware {
 
     public void setSession(Map session) {
         this.session = session;
+    }
+
+    public void setInvestigationSiteDao(InvestigationSiteDao investigationSiteDao) {
+        this.investigationSiteDao = investigationSiteDao;
     }
 
     public void setPowerDesignDao(PowerDesignDao powerDesignDao) {
@@ -115,10 +119,18 @@ public class PlanGroupAction extends ActionSupport implements SessionAware {
         power1.setPowerLineNum(this.powerDesign.getPowerLineNum());
         power1.setPowerStation(this.powerDesign.getPowerStation());
         if(powerDesignDao.updatePowerDesign(power1)){
+            //edit PowerDesign id to ProcessRecord
             ProcessRecord processRecord = processRecordDao.queryProcessRecordByNewVillage(power1.getNewId());
             processRecord.setStatus("制定电源方案");
             processRecord.setPowerId(power1.getPowerId());
             processRecordDao.editProcess(processRecord);
+
+            //add PowerDesign id to InvestigationSite
+            PowerDesign powerDesign1 = powerDesignDao.queryPowerDesignByNewID(power1.getNewId());
+            InvestigationSite investigationSite2 = investigationSiteDao.queryInvestigationSiteByNewIDStatus0(power1.getNewId());
+            investigationSite2.setPowerId(powerDesign1.getPowerId());
+            investigationSiteDao.updateInvestigationSite(investigationSite2);
+
             return "addPowerDesignSuccess";
         }else {
             return "addPowerDesignError";
@@ -136,6 +148,21 @@ public class PlanGroupAction extends ActionSupport implements SessionAware {
         Message message = messageDao.queryMessageByID(messId);
         message.setStatus("1");
         messageDao.updateMessage(message);
+
+        //edit PowerDesign status to -1
+        PowerDesign power1 = powerDesignDao.allPowerDesignsByNewIDStatus1(newId);
+        power1.setStatus("-1");
+        powerDesignDao.updatePowerDesign(power1);
+
+        //add PowerDesign
+        PowerDesign newPower = new PowerDesign();
+        newPower.setNewId(power1.getNewId());
+        Timestamp date = new Timestamp(System.currentTimeMillis());
+        newPower.setCreateTime(date);
+        newPower.setPowerDesignPerId(power1.getPowerDesignPerId());
+        newPower.setStatus("0");
+        powerDesignDao.addPowerDesign(newPower);
+
         return "acceptMessageSuccess";
     }
 

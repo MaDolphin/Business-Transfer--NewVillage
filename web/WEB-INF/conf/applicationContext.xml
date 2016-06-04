@@ -151,6 +151,7 @@
         <property name="powerDesignDao" ref="powerDesignDao"></property>
         <property name="processRecordDao" ref="ProcessRecordDao"></property>
         <property name="messageDao" ref="messageDao"></property>
+        <property name="investigationSiteDao" ref="investigationSiteDao"></property>
     </bean>
 
     <!--黄晓辉-->

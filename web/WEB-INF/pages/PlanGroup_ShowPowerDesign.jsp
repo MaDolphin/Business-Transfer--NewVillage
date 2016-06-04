@@ -86,7 +86,7 @@
                                     <td class="hidden-480">
 
 
-                                        <a href="PlanGroup_PowerDesignDetail.action?PowerDesign=${power}" target="rightFrame"
+                                        <a href="PlanGroup_PowerDesignDetail.action?powerDesign=${power}" target="rightFrame"
                                            class="btn mini blue"><i class="icon-share"></i> 详情</a>
 
                                     </td>
