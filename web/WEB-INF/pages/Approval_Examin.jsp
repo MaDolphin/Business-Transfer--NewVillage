@@ -60,12 +60,12 @@
                                                 <div class="control-group">
                                                     <label class="control-label">新装单号</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="examination.newId" value="${PowerDesignInfo.newId}" readonly></textarea>
+                                                        <input type="text" class="large m-wrap" name="examination.newId" value="${PowerDesignInfo.newId}" readonly class="m-wrap large" style="width: 320px;height: 34px"/>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row-fluid">
+                                        <div class="row-fluid">x
                                             <div class="span6 ">
                                                 <div class="control-group">
                                                     <label class="control-label">审批意见</label>
@@ -88,6 +88,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="form-actions">
                                             <button type="submit" class="btn blue"><i class="icon-ok"></i> 确认</button>
                                             <button type="button" class="btn">Cancel</button>

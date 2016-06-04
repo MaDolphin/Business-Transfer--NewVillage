@@ -7,5 +7,5 @@ import java.util.*;
  */
 public interface ExaminationDao {
     void addExamination(Examination examination);
-    List<Examination> queryExaminationByNewID(Integer newId);
+    List<Examination> queryExaminationByNewID(int newId);
 }

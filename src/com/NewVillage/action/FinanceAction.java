@@ -24,6 +24,7 @@ public class FinanceAction extends ActionSupport implements SessionAware{
     private MessageDao messageDao;
     private PayRecord payRecord;
     private BusinessCost businessCost;
+    private PowerDesign powerDesign;
     public void setSession(Map session) {
         this.session = session;
     }
@@ -62,6 +63,14 @@ public class FinanceAction extends ActionSupport implements SessionAware{
 
     public void setProcessRecordDao(ProcessRecordDao processRecordDao) {
         this.processRecordDao = processRecordDao;
+    }
+
+    public PowerDesign getPowerDesign() {
+        return powerDesign;
+    }
+
+    public void setPowerDesign(PowerDesign powerDesign) {
+        this.powerDesign = powerDesign;
     }
 
     public String QueryCost(){
@@ -132,6 +141,11 @@ public class FinanceAction extends ActionSupport implements SessionAware{
         return flag;
     }
 
+    public String QueryPower(){
+        session.put("PowerDesignInfo",powerDesign);
+        return "PowerDesignDetail";
+    }
+
     @Override
     public String execute() {
         String flag=INPUT;
@@ -142,6 +156,7 @@ public class FinanceAction extends ActionSupport implements SessionAware{
                 Employee emp=(Employee) session.get("employee");
                 payRecord.setPayPerId(emp.getEmpId());
                 payRecord.setStatus("1");
+                payRecord.setPayTime(time);
                 receiptdao.addPayRecord(payRecord);
 
                 //更改流程记录单中实收业务费单号

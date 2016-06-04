@@ -18,7 +18,13 @@ public class ExaminationDaoImpl extends HibernateDaoSupport implements Examinati
     }
 
     @Override
-    public List<Examination> queryExaminationByNewID(Integer newId) {
-        return (List<Examination>)this.getHibernateTemplate().find("from Examination u where u.newId=? order by u.createTime desc",new Object[]{newId});
+    public List<Examination> queryExaminationByNewID(int newId) {
+        List<Examination>  list=null;
+        try{
+            list=(List<Examination>)this.getHibernateTemplate().find("from Examination u where u.newId=?",new Object[]{newId});
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return list;
     }
 }

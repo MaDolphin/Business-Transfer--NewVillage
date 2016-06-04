@@ -135,6 +135,22 @@
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-user"></i>
+                    <span class="title">费用处理</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="Finance_QueryCost.action" target="rightFrame">应收费用查询</a>
+                    </li>
+                    <%--<li>
+                        <a href="PlanGroupAddPowerDesign.action" target="rightFrame">制定电源方案</a>
+                    </li>--%>
+                </ul>
+            </li>
+            <li class="">
+                <a href="javascript:;">
+                    <i class="icon-user"></i>
+                    <span class="title">设计文件审核</span>
                     <span class="title">进程跟踪信息</span>
                     <span class="arrow "></span>
                 </a>

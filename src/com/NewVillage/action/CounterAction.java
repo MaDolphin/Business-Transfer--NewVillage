@@ -198,6 +198,9 @@ public class CounterAction extends ActionSupport implements SessionAware {
         try{
             powerDesignReply.setStatus("1");
             powerDesignReply.setCreateTime(date);
+            powerDesignReply.setCustReplyTime(date);
+            powerDesignReply.setReplyTime(date);
+            powerDesignReply.setSignoffTime(date);
             Employee emp=(Employee)session.get("employee");
             powerDesignReply.setReplyPerId(emp.getEmpId());
             powerDesignReplyDao.addPowerDesignReply(powerDesignReply);

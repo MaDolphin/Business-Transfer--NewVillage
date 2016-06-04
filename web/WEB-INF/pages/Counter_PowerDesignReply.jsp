@@ -54,13 +54,13 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="portlet_tab1" style="margin-left: -50px">
                                     <!-- BEGIN FORM-->
-                                    <form action="Counter_PowerDesignReply" target="rightFrame" class="form-horizontal" >
+                                    <form action="Counter_PowerDesignReply.action" target="rightFrame" class="form-horizontal" >
                                         <div class="row-fluid">
                                             <div class="span6 ">
-                                                <div class="control-group">
+                                                <div class="control-group " >
                                                     <label class="control-label">新装单号</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="powerDesignReply.newId" value="${PowerDesignInfo.newId}" readonly></textarea>
+                                                        <input type="text" name="powerDesignReply.newId" value="${PowerDesignInfo.newId}" readonly class="m-wrap large" style="width: 320px;height: 34px"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,7 +83,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">客户</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="powerDesignReply.userId"></textarea>
+                                                        <input type="text" class="large m-wrap" name="powerDesignReply.userId" class="m-wrap large" style="width: 320px;height: 34px"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -93,7 +93,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">回访时间</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="powerDesignReply.custReplyTime" ></textarea>
+                                                        <input type="text" class="large m-wrap" name="powerDesignReply.custReplyTime" class="m-wrap large" style="width: 320px;height: 34px"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,6 +108,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="form-actions">
                                             <button type="submit" class="btn blue"><i class="icon-ok"></i> 确认</button>
                                             <button type="button" class="btn">Cancel</button>

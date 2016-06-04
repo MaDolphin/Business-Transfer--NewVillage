@@ -70,13 +70,13 @@
                                         </div>
                                         <div class="row-fluid">
                                             <div class="span6 ">
-                                                <div class="control-group " >
-                                                    <label class="control-label">电源性质</label>
-                                                    <div class="controls">
-                                                        <input type="text" name="powerDesign.powerQuality" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
-                                                    </div>
+                                            <div class="control-group " >
+                                                <label class="control-label">电源性质</label>
+                                                <div class="controls">
+                                                    <input type="text" name="powerDesign.powerQuality" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                 </div>
                                             </div>
+                                        </div>
 
                                             <div class="span6 ">
                                                 <div class="control-group " >
