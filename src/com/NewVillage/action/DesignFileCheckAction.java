@@ -357,7 +357,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
                 //创建消息 通知方案小组 方案未通过
                 Message message=new Message();
                 if (examinations!=null)
-                    message.setRefund(examinations.get(0).getExId());
+                    message.setRefund(examinations.get(0).getExOpinion());
                 message.setStatus("0");
                 message.setEmpId(powerDesign.getPowerDesignPerId());
                 message.setNewId(examination.getNewId());
