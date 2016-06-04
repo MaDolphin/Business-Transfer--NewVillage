@@ -102,6 +102,21 @@
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-user"></i>
+                    <span class="title">设计文件审核</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="Approval_writeDesignFileCheckRecord.action" target="rightFrame">填写审核结果</a>
+                    </li>
+                    <li>
+                        <a href="check.action" target="rightFrame">填写检查表</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="javascript:;">
+                    <i class="icon-user"></i>
                     <span class="title">中间检查管理</span>
                     <span class="arrow "></span>
                 </a>
