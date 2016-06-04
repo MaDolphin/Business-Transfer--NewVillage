@@ -359,4 +359,16 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
             return INPUT;
         }
     }
+
+    public String QueryAllRecord(){
+        try{
+            List<PayRecord> payRecords=receiptDao.QueryAllRecord();
+            this.session.put("payRecords",payRecords);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return INPUT;
+        }
+        return result="queryAllRecordsSuccess";
+    }
+
 }

@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
@@ -21,6 +21,7 @@
     <link rel="shortcut icon" href="images/favicon.ico"/>
 </head>
 <!-- END HEAD -->
+
 <!-- BEGIN BODY -->
 <body style="background-color: white">
 <!-- BEGIN CONTAINER -->
@@ -33,7 +34,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        设计文件审核：
+                        工程进度跟踪：
                     </h3>
                     <ul class="breadcrumb">
                         <li>
@@ -42,60 +43,61 @@
                             <span class="icon-angle-right"></span>
                         </li>
                         <li>
-                            <a href="#">文件审核</a>
+                            <a href="#">工程进度</a>
                             <span class="icon-angle-right"></span>
                         </li>
-                        <li><a href="#">是否需要新建设计文件审核记录</a></li>
+                        <li><a href="#">查看业务收费情况</a></li>
                     </ul>
                 </div>
             </div>
             <!-- END PAGE HEADER-->
-            <!-- BEGIN PAGE CONTENT-->
-            <div class="row-fluid">
-                <div class="span12">
-                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                    <div class="portlet-body">
-                        <table class="table table-striped table-bordered table-hover" id="table_InvestigationWork">
-                            <thead>
-                            <tr>
-                                <th style="width:8px;"><input type="checkbox" class="group-checkable"
-                                                              data-set="#table_InvestigationWork .checkboxes"/></th>
-                                <th>收费单号</th>
-                                <th class="hidden-480">收费人</th>
-                                <th class="hidden-480">收费时间</th>
-                                <th class="hidden-480">新装单号</th>
-                                <th class="hidden-480">状态</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${payRecords}" var="payRecord">
-                                <tr class="odd gradeX">
-                                    <td><input type="checkbox" class="checkboxes" value="1"/></td>
-                                    <td class="hidden-480">${payRecord.payId}</td>
-                                    <td class="hidden-480">${payRecord.payPerId}</td>
-                                    <td class="hidden-480">${payRecord.payTime}</td>
-                                    <td class="hidden-480">${payRecord.newId}</td>
-                                    <c:if test="${payTime.status != '0'}">
-                                        <td><span class="label label-warning">已收费</span></td>
-                                    </c:if>
-                                    <td class="hidden-480">
-                                        <c:if test="${payTime.status !='0'}">
-                                            <a href="javascript:if(confirm('确认创建设计文件审核记录?'))window.location='Approval_addDesignFileCheckRecord.action?newId=${payRecord.newId}'" class="label label-success">创建文件审核记录</a>
-                                        </c:if>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- END EXAMPLE TABLE PORTLET-->
-                </div>
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover" id="table_showPayRecord">
+                    <thead>
+                    <tr>
+                        <th style="width:8px;"><input type="checkbox" class="group-checkable"
+                                                      data-set="#table_showPayRecord .checkboxes"/></th>
+                        <th>收费单号</th>
+                        <th class="hidden-480">收费人</th>
+                        <th class="hidden-480">收费时间</th>
+                        <th class="hidden-480">收费金额</th>
+                        <th class="hidden-480">新装单号</th>
+                        <th class="hidden-480">状态</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${payRecords}" var="payRecord">
+                        <tr class="odd gradeX">
+                            <td><input type="checkbox" class="checkboxes" value="1"/></td>
+                            <td class="hidden-480">${payRecord.payId}</td>
+                            <td class="hidden-480">${payRecord.payPerId}</td>
+                            <td class="hidden-480">${payRecord.payTime}</td>
+                            <td class="hidden-480">${payRecord.payment}</td>
+                            <td class="hidden-480">${payRecord.newId}</td>
+                            <c:if test="${payRecord.status == '1'}">
+                                <td><span class="label label-warning">收费完成</span></td>
+                            </c:if>
+                            <c:if test="${payRecord.status == '2'}">
+                                <td><span class="label label-warning">记录完成</span></td>
+                            </c:if>
+                            <td class="hidden-480">
+                                <c:if test="${payRecord.status =='1'}">
+                                    <a href="javascript:if(confirm('确认完成记录该回复信息?'))window.location='Overseer_updatePayRecord.action?payId=${payRecord.payId}'" class="label label-success">记录完成</a>
+                                </c:if>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
-            <!-- END PAGE CONTAINER-->
+            <!-- END EXAMPLE TABLE PORTLET-->
+
         </div>
-        <!-- END PAGE -->
+        <!-- END PAGE CONTAINER-->
     </div>
+    <!-- END PAGE -->
 </div>
 <!-- END CONTAINER -->
 

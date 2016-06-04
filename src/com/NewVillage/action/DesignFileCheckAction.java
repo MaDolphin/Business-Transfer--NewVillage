@@ -438,5 +438,4 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         return result="queryAllRecordsSuccess";
     }
 
-
 }

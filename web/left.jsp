@@ -146,7 +146,7 @@
                         <a href="Overseer_QueryAllScheduleCondition.action" target="rightFrame">查看全部进程</a>
                     </li>
                     <li>
-                        <a href="Approval_QueryAllRecord.action" target="rightFrame">查看收费情况</a>
+                        <a href="Overseer_QueryAllRecord.action" target="rightFrame">查看收费情况</a>
                     </li>
                 </ul>
             </li>

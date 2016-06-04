@@ -142,6 +142,8 @@
             <result>WEB-INF/pages/Overseer_Home.jsp</result>
         </action>
         <action name="Overseer_*" class="TraceTableAction" method="{1}">
+            <result name="updatePayRecordStatusSuccess" type="chain">Overseer_QueryAllRecord</result>
+            <result name="queryAllRecordsSuccess">WEB-INF/pages/Overseer_showPayRecord.jsp</result>
             <result name="queryPowerDesignReplysSuccess">WEB-INF/pages/Overseer_queryHaveNewTrace.jsp</result>
             <result name="updatePowerDesignReplyStatusSuccess" type="chain">Overseer_allPowerDesignReply</result>
             <result name="addSuccess" type="chain">Overseer_allPowerDesignReply</result>
