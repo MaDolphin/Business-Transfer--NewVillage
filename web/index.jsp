@@ -31,7 +31,7 @@
 <!-- BEGIN LOGIN -->
 <div class="content">
   <!-- BEGIN LOGIN FORM -->
-  <form class="form-vertical login-form" action="Login.action" method="post">
+  <form class="form-vertical login-form" action="login.action" method="post">
     <h3 class="form-title" style="font-family: 微软雅黑;text-align: center">登录</h3>
     <div class="control-group">
       <div class="controls">

@@ -12,6 +12,9 @@
             <result name="success" type="redirectAction">home</result>
             <result name="input">index.jsp</result>
         </action>
+        <action name="logout" class="LoginAction" method="logout">
+            <result name="success">index.jsp</result>
+        </action>
         <action name="home">
             <result >WEB-INF/pages/main.jsp</result>
         </action>

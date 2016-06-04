@@ -49,16 +49,13 @@
                 <li class="dropdown user">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img alt="" src="images/avatar1_small.jpg"/>
-                        <c:if test="${sessionScope.teacher != null}">
-                            <span class="username">${sessionScope.teacher.teaName}</span>
-                        </c:if>
-                        <c:if test="${sessionScope.admin != null}">
-                            <span class="username">${sessionScope.admin.adminName}</span>
+                        <c:if test="${sessionScope.employee != null}">
+                            <span class="username">你好，${sessionScope.employee.empName}!</span>
                         </c:if>
                         <i class="icon-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="AdminTeacherLogout.action"><i class="icon-key"></i> Log Out</a></li>
+                        <li><a href="logout.action" target="wholeFrame"><i class="icon-key"></i> Log Out</a></li>
                     </ul>
                 </li>
                 <!-- END USER LOGIN DROPDOWN -->

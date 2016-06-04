@@ -53,4 +53,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
             return INPUT;
         }
     }
+
+    public String logout(){
+        session.remove("employee");
+        return SUCCESS;
+    }
 }
