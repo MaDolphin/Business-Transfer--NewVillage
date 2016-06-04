@@ -7,4 +7,5 @@ import com.NewVillage.entity.Inspect;
  */
 public interface CheckDao {
     public void addCheck(Inspect inspect);
+    public void updateObject(Object object);
 }

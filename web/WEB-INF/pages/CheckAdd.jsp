@@ -67,7 +67,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">检查次数</label>
                                                     <div class="controls">
-                                                        <input type="text" name="checkNum" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" name="inspect.checkNum" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">检查日期</label>
                                                     <div class="controls">
-                                                        <input type="date" name="checkTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="date" name="inspect.checkTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -91,34 +91,34 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">检查结果</label>
                                                     <div class="controls">
-                                                        <select name="checkResult" id="result">
+                                                        <select name="inspect.chenckResult" id="result">
                                                             <option value="合格" selected>合格</option>
                                                             <option value="不合格" >不合格</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="span6 ">
-                                                <div class="control-group " >
-                                                    <label class="control-label">状态 </label>
-                                                    <div class="controls">
-                                                        <select name="inspect.status" id="status">
-                                                            <option value="作废" >作废</option>
-                                                            <option value="审批" >审批</option>
-                                                            <option value="未审批" selected>未审批</option>
+                                            <%--<div class="span6 ">--%>
+                                                <%--<div class="control-group " >--%>
+                                                    <%--<label class="control-label">状态 </label>--%>
+                                                    <%--<div class="controls">--%>
+                                                        <%--<select name="inspect.status" id="status">--%>
+                                                            <%--<option value="作废" >作废</option>--%>
+                                                            <%--<option value="审批" >审批</option>--%>
+                                                            <%--<option value="未审批" selected>未审批</option>--%>
 
-                                                        </select>
-                                                    </div>
+                                                        <%--</select>--%>
+                                                    <%--</div>--%>
 
-                                                </div>
-                                            </div>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
                                         </div>
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group">
                                                     <label class="control-label">检查内容</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="checkContent" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="inspect.checkContent" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                             </div>

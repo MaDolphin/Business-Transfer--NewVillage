@@ -2,6 +2,7 @@ package com.NewVillage.daoimpl;
 
 import com.NewVillage.dao.CheckDao;
 import com.NewVillage.entity.Inspect;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -27,6 +28,15 @@ public class CheckDaoImpl extends HibernateDaoSupport implements CheckDao {
 
         }catch (Exception ex){
             ex.printStackTrace();
+        }
+
+    }
+    public void updateObject(Object object){
+        try {
+            this.getHibernateTemplate().update(object);
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
         }
 
     }

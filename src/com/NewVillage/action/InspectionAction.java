@@ -1,6 +1,9 @@
 package com.NewVillage.action;
 
+import com.NewVillage.dao.CheckDao;
 import com.NewVillage.dao.InspectionDao;
+import com.NewVillage.entity.Employee;
+import com.NewVillage.entity.Inspect;
 import com.NewVillage.entity.Inspection;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -14,6 +17,7 @@ import java.util.Map;
 public class InspectionAction {
     Inspection inspection;
     InspectionDao inspectionDao;
+    CheckDao checkDao;
     private Date accTime;
     private Date insTime;
     private Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -46,18 +50,27 @@ public class InspectionAction {
         this.insTime = insTime;
     }
 
+    public void setCheckDao(CheckDao checkDao) {
+        this.checkDao = checkDao;
+    }
+
     ActionContext actionContext= ActionContext.getContext();
     Map session=actionContext.getSession();
 
     public String add() throws Exception{
+        Employee employee= (Employee) session.get("employee");
         inspection.setNewId(1);
-        inspection.setAccTime(accTime);
-        inspection.setInsTime(insTime);
+        inspection.setInsPerId(employee.getEmpId());
+//        inspection.setAccTime(accTime);
+//        inspection.setInsTime(insTime);
+        inspection.setStatus("0");
         inspection.setCreateTime(timestamp);
-        System.out.print("-----------------------");
-        System.out.print(inspection.getInsRequire());
-        System.out.print("-----------------------");
         inspectionDao.addInspect(inspection);
+
+        Inspect inspect=new Inspect();
+        inspect.setStatus("1");
+        checkDao.updateObject(inspect);
+
         return "success";
     }
 }

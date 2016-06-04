@@ -19,6 +19,7 @@ public class CheckInfo {
     private Timestamp createTime;
     private Integer newId;
     private String status;
+    private Integer checkInfoerId;
 
     @Id
     @Column(name = "checkInfoId", nullable = false)
@@ -41,7 +42,7 @@ public class CheckInfo {
     }
 
     @Basic
-    @Column(name = "qualified", nullable = true, length = 1)
+    @Column(name = "qualified", nullable = true, length = 100)
     public String getQualified() {
         return qualified;
     }
@@ -90,6 +91,16 @@ public class CheckInfo {
         this.status = status;
     }
 
+    @Basic
+    @Column(name = "checkInfoerId", nullable = true)
+    public Integer getCheckInfoerId() {
+        return checkInfoerId;
+    }
+
+    public void setCheckInfoerId(Integer checkInfoerId) {
+        this.checkInfoerId = checkInfoerId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -105,6 +116,8 @@ public class CheckInfo {
         if (createTime != null ? !createTime.equals(checkInfo.createTime) : checkInfo.createTime != null) return false;
         if (newId != null ? !newId.equals(checkInfo.newId) : checkInfo.newId != null) return false;
         if (status != null ? !status.equals(checkInfo.status) : checkInfo.status != null) return false;
+        if (checkInfoerId != null ? !checkInfoerId.equals(checkInfo.checkInfoerId) : checkInfo.checkInfoerId != null)
+            return false;
 
         return true;
     }
@@ -118,6 +131,7 @@ public class CheckInfo {
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         result = 31 * result + (newId != null ? newId.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (checkInfoerId != null ? checkInfoerId.hashCode() : 0);
         return result;
     }
 }

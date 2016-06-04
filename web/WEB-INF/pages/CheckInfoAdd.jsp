@@ -75,7 +75,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">验收次数</label>
                                                     <div class="controls">
-                                                        <input type="text" name="checkNum" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" name="checkInfo.checkNum" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,13 +86,10 @@
                                                 <div class="control-group">
                                                     <label class="control-label">验收时间</label>
                                                     <div class="controls">
-                                                        <input type="date" name="checkInfoTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="date" name="checkInfo.checkInfoTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
 
                                         </div>
                                         <div class="row-fluid">
@@ -101,7 +98,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">是否合格 </label>
                                                     <div class="controls">
-                                                        <select name="qualified" id="qualified">
+                                                        <select name="checkInfo.qualified" id="qualified">
                                                             <option value="合格" selected>合格</option>
                                                             <option value="不合格" >不合格</option>
 
@@ -110,20 +107,20 @@
 
                                                 </div>
                                             </div>
-                                            <div class="span6 ">
-                                                <div class="control-group " >
-                                                    <label class="control-label">状态 </label>
-                                                    <div class="controls">
-                                                        <select name="inspection.status" id="status">
-                                                            <option value="作废" >作废</option>
-                                                            <option value="审批" >审批</option>
-                                                            <option value="未审批" selected>未审批</option>
+                                            <%--<div class="span6 ">--%>
+                                                <%--<div class="control-group " >--%>
+                                                    <%--<label class="control-label">状态 </label>--%>
+                                                    <%--<div class="controls">--%>
+                                                        <%--<select name="checkInfo.status" id="status">--%>
+                                                            <%--<option value="作废" >作废</option>--%>
+                                                            <%--<option value="审批" >审批</option>--%>
+                                                            <%--<option value="未审批" selected>未审批</option>--%>
 
-                                                        </select>
-                                                    </div>
+                                                        <%--</select>--%>
+                                                    <%--</div>--%>
 
-                                                </div>
-                                            </div>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
                                         </div>
 
 

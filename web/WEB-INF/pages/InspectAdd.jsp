@@ -101,7 +101,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">接收时间</label>
                                                     <div class="controls">
-                                                        <input type="date" name="accTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="date" name="inspection.accTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,27 +120,27 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="span6 ">
-                                                <div class="control-group " >
-                                                    <label class="control-label">状态 </label>
-                                                    <div class="controls">
-                                                        <select name="inspection.status" id="status">
-                                                            <option value="作废" >作废</option>
-                                                            <option value="审批" >审批</option>
-                                                            <option value="未审批" selected>未审批</option>
+                                            <%--<div class="span6 ">--%>
+                                                <%--<div class="control-group " >--%>
+                                                    <%--<label class="control-label">状态 </label>--%>
+                                                    <%--<div class="controls">--%>
+                                                        <%--<select name="inspection.status" id="status">--%>
+                                                            <%--<option value="作废" >作废</option>--%>
+                                                            <%--<option value="审批" >审批</option>--%>
+                                                            <%--<option value="未审批" selected>未审批</option>--%>
 
-                                                        </select>
-                                                    </div>
+                                                        <%--</select>--%>
+                                                    <%--</div>--%>
 
-                                                </div>
-                                            </div>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
                                         </div>
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group">
                                                     <label class="control-label">计划验收时间</label>
                                                     <div class="controls">
-                                                        <input type="date" name="insTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="date" name="inspection.insTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>

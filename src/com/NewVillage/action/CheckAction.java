@@ -1,6 +1,7 @@
 package com.NewVillage.action;
 
 import com.NewVillage.dao.CheckDao;
+import com.NewVillage.entity.Employee;
 import com.NewVillage.entity.Inspect;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -22,6 +23,10 @@ public class CheckAction extends ActionSupport{
 
     private Date checkTime;
     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
+    public Inspect getInspect() {
+        return inspect;
+    }
 
     public void setInspect(Inspect inspect) {
         this.inspect = inspect;
@@ -67,13 +72,15 @@ public class CheckAction extends ActionSupport{
     ActionContext actionContext= ActionContext.getContext();
     Map session=actionContext.getSession();
     public String add() throws Exception{
-        inspect.setCheckPerId("1");
+        Employee employee= (Employee) session.get("employee");
+        inspect.setCheckPerId(String.valueOf(employee.getEmpId()));
         inspect.setCreateTime(timestamp);
-        inspect.setCheckTime(checkTime);
-        inspect.setCheckContent(checkContent);
-        inspect.setCheckNum(Integer.valueOf(checkNum));
-        inspect.setChenckResult(checkResult);
+//        inspect.setCheckTime(checkTime);
+//        inspect.setCheckContent(checkContent);
+//        inspect.setCheckNum(Integer.valueOf(checkNum));
+//        inspect.setChenckResult(checkResult);
         inspect.setNewId(2);
+        inspect.setStatus("0");
         checkDao.addCheck(inspect);
         return "success";
     }
