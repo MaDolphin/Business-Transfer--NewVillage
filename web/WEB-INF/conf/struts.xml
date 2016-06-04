@@ -79,6 +79,7 @@
             <result name="addPowerDesignSuccess" type="redirectAction">PlanGroupShowPowerDesign</result>
             <result name="addPowerDesignError" type="redirectAction">PlanGroupAddPowerDesign</result>
             <result name="PowerDesignDetail">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
+            <result name="acceptMessageSuccess" type="redirectAction">PlanGroupShowMessage</result>
 
         </action>
         <!--JSP directing-->

@@ -22,6 +22,33 @@ public class PlanGroupAction extends ActionSupport implements SessionAware {
     private PowerDesignDao powerDesignDao;
     private PowerDesign powerDesign;
     private Map session;
+    private int messId;
+    private Integer empId;
+    private Integer newId;
+
+    public int getMessId() {
+        return messId;
+    }
+
+    public void setMessId(int messId) {
+        this.messId = messId;
+    }
+
+    public Integer getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(Integer empId) {
+        this.empId = empId;
+    }
+
+    public Integer getNewId() {
+        return newId;
+    }
+
+    public void setNewId(Integer newId) {
+        this.newId = newId;
+    }
 
     public Map getSession() {
         return session;
@@ -100,9 +127,16 @@ public class PlanGroupAction extends ActionSupport implements SessionAware {
 
     public String InitMessageShow(){
         Employee employee = (Employee) session.get("employee");
-        List<Message> messageList = messageDao.allMessageByEmpIDStatus0(employee.getEmpId());
+        List<Message> messageList = messageDao.allMessageByEmpID(employee.getEmpId());
         session.put("PlanGroupMessageList",messageList);
         return SUCCESS;
+    }
+
+    public String AcceptMessage(){
+        Message message = messageDao.queryMessageByID(messId);
+        message.setStatus("1");
+        messageDao.updateMessage(message);
+        return "acceptMessageSuccess";
     }
 
 }
