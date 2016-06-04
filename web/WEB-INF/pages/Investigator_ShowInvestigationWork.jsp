@@ -88,8 +88,12 @@
                                     <td class="hidden-480">
 
                                         <c:if test="${inves.status == 0}">
-                                            <a href="adminShowTeacher.action?invesId=${inves.invesId}"
+                                            <a href="Investigator_AcceptInvestigationWork.action?invesId=${inves.invesId}"
                                                class="btn mini blue"><i class="icon-share"></i> 接受</a>
+                                        </c:if>
+                                        <c:if test="${inves.status == 1}">
+                                            <a href="Investigator_AcceptInvestigationWork.action?invesId=${inves.invesId}"
+                                               class="btn mini blue"><i class="icon-share"></i> 查看</a>
                                         </c:if>
                                     </td>
                                 </tr>

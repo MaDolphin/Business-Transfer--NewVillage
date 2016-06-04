@@ -28,8 +28,18 @@ public class InvestigationWorkDaoImpl extends HibernateDaoSupport implements Inv
     }
 
     @Override
-    public InvestigationWork queryInvestigationWorkByNewID(int newid) {
-        List list = (List<InvestigationWork>) this.getHibernateTemplate().find("from InvestigationWork e where e.newId=? ",new Object[]{newid});
+    public InvestigationWork queryInvestigationWorkByNewIDStatus0(int newid) {
+        List list = (List<InvestigationWork>) this.getHibernateTemplate().find("from InvestigationWork e where e.newId=? and e.status='0' ",new Object[]{newid});
+        if(list.size() >0){
+            return (InvestigationWork) list.get(0);
+        }else {
+            return null;
+        }
+    }
+
+    @Override
+    public InvestigationWork queryInvestigationWorkByNewIDStatus1(int newid) {
+        List list = (List<InvestigationWork>) this.getHibernateTemplate().find("from InvestigationWork e where e.newId=? and e.status='1' ",new Object[]{newid});
         if(list.size() >0){
             return (InvestigationWork) list.get(0);
         }else {
@@ -66,8 +76,15 @@ public class InvestigationWorkDaoImpl extends HibernateDaoSupport implements Inv
     }
 
     @Override
+    public List<InvestigationWork> allInvestigationWorksINGByEmpID(int empid) {
+        List list = (List<InvestigationWork>) this.getHibernateTemplate().find("from InvestigationWork e where e.invesPerId=? and e.status='1'",new Object[]{empid});
+        return list;
+    }
+
+    @Override
     public List<InvestigationWork> allInvestigationWorksByNewID(int newid) {
         List list = (List<InvestigationWork>) this.getHibernateTemplate().find("from InvestigationWork e where e.newId=? order by e.status desc ",new Object[]{newid});
         return list;
     }
+
 }

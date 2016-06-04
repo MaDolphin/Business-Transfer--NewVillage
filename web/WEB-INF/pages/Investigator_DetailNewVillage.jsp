@@ -28,7 +28,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        小区新装申请：
+                        新装申请详情：
                     </h3>
                     <ul class="breadcrumb">
                         <li>
@@ -37,10 +37,10 @@
                             <span class="icon-angle-right"></span>
                         </li>
                         <li>
-                            <a href="#">小区新增申请</a>
+                            <a href="#">勘查信息</a>
                             <span class="icon-angle-right"></span>
                         </li>
-                        <li><a href="#">填写小区新装申请</a></li>
+                        <li><a href="#">新装申请单详情</a></li>
                     </ul>
                 </div>
             </div>
@@ -53,13 +53,23 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="portlet_tab1" style="margin-left: -50px">
                                     <!-- BEGIN FORM-->
-                                    <form action="Counter_AddNewVillage.action" target="rightFrame" method="post" class="form-horizontal" >
+                                    <form class="form-horizontal" >
+                                        <div class="row-fluid">
+                                            <div class="span6 ">
+                                                <div class="control-group " >
+                                                    <label class="control-label">新装单号</label>
+                                                    <div class="controls">
+                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.newId}" readonly />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group " >
                                                     <label class="control-label">用户名称</label>
                                                     <div class="controls">
-                                                        <input type="text" name="newVillage.vilName" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.vilName}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -68,7 +78,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">联系人</label>
                                                     <div class="controls">
-                                                        <input type="text" name="newVillage.userName" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.userName}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,7 +88,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">行政区域</label>
                                                     <div class="controls">
-                                                        <input type="text" name="newVillage.adminArea" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.adminArea}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,11 +96,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">证件类型</label>
                                                     <div class="controls">
-                                                        <select name="newVillage.userPtype" id="userPtype" style="width: 320px;height: 34px">
-                                                            <option value="0" selected>身份证</option>
-                                                            <option value="1" >军官证</option>
-                                                            <option value="2" >护照</option>
-                                                        </select>
+                                                        <input type="text"  placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.userPtype}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,7 +106,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">用电地址</label>
                                                     <div class="controls">
-                                                        <input type="text" name="newVillage.eleAddress" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text"placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.eleAddress}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,7 +114,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">证件号</label>
                                                     <div class="controls">
-                                                        <input type="text" name="newVillage.userPid" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.userPid}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -118,10 +124,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">用电类别</label>
                                                     <div class="controls" >
-                                                        <select name="newVillage.eleType" id="eleType" style="width: 320px;height: 34px">
-                                                            <option value="0" selected>居住</option>
-                                                            <option value="1" >商业</option>
-                                                        </select>
+                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.eleType}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -129,7 +132,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">联系方式</label>
                                                     <div class="controls">
-                                                        <input type="text" name="newVillage.userTel" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.userTel}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,10 +142,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">用电容量</label>
                                                     <div class="controls">
-                                                        <select name="newVillage.eleCapacity" id="eleCapacity" style="width: 320px;height: 34px">
-                                                            <option value="0" selected>300M</option>
-                                                            <option value="1" >400M</option>
-                                                        </select>
+                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.eleCapacity}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,14 +152,10 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">居民数量</label>
                                                     <div class="controls">
-                                                        <input type="text" name="newVillage.residentNum" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" value="${sessionScope.NewVillageDetail.residentNum}" readonly />
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-actions">
-                                            <button type="submit" class="btn blue"><i class="icon-ok"></i>保存</button>
-                                            <button type="reset" class="btn">重置</button>
                                         </div>
                                     </form>
                                     <!-- END FORM-->

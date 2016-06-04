@@ -54,16 +54,21 @@
     <package name="Investigator" extends="struts-default">
         <!--action method-->
         <action name="Investigator_*" class="InvestigatorAction" method="{1}">
-            <result name="addInvestigationSiteSuccess"></result>
-            <result name="addInvestigationSiteError"></result>
+            <result name="addInvestigationSiteSuccess" type="redirectAction">InvestigatorShowInvestigationWork</result>
+            <result name="addInvestigationSiteError" type="redirectAction">InvestigatorAddInvestigationSite</result>
+            <result name="AcceptInvestigationWorkSuccess" type="redirectAction">InvestigatorDetailNewVillage</result>
         </action>
         <!--JSP directing-->
         <action name="InvestigatorShowInvestigationWork" class="InvestigatorAction" method="InitInvestigationWork">
             <result name="success">/WEB-INF/pages/Investigator_ShowInvestigationWork.jsp</result>
         </action>
 
-        <action name="InvestigatorAddInvestigationSite">
+        <action name="InvestigatorAddInvestigationSite" class="InvestigatorAction" method="InitInvestigationSite">
             <result>/WEB-INF/pages/Investigator_AddInvestigationSite.jsp</result>
+        </action>
+
+        <action name="InvestigatorDetailNewVillage">
+            <result>/WEB-INF/pages/Investigator_DetailNewVillage.jsp</result>
         </action>
     </package>
 

@@ -89,42 +89,88 @@ public class InvestigatorAction extends ActionSupport implements SessionAware {
         this.newId = newId;
     }
 
-    public String AddInvestigationSite(){
-        InvestigationSite investigationSiteUp = this.investigationSite;
-        Timestamp date = new Timestamp(System.currentTimeMillis());
-        Employee emp = (Employee) session.get("employee");
-        investigationSiteUp.setInvesPerId(emp.getEmpId());
-        investigationSiteUp.setCreateTime(date);
-        investigationSiteUp.setStatus("0");
-        if(investigationSiteDao.addInvestigationSite(investigationSiteUp)){
-            InvestigationSite investigationSite1 = investigationSiteDao.queryInvestigationSiteByNewID(newId);
-            ProcessRecord processRecord = processRecordDao.queryProcessRecordByNewVillage(newId);
-            processRecord.setInvesSiteId(investigationSite1.getInvesSiteId());
-            processRecord.setStatus("现场勘查");
-            processRecordDao.editProcess(processRecord);
-            NewVillage newVillage = newVillageDao.queryNewVillageByID(newId);
-            newVillage.setStatus("1");
-            newVillageDao.updateNewVillage(newVillage);
-            PowerDesign powerDesign = new PowerDesign();
-            powerDesign.setNewId(newId);
-            powerDesign.setStatus("0");
-            JobInfo jobInfo = jobInfoDao.queryEmpByFreeDep("方案小组");
-            powerDesign.setPowerDesignPerId(jobInfo.getEmpId());
-            powerDesignDao.addPowerDesign(powerDesign);
-            PowerDesign powerDesign1 = powerDesignDao.queryPowerDesignByNewID(newId);
-            InvestigationSite investigationSite2 = investigationSiteDao.queryInvestigationSiteByNewID(newId);
-            investigationSite2.setPowerId(powerDesign1.getPowerId());
-            investigationSiteDao.addInvestigationSite(investigationSite2);
-            return "addInvestigationSiteSuccess";
-        }else {
-            return "addInvestigationSiteError";
-        }
-    }
 
     public String InitInvestigationWork(){
         Employee employee = (Employee) session.get("employee");
         List<InvestigationWork> investigationWorkList = investigationWorkDao.allInvestigationWorksByEmpID(employee.getEmpId());
         session.put("InvestigationWorkList",investigationWorkList);
         return SUCCESS;
+    }
+
+    public String AcceptInvestigationWork(){
+        InvestigationWork inves1 = investigationWorkDao.queryInvestigationWorkByID(invesId);
+        if(inves1.getStatus().equals("0")){
+            inves1.setStatus("1");
+            investigationWorkDao.updateInvestigationWork(inves1);
+        }
+        NewVillage newVillage = newVillageDao.queryNewVillageByID(inves1.getNewId());
+        session.put("NewVillageDetail",newVillage);
+        return "AcceptInvestigationWorkSuccess";
+    }
+
+    public String InitInvestigationSite(){
+        Employee employee = (Employee) session.get("employee");
+        List<InvestigationWork> investigationWorkList = investigationWorkDao.allInvestigationWorksINGByEmpID(employee.getEmpId());
+        session.put("InvestigationWorkListByEmpID",investigationWorkList);
+        return SUCCESS;
+    }
+
+    public String AddInvestigationSite(){
+
+        newId = this.investigationSite.getNewId();
+
+        //add InvestigationSite
+        InvestigationSite investigationSiteUp = this.investigationSite;
+        Timestamp date = new Timestamp(System.currentTimeMillis());
+        Employee emp = (Employee) session.get("employee");
+        investigationSiteUp.setInvesPerId(emp.getEmpId());
+        investigationSiteUp.setCreateTime(date);
+        investigationSiteUp.setRunTime(date);
+        investigationSiteUp.setStatus("0");
+
+        if(investigationSiteDao.addInvestigationSite(investigationSiteUp)){
+
+            //add InvestigationSite id to ProcessRecord
+            InvestigationSite investigationSite1 = investigationSiteDao.queryInvestigationSiteByNewIDStatus0(newId);
+            ProcessRecord processRecord = processRecordDao.queryProcessRecordByNewVillage(newId);
+            processRecord.setInvesSiteId(investigationSite1.getInvesSiteId());
+            processRecord.setStatus("现场勘查");
+            processRecordDao.editProcess(processRecord);
+
+            //edit NewVillage status to 2
+            NewVillage newVillage = newVillageDao.queryNewVillageByID(newId);
+            newVillage.setStatus("2");
+            newVillageDao.updateNewVillage(newVillage);
+
+            //add PowerDesign
+            PowerDesign powerDesign = new PowerDesign();
+            powerDesign.setNewId(newId);
+            powerDesign.setStatus("0");
+            JobInfo jobInfo = jobInfoDao.queryEmpByFreeDep("方案小组");
+            powerDesign.setPowerDesignPerId(jobInfo.getEmpId());
+            Timestamp date1 = new Timestamp(System.currentTimeMillis());
+            powerDesign.setCreateTime(date1);
+            powerDesignDao.addPowerDesign(powerDesign);
+
+            //add work to JobInfo
+            JobInfo job1 = jobInfoDao.queryJobInfosByEmpID(jobInfo.getEmpId());
+            job1.setJobNum(job1.getJobNum()+1);
+            jobInfoDao.updateJobInfo(job1);
+
+            //add PowerDesign id to InvestigationSite
+            PowerDesign powerDesign1 = powerDesignDao.queryPowerDesignByNewID(newId);
+            InvestigationSite investigationSite2 = investigationSiteDao.queryInvestigationSiteByNewIDStatus0(newId);
+            investigationSite2.setPowerId(powerDesign1.getPowerId());
+            investigationSiteDao.updateInvestigationSite(investigationSite2);
+
+            //edit InvestigationWork status to 2
+            InvestigationWork inves1 = investigationWorkDao.queryInvestigationWorkByNewIDStatus1(this.investigationSite.getNewId());
+            inves1.setStatus("2");
+            investigationWorkDao.updateInvestigationWork(inves1);
+
+            return "addInvestigationSiteSuccess";
+        }else {
+            return "addInvestigationSiteError";
+        }
     }
 }

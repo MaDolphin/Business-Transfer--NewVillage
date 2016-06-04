@@ -165,7 +165,7 @@ public class CounterAction extends ActionSupport implements SessionAware {
 
             if(investigationWorkDao.addInvestigationWork(investigationWork)){
                 //find InvestigationWork id
-                InvestigationWork investigationWork1 = investigationWorkDao.queryInvestigationWorkByNewID(newVillageGet.getNewId());
+                InvestigationWork investigationWork1 = investigationWorkDao.queryInvestigationWorkByNewIDStatus0(newVillageGet.getNewId());
                 //add InvestigationWork id to ProcessRecord
                 ProcessRecord processRecord1 = processRecordDao.queryProcessRecordByNewVillage(newVillageGet.getNewId());
                 processRecord1.setInvesId(investigationWork1.getInvesId());
