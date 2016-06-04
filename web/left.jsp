@@ -105,21 +105,6 @@
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-user"></i>
-                    <span class="title">进程跟踪信息</span>
-                    <span class="arrow "></span>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a href="Overseer_QueryAllScheduleCondition.action" target="rightFrame">查看全部进程</a>
-                    </li>
-                    <li>
-                        <a href="Overseer_allPowerDesignReply.action" target="rightFrame">是否创建进程</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="">
-                <a href="javascript:;">
-                    <i class="icon-user"></i>
                     <span class="title">电源方案审批</span>
                     <span class="arrow "></span>
                 </a>
@@ -150,21 +135,33 @@
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-user"></i>
+                    <span class="title">进程跟踪信息</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="Overseer_allPowerDesignReply.action" target="rightFrame">是否创建进程</a>
+                    </li>
+                    <li>
+                        <a href="Overseer_QueryAllScheduleCondition.action" target="rightFrame">查看全部进程</a>
+                    </li>
+                    <li>
+                        <a href="Approval_QueryAllRecord.action" target="rightFrame">查看收费情况</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="javascript:;">
+                    <i class="icon-user"></i>
                     <span class="title">设计文件审核</span>
                     <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="Approval_QueryAllDesignFileCheckMessage.action" target="rightFrame">查看审核结果</a>
+                        <a href="Approval_QueryAllRecord.action" target="rightFrame">查看收费情况</a>
                     </li>
                     <li>
-                        <a href="Approval_QueryAllDesignFileCheckMessage.action" target="rightFrame">查看审核结果</a>
-                    </li>
-                    <li>
-                        <a href="Approval_writeDesignFileCheckRecord.action" target="rightFrame">填写审核结果</a>
-                    </li>
-                    <li>
-                        <a href="check.action" target="rightFrame">填写检查表</a>
+                        <a href="Approval_QueryAllDesignFileCheckMessage.action" target="rightFrame">查看审核记录</a>
                     </li>
                 </ul>
             </li>

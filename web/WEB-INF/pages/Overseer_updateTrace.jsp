@@ -1,20 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/style-metro.css" rel="stylesheet" type="text/css"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style-responsive.css" rel="stylesheet" type="text/css"/>
     <link href="css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/select2_metro.css"/>
+    <link rel="stylesheet" href="css/DT_bootstrap.css"/>
+    <!-- END PAGE LEVEL STYLES -->
+    <link rel="shortcut icon" href="images/favicon.ico"/>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -96,7 +100,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">立项设计结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="proDesignResult"  value="${sessionScope.traceTable.proDesignResult}" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="proDesignResult"   rows="4">${sessionScope.traceTable.proDesignResult}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,7 +108,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">设计文件审核信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="proFileResult" value="${sessionScope.traceTable.proFileResult}" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="proFileResult"  rows="4">${sessionScope.traceTable.proFileResult}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -114,7 +118,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">工程预算结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="budgetResult" value="${sessionScope.traceTable.budgetResult}" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="budgetResult" rows="4">${sessionScope.traceTable.budgetResult}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,7 +126,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">工程费用收取信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="chargeResult" value="${sessionScope.traceTable.chargeResult}" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="chargeResult" rows="4"> ${sessionScope.traceTable.chargeResult}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -132,7 +136,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">设备供应单位信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="equipmentSupResult" value="${sessionScope.traceTable.equipmentSupResult}" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="equipmentSupResult" rows="4"> ${sessionScope.traceTable.equipmentSupResult}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -140,7 +144,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">施工单位结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="constructionResult" value="${sessionScope.traceTable.constructionResult}" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="constructionResult"  rows="4">${sessionScope.traceTable.constructionResult}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -150,7 +154,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">中间检查结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="midCheckResult" value="${sessionScope.traceTable.midCheckResult}" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="midCheckResult" rows="4">${sessionScope.traceTable.midCheckResult}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -158,7 +162,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">竣工验收结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="finalInsResult" value="${sessionScope.traceTable.finalInsResult}" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="finalInsResult" rows="4">${sessionScope.traceTable.finalInsResult}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -168,7 +172,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">工程决算结果信息</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="proAccountsResult" value="${sessionScope.traceTable.proAccountsResult}" rows="4"></textarea>
+                                                        <textarea class="large m-wrap" name="proAccountsResult"  rows="4">${sessionScope.traceTable.proAccountsResult}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -216,6 +220,7 @@
 <!-- BEGIN FOOTER -->
 <!-- END FOOTER -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
 <!-- BEGIN CORE PLUGINS -->
 <script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
 <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
@@ -229,16 +234,23 @@
 <script src="js/jquery.slimscroll.min.js" type="text/javascript"></script>
 <script src="js/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="js/jquery.uniform.min.js" type="text/javascript" ></script>
+<script src="js/jquery.uniform.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
-<script src="media/js/app.js"></script>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/DT_bootstrap.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="js/app.js"></script>
+<script src="js/table-managed.js"></script>
 <script>
-    jQuery(document).ready(function() {
-        // initiate layout and plugins
+    jQuery(document).ready(function () {
         App.init();
+        TableManaged.init();
     });
 </script>
 <!-- END JAVASCRIPTS -->
-<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
+</body>
 <!-- END BODY -->
 </html>

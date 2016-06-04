@@ -1,7 +1,9 @@
 package com.NewVillage.action;
 
 import com.NewVillage.dao.PowerDesignReplyDao;
+import com.NewVillage.dao.ReceiptDao;
 import com.NewVillage.dao.TraceTableDao;
+import com.NewVillage.entity.PayRecord;
 import com.NewVillage.entity.PowerDesignReply;
 import com.NewVillage.entity.TraceTable;
 import com.opensymphony.xwork2.ActionSupport;
@@ -38,6 +40,33 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
     private String status;
     private String result;
     private int replyId;
+    private ReceiptDao receiptDao;
+    private PayRecord payRecord;
+    private int payId;
+
+    public ReceiptDao getReceiptDao() {
+        return receiptDao;
+    }
+
+    public void setReceiptDao(ReceiptDao receiptDao) {
+        this.receiptDao = receiptDao;
+    }
+
+    public PayRecord getPayRecord() {
+        return payRecord;
+    }
+
+    public void setPayRecord(PayRecord payRecord) {
+        this.payRecord = payRecord;
+    }
+
+    public int getPayId() {
+        return payId;
+    }
+
+    public void setPayId(int payId) {
+        this.payId = payId;
+    }
 
     public int getReplyId() {
         return replyId;
@@ -259,6 +288,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
         traceTable.setFinalInsResult(finalInsResult);
         traceTable.setProAccountsResult(proAccountsResult);
         traceTable.setStatus(status);
+        System.out.println(traceId+"222");
         if (traceTableDao.updateTraceTableRecord(traceTable)){
             return result="updateSuccess";
         }else {
@@ -269,6 +299,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
     public String queryTraceTableRecordByID(){
         try{
             TraceTable traceTable=traceTableDao.queryTraceTableRecordByID(traceId);
+            System.out.println(traceId+"111");
             session.put("traceTable",traceTable);
         }catch (Exception ex){
             ex.printStackTrace();
@@ -280,7 +311,9 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
     public String queryTraceTableRecordByIDAfterUpdate(){
         try{
             TraceTable tTable= (TraceTable)session.get("traceTable");
+            System.out.println(tTable);
             TraceTable traceTable=traceTableDao.queryTraceTableRecordByID(tTable.getTraceId());
+            System.out.println(traceTable);
             session.put("traceTable",traceTable);
         }catch (Exception ex){
             ex.printStackTrace();
@@ -309,6 +342,18 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
             powerDesignReply.setStatus("2");
             powerDesignReplyDao.updatePowerDesignReply(powerDesignReply);
             return result="updatePowerDesignReplyStatusSuccess";
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return INPUT;
+        }
+    }
+
+    public String updatePayRecord(){
+        try{
+            PayRecord payRecord=receiptDao.QueryRecordByID(payId);
+            payRecord.setStatus("2");
+            receiptDao.updatePayRecord(payRecord);
+            return result="updatePayRecordStatusSuccess";
         }catch (Exception ex){
             ex.printStackTrace();
             return INPUT;

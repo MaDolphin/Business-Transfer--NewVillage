@@ -19,4 +19,5 @@ public interface  ReceiptDao {
     List<PayRecord> QueryAllRecord();
 
     public PayRecord QueryRecordByID(int id);
+    public boolean updatePayRecord(PayRecord payRecord);
 }

@@ -1,20 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/style-metro.css" rel="stylesheet" type="text/css"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style-responsive.css" rel="stylesheet" type="text/css"/>
     <link href="css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/select2_metro.css"/>
+    <link rel="stylesheet" href="css/DT_bootstrap.css"/>
+    <!-- END PAGE LEVEL STYLES -->
+    <link rel="shortcut icon" href="images/favicon.ico"/>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -96,7 +100,12 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">报送日期 </label>
                                                     <div class="controls">
-                                                        <input type="text" name="submittedTime" value="${sessionScope.designFileCheck.submittedTime}" class="m-wrap large" style="width: 320px;height: 34px" readonly/>
+                                                        <c:if test="${sessionScope.designFileCheck.submittedTime==sessionScope.designFileCheck.createTime}">
+                                                            <input type="date" name="submittedTime"  class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        </c:if>
+                                                        <c:if test="${sessionScope.designFileCheck.submittedTime!=sessionScope.designFileCheck.createTime}">
+                                                            <input type="text" readonly name="submittedTime" value="${sessionScope.designFileCheck.submittedTime}" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        </c:if>
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,7 +131,12 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">审核日期</label>
                                                     <div class="controls">
-                                                        <input type="text" name="checkTime" readonly value="${sessionScope.designFileCheck.checkTime}" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <c:if test="${sessionScope.designFileCheck.checkTime==sessionScope.designFileCheck.createTime}">
+                                                            <input type="date" name="checkTime"  class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        </c:if>
+                                                        <c:if test="${sessionScope.designFileCheck.checkTime!=sessionScope.designFileCheck.createTime}">
+                                                            <input type="text" name="checkTime" readonly  value="${sessionScope.designFileCheck.checkTime}" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        </c:if>
                                                     </div>
                                                 </div>
                                             </div>
@@ -159,7 +173,6 @@
                                                     <label class="control-label">审核意见</label>
                                                     <div class="controls">
                                                         <select class="large m-wrap" tabindex="1" name="checkOpinion">
-
                                                             <c:if test="${sessionScope.designFileCheck.checkOpinion=='通过'}">
                                                                 <option value="通过">通过</option>
                                                             </c:if>
@@ -190,7 +203,12 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">登记时间</label>
                                                     <div class="controls">
-                                                        <input type="text" name="registerTime" readonly value="${sessionScope.designFileCheck.registerTime}" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <c:if test="${sessionScope.designFileCheck.registerTime==sessionScope.designFileCheck.createTime}">
+                                                            <input type="date" name="registerTime"  class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        </c:if>
+                                                        <c:if test="${sessionScope.designFileCheck.registerTime!=sessionScope.designFileCheck.createTime}">
+                                                            <input type="text" name="registerTime" readonly  value="${sessionScope.designFileCheck.registerTime}" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        </c:if>
                                                     </div>
                                                 </div>
                                             </div>
@@ -258,16 +276,23 @@
 <script src="js/jquery.slimscroll.min.js" type="text/javascript"></script>
 <script src="js/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="js/jquery.uniform.min.js" type="text/javascript" ></script>
+<script src="js/jquery.uniform.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
-<script src="media/js/app.js"></script>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/DT_bootstrap.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="js/app.js"></script>
+<script src="js/table-managed.js"></script>
 <script>
-    jQuery(document).ready(function() {
-        // initiate layout and plugins
+    jQuery(document).ready(function () {
         App.init();
+        TableManaged.init();
     });
 </script>
 <!-- END JAVASCRIPTS -->
-<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
+</body>
 <!-- END BODY -->
 </html>

@@ -101,15 +101,15 @@
     <!-- 4.审批员 1.7审批 1.12设计文件审核 -->
     <package name="Approval" extends="struts-default">
         <!--action method-->
-        <action name="Approval_writeDesignFileCheckRecord" >
-            <result>WEB-INF/pages/Approval_writeCheckResult.jsp</result>
-        </action>
+
         <action name="Approval_*" class="DesignFileCheckAction" method="{1}">
-            <result name="addSuccess">WEB-INF/pages/Approval_writeCheckResult.jsp</result>
-            <result name="querySuccess">WEB-INF/pages/Approval_updateCheckResult.jsp</result>
+
+            <result name="queryAllRecordsSuccess">WEB-INF/pages/Approval_queryNewDesignFile.jsp</result>
             <result name="queryAllSuccess">WEB-INF/pages/Approval_showCheckResult.jsp</result>
+            <result name="addSuccess" type="chain">Approval_QueryAllRecord</result>
+            <result name="querySuccess">WEB-INF/pages/Approval_updateCheckResult.jsp</result>
             <result name="updateSuccess" type="chain">Approval_queryDesignFileCheckRecordByIDAfterUpdate</result>
-            <result name="input">WEB-INF/pages/Approval_writeCheckResult.jsp</result>
+            <result name="input">WEB-INF/pages/Approval_Home.jsp</result>
 
             <result name="PowerDesign">/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
             <result name="ExaminSuccess" type="redirectAction">Approval_QueryPowerDesign</result>

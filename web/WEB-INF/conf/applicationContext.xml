@@ -113,11 +113,13 @@
 
     <!--张松顺-->
     <bean id="TraceTableAction" class="com.NewVillage.action.TraceTableAction">
+        <property name="receiptDao" ref="receiptDao"></property>
         <property name="traceTableDao" ref="traceTableDao"></property>
         <property name="powerDesignReplyDao" ref="PowerDesignReplyDao"></property>
     </bean>
 
     <bean id="DesignFileCheckAction" class="com.NewVillage.action.DesignFileCheckAction">
+        <property name="receiptDao" ref="receiptDao"></property>
         <property name="designFileCheckDao" ref="designFileCheckDao"></property>
         <property name="powerDesignDao" ref="powerDesignDao"></property>
         <property name="examinationDao" ref="ExaminAtionDao"></property>

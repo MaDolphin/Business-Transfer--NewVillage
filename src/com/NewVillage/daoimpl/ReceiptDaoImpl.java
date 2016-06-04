@@ -53,4 +53,15 @@ public class ReceiptDaoImpl extends HibernateDaoSupport implements ReceiptDao {
         }
         return pay;
     }
+
+    @Override
+    public boolean updatePayRecord(PayRecord payRecord) {
+        try{
+            this.getHibernateTemplate().saveOrUpdate(payRecord);
+            return true;
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

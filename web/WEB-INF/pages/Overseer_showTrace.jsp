@@ -1,20 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/style-metro.css" rel="stylesheet" type="text/css"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style-responsive.css" rel="stylesheet" type="text/css"/>
     <link href="css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/select2_metro.css"/>
+    <link rel="stylesheet" href="css/DT_bootstrap.css"/>
+    <!-- END PAGE LEVEL STYLES -->
+    <link rel="shortcut icon" href="images/favicon.ico"/>
 </head>
 <!-- END HEAD -->
 
@@ -49,11 +53,11 @@
             <!-- END PAGE HEADER-->
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet-body">
-                <table class="table table-striped table-bordered table-hover" id="table_InvestigationWork">
+                <table class="table table-striped table-bordered table-hover" id="table_showTrace">
                     <thead>
                     <tr>
                         <th style="width:8px;">
-                            <input type="checkbox" class="group-checkable" data-set="#table_InvestigationWork .checkboxes"/>
+                            <input type="checkbox" class="group-checkable" data-set="#table_showTrace .checkboxes"/>
                         </th>
                         <th>跟踪记录编号</th>
                         <th class="hidden-480">创建时间</th>
@@ -92,6 +96,7 @@
 </div>
 <!-- END CONTAINER -->
 
+
 <!-- BEGIN CORE PLUGINS -->
 <script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
 <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
@@ -105,17 +110,23 @@
 <script src="js/jquery.slimscroll.min.js" type="text/javascript"></script>
 <script src="js/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="js/jquery.uniform.min.js" type="text/javascript" ></script>
+<script src="js/jquery.uniform.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
-<script src="media/js/app.js"></script>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/DT_bootstrap.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="js/app.js"></script>
+<script src="js/table-managed.js"></script>
 <script>
-    jQuery(document).ready(function() {
-        // initiate layout and plugins
+    jQuery(document).ready(function () {
         App.init();
+        TableManaged.init();
     });
 </script>
 <!-- END JAVASCRIPTS -->
-<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script>
 </body>
 <!-- END BODY -->
 </html>

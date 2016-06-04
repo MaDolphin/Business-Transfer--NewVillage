@@ -38,6 +38,33 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
     private String status;
     private String result;
     private Examination examination;
+    private ReceiptDao receiptDao;
+    private PayRecord payRecord;
+    private int payId;
+
+    public int getPayId() {
+        return payId;
+    }
+
+    public void setPayId(int payId) {
+        this.payId = payId;
+    }
+
+    public PayRecord getPayRecord() {
+        return payRecord;
+    }
+
+    public void setPayRecord(PayRecord payRecord) {
+        this.payRecord = payRecord;
+    }
+
+    public ReceiptDao getReceiptDao() {
+        return receiptDao;
+    }
+
+    public void setReceiptDao(ReceiptDao receiptDao) {
+        this.receiptDao = receiptDao;
+    }
 
     public int getDesignFileId() {
         return designFileId;
@@ -236,26 +263,15 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
     public String addDesignFileCheckRecord(){
         try {
             DesignFileCheck designFileCheck = new DesignFileCheck();
-            System.out.println(designFileId);
             Timestamp date=new Timestamp(System.currentTimeMillis());
-            if (designFileCheckDao.queryDesignFileCheckRecordByID(designFileId) == null) {
-                designFileCheck.setDesignFileId(designFileId);
-                designFileCheck.setDesignUnit(designUnit);
-                designFileCheck.setDesignLevel(designLevel);
-                designFileCheck.setSubmittedUnit(submittedUnit);
-                designFileCheck.setSubmittedTime(submittedTime);
-                designFileCheck.setAccPerId(accPerId);
-                designFileCheck.setCheckPerId(checkPerId);
-                designFileCheck.setCheckTime(checkTime);
-                designFileCheck.setCivilDrawingNum(civilDrawingNum);
-                designFileCheck.setLineDrawingNum(lineDrawingNum);
-                designFileCheck.setEleDrawingNum(eleDrawingNum);
-                designFileCheck.setCheckOpinion(checkOpinion);
-                designFileCheck.setRegisterPerId(registerPerId);
-                designFileCheck.setRegisterTime(registerTime);
-                designFileCheck.setCreateTime(date);
-                designFileCheckDao.addDesignFileCheckRecord(designFileCheck);
-            }
+            designFileCheck.setCheckTime(date);
+            designFileCheck.setRegisterTime(date);
+            designFileCheck.setSubmittedTime(date);
+            designFileCheck.setCheckOpinion("未通过");
+            designFileCheck.setNewId(newId);
+            designFileCheck.setStatus("1");
+            designFileCheck.setCreateTime(date);
+            designFileCheckDao.addDesignFileCheckRecord(designFileCheck);
         }catch (Exception ex) {
             ex.printStackTrace();
             return INPUT;
@@ -280,7 +296,6 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         designFileCheck.setSubmittedTime(submittedTime);
         designFileCheck.setAccPerId(accPerId);
         designFileCheck.setCheckPerId(checkPerId);
-        designFileCheck.setCheckTime(checkTime);
         designFileCheck.setCivilDrawingNum(civilDrawingNum);
         designFileCheck.setLineDrawingNum(lineDrawingNum);
         designFileCheck.setEleDrawingNum(eleDrawingNum);
@@ -289,7 +304,25 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         designFileCheck.setRegisterTime(registerTime);
         designFileCheck.setNewId(newId);
         designFileCheck.setStatus(status);
-        System.out.println(status);
+        if(checkTime==null){
+            designFileCheck.setCheckTime(designFileCheck.getCreateTime());
+        }
+        else{
+            designFileCheck.setCheckTime(checkTime);
+        }
+        if(submittedTime==null){
+            designFileCheck.setSubmittedTime(designFileCheck.getCreateTime());
+        }
+        else{
+            designFileCheck.setSubmittedTime(submittedTime);
+        }
+        if(registerTime==null){
+            designFileCheck.setRegisterTime(designFileCheck.getCreateTime());
+        }
+        else{
+            designFileCheck.setRegisterTime(registerTime);
+        }
+        System.out.println(checkTime+""+submittedTime+""+registerTime);
         if (designFileCheckDao.updateDesignFileCheckRecord(designFileCheck)){
             return result="updateSuccess";
         }else {
@@ -392,4 +425,17 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         }
         return flag;
     }
+
+    public String QueryAllRecord(){
+        try{
+            List<PayRecord> payRecords=receiptDao.QueryAllRecord();
+            this.session.put("payRecords",payRecords);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return INPUT;
+        }
+        return result="queryAllRecordsSuccess";
+    }
+
+
 }
