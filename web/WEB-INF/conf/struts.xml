@@ -154,7 +154,7 @@
     <!-- 7.检查员 1.13中间检查 -->
     <package name="Checker" extends="struts-default">
         <!--action method-->
-        <action name="check">
+        <action name="check" class="com.NewVillage.action.CheckAction" method="pass2">
             <result >WEB-INF/pages/CheckAdd.jsp</result>
         </action>
 
@@ -172,7 +172,7 @@
     <!-- 8.报验员 1.14竣工报验 -->
     <package name="Inspectioner" extends="struts-default">
         <!--action method-->
-        <action name="Inspect">
+        <action name="Inspect" class="com.NewVillage.action.CheckAction" method="pass1">
             <result >WEB-INF/pages/InspectAdd.jsp</result>
         </action>
 
@@ -192,7 +192,7 @@
     <!--<package name="AcceptGroup" extends="struts-default">-->
     <package name="AcceptGroup" extends="json-default">
         <!--action method-->
-        <action name="CheckInfo" class="com.NewVillage.action.CheckAction" method="pass">
+        <action name="CheckInfo" class="com.NewVillage.action.CheckAction" method="pass1">
             <result >WEB-INF/pages/CheckInfoAdd.jsp</result>
         </action>
 

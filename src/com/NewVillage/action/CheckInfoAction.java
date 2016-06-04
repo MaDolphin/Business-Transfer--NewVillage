@@ -56,7 +56,7 @@ public class CheckInfoAction {
     public String add() throws Exception{
 
         Employee employee= (Employee) session.get("employee");
-        checkInfo.setNewId(1);
+        checkInfo.setNewId(Integer.valueOf(session.get("nid").toString()));
 
         checkInfo.setCheckInfoerId(employee.getEmpId());
         checkInfo.setCreateTime(timestamp);

@@ -75,4 +75,11 @@ public class CheckDaoImpl extends HibernateDaoSupport implements CheckDao {
         list= query.list();
         return list;
     }
+    public List<DesignFileCheck> searchInfo(){
+        List<DesignFileCheck> list=null;
+        String queryString="from DesignFileCheck d where d.status='2'";
+        Query query = session.createQuery(queryString);
+        list= query.list();
+        return list;
+    }
 }

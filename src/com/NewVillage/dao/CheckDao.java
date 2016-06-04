@@ -17,5 +17,6 @@ public interface CheckDao {
     public List<Inspection> searchInspection(int id);
     public List<Inspect> searchInspectManage(int id);
     public List<Inspection> searchInspectionManage(int id);
+    public List<DesignFileCheck> searchInfo();
 
     }
