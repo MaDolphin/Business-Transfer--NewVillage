@@ -28,6 +28,13 @@
             <result name="addNewVillageError"></result>
         </action>
         <!--JSP directing-->
+        <action name="Counter_AddNewVillage">
+            <result>/WEB-INF/pages/Counter_AddNewVillage.jsp</result>
+        </action>
+
+        <action name="Counter_ShowNewVillage">
+            <result>/WEB-INF/pages/Counter_ShowNewVillage.jsp</result>
+        </action>
 
     </package>
 
@@ -39,7 +46,13 @@
             <result name="addInvestigationSiteError"></result>
         </action>
         <!--JSP directing-->
+        <action name="Investigator_ShowInvestigationWork">
+            <result>/WEB-INF/pages/Investigator_ShowInvestigationWork.jsp</result>
+        </action>
 
+        <action name="Investigator_AddInvestigationSite">
+            <result>/WEB-INF/pages/Investigator_AddInvestigationSite.jsp</result>
+        </action>
     </package>
 
     <!-- 3.方案小组 1.6拟定供电方案-->
@@ -50,6 +63,13 @@
             <result name="input"></result>
         </action>
         <!--JSP directing-->
+        <action name="PlanGroup_ShowPowerDesign">
+            <result>/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
+        </action>
+
+        <action name="PlanGroup_AddPowerDesign">
+            <result>/WEB-INF/pages/PlanGroup_AddPowerDesign.jsp</result>
+        </action>
     </package>
 
     <!-- 4.审批员 1.7审批 1.12设计文件审核 -->

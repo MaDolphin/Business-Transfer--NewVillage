@@ -57,60 +57,45 @@
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-file-text"></i>
-                    <span class="title">课程管理</span>
+                    <span class="title">小区新增申请</span>
                     <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="courseInfoManager.action">课程信息管理</a>
+                        <a href="Counter_ShowNewVillage.action">新装信息管理</a>
                     </li>
                     <li>
-                        <a href="courseBatchImport.action">批量导入课程信息</a>
+                        <a href="Counter_AddNewVillage.action">填写新增申请</a>
                     </li>
                 </ul>
             </li>
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-user"></i>
-                    <span class="title">教师管理</span>
+                    <span class="title">勘查派工</span>
                     <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="teacherInfoManager.action">教师信息管理</a>
+                        <a href="Investigator_ShowInvestigationWork.action">勘查派工信息管理</a>
                     </li>
                     <li>
-                        <a href="teacherBatchImport.action">批量导入教师信息</a>
+                        <a href="Investigator_AddInvestigationSite.action">填写现场勘查信息</a>
                     </li>
                 </ul>
             </li>
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-user"></i>
-                    <span class="title">用户管理</span>
+                    <span class="title">电源方案制定</span>
                     <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="userInfoManager.action">用户信息管理</a>
+                        <a href="PlanGroup_ShowPowerDesign.action">方案信息管理</a>
                     </li>
                     <li>
-                        <a href="userAuthority.action">权限审核</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="">
-                <a href="javascript:;">
-                    <i class="icon-cogs"></i>
-                    <span class="title">系统管理</span>
-                    <span class="arrow "></span>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a href="adminInfoManager.action">管理员信息管理</a>
-                    </li>
-                    <li>
-                        <a href="Overseer_Home.action" target="rightFrame">进度跟踪</a>
+                        <a href="PlanGroup_AddPowerDesign.action">制定电源方案</a>
                     </li>
                 </ul>
             </li>
