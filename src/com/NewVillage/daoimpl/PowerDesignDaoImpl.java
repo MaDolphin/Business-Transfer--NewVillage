@@ -71,4 +71,13 @@ public class PowerDesignDaoImpl extends HibernateDaoSupport implements PowerDesi
         return list;
     }
 
+    @Override
+    public List<PowerDesign> allPowerDesigns() {
+        return (List<PowerDesign>) this.getHibernateTemplate().find("from PowerDesign u where u.status='1'");
+    }
+
+    @Override
+    public List<PowerDesign> queryPowerDesign() {
+        return (List<PowerDesign>) this.getHibernateTemplate().find("from PowerDesign u where u.status='2'");
+    }
 }

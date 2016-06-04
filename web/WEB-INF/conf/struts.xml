@@ -33,6 +33,9 @@
             <result name="addUserError" ></result>
             <result name="addNewVillageSuccess" type="redirectAction">CounterShowNewVillage</result>
             <result name="addNewVillageError" type="redirectAction">CounterAddNewVillage</result>
+            <result name="PowerDesignDetail">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
+            <result name="PowerDesignReply">/WEB-INF/pages/Counter_PowerDesignReply.jsp</result>
+            <result name="PowerDesign" type="redirectAction">Counter_QueryPowerDesign</result>
         </action>
         <!--JSP directing-->
         <action name="CounterAddNewVillage">
@@ -91,6 +94,10 @@
             <result name="queryAllSuccess">WEB-INF/pages/Approval_showCheckResult.jsp</result>
             <result name="updateSuccess" type="chain">Approval_queryDesignFileCheckRecordByIDAfterUpdate</result>
             <result name="input">WEB-INF/pages/Approval_writeCheckResult.jsp</result>
+
+            <result name="PowerDesignDetail">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
+            <result name="Examination">/WEB-INF/pages/Approval_Examin.jsp</result>
+            <result name="PowerDesign" type="redirectAction">Approval_QueryPowerDesign</result>
         </action>
         <!--JSP directing-->
     </package>
@@ -99,8 +106,13 @@
     <package name="Finance" extends="struts-default">
         <!--action method-->
         <action name="Finance_*" class="FinanceAction" method="{1}">
-            <result name="success"></result>
-            <result name="input"></result>
+            <result name="success">/WEB-INF/pages/Finance_ShowBusinessCost.jsp</result>
+            <result name="input">/WEB-INF/pages/main.jsp</result>
+            <result name="costdetail">/WEB-INF/pages/Finance_BusinessCostDetail.jsp</result>
+            <result name="addpayrecord">/WEB-INF/pages/Finance_AddPayRecord.jsp</result>
+            <result name="examincost" type="redirectAction">Finance_QueryCost</result>
+            <result name="paysuccess" type="redirectAction">Finance_QueryCost</result>
+            <result name="recordfull" type="redirectAction">Finance_QueryCost</result>
         </action>
         <!--JSP directing-->
     </package>

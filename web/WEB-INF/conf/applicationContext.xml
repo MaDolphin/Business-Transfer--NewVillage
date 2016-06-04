@@ -119,6 +119,10 @@
 
     <bean id="DesignFileCheckAction" class="com.NewVillage.action.DesignFileCheckAction">
         <property name="designFileCheckDao" ref="designFileCheckDao"></property>
+        <property name="powerDesignDao" ref="powerDesignDao"></property>
+        <property name="examinationDao" ref="ExaminAtionDao"></property>
+        <property name="messageDao" ref="messageDao"></property>
+        <property name="processRecordDao" ref="ProcessRecordDao"></property>
     </bean>
 
     <!--黄海琨-->

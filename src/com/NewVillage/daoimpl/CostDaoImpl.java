@@ -42,6 +42,12 @@ public class CostDaoImpl extends HibernateDaoSupport implements CostDao {
     }
 
     @Override
+    public BusinessCost queryBusinessCostByNewID(int newId) {
+        List<BusinessCost> businessCosts=(List<BusinessCost>)this.getHibernateTemplate().find("from BusinessCost u where u.newId=?",new Object[]{newId});
+        return businessCosts.get(0);
+    }
+
+    @Override
     public void ExaminCost(BusinessCost businessCost) {
         try{
             this.getHibernateTemplate().update(businessCost);

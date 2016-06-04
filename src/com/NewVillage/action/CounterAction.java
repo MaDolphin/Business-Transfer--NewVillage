@@ -24,6 +24,7 @@ public class CounterAction extends ActionSupport implements SessionAware {
     private CostDao costDao;
     private PowerDesignDao powerDesignDao;
     private Map session;
+    private int powerDesignId;
 
     public void setProcessRecordDao(ProcessRecordDao processRecordDao) {
         this.processRecordDao = processRecordDao;
@@ -43,6 +44,14 @@ public class CounterAction extends ActionSupport implements SessionAware {
 
     public void setInvestigationWorkDao(InvestigationWorkDao investigationWorkDao) {
         this.investigationWorkDao = investigationWorkDao;
+    }
+
+    public int getPowerDesignId() {
+        return powerDesignId;
+    }
+
+    public void setPowerDesignId(int powerDesignId) {
+        this.powerDesignId = powerDesignId;
     }
 
     public void setCostDao(CostDao costDao) {
@@ -172,14 +181,25 @@ public class CounterAction extends ActionSupport implements SessionAware {
         }
     }
 
-    public String QueryNewVill(){
+    //查询所有审批完成的电源方案
+    public String QueryPowerDesign(){
         try{
-            List<NewVillage> newVillageList=newVillageDao.queryAllNewVillage();
-            session.put("newVillage",newVillageList);
+            List<PowerDesign> powerDesigns=powerDesignDao.queryPowerDesign();
+            session.put("PowerDesignList",powerDesigns);
         }catch (Exception ex){
             ex.printStackTrace();
         }
-        return SUCCESS;
+        return "PowerDesignDetail";
+    }
+
+    public String QueryPowerDesignByID(){
+        try{
+            PowerDesign powerDesign= powerDesignDao.queryPowerDesignByID(powerDesignId);
+            session.put("PowerDesignInfo",powerDesign);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return "PowerDesignReply";
     }
 
     public String PowerDesignReply(){
@@ -190,6 +210,7 @@ public class CounterAction extends ActionSupport implements SessionAware {
             Employee emp=(Employee)session.get("employee");
             powerDesignReply.setReplyPerId(emp.getEmpId());
             powerDesignReplyDao.addPowerDesignReply(powerDesignReply);
+            PowerDesignReply reply=powerDesignReplyDao.queryPowerDesignReplyByID(powerDesignReply.getNewId());
 
             //通过默认的数据 创建应收费用表单
             BusinessCost businessCost=new BusinessCost();
@@ -202,17 +223,23 @@ public class CounterAction extends ActionSupport implements SessionAware {
             businessCost.setCharge(charge);
             businessCost.setCostItem("电源数量："+powerDesign.getPowerNum()+" 电线数量："+powerDesign.getPowerLineNum());
             costDao.addBusinessCost(businessCost);
+            BusinessCost cost=costDao.queryBusinessCostByNewID(powerDesign.getNewId());
 
-            //更改流程记录单中应收业务费单号
+            //更改电源方案的状态为已回复
+            powerDesign.setStatus("3");
+            powerDesignDao.updatePowerDesign(powerDesign);
+
+            //更改流程记录单中应收业务费单号和电源方案答复单号
             String hql="from ProcessRecord u where u.newId='"+powerDesignReply.getNewId()+"'";
             List<ProcessRecord> processRecords=processRecordDao.QueryProcess(hql);
             ProcessRecord processRecord=processRecords.get(0);
-            processRecord.setReplyId(powerDesignReply.getReplyId());
+            processRecord.setReplyId(reply.getReplyId());
+            processRecord.setCostId(cost.getCostId());
             processRecordDao.editProcess(processRecord);
         }catch (Exception ex){
             ex.printStackTrace();
         }
-        return "PowerDesignReply";
+        return "PowerDesign";
     }
 
 }

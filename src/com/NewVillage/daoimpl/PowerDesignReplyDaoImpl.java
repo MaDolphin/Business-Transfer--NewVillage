@@ -4,6 +4,8 @@ import com.NewVillage.dao.PowerDesignReplyDao;
 import com.NewVillage.entity.PowerDesignReply;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
+import java.util.List;
+
 /**
  * Created by 珏 on 2016/6/3.
  */
@@ -21,5 +23,10 @@ public class PowerDesignReplyDaoImpl extends HibernateDaoSupport implements Powe
     public PowerDesignReply queryPowerDesignReplyByID(int newId) {
         PowerDesignReply powerDesignReply = (PowerDesignReply) (getHibernateTemplate().get(PowerDesignReply.class,newId));
         return powerDesignReply;
+    }
+
+    @Override
+    public List<PowerDesignReply> allPowerDesignReply() {
+        return (List<PowerDesignReply>) getHibernateTemplate().find("from PowerDesignReply u where u.status='1'");
     }
 }

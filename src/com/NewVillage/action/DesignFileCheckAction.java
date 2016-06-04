@@ -1,7 +1,7 @@
 package com.NewVillage.action;
 
-import com.NewVillage.dao.DesignFileCheckDao;
-import com.NewVillage.entity.DesignFileCheck;
+import com.NewVillage.dao.*;
+import com.NewVillage.entity.*;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -15,6 +15,10 @@ import java.util.Map;
 public class DesignFileCheckAction extends ActionSupport implements SessionAware {
     private Map session;
     private DesignFileCheckDao designFileCheckDao;
+    private PowerDesignDao powerDesignDao;
+    private ExaminationDao examinationDao;
+    private MessageDao messageDao;
+    private ProcessRecordDao processRecordDao;
     private int designFileId;
     private String designUnit;
     private String designLevel;
@@ -30,9 +34,11 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
     private int registerPerId;
     private Timestamp registerTime;
     private Timestamp createTime;
-    private int newId;
+    private int newId,powerDesignId;
     private String status;
     private String result;
+    private Examination examination;
+
     public int getDesignFileId() {
         return designFileId;
     }
@@ -181,8 +187,40 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         return designFileCheckDao;
     }
 
+    public int getPowerDesignId() {
+        return powerDesignId;
+    }
+
+    public void setPowerDesignId(int powerDesignId) {
+        this.powerDesignId = powerDesignId;
+    }
+
+    public void setPowerDesignDao(PowerDesignDao powerDesignDao) {
+        this.powerDesignDao = powerDesignDao;
+    }
+
     public void setDesignFileCheckDao(DesignFileCheckDao designFileCheckDao) {
         this.designFileCheckDao = designFileCheckDao;
+    }
+
+    public Examination getExamination() {
+        return examination;
+    }
+
+    public void setExamination(Examination examination) {
+        this.examination = examination;
+    }
+
+    public void setExaminationDao(ExaminationDao examinationDao) {
+        this.examinationDao = examinationDao;
+    }
+
+    public void setMessageDao(MessageDao messageDao) {
+        this.messageDao = messageDao;
+    }
+
+    public void setProcessRecordDao(ProcessRecordDao processRecordDao) {
+        this.processRecordDao = processRecordDao;
     }
 
     public String QueryAllDesignFileCheckMessage(){
@@ -284,4 +322,74 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         return result="querySuccess";
     }
 
+    //查询所有未审批电源方案
+    public String QueryPowerDesign(){
+        try{
+            List<PowerDesign> powerDesigns= powerDesignDao.allPowerDesigns();
+            session.put("PowerDesignList",powerDesigns);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return "PowerDesignDetail";
+    }
+
+    public String QueryPowerDesignByID(){
+        try{
+            PowerDesign powerDesign= powerDesignDao.queryPowerDesignByID(powerDesignId);
+            session.put("PowerDesignInfo",powerDesign);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return "Examination";
+    }
+
+    public String addExamination(){
+        String flag=INPUT;
+        Timestamp time=new Timestamp(System.currentTimeMillis());
+        try{
+            Employee employee=(Employee)session.get("Employee");
+            PowerDesign powerDesign=(PowerDesign)session.get("PowerDesignInfo");
+            List<Examination> examinations=examinationDao.queryExaminationByNewID(examination.getNewId());
+            examination.setExPerId(String.valueOf(employee.getEmpId()));
+            examination.setCreateTime(time);
+            examinationDao.addExamination(examination);
+            if(examination.getExResult().equals("不通过")){
+                //创建消息 通知方案小组 方案未通过
+                Message message=new Message();
+                if (examinations!=null)
+                    message.setRefund(examinations.get(0).getExId());
+                message.setStatus("0");
+                message.setEmpId(powerDesign.getPowerDesignPerId());
+                message.setNewId(examination.getNewId());
+                messageDao.addMessage(message);
+
+                //将审批过的未通过设计方案 状态设置为作废
+                powerDesign.setStatus("-1");
+                powerDesignDao.updatePowerDesign(powerDesign);
+
+                /*//清除流程进程单中的电源设计方案
+                String hql="from ProcessRecord u where u.newId='"+powerDesign.getNewId()+"'";
+                List<ProcessRecord> processRecords=processRecordDao.QueryProcess(hql);
+                ProcessRecord processRecord=processRecords.get(0);
+                processRecord.setPowerId(null);
+                processRecordDao.editProcess(processRecord);*/
+            }else if(examination.getExResult().equals("通过")){
+                //将审批过的通过设计方案 状态设置为审批完成
+                powerDesign.setStatus("2");
+                powerDesignDao.updatePowerDesign(powerDesign);
+
+                //更改流程记录单中审核单号
+                String hql="from ProcessRecord u where u.newId='"+examination.getNewId()+"'";
+                List<ProcessRecord> processRecords=processRecordDao.QueryProcess(hql);
+                ProcessRecord processRecord=processRecords.get(0);
+                if (examinations!=null)
+                    processRecord.setExId(examinations.get(0).getExId());
+                processRecordDao.editProcess(processRecord);
+            }
+            flag="PowerDesign";
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return flag;
+    }
 }

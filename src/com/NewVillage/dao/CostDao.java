@@ -12,4 +12,5 @@ public interface CostDao {
     public void ExaminCost(BusinessCost businessCost);
     BusinessCost QueryCostByID(int costId);
     void addBusinessCost(BusinessCost businessCost);
+    BusinessCost queryBusinessCostByNewID(int newId);
 }

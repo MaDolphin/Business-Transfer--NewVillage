@@ -81,7 +81,7 @@ public class FinanceAction extends ActionSupport implements SessionAware{
         }catch (Exception ex){
             ex.printStackTrace();
         }
-        return SUCCESS;
+        return "costdetail";
     }
 
     public String QueryPayRecord(){
@@ -110,17 +110,17 @@ public class FinanceAction extends ActionSupport implements SessionAware{
         }catch (Exception ex){
             ex.printStackTrace();
         }
-        return SUCCESS;
+        return "examincost";
     }
 
     public String PayRecord(){
-        String flag=INPUT;
+        String flag="recordfull";
         try{
             session.put("businessCostInfo",businessCost);
-            String hql="from PayRecord u where u.newId='"+businessCost.getNewId()+"' and u.status='1'";
+            String hql="from PayRecord u where u.newId='"+businessCost.getNewId()+"' and u.status!='-1'";
             List<PayRecord> pay=receiptdao.QueryRecord(hql);
             if(pay.size()>=0&&pay.size()<3)
-                flag=SUCCESS;
+                flag="addpayrecord";
             switch (pay.size()){
                 case 0:session.put("perenct",20);break;
                 case 1:session.put("perenct",40);break;
@@ -170,7 +170,7 @@ public class FinanceAction extends ActionSupport implements SessionAware{
                 user.setUserTicket(user.getUserTicket()+payRecord.getPayment());
                 userDao.updateUser(user);
 
-                flag = SUCCESS;
+                flag = "paysuccess";
             }
         }catch(Exception ex){
             ex.printStackTrace();

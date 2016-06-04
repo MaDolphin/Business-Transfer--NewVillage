@@ -3,6 +3,7 @@ package com.NewVillage.daoimpl;
 import com.NewVillage.dao.EmployeeDao;
 import com.NewVillage.entity.Employee;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.validation.ObjectError;
 
 import java.util.List;
 
@@ -66,6 +67,6 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 
     @Override
     public List<Employee> QueryEmployeeByDep(String dep) {
-        return (List<Employee>)this.getHibernateTemplate().find("from Employee u where u.empDep=?");
+        return (List<Employee>)this.getHibernateTemplate().find("from Employee u where u.empDep=?",new Object[]{dep});
     }
 }

@@ -15,4 +15,7 @@ public interface PowerDesignDao {
     public boolean updatePowerDesign(PowerDesign powerDesign);
     public List<PowerDesign> allPowerDesignsByEmpID(int empid);
     public List<PowerDesign> allPowerDesignsByNewID(int newid);
+    List<PowerDesign> allPowerDesigns();
+
+    List<PowerDesign> queryPowerDesign();
 }
