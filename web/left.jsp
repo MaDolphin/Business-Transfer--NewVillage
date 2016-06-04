@@ -102,6 +102,21 @@
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-user"></i>
+                    <span class="title">进程跟踪信息</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="Overseer_allPowerDesignReply.action" target="rightFrame">查看全部进程</a>
+                    </li>
+                    <li>
+                        <a href="Overseer_allPowerDesignReply.action" target="rightFrame">是否创建进程</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="javascript:;">
+                    <i class="icon-user"></i>
                     <span class="title">设计文件审核</span>
                     <span class="arrow "></span>
                 </a>

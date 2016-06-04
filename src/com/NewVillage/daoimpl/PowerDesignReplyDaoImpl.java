@@ -29,4 +29,15 @@ public class PowerDesignReplyDaoImpl extends HibernateDaoSupport implements Powe
     public List<PowerDesignReply> allPowerDesignReply() {
         return (List<PowerDesignReply>) getHibernateTemplate().find("from PowerDesignReply u where u.status='1'");
     }
+
+    @Override
+    public boolean updatePowerDesignReply(PowerDesignReply powerDesignReply) {
+        try{
+            this.getHibernateTemplate().saveOrUpdate(powerDesignReply);
+            return true;
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

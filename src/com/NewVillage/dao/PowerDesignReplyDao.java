@@ -10,4 +10,6 @@ public interface PowerDesignReplyDao {
     void addPowerDesignReply(PowerDesignReply powerDesignReply);
     public PowerDesignReply queryPowerDesignReplyByID(int newId);
     List<PowerDesignReply> allPowerDesignReply();
+    public boolean updatePowerDesignReply(PowerDesignReply powerDesignReply);
+
 }

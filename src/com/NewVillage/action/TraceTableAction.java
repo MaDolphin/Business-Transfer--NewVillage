@@ -37,6 +37,15 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
     private int newId;
     private String status;
     private String result;
+    private int replyId;
+
+    public int getReplyId() {
+        return replyId;
+    }
+
+    public void setReplyId(int replyId) {
+        this.replyId = replyId;
+    }
 
     public PowerDesignReplyDao getPowerDesignReplyDao() {
         return powerDesignReplyDao;
@@ -284,5 +293,26 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
 
         return result= "queryPowerDesignReplySuccess";
     }
+    public String allPowerDesignReply(){
+        try{
+            List<PowerDesignReply> powerDesignReply=powerDesignReplyDao.allPowerDesignReply();
+            session.put("powerDesignReplys",powerDesignReply);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return INPUT;
+        }
+        return result="queryPowerDesignReplysSuccess";
+    }
 
+    public String updatePowerDesignReplyStatus(){
+        try{
+            PowerDesignReply powerDesignReply=powerDesignReplyDao.queryPowerDesignReplyByID(replyId);
+            powerDesignReply.setStatus("2");
+            powerDesignReplyDao.updatePowerDesignReply(powerDesignReply);
+            return result="updatePowerDesignReplyStatusSuccess";
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return INPUT;
+        }
+    }
 }
