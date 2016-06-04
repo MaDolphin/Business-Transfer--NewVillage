@@ -52,7 +52,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="portlet_tab1" style="margin-left: -50px">
                                     <!-- BEGIN FORM-->
-                                    <form action="PlanGroup_AddPowerDesign.action" target="rightFrame" method="post" class="form-horizontal" >
+                                    <form target="rightFrame" method="post" class="form-horizontal" >
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group " >
