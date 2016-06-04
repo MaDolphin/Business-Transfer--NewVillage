@@ -43,7 +43,6 @@
                         </li>
                         <li>
                             <a href="#">供电方案</a>
-                            <span class="icon-angle-right"></span>
                         </li>
                     </ul>
                 </div>

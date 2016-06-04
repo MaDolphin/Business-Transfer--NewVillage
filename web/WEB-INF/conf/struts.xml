@@ -76,18 +76,18 @@
     <package name="PlanGroup" extends="struts-default">
         <!--action method-->
         <action name="PlanGroup_*" class="PlanGroupAction" method="{1}">
-            <result name="success"></result>
-            <result name="input"></result>
+            <result name="addPowerDesignSuccess" type="redirectAction">PlanGroupShowPowerDesign</result>
+            <result name="addPowerDesignError" type="redirectAction">PlanGroupAddPowerDesign</result>
             <result name="PowerDesignDetail">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
 
         </action>
         <!--JSP directing-->
-        <action name="PlanGroupShowPowerDesign">
-            <result>/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
+        <action name="PlanGroupShowPowerDesign" class="PlanGroupAction" method="InitPowerDesignShow">
+            <result name="success">/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
         </action>
 
-        <action name="PlanGroupAddPowerDesign">
-            <result>/WEB-INF/pages/PlanGroup_AddPowerDesign.jsp</result>
+        <action name="PlanGroupAddPowerDesign" class="PlanGroupAction" method="InitPowerDesignAdd">
+            <result name="success">/WEB-INF/pages/PlanGroup_AddPowerDesign.jsp</result>
         </action>
     </package>
 

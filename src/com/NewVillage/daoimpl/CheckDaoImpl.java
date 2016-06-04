@@ -18,7 +18,6 @@ public class CheckDaoImpl extends HibernateDaoSupport implements CheckDao {
     Configuration configuration= new Configuration().configure();
     SessionFactory sessionFactory=configuration.buildSessionFactory();
     Session session=sessionFactory.openSession();
-    Transaction transaction=session.beginTransaction();
 
     public void addCheck(Inspect inspect){
         try{
