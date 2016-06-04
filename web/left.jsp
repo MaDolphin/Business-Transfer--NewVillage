@@ -107,7 +107,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="Overseer_allPowerDesignReply.action" target="rightFrame">查看全部进程</a>
+                        <a href="Overseer_QueryAllScheduleCondition.action" target="rightFrame">查看全部进程</a>
                     </li>
                     <li>
                         <a href="Overseer_allPowerDesignReply.action" target="rightFrame">是否创建进程</a>

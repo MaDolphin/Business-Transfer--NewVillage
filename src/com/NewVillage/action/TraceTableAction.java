@@ -217,19 +217,17 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
             ex.printStackTrace();
             return INPUT;
         }
-        return SUCCESS;
+        return result="QueryAllScheduleConditionSuccess";
     }
 
     public String addTraceTableRecord(){
         try {
             TraceTable traceTable = new TraceTable();
             Timestamp date=new Timestamp(System.currentTimeMillis());
-            if (traceTableDao.queryTraceTableRecordByID(traceId) == null) {
-                traceTable.setTraceId(traceId);
-                traceTable.setStatus("1");
-                traceTable.setCreateTime(date);
-                traceTableDao.addTraceTableRecord(traceTable);
-            }
+            traceTable.setNewId(newId);
+            traceTable.setStatus("1");
+            traceTable.setCreateTime(date);
+            traceTableDao.addTraceTableRecord(traceTable);
         }catch (Exception ex) {
             ex.printStackTrace();
             return INPUT;
@@ -260,6 +258,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
         traceTable.setMidCheckResult(midCheckResult);
         traceTable.setFinalInsResult(finalInsResult);
         traceTable.setProAccountsResult(proAccountsResult);
+        traceTable.setStatus(status);
         if (traceTableDao.updateTraceTableRecord(traceTable)){
             return result="updateSuccess";
         }else {

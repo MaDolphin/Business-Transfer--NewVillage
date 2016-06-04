@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="description" />
@@ -168,6 +169,27 @@
                                                     <label class="control-label">工程决算结果信息</label>
                                                     <div class="controls">
                                                         <textarea class="large m-wrap" name="proAccountsResult" value="${sessionScope.traceTable.proAccountsResult}" rows="4"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="span6 ">
+                                                <div class="control-group">
+                                                    <label class="control-label">跟踪状态</label>
+                                                    <div class="controls">
+                                                        <select class="large m-wrap" tabindex="1" name="status">
+                                                            <c:if test="${sessionScope.traceTable.status=='1'}">
+                                                                <option value="1">未完成跟踪</option>
+                                                            </c:if>
+                                                            <c:if test="${sessionScope.traceTable.status=='2'}">
+                                                                <option value="2">完成跟踪</option>
+                                                            </c:if>
+                                                            <c:if test="${sessionScope.traceTable.status=='1'}">
+                                                                <option value="2">完成跟踪</option>
+                                                            </c:if>
+                                                            <c:if test="${sessionScope.traceTable.status=='2'}">
+                                                                <option value="1">未完成跟踪</option>
+                                                            </c:if>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>

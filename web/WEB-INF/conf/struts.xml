@@ -137,9 +137,10 @@
         <action name="Overseer_*" class="TraceTableAction" method="{1}">
             <result name="queryPowerDesignReplysSuccess">WEB-INF/pages/Overseer_queryHaveNewTrace.jsp</result>
             <result name="updatePowerDesignReplyStatusSuccess" type="chain">Overseer_allPowerDesignReply</result>
-            <result name="addSuccess">WEB-INF/pages/Overseer_addTrace.jsp</result>
+            <result name="addSuccess" type="chain">Overseer_allPowerDesignReply</result>
             <result name="querySuccess">WEB-INF/pages/Overseer_updateTrace.jsp</result>
             <result name="updateSuccess" type="chain">Overseer_queryTraceTableRecordByIDAfterUpdate</result>
+            <result name="QueryAllScheduleConditionSuccess">WEB-INF/pages/Overseer_showTrace.jsp</result>
             <result name="input">WEB-INF/pages/Overseer_Home.jsp</result>
         </action>
 

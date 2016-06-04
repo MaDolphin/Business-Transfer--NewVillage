@@ -80,7 +80,8 @@
                                     </c:if>
                                     <td class="hidden-480">
                                         <c:if test="${powerDesignReply.status =='1'}">
-                                            <a href="javascript:if(confirm('确认完成记录该回复信息?'))window.location='Overseer_updatePowerDesignReplyStatus.action?replyId=${powerDesignReply.replyId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 记录完成</a>
+                                            <a href="javascript:if(confirm('确认完成记录该回复信息?'))window.location='Overseer_updatePowerDesignReplyStatus.action?replyId=${powerDesignReply.replyId}'" class="label label-success">记录完成</a>
+                                            <a href="javascript:if(confirm('确认创建新进度跟踪记录?'))window.location='Overseer_addTraceTableRecord.action?newId=${powerDesignReply.newId}'" class="label label-info">创建进程</a>
                                         </c:if>
                                     </td>
                                 </tr>
