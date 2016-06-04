@@ -68,7 +68,8 @@
                                                 <div class="control-group ">
                                                     <label class="control-label">新装单号</label>
                                                     <div class="controls">
-                                                        <input class="large m-wrap" name="PowerDesign.newId" value="${PowerDesignInfo.newId}" readonly />
+                                                        <input class="large m-wrap" name="PowerDesign.newId" value="${PowerDesignInfo.newId}" readonly
+                                                               placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
