@@ -430,7 +430,7 @@
         <data-type>int(11)</data-type>
       </column>
       <column id="134" parent="13" name="Refund">
-        <data-type>int(11)</data-type>
+        <data-type>text</data-type>
       </column>
       <column id="135" parent="13" name="status">
         <data-type>char(10)</data-type>

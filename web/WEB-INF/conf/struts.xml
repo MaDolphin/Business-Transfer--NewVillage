@@ -82,6 +82,10 @@
 
         </action>
         <!--JSP directing-->
+        <action name="PlanGroupShowMessage" class="PlanGroupAction" method="InitPowerDesignShow">
+            <result name="success">/WEB-INF/pages/PlanGroup_ShowMessage.jsp</result>
+        </action>
+
         <action name="PlanGroupShowPowerDesign" class="PlanGroupAction" method="InitPowerDesignShow">
             <result name="success">/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
         </action>

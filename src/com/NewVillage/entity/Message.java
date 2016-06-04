@@ -6,14 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Dream on 2016/6/3.
+ * Created by xfcq on 2016/6/4.
  */
 @Entity
 public class Message {
     private int messId;
     private Integer empId;
     private Integer newId;
-    private Integer refund;
+    private String refund;
     private String status;
 
     @Id
@@ -47,12 +47,12 @@ public class Message {
     }
 
     @Basic
-    @Column(name = "Refund", nullable = true)
-    public Integer getRefund() {
+    @Column(name = "Refund", nullable = true, length = -1)
+    public String getRefund() {
         return refund;
     }
 
-    public void setRefund(Integer refund) {
+    public void setRefund(String refund) {
         this.refund = refund;
     }
 

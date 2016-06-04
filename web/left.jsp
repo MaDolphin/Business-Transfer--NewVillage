@@ -97,6 +97,9 @@
                     <li>
                         <a href="PlanGroupAddPowerDesign.action" target="rightFrame">制定电源方案</a>
                     </li>
+                    <li>
+                        <a href="PlanGroupShowMessage.action" target="rightFrame">消息管理</a>
+                    </li>
                 </ul>
             </li>
             <li class="">

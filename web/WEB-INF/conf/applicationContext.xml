@@ -149,6 +149,8 @@
 
     <bean id="PlanGroupAction" class="com.NewVillage.action.PlanGroupAction">
         <property name="powerDesignDao" ref="powerDesignDao"></property>
+        <property name="processRecordDao" ref="ProcessRecordDao"></property>
+        <property name="messageDao" ref="messageDao"></property>
     </bean>
 
     <!--黄晓辉-->
