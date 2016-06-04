@@ -33,7 +33,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        供电方案信息列表：
+                        新装信息列表：
                     </h3>
                     <ul class="breadcrumb">
                         <li>
@@ -42,7 +42,7 @@
                             <span class="icon-angle-right"></span>
                         </li>
                         <li>
-                            <a href="#">供电方案</a>
+                            <a href="#">新装信息</a>
                             <span class="icon-angle-right"></span>
                         </li>
                     </ul>
@@ -54,43 +54,38 @@
                 <div class="span12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet-body">
-                        <table class="table table-striped table-bordered table-hover" id="table_BusinessCost">
+                        <table class="table table-striped table-bordered table-hover" id="table_NewVillageList">
                             <thead>
                             <tr>
                                 <th style="width:8px;"><input type="checkbox" class="group-checkable"
-                                                              data-set="#table_InvestigationWork .checkboxes"/></th>
-                                <th>应收业务费单号</th>
-                                <th class="hidden-480">新装单号</th>
-                                <th class="hidden-480">应收金额</th>
-                                <th class="hidden-480">应退金额</th>
+                                                              data-set="#table_NewVillageList .checkboxes"/></th>
+                                <th>新装单号</th>
+                                <th class="hidden-480">用户名称</th>
+                                <th class="hidden-480">操作员</th>
+                                <th class="hidden-480">创建时间</th>
                                 <th class="hidden-480">状态</th>
-                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${businessCosts}" var="cost">
+                            <c:forEach items="${AllNewVillageList}" var="newvill">
                                 <tr class="odd gradeX">
                                     <td><input type="checkbox" class="checkboxes" value="1"/></td>
-                                    <td class="hidden-480">${cost.costId}</td>
-                                    <td class="hidden-480">${cost.newId}</td>
-                                    <td class="hidden-480">${cost.charge}</td>
-                                    <td class="hidden-480">${cost.refund}</td>
-                                    <c:if test="${cost.status == 0}">
-                                        <td><span class="label label-warning">未检验</span></td>
+                                    <td class="hidden-480">${newvill.newId}</td>
+                                    <td class="hidden-480">${newvill.vilName}</td>
+                                    <td class="hidden-480">${newvill.newVilPerId}</td>
+                                    <td class="hidden-480">${newvill.createTime}</td>
+                                    <c:if test="${newvill.status == -1}">
+                                        <td><span class="label label-default">已注销</span></td>
                                     </c:if>
-                                    <c:if test="${cost.status == 1}">
-                                        <td><span class="label label-info">检验完成</span></td>
+                                    <c:if test="${newvill.status == 0}">
+                                        <td><span class="label label-warning">已创建</span></td>
                                     </c:if>
-                                    <td class="hidden-480">
-                                        <c:if test="${cost.status == 0}">
-                                            <a href="Finance_QueryCostByID.action?BusinessCost=${cost}" target="rightFrame"
-                                               class="btn mini blue"><i class="icon-share"></i> 详情</a>
-                                        </c:if>
-                                        <c:if test="${cost.status == 1}">
-                                            <a href="Finance_PayRecord.action?BusinessCost=${cost}" target="rightFrame"
-                                               class="btn mini blue"><i class="icon-share"></i> 详情</a>
-                                        </c:if>
-                                    </td>
+                                    <c:if test="${newvill.status == 1}">
+                                        <td><span class="label label-success">勘查派工中</span></td>
+                                    </c:if>
+                                    <c:if test="${newvill.status == 2}">
+                                        <td><span class="label label-info">现场勘查完毕</span></td>
+                                    </c:if>
                                 </tr>
                             </c:forEach>
                             </tbody>

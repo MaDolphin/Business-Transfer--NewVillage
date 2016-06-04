@@ -233,4 +233,10 @@ public class CounterAction extends ActionSupport implements SessionAware {
         return "ReplySuccess";
     }
 
+    public String InitCounterShowNewVillage(){
+        List<NewVillage> newVillageList = newVillageDao.queryAllNewVillage();
+        session.put("AllNewVillageList",newVillageList);
+        return SUCCESS;
+    }
+
 }

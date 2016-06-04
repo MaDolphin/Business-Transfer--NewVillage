@@ -41,7 +41,7 @@
             <result>/WEB-INF/pages/Counter_AddNewVillage.jsp</result>
         </action>
 
-        <action name="CounterShowNewVillage">
+        <action name="CounterShowNewVillage" class="CounterAction" method="InitCounterShowNewVillage">
             <result>/WEB-INF/pages/Counter_ShowNewVillage.jsp</result>
         </action>
 
