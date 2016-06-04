@@ -84,7 +84,7 @@ public class FinanceAction extends ActionSupport implements SessionAware{
         return "costdetail";
     }
 
-    public String QueryPayRecord(){
+   /* public String QueryPayRecord(){
         try{
             List<PayRecord> payRecords=receiptdao.QueryAllRecord();
             session.put("payRecords",payRecords);
@@ -92,7 +92,7 @@ public class FinanceAction extends ActionSupport implements SessionAware{
             ex.printStackTrace();
         }
         return SUCCESS;
-    }
+    }*/
 
     public String ExaminCost(){
         Timestamp time=new Timestamp(System.currentTimeMillis());
@@ -122,9 +122,9 @@ public class FinanceAction extends ActionSupport implements SessionAware{
             if(pay.size()>=0&&pay.size()<3)
                 flag="addpayrecord";
             switch (pay.size()){
-                case 0:session.put("perenct",20);break;
-                case 1:session.put("perenct",40);break;
-                case 2:session.put("perenct",40);break;
+                case 0:session.put("perenct",20);session.put("peren",80);break;
+                case 1:session.put("perenct",40);session.put("peren",40);break;
+                case 2:session.put("perenct",40);session.put("peren",0);break;
             }
         }catch(Exception ex){
             ex.printStackTrace();

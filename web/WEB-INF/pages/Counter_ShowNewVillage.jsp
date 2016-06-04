@@ -54,42 +54,42 @@
                 <div class="span12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet-body">
-                        <table class="table table-striped table-bordered table-hover" id="table_PowerDesign">
+                        <table class="table table-striped table-bordered table-hover" id="table_BusinessCost">
                             <thead>
                             <tr>
                                 <th style="width:8px;"><input type="checkbox" class="group-checkable"
                                                               data-set="#table_InvestigationWork .checkboxes"/></th>
-                                <th>供电方案单号</th>
+                                <th>应收业务费单号</th>
                                 <th class="hidden-480">新装单号</th>
-                                <th class="hidden-480">创建时间</th>
-                                <th class="hidden-480">拟定方案员工工号</th>
+                                <th class="hidden-480">应收金额</th>
+                                <th class="hidden-480">应退金额</th>
                                 <th class="hidden-480">状态</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${PowerDesignList}" var="power">
+                            <c:forEach items="${businessCosts}" var="cost">
                                 <tr class="odd gradeX">
                                     <td><input type="checkbox" class="checkboxes" value="1"/></td>
-                                    <td class="hidden-480">${power.powerId}</td>
-                                    <td class="hidden-480">${power.newId}</td>
-                                    <td class="hidden-480">${power.createTime}</td>
-                                    <td class="hidden-480">${power.powerDesignPerId}</td>
-                                    <c:if test="${power.status == 0}">
-                                        <td><span class="label label-warning">已创建</span></td>
+                                    <td class="hidden-480">${cost.costId}</td>
+                                    <td class="hidden-480">${cost.newId}</td>
+                                    <td class="hidden-480">${cost.charge}</td>
+                                    <td class="hidden-480">${cost.refund}</td>
+                                    <c:if test="${cost.status == 0}">
+                                        <td><span class="label label-warning">为检验</span></td>
                                     </c:if>
-                                    <c:if test="${power.status == 1}">
-                                        <td><span class="label label-info">已制定方案</span></td>
-                                    </c:if>
-                                    <c:if test="${power.status == 2}">
-                                        <td><span class="label label-success">确定方案</span></td>
+                                    <c:if test="${cost.status == 1}">
+                                        <td><span class="label label-info">检验完成</span></td>
                                     </c:if>
                                     <td class="hidden-480">
-
-
-                                        <a href="PlanGroup_PowerDesignDetail.action?PowerDesign=${power}" target="rightFrame"
-                                           class="btn mini blue"><i class="icon-share"></i> 详情</a>
-
+                                        <c:if test="${cost.status == 0}">
+                                            <a href="Finance_QueryCostByID.action?BusinessCost=${cost}" target="rightFrame"
+                                               class="btn mini blue"><i class="icon-share"></i> 详情</a>
+                                        </c:if>
+                                        <c:if test="${cost.status == 1}">
+                                            <a href="Finance_PayRecord.action?BusinessCost=${cost}" target="rightFrame"
+                                               class="btn mini blue"><i class="icon-share"></i> 详情</a>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </c:forEach>
