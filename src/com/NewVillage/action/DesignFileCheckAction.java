@@ -193,7 +193,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
             ex.printStackTrace();
             return INPUT;
         }
-        return SUCCESS;
+        return result="queryAllSuccess";
     }
     public String addDesignFileCheckRecord(){
         try {
@@ -201,7 +201,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
             System.out.println(designFileId);
             Timestamp date=new Timestamp(System.currentTimeMillis());
             if (designFileCheckDao.queryDesignFileCheckRecordByID(designFileId) == null) {
-                designFileCheck.setAccPerId(designFileId);
+                designFileCheck.setDesignFileId(designFileId);
                 designFileCheck.setDesignUnit(designUnit);
                 designFileCheck.setDesignLevel(designLevel);
                 designFileCheck.setSubmittedUnit(submittedUnit);
@@ -249,8 +249,11 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         designFileCheck.setCheckOpinion(checkOpinion);
         designFileCheck.setRegisterPerId(registerPerId);
         designFileCheck.setRegisterTime(registerTime);
+        designFileCheck.setNewId(newId);
+        designFileCheck.setStatus(status);
+        System.out.println(status);
         if (designFileCheckDao.updateDesignFileCheckRecord(designFileCheck)){
-            return SUCCESS;
+            return result="updateSuccess";
         }else {
             return INPUT;
         }
@@ -258,12 +261,27 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
 
     public String queryDesignFileCheckRecordByID(){
         try{
+            System.out.println(designFileId);
             DesignFileCheck designFileCheck=designFileCheckDao.queryDesignFileCheckRecordByID(designFileId);
+            System.out.println(designFileCheck);
             session.put("designFileCheck",designFileCheck);
         }catch (Exception ex){
             ex.printStackTrace();
             return INPUT;
         }
-        return SUCCESS;
+        return result="querySuccess";
     }
+
+    public String queryDesignFileCheckRecordByIDAfterUpdate(){
+        try{
+            DesignFileCheck dfCheck= (DesignFileCheck)session.get("designFileCheck");
+            DesignFileCheck designFileCheck=designFileCheckDao.queryDesignFileCheckRecordByID(dfCheck.getDesignFileId());
+            session.put("designFileCheck",designFileCheck);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return INPUT;
+        }
+        return result="querySuccess";
+    }
+
 }

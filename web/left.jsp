@@ -107,6 +107,12 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
+                        <a href="Approval_QueryAllDesignFileCheckMessage.action" target="rightFrame">查看审核结果</a>
+                    </li>
+                    <li>
+                        <a href="Approval_QueryAllDesignFileCheckMessage.action" target="rightFrame">查看审核结果</a>
+                    </li>
+                    <li>
                         <a href="Approval_writeDesignFileCheckRecord.action" target="rightFrame">填写审核结果</a>
                     </li>
                     <li>

@@ -87,6 +87,9 @@
         </action>
         <action name="Approval_*" class="DesignFileCheckAction" method="{1}">
             <result name="addSuccess">WEB-INF/pages/Approval_writeCheckResult.jsp</result>
+            <result name="querySuccess">WEB-INF/pages/Approval_updateCheckResult.jsp</result>
+            <result name="queryAllSuccess">WEB-INF/pages/Approval_showCheckResult.jsp</result>
+            <result name="updateSuccess" type="chain">Approval_queryDesignFileCheckRecordByIDAfterUpdate</result>
             <result name="input">WEB-INF/pages/Approval_writeCheckResult.jsp</result>
         </action>
         <!--JSP directing-->
