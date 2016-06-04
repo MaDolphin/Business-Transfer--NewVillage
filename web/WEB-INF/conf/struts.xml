@@ -8,6 +8,10 @@
     <!--login-->
     <package name="common" extends="struts-default">
         <!--action method-->
+        <action name="login" class="LoginAction" method="login">
+            <result name="success" type="redirectAction">home</result>
+            <result name="input">index.jsp</result>
+        </action>
         <action name="home">
             <result >WEB-INF/pages/main.jsp</result>
         </action>
@@ -22,17 +26,17 @@
     <package name="Counter" extends="struts-default">
         <!--action method-->
         <action name="Counter_*" class="CounterAction" method="{1}">
-            <result name="addUserSuccess"></result>
+            <result name="addUserSuccess" type="redirectAction">CounterShowNewVillage</result>
             <result name="addUserError" ></result>
             <result name="addNewVillageSuccess"></result>
             <result name="addNewVillageError"></result>
         </action>
         <!--JSP directing-->
-        <action name="Counter_AddNewVillage">
+        <action name="CounterAddNewVillage">
             <result>/WEB-INF/pages/Counter_AddNewVillage.jsp</result>
         </action>
 
-        <action name="Counter_ShowNewVillage">
+        <action name="CounterShowNewVillage">
             <result>/WEB-INF/pages/Counter_ShowNewVillage.jsp</result>
         </action>
 
@@ -46,11 +50,11 @@
             <result name="addInvestigationSiteError"></result>
         </action>
         <!--JSP directing-->
-        <action name="Investigator_ShowInvestigationWork">
+        <action name="InvestigatorShowInvestigationWork">
             <result>/WEB-INF/pages/Investigator_ShowInvestigationWork.jsp</result>
         </action>
 
-        <action name="Investigator_AddInvestigationSite">
+        <action name="InvestigatorAddInvestigationSite">
             <result>/WEB-INF/pages/Investigator_AddInvestigationSite.jsp</result>
         </action>
     </package>
@@ -63,11 +67,11 @@
             <result name="input"></result>
         </action>
         <!--JSP directing-->
-        <action name="PlanGroup_ShowPowerDesign">
+        <action name="PlanGroupShowPowerDesign">
             <result>/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
         </action>
 
-        <action name="PlanGroup_AddPowerDesign">
+        <action name="PlanGroupAddPowerDesign">
             <result>/WEB-INF/pages/PlanGroup_AddPowerDesign.jsp</result>
         </action>
     </package>

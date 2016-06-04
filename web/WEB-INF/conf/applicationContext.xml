@@ -94,6 +94,12 @@
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
+    <!--Common-->
+
+    <bean id="LoginAction" class="com.NewVillage.action.LoginAction">
+        <property name="employeeDao" ref="employeeDao"></property>
+    </bean>
+
     <!--顾珏-->
     <bean id="FinanceAction" class="com.NewVillage.action.FinanceAction">
         <property name="newVillageDao" ref="newVillageDao"></property>

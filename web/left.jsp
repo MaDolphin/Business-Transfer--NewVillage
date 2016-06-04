@@ -62,10 +62,10 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="Counter_ShowNewVillage.action">新装信息管理</a>
+                        <a href="CounterShowNewVillage.action" target="rightFrame">新装信息管理</a>
                     </li>
                     <li>
-                        <a href="Counter_AddNewVillage.action">填写新增申请</a>
+                        <a href="CounterAddNewVillage.action" target="rightFrame">填写新增申请</a>
                     </li>
                 </ul>
             </li>
@@ -77,10 +77,10 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="Investigator_ShowInvestigationWork.action">勘查派工信息管理</a>
+                        <a href="InvestigatorShowInvestigationWork.action" target="rightFrame">勘查派工信息管理</a>
                     </li>
                     <li>
-                        <a href="Investigator_AddInvestigationSite.action">填写现场勘查信息</a>
+                        <a href="InvestigatorAddInvestigationSite.action" target="rightFrame">填写现场勘查信息</a>
                     </li>
                 </ul>
             </li>
@@ -92,10 +92,10 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="PlanGroup_ShowPowerDesign.action">方案信息管理</a>
+                        <a href="PlanGroupShowPowerDesign.action" target="rightFrame">方案信息管理</a>
                     </li>
                     <li>
-                        <a href="PlanGroup_AddPowerDesign.action">制定电源方案</a>
+                        <a href="PlanGroupAddPowerDesign.action" target="rightFrame">制定电源方案</a>
                     </li>
                 </ul>
             </li>

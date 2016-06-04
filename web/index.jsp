@@ -31,13 +31,13 @@
 <!-- BEGIN LOGIN -->
 <div class="content">
   <!-- BEGIN LOGIN FORM -->
-  <form class="form-vertical login-form" action="AdminTeacherLogin.action" method="post">
+  <form class="form-vertical login-form" action="Login.action" method="post">
     <h3 class="form-title" style="font-family: 微软雅黑;text-align: center">登录</h3>
     <div class="control-group">
       <div class="controls">
         <div class="input-icon left">
           <i class="icon-user"></i>
-          <input class="m-wrap placeholder-no-fix" style="height: 30px;width: 280px" type="text" placeholder="工号" name="id" id="id"/>
+          <input class="m-wrap placeholder-no-fix" style="height: 30px;width: 280px" type="text" placeholder="工号" name="EmpId" id="EmpId"/>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
       <div class="controls">
         <div class="input-icon left">
           <i class="icon-lock"></i>
-          <input class="m-wrap placeholder-no-fix" style="height: 30px;width: 280px" type="password" placeholder="密码" name="password" id="password"/>
+          <input class="m-wrap placeholder-no-fix" style="height: 30px;width: 280px" type="password" placeholder="密码" name="Password" id="Password"/>
         </div>
       </div>
     </div>
