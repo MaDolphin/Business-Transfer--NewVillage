@@ -75,9 +75,12 @@
     <!-- 4.审批员 1.7审批 1.12设计文件审核 -->
     <package name="Approval" extends="struts-default">
         <!--action method-->
-        <action name="Approval_*" class="TraceTableAction" method="{1}">
-            <result name="success"></result>
-            <result name="input"></result>
+        <action name="Approval_writeDesignFileCheckRecord" >
+            <result>WEB-INF/pages/Approval_writeCheckResult.jsp</result>
+        </action>
+        <action name="Approval_*" class="DesignFileCheckAction" method="{1}">
+            <result name="addSuccess">WEB-INF/pages/Approval_writeCheckResult.jsp</result>
+            <result name="input">WEB-INF/pages/Approval_writeCheckResult.jsp</result>
         </action>
         <!--JSP directing-->
     </package>

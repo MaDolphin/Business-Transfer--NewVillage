@@ -1,6 +1,8 @@
 package com.NewVillage.action;
 
+import com.NewVillage.dao.PowerDesignReplyDao;
 import com.NewVillage.dao.TraceTableDao;
+import com.NewVillage.entity.PowerDesignReply;
 import com.NewVillage.entity.TraceTable;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
@@ -16,6 +18,8 @@ import java.util.Map;
 public class TraceTableAction extends ActionSupport implements SessionAware{
     private Map session;
     private TraceTableDao traceTableDao;
+    private PowerDesignReplyDao powerDesignReplyDao;
+    private PowerDesignReply powerDesignReply;
     private int traceId;
     private int responsiblePerId;
     private String responsibleUnit;
@@ -33,6 +37,23 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
     private int newId;
     private String status;
     private String result;
+
+    public PowerDesignReplyDao getPowerDesignReplyDao() {
+        return powerDesignReplyDao;
+    }
+
+    public void setPowerDesignReplyDao(PowerDesignReplyDao powerDesignReplyDao) {
+        this.powerDesignReplyDao = powerDesignReplyDao;
+    }
+
+    public PowerDesignReply getPowerDesignReply() {
+        return powerDesignReply;
+    }
+
+    public void setPowerDesignReply(PowerDesignReply powerDesignReply) {
+        this.powerDesignReply = powerDesignReply;
+    }
+
     public TraceTableDao getTraceTableDao() {
         return traceTableDao;
     }
@@ -259,4 +280,9 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
         }
         return result="querySuccess";
     }
+    public String queryPowerDesignReplyByID(){
+
+        return result= "queryPowerDesignReplySuccess";
+    }
+
 }

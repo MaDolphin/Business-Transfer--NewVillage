@@ -108,6 +108,7 @@
     <!--张松顺-->
     <bean id="TraceTableAction" class="com.NewVillage.action.TraceTableAction">
         <property name="traceTableDao" ref="traceTableDao"></property>
+        <property name="powerDesignReplyDao" ref="PowerDesignReplyDao"></property>
     </bean>
 
     <bean id="DesignFileCheckAction" class="com.NewVillage.action.DesignFileCheckAction">

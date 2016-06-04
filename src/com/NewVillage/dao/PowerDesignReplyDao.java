@@ -7,4 +7,5 @@ import com.NewVillage.entity.PowerDesignReply;
  */
 public interface PowerDesignReplyDao {
     void addPowerDesignReply(PowerDesignReply powerDesignReply);
+    public PowerDesignReply queryPowerDesignReplyByID(int newId);
 }

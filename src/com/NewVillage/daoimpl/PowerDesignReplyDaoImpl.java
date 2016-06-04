@@ -16,4 +16,10 @@ public class PowerDesignReplyDaoImpl extends HibernateDaoSupport implements Powe
             ex.printStackTrace();
         }
     }
+
+    @Override
+    public PowerDesignReply queryPowerDesignReplyByID(int newId) {
+        PowerDesignReply powerDesignReply = (PowerDesignReply) (getHibernateTemplate().get(PowerDesignReply.class,newId));
+        return powerDesignReply;
+    }
 }

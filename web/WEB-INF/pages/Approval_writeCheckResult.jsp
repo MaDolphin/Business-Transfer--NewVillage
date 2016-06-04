@@ -16,7 +16,6 @@
     <link rel="shortcut icon" href="images/favicon.ico" />
 </head>
 <!-- END HEAD -->
-
 <!-- BEGIN BODY -->
 <body style="background-color: white">
 <!-- BEGIN CONTAINER -->
@@ -29,7 +28,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        新建进程进度跟踪记录：
+                        填写文件审核结果：
                     </h3>
                     <ul class="breadcrumb">
                         <li>
@@ -38,10 +37,10 @@
                             <span class="icon-angle-right"></span>
                         </li>
                         <li>
-                            <a href="#">进度跟踪</a>
+                            <a href="#">文件审核</a>
                             <span class="icon-angle-right"></span>
                         </li>
-                        <li><a href="#">新建进程进度跟踪记录</a></li>
+                        <li><a href="#">填写文件审核结果</a></li>
                     </ul>
                 </div>
             </div>
@@ -54,21 +53,21 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="portlet_tab1" style="margin-left: -50px">
                                     <!-- BEGIN FORM-->
-                                    <form action="Overseer_addTraceTableRecord.action" target="rightFrame" class="form-horizontal" >
+                                    <form action="Approval_addDesignFileCheckRecord.action" target="rightFrame" class="form-horizontal" >
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group " >
-                                                    <label class="control-label">进度跟踪记录编号 </label>
+                                                    <label class="control-label">设计文件编号 </label>
                                                     <div class="controls">
-                                                        <input type="text" name="traceId" placeholder="请注意格式..." class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" name="designFileId" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="span6 ">
                                                 <div class="control-group " >
-                                                    <label class="control-label">供电工程的负责人</label>
+                                                    <label class="control-label">设计单位</label>
                                                     <div class="controls">
-                                                        <input type="text" name="responsiblePerId" placeholder="请输入负责人ID" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" name="designUnit" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,99 +75,125 @@
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group " >
-                                                    <label class="control-label">供电工程负责单位</label>
+                                                    <label class="control-label">设计资质</label>
                                                     <div class="controls">
-                                                        <input type="text" name="responsibleUnit" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="text" name="designLevel" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">供电工程监理单位</label>
+                                                <div class="control-group " >
+                                                    <label class="control-label">报送单位</label>
                                                     <div class="controls">
-                                                        <input type="text" name="supervisorUnit" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row-fluid">
-                                            <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">立项设计结果信息</label>
-                                                    <div class="controls">
-                                                        <textarea class="large m-wrap" name="proDesignResult" rows="4"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">设计文件审核信息</label>
-                                                    <div class="controls">
-                                                        <textarea class="large m-wrap" name="proFileResult" rows="4"></textarea>
+                                                        <input type="text" name="submittedUnit" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row-fluid">
                                             <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">工程预算结果信息</label>
+                                                <div class="control-group " >
+                                                    <label class="control-label">报送日期 </label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="budgetResult" rows="4"></textarea>
+                                                        <input type="text" name="submittedTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">工程费用收取信息</label>
+                                                <div class="control-group " >
+                                                    <label class="control-label">接收人</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="chargeResult" rows="4"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row-fluid">
-                                            <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">设备供应单位信息</label>
-                                                    <div class="controls">
-                                                        <textarea class="large m-wrap" name="equipmentSupResult" rows="4"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">施工单位结果信息</label>
-                                                    <div class="controls">
-                                                        <textarea class="large m-wrap" name="constructionResult" rows="4"></textarea>
+                                                        <input type="text" name="accPerId" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row-fluid">
                                             <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">中间检查结果信息</label>
+                                                <div class="control-group " >
+                                                    <label class="control-label">审核人 </label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="midCheckResult" rows="4"></textarea>
+                                                        <input type="text" name="checkPerId" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">竣工验收结果信息</label>
+                                                <div class="control-group " >
+                                                    <label class="control-label">审核日期</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="finalInsResult" rows="4"></textarea>
+                                                        <input type="text" name="checkTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row-fluid">
                                             <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">工程决算结果信息</label>
+                                                <div class="control-group " >
+                                                    <label class="control-label">土建图纸份数 </label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="proAccountsResult" rows="4"></textarea>
+                                                        <input type="text" name="civilDrawingNum" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="span6 ">
+                                                <div class="control-group " >
+                                                    <label class="control-label">线路图纸份数</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="lineDrawingNum" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row-fluid">
+                                            <div class="span6 ">
+                                                <div class="control-group " >
+                                                    <label class="control-label">变电图纸份数 </label>
+                                                    <div class="controls">
+                                                        <input type="text" name="eleDrawingNum" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="span6 ">
+                                                <div class="control-group " >
+                                                    <label class="control-label">审核意见</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="checkOpinion" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row-fluid">
+                                            <div class="span6 ">
+                                                <div class="control-group " >
+                                                    <label class="control-label">登记人 </label>
+                                                    <div class="controls">
+                                                        <input type="text" name="registerPerId" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="span6 ">
+                                                <div class="control-group " >
+                                                    <label class="control-label">登记时间</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="registerTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row-fluid">
+                                            <div class="span6 ">
+                                                <div class="control-group " >
+                                                    <label class="control-label">新装单号 </label>
+                                                    <div class="controls">
+                                                        <input type="text" name="newId" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="span6 ">
+                                                <div class="control-group " >
+                                                    <label class="control-label">状态</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="status" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,7 +217,6 @@
     <!-- END PAGE -->
 </div>
 <!-- END CONTAINER -->
-
 <!-- BEGIN CORE PLUGINS -->
 <script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
 <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
@@ -216,7 +240,6 @@
     });
 </script>
 <!-- END JAVASCRIPTS -->
-<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script>
-</body>
+<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
 <!-- END BODY -->
 </html>

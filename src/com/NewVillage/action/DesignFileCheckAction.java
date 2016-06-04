@@ -32,7 +32,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
     private Timestamp createTime;
     private int newId;
     private String status;
-
+    private String result;
     public int getDesignFileId() {
         return designFileId;
     }
@@ -221,7 +221,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
             ex.printStackTrace();
             return INPUT;
         }
-        return SUCCESS;
+        return result="addSuccess";
     }
     public String deleteDesignFileCheckRecord(){
         DesignFileCheck designFileCheck=designFileCheckDao.queryDesignFileCheckRecordByID(designFileId);
