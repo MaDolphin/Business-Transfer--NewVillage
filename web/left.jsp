@@ -173,7 +173,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="AddCheck.action" target="rightFrame">信息管理</a>
+                        <a href="CheckManage.action" target="rightFrame">信息管理</a>
                     </li>
                     <li>
                         <a href="check.action" target="rightFrame">填写检查表</a>
@@ -188,7 +188,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="#" target="rightFrame">信息管理</a>
+                        <a href="InspectionManage.action" target="rightFrame">信息管理</a>
                     </li>
                     <li>
                         <a href="Inspect.action" target="rightFrame">填写报验表</a>
@@ -203,7 +203,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="#" target="rightFrame">信息管理</a>
+                        <a href="CheckInfoManage.action" target="rightFrame">信息管理</a>
                     </li>
                     <li>
                         <a href="CheckInfo.action" target="rightFrame">填写验收资料信息表</a>

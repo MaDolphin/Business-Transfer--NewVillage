@@ -62,9 +62,9 @@ public class CheckInfoAction {
         checkInfo.setCreateTime(timestamp);
 //        checkInfo.setStatus(status);
         checkInfoDao.addCheckInfo(checkInfo);
-
+        int Id=Integer.valueOf(session.get("id").toString());
         Inspection inspection=new Inspection();
-        inspection=checkDao.searchInspection(1).get(0);
+        inspection=checkDao.searchInspection(Id).get(0);
         inspection.setStatus(checkInfo.getQualified());
         checkDao.updateObject(inspection);
 this.result="true";

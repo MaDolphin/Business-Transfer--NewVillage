@@ -154,6 +154,9 @@
             <result >WEB-INF/pages/CheckAdd.jsp</result>
         </action>
 
+        <action name="CheckManage" class="com.NewVillage.action.CheckAction" method="searchInfo">
+            <result >WEB-INF/pages/CheckInfoManage.jsp</result>
+        </action>
 
         <action name="Check_*" class="com.NewVillage.action.CheckAction" method="{1}">
             <result name="success">WEB-INF/pages/CheckAdd.jsp</result>
@@ -169,6 +172,11 @@
             <result >WEB-INF/pages/InspectAdd.jsp</result>
         </action>
 
+
+        <action name="InspectionManage" class="com.NewVillage.action.CheckAction" method="searchCheckInfo">
+            <result >WEB-INF/pages/CheckInfoManage.jsp</result>
+        </action>
+
         <action name="Inspection_*" class="com.NewVillage.action.InspectionAction" method="{1}">
             <result name="success">WEB-INF/pages/InspectAdd.jsp</result>
             <result name="input">WEB-INF/pages/InspectAdd.jsp</result>
@@ -180,8 +188,12 @@
     <!--<package name="AcceptGroup" extends="struts-default">-->
     <package name="AcceptGroup" extends="json-default">
         <!--action method-->
-        <action name="CheckInfo">
+        <action name="CheckInfo" class="com.NewVillage.action.CheckAction" method="pass">
             <result >WEB-INF/pages/CheckInfoAdd.jsp</result>
+        </action>
+
+        <action name="CheckInfoManage" class="com.NewVillage.action.CheckAction" method="searchInspectionInfo">
+            <result >WEB-INF/pages/InspectionManage.jsp</result>
         </action>
 
         <!--<action name="CheckInfo_*" class="com.NewVillage.action.CheckInfoAction" method="{1}">-->

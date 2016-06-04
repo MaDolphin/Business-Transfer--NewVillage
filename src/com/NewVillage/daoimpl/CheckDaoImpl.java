@@ -59,4 +59,20 @@ public class CheckDaoImpl extends HibernateDaoSupport implements CheckDao {
         list= query.list();
         return list;
     }
+
+    public List<Inspect> searchInspectManage(int id){
+        List<Inspect> list=null;
+        String queryString="from Inspect i where i.newId="+id+" and i.status='0'";
+        Query query = session.createQuery(queryString);
+        list= query.list();
+        return list;
+    }
+
+    public List<Inspection> searchInspectionManage(int id){
+        List<Inspection> list=null;
+        String queryString="from Inspection i where i.newId="+id+" and i.status='0' or i.status='1'";
+        Query query = session.createQuery(queryString);
+        list= query.list();
+        return list;
+    }
 }

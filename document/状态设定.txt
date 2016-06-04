@@ -1,4 +1,4 @@
-﻿﻿1.NewVillage 小区新增申请信息
+﻿﻿﻿1.NewVillage 小区新增申请信息
   -1：注销 0：创建 1：勘查派工中 2：现场勘查完毕
 
 2.InvestigationWork 勘查派工信息
@@ -13,21 +13,19 @@
 5.DesignFileCheck 文件审核结果
     1：审核未结束 2：审核结束
 
-5.Inspection 竣工报验审批情况
-    0：报验审批 1：报验未审批
+6.Inspection 竣工报验审批情况
+    0：报验未审批 1:报验不合格 2：报验合格
+
+7.Inspect 中间检查情况
+    0：未审批 1：已审批
+
   -1：注销 0：创建 1：已制定方案 2：确定该方案 3：答复完成
 
-5.PowerDesignReply 电源方案回复信息
+8.PowerDesignReply 电源方案回复信息
    1:完成回复 2：记录员完成记录
 
-6.PayRecord 实收金额单
+9.PayRecord 实收金额单
    0：作废 1：收取完成 2：记录员记录完成
 
-7.Message 消息
+10.Message 消息
    0:未处理 1：处理
-
-5.TraceTable 进度跟踪信息
-   1:处理未完成 2：处理完成
-
-8.BusinessCost 应收费用
-   0:未校验 1：校验完成
