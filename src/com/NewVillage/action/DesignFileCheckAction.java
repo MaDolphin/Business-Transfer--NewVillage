@@ -198,6 +198,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
     public String addDesignFileCheckRecord(){
         try {
             DesignFileCheck designFileCheck = new DesignFileCheck();
+            System.out.println(designFileId);
             Timestamp date=new Timestamp(System.currentTimeMillis());
             if (designFileCheckDao.queryDesignFileCheckRecordByID(designFileId) == null) {
                 designFileCheck.setAccPerId(designFileId);

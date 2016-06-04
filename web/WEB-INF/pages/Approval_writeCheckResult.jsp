@@ -95,7 +95,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">报送日期 </label>
                                                     <div class="controls">
-                                                        <input type="text" name="submittedTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="date" name="submittedTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,7 +121,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">审核日期</label>
                                                     <div class="controls">
-                                                        <input type="text" name="checkTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="date" name="checkTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -157,7 +157,10 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">审核意见</label>
                                                     <div class="controls">
-                                                        <input type="text" name="checkOpinion" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <select class="large m-wrap" tabindex="1" name="checkOpinion">
+                                                            <option value="通过">通过</option>
+                                                            <option value="未通过">未通过</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,7 +178,7 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">登记时间</label>
                                                     <div class="controls">
-                                                        <input type="text" name="registerTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <input type="date" name="registerTime" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -193,7 +196,10 @@
                                                 <div class="control-group " >
                                                     <label class="control-label">状态</label>
                                                     <div class="controls">
-                                                        <input type="text" name="status" placeholder="" class="m-wrap large" style="width: 320px;height: 34px" />
+                                                        <select class="large m-wrap" tabindex="1"  name="status">
+                                                            <option value="1">审核未结束</option>
+                                                            <option value="2">审核结束</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>

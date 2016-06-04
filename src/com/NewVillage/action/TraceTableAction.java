@@ -217,7 +217,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
             Timestamp date=new Timestamp(System.currentTimeMillis());
             if (traceTableDao.queryTraceTableRecordByID(traceId) == null) {
                 traceTable.setTraceId(traceId);
-                traceTable.setStatus("0");
+                traceTable.setStatus("1");
                 traceTable.setCreateTime(date);
                 traceTableDao.addTraceTableRecord(traceTable);
             }
