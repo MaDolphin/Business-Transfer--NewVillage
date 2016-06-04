@@ -17,6 +17,7 @@ var TableManaged = function () {
                   null,
                   null,
                   null,
+                  null,
                   { "bSortable": false }
                 ],
                 "aLengthMenu": [
@@ -54,7 +55,7 @@ var TableManaged = function () {
                 jQuery.uniform.update(set);
             });
 
-            jQuery('#table_InvestigationWork_wrapper .dataTables_filter input').addClass("m-wrap medium"); // modify table search input
+            jQuery('#table_InvestigationWork_wrapper .dataTables_filter input').addClass("m-wrap-table medium"); // modify table search input
             jQuery('#table_InvestigationWork_wrapper .dataTables_length select').addClass("m-wrap small"); // modify table per page dropdown
             //jQuery('#sample_1_wrapper .dataTables_length select').select2(); // initialzie select2 dropdown
 

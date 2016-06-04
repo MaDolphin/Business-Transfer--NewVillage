@@ -6,6 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,6 +21,7 @@ public class InvestigatorAction extends ActionSupport implements SessionAware {
     JobInfoDao jobInfoDao;
     private InvestigationWork investigationWork;
     private InvestigationSite investigationSite;
+    private int invesId;
     private int newId;
     private Map session;
 
@@ -71,6 +73,14 @@ public class InvestigatorAction extends ActionSupport implements SessionAware {
         this.investigationWorkDao = investigationWorkDao;
     }
 
+    public int getInvesId() {
+        return invesId;
+    }
+
+    public void setInvesId(int invesId) {
+        this.invesId = invesId;
+    }
+
     public int getNewId() {
         return newId;
     }
@@ -109,5 +119,12 @@ public class InvestigatorAction extends ActionSupport implements SessionAware {
         }else {
             return "addInvestigationSiteError";
         }
+    }
+
+    public String InitInvestigationWork(){
+        Employee employee = (Employee) session.get("employee");
+        List<InvestigationWork> investigationWorkList = investigationWorkDao.allInvestigationWorksByEmpID(employee.getEmpId());
+        session.put("InvestigationWorkList",investigationWorkList);
+        return SUCCESS;
     }
 }

@@ -32,7 +32,7 @@
             <result name="addUserSuccess"></result>
             <result name="addUserError" ></result>
             <result name="addNewVillageSuccess" type="redirectAction">CounterShowNewVillage</result>
-            <result name="addNewVillageError"></result>
+            <result name="addNewVillageError" type="redirectAction">CounterAddNewVillage</result>
         </action>
         <!--JSP directing-->
         <action name="CounterAddNewVillage">
@@ -53,8 +53,8 @@
             <result name="addInvestigationSiteError"></result>
         </action>
         <!--JSP directing-->
-        <action name="InvestigatorShowInvestigationWork">
-            <result>/WEB-INF/pages/Investigator_ShowInvestigationWork.jsp</result>
+        <action name="InvestigatorShowInvestigationWork" class="InvestigatorAction" method="InitInvestigationWork">
+            <result name="success">/WEB-INF/pages/Investigator_ShowInvestigationWork.jsp</result>
         </action>
 
         <action name="InvestigatorAddInvestigationSite">
