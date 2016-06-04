@@ -45,7 +45,6 @@
       <column id="26" parent="2" name="createTime">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
-        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
       <column id="27" parent="2" name="newId">
         <data-type>int(11)</data-type>
@@ -617,7 +616,6 @@
       <column id="189" parent="17" name="replyTime">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
-        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
       <column id="190" parent="17" name="custOpinion">
         <data-type>text</data-type>
@@ -628,12 +626,10 @@
       <column id="192" parent="17" name="signoffTime">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
-        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
       <column id="193" parent="17" name="custReplyTime">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
-        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
       <column id="194" parent="17" name="replyType">
         <data-type>int(11)</data-type>
@@ -641,7 +637,6 @@
       <column id="195" parent="17" name="createTime">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
-        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
       <column id="196" parent="17" name="newId">
         <data-type>int(11)</data-type>

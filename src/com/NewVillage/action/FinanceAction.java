@@ -25,8 +25,18 @@ public class FinanceAction extends ActionSupport implements SessionAware{
     private PayRecord payRecord;
     private BusinessCost businessCost;
     private PowerDesign powerDesign;
+    private int businesscostId;
+
     public void setSession(Map session) {
         this.session = session;
+    }
+
+    public void setNewVillageDao(NewVillageDao newVillageDao) {
+        this.newVillageDao = newVillageDao;
+    }
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     public void setEmployeeDao(EmployeeDao employeeDao) {
@@ -37,32 +47,32 @@ public class FinanceAction extends ActionSupport implements SessionAware{
         this.receiptdao = receiptdao;
     }
 
-    public void setNewVillageDao(NewVillageDao newVillageDao) {
-        this.newVillageDao = newVillageDao;
-    }
-
     public void setCostdao(CostDao costdao) {
         this.costdao = costdao;
     }
 
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
-    public void setPayRecord(PayRecord payRecord) {
-        this.payRecord = payRecord;
+    public void setProcessRecordDao(ProcessRecordDao processRecordDao) {
+        this.processRecordDao = processRecordDao;
     }
 
     public void setMessageDao(MessageDao messageDao) {
         this.messageDao = messageDao;
     }
 
-    public void setBusinessCost(BusinessCost businessCost) {
-        this.businessCost = businessCost;
+    public PayRecord getPayRecord() {
+        return payRecord;
     }
 
-    public void setProcessRecordDao(ProcessRecordDao processRecordDao) {
-        this.processRecordDao = processRecordDao;
+    public void setPayRecord(PayRecord payRecord) {
+        this.payRecord = payRecord;
+    }
+
+    public BusinessCost getBusinessCost() {
+        return businessCost;
+    }
+
+    public void setBusinessCost(BusinessCost businessCost) {
+        this.businessCost = businessCost;
     }
 
     public PowerDesign getPowerDesign() {
@@ -73,19 +83,28 @@ public class FinanceAction extends ActionSupport implements SessionAware{
         this.powerDesign = powerDesign;
     }
 
+    public int getBusinesscostId() {
+        return businesscostId;
+    }
+
+    public void setBusinesscostId(int businesscostId) {
+        this.businesscostId = businesscostId;
+    }
+
     public String QueryCost(){
-        try{
-            List<BusinessCost> businessCosts=costdao.QueryAllCost();
-            session.put("businessCosts",businessCosts);
+       /* try{
+
         }catch (Exception ex){
             ex.printStackTrace();
-        }
+        }*/
+        List<BusinessCost> businessCosts=costdao.queryAllCost();
+        session.put("businessCosts",businessCosts);
         return SUCCESS;
     }
 
     public String QueryCostByID(){
         try{
-            BusinessCost businessCosts=costdao.QueryCostByID(businessCost.getCostId());
+            BusinessCost businessCosts=costdao.QueryCostByID(businesscostId);
             session.put("businessCostInfo",businessCosts);
         }catch (Exception ex){
             ex.printStackTrace();
@@ -104,16 +123,23 @@ public class FinanceAction extends ActionSupport implements SessionAware{
     }*/
 
     public String ExaminCost(){
-        Timestamp time=new Timestamp(System.currentTimeMillis());
+
         try{
-            businessCost.setCreateTime(time);
-            businessCost.setStatus("1");
-            costdao.ExaminCost(businessCost);
+//            Timestamp time=new Timestamp(System.currentTimeMillis());
+//            businessCost.setCreateTime(time);
+            BusinessCost businessCost1 = costdao.QueryCostByID(this.businessCost.getCostId());
+            businessCost1.setStatus("1");
+            costdao.updateCost(businessCost1);
 
             //更改流程记录单中应收业务费单号
-            String hql="from ProcessRecord u where u.newId='"+payRecord.getNewId()+"'";
+           /* String hql="from ProcessRecord u where u.newId='"+businessCost.getNewId()+"'";
             List<ProcessRecord> processRecords=processRecordDao.QueryProcess(hql);
-            ProcessRecord processRecord=processRecords.get(0);
+            if(processRecords.size()==0) {
+                ProcessRecord processRecord = processRecords.get(0);
+                processRecord.setCostId(businessCost.getCostId());
+                processRecordDao.editProcess(processRecord);
+            }*/
+            ProcessRecord processRecord=processRecordDao.queryProcessRecordByNewVillage(businessCost.getNewId());
             processRecord.setCostId(businessCost.getCostId());
             processRecordDao.editProcess(processRecord);
         }catch (Exception ex){
@@ -125,8 +151,9 @@ public class FinanceAction extends ActionSupport implements SessionAware{
     public String PayRecord(){
         String flag="recordfull";
         try{
-            session.put("businessCostInfo",businessCost);
-            String hql="from PayRecord u where u.newId='"+businessCost.getNewId()+"' and u.status!='-1'";
+            BusinessCost businessCosts=costdao.QueryCostByID(businesscostId);
+            session.put("businessCostInfo",businessCosts);
+            String hql="from PayRecord u where u.newId='"+businessCosts.getNewId()+"'";
             List<PayRecord> pay=receiptdao.QueryRecord(hql);
             if(pay.size()>=0&&pay.size()<3)
                 flag="addpayrecord";
@@ -146,28 +173,24 @@ public class FinanceAction extends ActionSupport implements SessionAware{
         return "PowerDesignDetail";
     }
 
-    @Override
-    public String execute() {
+
+    public String addPayRecord() {
         String flag=INPUT;
         try{
             Timestamp time=new Timestamp(System.currentTimeMillis());
-            if (payRecord.getPayPrecent()!=null){
-                payRecord.setCreateTime(time);
-                Employee emp=(Employee) session.get("employee");
-                payRecord.setPayPerId(emp.getEmpId());
-                payRecord.setStatus("1");
-                payRecord.setPayTime(time);
-                receiptdao.addPayRecord(payRecord);
+            payRecord.setCreateTime(time);
+            payRecord.setPayTime(time);
+            Employee emp=(Employee) session.get("employee");
+            payRecord.setPayPerId(emp.getEmpId());
+            payRecord.setStatus("1");
+            receiptdao.addPayRecord(payRecord);
 
-                //更改流程记录单中实收业务费单号
-                String hql="from ProcessRecord u where u.newId='"+payRecord.getNewId()+"'";
-                List<ProcessRecord> processRecords=processRecordDao.QueryProcess(hql);
-                ProcessRecord processRecord=processRecords.get(0);
-                hql="from PayRecord u where u.newId='"+payRecord.getNewId()+"' order by u.createTime desc";
-                List<PayRecord> payRecords=receiptdao.QueryRecord(hql);
-                PayRecord pay=payRecords.get(0);
-                processRecord.setPayId(payRecord.getPayId());
-                processRecordDao.editProcess(processRecord);
+            //更改流程记录单中实收业务费单号
+            ProcessRecord processRecord=processRecordDao.queryProcessRecordByNewVillage(payRecord.getNewId());
+            String hql="from PayRecord u where u.newId='"+payRecord.getNewId()+"'";
+            List<PayRecord> payRecords=receiptdao.QueryRecord(hql);
+            processRecord.setPayId(payRecords.get(0).getPayId());
+            processRecordDao.editProcess(processRecord);
 
                 /*//通知记录员进行消息记录
                 Message message=new Message();
@@ -178,15 +201,14 @@ public class FinanceAction extends ActionSupport implements SessionAware{
                 message.setEmpId(employees.get(0).getEmpId());
                 messageDao.addMessage(message);*/
 
-                //改写用户的账户状态
-                NewVillage newVillage=newVillageDao.queryNewVillageByID(payRecord.getNewId());
-                List<User> users=userDao.queryUserByPid(newVillage.getUserPid());
-                User user=users.get(0);
-                user.setUserTicket(user.getUserTicket()+payRecord.getPayment());
-                userDao.updateUser(user);
+            //改写用户的账户状态
+            NewVillage newVillage=newVillageDao.queryNewVillageByID(payRecord.getNewId());
+            List<User> users=userDao.queryUserByPid(newVillage.getUserPid());
+            User user=users.get(0);
+            user.setUserTicket(user.getUserTicket()+payRecord.getPayment());
+            userDao.updateUser(user);
 
-                flag = "paysuccess";
-            }
+            flag = "paysuccess";
         }catch(Exception ex){
             ex.printStackTrace();
         }

@@ -76,18 +76,18 @@
                                     <td class="hidden-480">${cost.charge}</td>
                                     <td class="hidden-480">${cost.refund}</td>
                                     <c:if test="${cost.status == 0}">
-                                        <td><span class="label label-warning">为检验</span></td>
+                                        <td><span class="label label-warning">未检验</span></td>
                                     </c:if>
                                     <c:if test="${cost.status == 1}">
                                         <td><span class="label label-info">检验完成</span></td>
                                     </c:if>
                                     <td class="hidden-480">
                                         <c:if test="${cost.status == 0}">
-                                            <a href="Finance_QueryCostByID.action?BusinessCost=${cost}" target="rightFrame"
+                                            <a href="Finance_QueryCostByID.action?businesscostId=${cost.costId}" target="rightFrame"
                                                class="btn mini blue"><i class="icon-share"></i> 详情</a>
                                         </c:if>
                                         <c:if test="${cost.status == 1}">
-                                            <a href="Finance_PayRecord.action?BusinessCost=${cost}" target="rightFrame"
+                                            <a href="Finance_PayRecord.action?businesscostId=${cost.costId}" target="rightFrame"
                                                class="btn mini blue"><i class="icon-share"></i> 详情</a>
                                         </c:if>
                                     </td>

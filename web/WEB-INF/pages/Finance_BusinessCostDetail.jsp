@@ -53,33 +53,34 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="portlet_tab1" style="margin-left: -50px">
                                     <!-- BEGIN FORM-->
-                                    <form action="Finance_" target="rightFrame" class="form-horizontal" >
+                                    <form action="Finance_ExaminCost" target="rightFrame" class="form-horizontal" >
+                                        <div class="row-fluid">
+                                            <div class="span6 ">
+                                                <div class="control-group">
+                                                    <label class="control-label">应收金额单号</label>
+                                                    <div class="controls">
+                                                        <input type="text" class="large m-wrap" name="businessCost.costId" value="${businessCostInfo.costId}" readonly/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group">
                                                     <label class="control-label">新装单号</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="businessCost.newId" value="${businessCostInfo.newId}" readonly></textarea>
+                                                        <input type="text" class="large m-wrap" name="businessCost.newId" value="${businessCostInfo.newId}" readonly/>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row-fluid">
-                                            <div class="span6 ">
-                                                <div class="control-group">
-                                                    <label class="control-label">收款比例</label>
-                                                    <div class="controls">
-                                                        <textarea class="large m-wrap" name="businessCost.charge" value="${perenct}%" readonly></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group">
                                                     <label class="control-label">收款金额</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="businessCost.refund" value="${businessCostInfo.charge*perenct/100}" readonly></textarea>
+                                                        <input type="text" class="large m-wrap" name="businessCost.charge" value="${businessCostInfo.charge}" readonly/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -87,9 +88,9 @@
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group">
-                                                    <label class="control-label">未收金额</label>
+                                                    <label class="control-label">应退金额</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="businessCost.refund" value="${businessCostInfo.charge*peren/100}" readonly></textarea>
+                                                        <input type="text" class="large m-wrap" name="businessCost.refund" value="${businessCostInfo.refund}" readonly/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -99,7 +100,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">收款项目</label>
                                                     <div class="controls">
-                                                        <textarea class="large m-wrap" name="businessCost.costItem" rows="2" value="${businessCostInfo.costItem}"></textarea>
+                                                        <textarea class="large m-wrap" name="businessCost.costItem" rows="2" >${businessCostInfo.costItem}</textarea>
                                                     </div>
                                                 </div>
                                             </div>

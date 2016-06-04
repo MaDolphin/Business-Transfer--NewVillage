@@ -11,13 +11,14 @@ import java.util.*;
  */
 public class CostDaoImpl extends HibernateDaoSupport implements CostDao {
     @Override
-    public List<BusinessCost> QueryAllCost() {
-        List<BusinessCost> list=null;
+    public List<BusinessCost> queryAllCost() {
+       /*
         try{
-            list=(List<BusinessCost>)this.getHibernateTemplate().find("from BusinessCost u where u.status!='-1'");
+            list=(List<BusinessCost>)this.getHibernateTemplate().find("from BusinessCost");
         }catch (Exception ex){
             ex.printStackTrace();
-        }
+        }*/
+        List<BusinessCost> list=(List<BusinessCost>)this.getHibernateTemplate().find("from BusinessCost");
         return list;
     }
 
@@ -48,9 +49,9 @@ public class CostDaoImpl extends HibernateDaoSupport implements CostDao {
     }
 
     @Override
-    public void ExaminCost(BusinessCost businessCost) {
+    public void updateCost(BusinessCost businessCost) {
         try{
-            this.getHibernateTemplate().update(businessCost);
+            this.getHibernateTemplate().saveOrUpdate(businessCost);
         }catch (Exception ex){
             ex.printStackTrace();
         }
