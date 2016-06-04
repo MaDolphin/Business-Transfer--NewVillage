@@ -100,7 +100,7 @@
                                     </c:if>
                                     <td class="hidden-480">
                                         <c:if test="${DesignFileChecklist.status =='2'}">
-                                            <a href="javascript:if(confirm('确认填写检查信息?'))window.location='check.action?id=${DesignFileChecklist.newId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 填写检查信息</a>
+                                            <a href="javascript:if(confirm('确认填写检查信息?'))window.location='check.action?id=${DesignFileChecklist.designFileId}&nid=${DesignFileChecklist.newId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 填写检查信息</a>
                                         </c:if>
                                     </td>
                                 </tr>

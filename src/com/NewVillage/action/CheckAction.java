@@ -25,6 +25,7 @@ public class CheckAction extends ActionSupport{
     private String checkNum;
     private String checkResult;
     private int id;
+    private int nid;
 
     private Date checkTime;
     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -82,6 +83,14 @@ public class CheckAction extends ActionSupport{
         this.id = id;
     }
 
+    public int getNid() {
+        return nid;
+    }
+
+    public void setNid(int nid) {
+        this.nid = nid;
+    }
+
     ActionContext actionContext= ActionContext.getContext();
     Map session=actionContext.getSession();
     public String add() throws Exception{
@@ -110,6 +119,7 @@ public class CheckAction extends ActionSupport{
     public String searchCheckInfo() throws Exception{
 
         List<Inspect> list=new ArrayList<>();
+        System.out.print(Integer.valueOf(session.get("nid").toString()));
         list=checkDao.searchInspectManage(Integer.valueOf(session.get("nid").toString()));
         session.put("Inspectlist",list);
         return "success";
@@ -121,14 +131,10 @@ public class CheckAction extends ActionSupport{
         session.put("Inspectionlist",Inspectionlist);
         return "success";
     }
-    public String pass1() throws Exception{
+    public String pass() throws Exception{
 
         session.put("id",id);
-        return "success";
-    }
-    public String pass2() throws Exception{
-
-        session.put("nid",id);
+        session.put("nid",nid);
         return "success";
     }
 }

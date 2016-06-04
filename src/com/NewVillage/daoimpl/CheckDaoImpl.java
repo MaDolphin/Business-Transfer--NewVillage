@@ -54,7 +54,7 @@ public class CheckDaoImpl extends HibernateDaoSupport implements CheckDao {
     }
     public List<Inspection> searchInspection(int id){
         List<Inspection> list=null;
-        String queryString="from Inspection i where i.newId="+id+"";
+        String queryString="from Inspection i where i.insId="+id+"";
         Query query = session.createQuery(queryString);
         list= query.list();
         return list;
@@ -62,7 +62,9 @@ public class CheckDaoImpl extends HibernateDaoSupport implements CheckDao {
 
     public List<Inspect> searchInspectManage(int id){
         List<Inspect> list=null;
-        String queryString="from Inspect i where i.newId="+id+" and i.status='0'";
+//        String queryString="from Inspect i where i.newId="+id+" and i.status='0'";
+        String queryString="from Inspect i where i.newId ="+id+" and i.status='0'";
+//        String queryString="from Inspect i where i.newId="+id+" and i.status='0'";
         Query query = session.createQuery(queryString);
         list= query.list();
         return list;

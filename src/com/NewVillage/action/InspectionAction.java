@@ -70,15 +70,16 @@ public class InspectionAction {
 //
         Employee employee= (Employee) session.get("employee");
         inspection.setInsPerId(employee.getEmpId());
-        inspection.setNewId(1);
+        inspection.setNewId(Integer.valueOf(session.get("nid").toString()));
 
         inspection.setStatus("0");
         inspection.setCreateTime(timestamp);
         inspectionDao.addInspect(inspection);
 
         Inspect inspect=new Inspect();
-        inspect=checkDao.searchInspect(1).get(0);
-        inspect.setStatus("0");
+        System.out.print(Integer.valueOf(session.get("nid").toString()));
+        inspect=checkDao.searchInspect(Integer.valueOf(session.get("nid").toString())).get(0);
+        inspect.setStatus("1");
         inspect.setCheckTime(inspect.getCheckTime());
         checkDao.updateObject(inspect);
 
