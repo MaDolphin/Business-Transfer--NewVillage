@@ -181,12 +181,22 @@
         <action name="Inspect" class="com.NewVillage.action.CheckAction" method="pass">
             <result >WEB-INF/pages/InspectAdd.jsp</result>
         </action>
+        <!--总报验界面-->
+        <action name="CheckInfoMainManage">
+            <result >WEB-INF/pages/CheckInfoMainManage.jsp</result>
+        </action>
 
-
+        <!--最新的报验-->
         <action name="InspectionManage" class="com.NewVillage.action.CheckAction" method="searchCheckInfo">
             <result >WEB-INF/pages/CheckInfoManage.jsp</result>
         </action>
 
+        <!--不合格的报验-->
+        <action name="Nopass" class="com.NewVillage.action.CheckAction" method="searchNopassCheckInfo">
+            <result >WEB-INF/pages/CheckInfoManage.jsp</result>
+        </action>
+
+        <!--添加报验资料信息-->
         <action name="Inspection_*" class="com.NewVillage.action.InspectionAction" method="{1}">
             <result name="success">WEB-INF/pages/InspectAdd.jsp</result>
             <result name="input">WEB-INF/pages/InspectAdd.jsp</result>

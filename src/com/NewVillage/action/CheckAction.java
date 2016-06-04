@@ -119,7 +119,6 @@ public class CheckAction extends ActionSupport{
     public String searchCheckInfo() throws Exception{
 
         List<Inspect> list=new ArrayList<>();
-        System.out.print(Integer.valueOf(session.get("nid").toString()));
         list=checkDao.searchInspectManage(Integer.valueOf(session.get("nid").toString()));
         session.put("Inspectlist",list);
         return "success";
@@ -128,6 +127,13 @@ public class CheckAction extends ActionSupport{
 
         List<Inspection> Inspectionlist=new ArrayList<>();
         Inspectionlist=checkDao.searchInspectionManage(Integer.valueOf(session.get("nid").toString()));
+        session.put("Inspectionlist",Inspectionlist);
+        return "success";
+    }
+    public String searchNopassCheckInfo() throws Exception{
+
+        List<Inspection> Inspectionlist=new ArrayList<>();
+        Inspectionlist=checkDao.searchNopassCheckInfo(Integer.valueOf(session.get("nid").toString()));
         session.put("Inspectionlist",Inspectionlist);
         return "success";
     }

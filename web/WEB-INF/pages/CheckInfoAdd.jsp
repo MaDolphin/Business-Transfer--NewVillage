@@ -110,22 +110,8 @@
 
                                                 </div>
                                             </div>
-                                            <%--<div class="span6 ">--%>
-                                            <%--<div class="control-group " >--%>
-                                            <%--<label class="control-label">状态 </label>--%>
-                                            <%--<div class="controls">--%>
-                                            <%--<select name="checkInfo.status" id="status">--%>
-                                            <%--<option value="作废" >作废</option>--%>
-                                            <%--<option value="审批" >审批</option>--%>
-                                            <%--<option value="未审批" selected>未审批</option>--%>
 
-                                            <%--</select>--%>
-                                            <%--</div>--%>
-
-                                            <%--</div>--%>
-                                            <%--</div>--%>
                                         </div>
-
 
                                         <div class="form-actions">
                                             <button type="submit" class="btn blue" id="btn"><i class="icon-ok"></i> Save</button>

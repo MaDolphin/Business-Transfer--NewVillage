@@ -65,6 +65,7 @@ public class CheckInfoAction {
         int Id=Integer.valueOf(session.get("id").toString());
         Inspection inspection=new Inspection();
         inspection=checkDao.searchInspection(Id).get(0);
+        System.out.print(checkInfo.getQualified());
         inspection.setStatus(checkInfo.getQualified());
         checkDao.updateObject(inspection);
 this.result="true";

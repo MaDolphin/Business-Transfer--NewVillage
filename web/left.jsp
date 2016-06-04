@@ -191,6 +191,9 @@
                         <a href="InspectionManage.action" target="rightFrame">信息管理</a>
                     </li>
                     <li>
+                        <a href="CheckInfoMainManage.action" target="rightFrame">信息管理</a>
+                    </li>
+                    <li>
                         <a href="Inspect.action" target="rightFrame">填写报验表</a>
                     </li>
                 </ul>
