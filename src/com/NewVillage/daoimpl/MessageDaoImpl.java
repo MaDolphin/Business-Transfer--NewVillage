@@ -31,8 +31,14 @@ public class MessageDaoImpl extends HibernateDaoSupport implements MessageDao {
     }
 
     @Override
-    public List<Message> allMessageByEmpIDStatus0(int empid) {
-        List a=(List<Message>)this.getHibernateTemplate().find("from Message n where n.empId=? and n.status='0'",new Object[]{empid});
+    public List<Message> allMessageByEmpID(int empid) {
+        List a=(List<Message>)this.getHibernateTemplate().find("from Message n where n.empId=? order by n.status asc ",new Object[]{empid});
         return a;
+    }
+
+    @Override
+    public Message queryMessageByID(int messid) {
+        Message message = (Message) (getHibernateTemplate().get(Message.class,messid));
+        return message;
     }
 }

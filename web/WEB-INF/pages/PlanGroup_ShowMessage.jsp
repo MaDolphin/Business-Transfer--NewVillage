@@ -57,7 +57,7 @@
                             <thead>
                             <tr>
                                 <th style="width:8px;"><input type="checkbox" class="group-checkable"
-                                                              data-set="#table_InvestigationWork .checkboxes"/></th>
+                                                              data-set="#table_Message .checkboxes"/></th>
                                 <th>消息编号</th>
                                 <th class="hidden-480">新装单号</th>
                                 <th class="hidden-480">消息内容</th>
@@ -79,11 +79,9 @@
                                         <td><span class="label label-info">已读</span></td>
                                     </c:if>
                                     <td class="hidden-480">
-
-
-                                        <a href="PlanGroup_PowerDesignDetail.action?PowerDesign=${power}" target="rightFrame"
-                                           class="btn mini blue"><i class="icon-share"></i> 详情</a>
-
+                                        <c:if test="${mes.status == 0}">
+                                            <a href="PlanGroup_AcceptMessage.action?messId=${mes.messId}" target="rightFrame" class="btn mini blue"><i class="icon-share"></i> 确认</a>
+                                        </c:if>
                                     </td>
                                 </tr>
                             </c:forEach>

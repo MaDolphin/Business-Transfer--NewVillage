@@ -9,7 +9,8 @@ import java.util.List;
  */
 public interface MessageDao {
     public void addMessage(Message message);
-    public List<Message> allMessageByEmpIDStatus0(int empid);
+    public List<Message> allMessageByEmpID(int empid);
     public boolean updateMessage(Message message);
+    public Message queryMessageByID(int messid);
 
 }
