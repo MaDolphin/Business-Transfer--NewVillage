@@ -330,10 +330,10 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         }catch (Exception ex){
             ex.printStackTrace();
         }
-        return "PowerDesignDetail";
+        return "PowerDesign";
     }
 
-    public String QueryPowerDesignByID(){
+/*    public String QueryPowerDesignByID(){
         try{
             PowerDesign powerDesign= powerDesignDao.queryPowerDesignByID(powerDesignId);
             session.put("PowerDesignInfo",powerDesign);
@@ -341,7 +341,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
             ex.printStackTrace();
         }
         return "Examination";
-    }
+    }*/
 
     public String addExamination(){
         String flag=INPUT;
@@ -349,10 +349,10 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
         try{
             Employee employee=(Employee)session.get("Employee");
             PowerDesign powerDesign=(PowerDesign)session.get("PowerDesignInfo");
-            List<Examination> examinations=examinationDao.queryExaminationByNewID(examination.getNewId());
             examination.setExPerId(String.valueOf(employee.getEmpId()));
             examination.setCreateTime(time);
             examinationDao.addExamination(examination);
+            List<Examination> examinations=examinationDao.queryExaminationByNewID(examination.getNewId());
             if(examination.getExResult().equals("不通过")){
                 //创建消息 通知方案小组 方案未通过
                 Message message=new Message();
@@ -386,7 +386,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
                     processRecord.setExId(examinations.get(0).getExId());
                 processRecordDao.editProcess(processRecord);
             }
-            flag="PowerDesign";
+            flag="ExaminSuccess";
         }catch (Exception ex){
             ex.printStackTrace();
         }

@@ -33,7 +33,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        勘查派工信息列表：
+                        供电方案信息列表：
                     </h3>
                     <ul class="breadcrumb">
                         <li>
@@ -42,10 +42,9 @@
                             <span class="icon-angle-right"></span>
                         </li>
                         <li>
-                            <a href="#">勘查派工</a>
+                            <a href="#">供电方案</a>
                             <span class="icon-angle-right"></span>
                         </li>
-                        <li><a href="#">勘查派工信息管理</a></li>
                     </ul>
                 </div>
             </div>
@@ -55,42 +54,42 @@
                 <div class="span12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet-body">
-                        <table class="table table-striped table-bordered table-hover" id="table_InvestigationWork">
+                        <table class="table table-striped table-bordered table-hover" id="table_PowerDesign">
                             <thead>
                             <tr>
                                 <th style="width:8px;"><input type="checkbox" class="group-checkable"
                                                               data-set="#table_InvestigationWork .checkboxes"/></th>
-                                <th>勘查派工单号</th>
+                                <th>供电方案单号</th>
                                 <th class="hidden-480">新装单号</th>
-                                <th class="hidden-480">派工时间</th>
                                 <th class="hidden-480">创建时间</th>
+                                <th class="hidden-480">拟定方案员工工号</th>
                                 <th class="hidden-480">状态</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${sessionScope.InvestigationWorkList}" var="inves">
+                            <c:forEach items="${PowerDesignList}" var="power">
                                 <tr class="odd gradeX">
                                     <td><input type="checkbox" class="checkboxes" value="1"/></td>
-                                    <td class="hidden-480">${inves.invesId}</td>
-                                    <td class="hidden-480">${inves.newId}</td>
-                                    <td class="hidden-480">${inves.invesTime}</td>
-                                    <td class="hidden-480">${inves.createTime}</td>
-                                    <c:if test="${inves.status == 0}">
+                                    <td class="hidden-480">${power.powerId}</td>
+                                    <td class="hidden-480">${power.newId}</td>
+                                    <td class="hidden-480">${power.createTime}</td>
+                                    <td class="hidden-480">${power.powerDesignPerId}</td>
+                                    <c:if test="${power.status == 0}">
                                         <td><span class="label label-warning">已创建</span></td>
                                     </c:if>
-                                    <c:if test="${inves.status == 1}">
-                                        <td><span class="label label-info">勘查中</span></td>
+                                    <c:if test="${power.status == 1}">
+                                        <td><span class="label label-info">已制定方案</span></td>
                                     </c:if>
-                                    <c:if test="${inves.status == 2}">
-                                        <td><span class="label label-success">勘查完成</span></td>
+                                    <c:if test="${power.status == 2}">
+                                        <td><span class="label label-success">确定方案</span></td>
                                     </c:if>
                                     <td class="hidden-480">
 
-                                        <c:if test="${inves.status == 0}">
-                                            <a href="adminShowTeacher.action?invesId=${inves.invesId}"
-                                               class="btn mini blue"><i class="icon-share"></i> 接受</a>
-                                        </c:if>
+
+                                        <a href="PlanGroup_PowerDesignDetail.action?PowerDesign=${power}" target="rightFrame"
+                                           class="btn mini blue"><i class="icon-share"></i> 详情</a>
+
                                     </td>
                                 </tr>
                             </c:forEach>

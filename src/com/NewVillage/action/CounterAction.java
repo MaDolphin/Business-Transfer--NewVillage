@@ -189,18 +189,9 @@ public class CounterAction extends ActionSupport implements SessionAware {
         }catch (Exception ex){
             ex.printStackTrace();
         }
-        return "PowerDesignDetail";
+        return "PowerDesign";
     }
 
-    public String QueryPowerDesignByID(){
-        try{
-            PowerDesign powerDesign= powerDesignDao.queryPowerDesignByID(powerDesignId);
-            session.put("PowerDesignInfo",powerDesign);
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
-        return "PowerDesignReply";
-    }
 
     public String PowerDesignReply(){
         Timestamp date = new Timestamp(System.currentTimeMillis());
@@ -239,7 +230,7 @@ public class CounterAction extends ActionSupport implements SessionAware {
         }catch (Exception ex){
             ex.printStackTrace();
         }
-        return "PowerDesign";
+        return "ReplySuccess";
     }
 
 }

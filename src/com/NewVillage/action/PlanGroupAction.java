@@ -35,5 +35,14 @@ public class PlanGroupAction extends ActionSupport implements SessionAware {
         this.powerDesign = powerDesign;
     }
 
+    public String PowerDesignDetail(){
+        try{
+            PowerDesign powerDesigns= powerDesignDao.queryPowerDesignByID(powerDesign.getPowerId());
+            session.put("PowerDesignInfo",powerDesigns);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return "PowerDesignDetail";
+    }
 
 }

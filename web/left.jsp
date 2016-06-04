@@ -117,6 +117,36 @@
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-user"></i>
+                    <span class="title">电源方案审批</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="Approval_QueryPowerDesign.action" target="rightFrame">电源方案查看</a>
+                    </li>
+                    <%--<li>
+                        <a href="PlanGroupAddPowerDesign.action" target="rightFrame">制定电源方案</a>
+                    </li>--%>
+                </ul>
+            </li>
+            <li class="">
+                <a href="javascript:;">
+                    <i class="icon-user"></i>
+                    <span class="title">电源方案回复</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="Counter_QueryPowerDesign.action" target="rightFrame">电源方案查看</a>
+                    </li>
+                    <%--<li>
+                        <a href="PlanGroupAddPowerDesign.action" target="rightFrame">制定电源方案</a>
+                    </li>--%>
+                </ul>
+            </li>
+            <li class="">
+                <a href="javascript:;">
+                    <i class="icon-user"></i>
                     <span class="title">设计文件审核</span>
                     <span class="arrow "></span>
                 </a>

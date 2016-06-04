@@ -33,9 +33,8 @@
             <result name="addUserError" ></result>
             <result name="addNewVillageSuccess" type="redirectAction">CounterShowNewVillage</result>
             <result name="addNewVillageError" type="redirectAction">CounterAddNewVillage</result>
-            <result name="PowerDesignDetail">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
-            <result name="PowerDesignReply">/WEB-INF/pages/Counter_PowerDesignReply.jsp</result>
-            <result name="PowerDesign" type="redirectAction">Counter_QueryPowerDesign</result>
+            <result name="PowerDesign">/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
+            <result name="ReplySuccess" type="redirectAction">Counter_QueryPowerDesign</result>
         </action>
         <!--JSP directing-->
         <action name="CounterAddNewVillage">
@@ -46,6 +45,9 @@
             <result>/WEB-INF/pages/Counter_ShowNewVillage.jsp</result>
         </action>
 
+        <action name="PowerDesignReply">
+            <result>/WEB-INF/pages/Counter_PowerDesignReply.jsp</result>
+        </action>
     </package>
 
     <!-- 2.勘查员 1.4现场勘查  -->
@@ -71,6 +73,8 @@
         <action name="PlanGroup_*" class="PlanGroupAction" method="{1}">
             <result name="success"></result>
             <result name="input"></result>
+            <result name="PowerDesignDetail">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
+
         </action>
         <!--JSP directing-->
         <action name="PlanGroupShowPowerDesign">
@@ -95,11 +99,13 @@
             <result name="updateSuccess" type="chain">Approval_queryDesignFileCheckRecordByIDAfterUpdate</result>
             <result name="input">WEB-INF/pages/Approval_writeCheckResult.jsp</result>
 
-            <result name="PowerDesignDetail">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
-            <result name="Examination">/WEB-INF/pages/Approval_Examin.jsp</result>
-            <result name="PowerDesign" type="redirectAction">Approval_QueryPowerDesign</result>
+            <result name="PowerDesign">/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
+            <result name="ExaminSuccess" type="redirectAction">Approval_QueryPowerDesign</result>
         </action>
         <!--JSP directing-->
+        <action name="Examination">
+            <result>/WEB-INF/pages/Approval_Examin.jsp</result>
+        </action>
     </package>
 
     <!-- 5.财务 1.9确定费用 1.10业务收费 -->
