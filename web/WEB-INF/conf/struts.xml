@@ -90,7 +90,7 @@
             <result name="success">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
         </action>
 
-        <action name="PlanGroupShowMessage" class="PlanGroupAction" method="InitPowerDesignShow">
+        <action name="PlanGroupShowMessage" class="PlanGroupAction" method="InitMessageShow">
             <result name="success">/WEB-INF/pages/PlanGroup_ShowMessage.jsp</result>
         </action>
 

@@ -18,6 +18,7 @@ public interface PowerDesignDao {
     public List<PowerDesign> allPowerDesignsByEmpIDStatus0(int empid);
     public PowerDesign allPowerDesignsByNewIDStatus0(int newid);
     public PowerDesign allPowerDesignsByNewIDStatus1(int newid);
+    public PowerDesign allPowerDesignsByNewIDStatusOff(int newid);
     List<PowerDesign> allPowerDesigns();
 
     List<PowerDesign> queryPowerDesign();

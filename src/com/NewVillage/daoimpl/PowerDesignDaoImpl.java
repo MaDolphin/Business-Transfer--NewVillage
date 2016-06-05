@@ -61,7 +61,7 @@ public class PowerDesignDaoImpl extends HibernateDaoSupport implements PowerDesi
 
     @Override
     public List<PowerDesign> allPowerDesignsByEmpID(int empid) {
-        List list = (List<PowerDesign>) this.getHibernateTemplate().find("from PowerDesign e where e.powerDesignPerId=? order by e.status desc ",new Object[]{empid});
+        List list = (List<PowerDesign>) this.getHibernateTemplate().find("from PowerDesign e where e.powerDesignPerId=? and e.status!='-1' order by e.status desc ",new Object[]{empid});
         return list;
     }
 
@@ -84,6 +84,16 @@ public class PowerDesignDaoImpl extends HibernateDaoSupport implements PowerDesi
     @Override
     public PowerDesign allPowerDesignsByNewIDStatus1(int newid) {
         List list = (List<PowerDesign>) this.getHibernateTemplate().find("from PowerDesign e where e.newId=? and e.status='1' ",new Object[]{newid});
+        if(list.size()>0){
+            return (PowerDesign) list.get(0);
+        }else{
+            return null;
+        }
+    }
+
+    @Override
+    public PowerDesign allPowerDesignsByNewIDStatusOff(int newid) {
+        List list = (List<PowerDesign>) this.getHibernateTemplate().find("from PowerDesign e where e.newId=? and e.status='-1' ",new Object[]{newid});
         if(list.size()>0){
             return (PowerDesign) list.get(0);
         }else{

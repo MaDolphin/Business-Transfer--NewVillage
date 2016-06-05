@@ -66,7 +66,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${PlanGroupMessageList}" var="mes">
+                            <c:forEach items="${sessionScope.PlanGroupMessageList}" var="mes">
                                 <tr class="odd gradeX">
                                     <td><input type="checkbox" class="checkboxes" value="1"/></td>
                                     <td class="hidden-480">${mes.messId}</td>
@@ -80,7 +80,7 @@
                                     </c:if>
                                     <td class="hidden-480">
                                         <c:if test="${mes.status == 0}">
-                                            <a href="PlanGroup_AcceptMessage.action?messId=${mes.messId}&newId=${newId}" target="rightFrame" class="btn mini blue"><i class="icon-share"></i> 确认</a>
+                                            <a href="PlanGroup_AcceptMessage.action?messId=${mes.messId}&newId=${mes.newId}" target="rightFrame" class="btn mini blue"><i class="icon-share"></i> 确认</a>
                                         </c:if>
                                     </td>
                                 </tr>
