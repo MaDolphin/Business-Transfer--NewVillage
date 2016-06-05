@@ -65,7 +65,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row-fluid">x
+                                        <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group">
                                                     <label class="control-label">审批意见</label>

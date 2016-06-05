@@ -154,10 +154,10 @@ public class PlanGroupAction extends ActionSupport implements SessionAware {
         message.setStatus("1");
         messageDao.updateMessage(message);
 
-        //edit PowerDesign status to -1
+//        //edit PowerDesign status to -1
         PowerDesign power1 = powerDesignDao.allPowerDesignsByNewIDStatus1(newId);
-        power1.setStatus("-1");
-        powerDesignDao.updatePowerDesign(power1);
+//        power1.setStatus("-1");
+//        powerDesignDao.updatePowerDesign(power1);
 
         //add PowerDesign
         PowerDesign newPower = new PowerDesign();

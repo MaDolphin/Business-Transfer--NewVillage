@@ -28,7 +28,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        供电方案审批：
+                        供电方案答复：
                     </h3>
                     <ul class="breadcrumb">
                         <li>
@@ -40,8 +40,7 @@
                             <a href="#">供电方案</a>
                             <span class="icon-angle-right"></span>
                         </li>
-                        <li><a href="#">供电方案详情</a></li>
-                        <li><a href="#">审批供电方案</a></li>
+                        <li><a href="#">供电方案答复</a></li>
                     </ul>
                 </div>
             </div>

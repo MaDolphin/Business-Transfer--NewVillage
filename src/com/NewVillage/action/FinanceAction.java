@@ -177,9 +177,8 @@ public class FinanceAction extends ActionSupport implements SessionAware{
     public String addPayRecord() {
         String flag=INPUT;
         try{
-            Timestamp time=new Timestamp(System.currentTimeMillis());
-            payRecord.setCreateTime(time);
-            payRecord.setPayTime(time);
+            payRecord.setCreateTime(new Timestamp(System.currentTimeMillis()));
+            payRecord.setPayTime(new Timestamp(System.currentTimeMillis()));
             Employee emp=(Employee) session.get("employee");
             payRecord.setPayPerId(emp.getEmpId());
             payRecord.setStatus("1");

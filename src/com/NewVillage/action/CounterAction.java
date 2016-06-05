@@ -221,7 +221,7 @@ public class CounterAction extends ActionSupport implements SessionAware {
             double charge=powerDesign.getPowerNum()*500+powerDesign.getPowerLineNum()*30;
             businessCost.setCharge(charge);
             businessCost.setRefund(0.0);
-            businessCost.setCostItem("电源数量："+powerDesign.getPowerNum()+" 电线数量："+powerDesign.getPowerLineNum());
+            businessCost.setCostItem("电源数量："+powerDesign.getPowerNum());
             costDao.addBusinessCost(businessCost);
             BusinessCost cost=costDao.queryBusinessCostByNewID(powerDesign.getNewId());
 
@@ -233,7 +233,7 @@ public class CounterAction extends ActionSupport implements SessionAware {
             String hql="from ProcessRecord u where u.newId='"+powerDesignReply.getNewId()+"'";
             List<ProcessRecord> processRecords=processRecordDao.QueryProcess(hql);
             ProcessRecord processRecord=processRecords.get(0);
-            processRecord.setReplyId(reply.getReplyId());
+            //processRecord.setReplyId(reply.getReplyId());
             processRecord.setCostId(cost.getCostId());
             processRecordDao.editProcess(processRecord);
         }catch (Exception ex){

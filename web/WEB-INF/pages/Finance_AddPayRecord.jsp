@@ -69,7 +69,7 @@
                                                 <div class="control-group">
                                                     <label class="control-label">收款比例</label>
                                                     <div class="controls">
-                                                        <input type="text" class="large m-wrap" name="payRecord.payPrecent" value="${perenct}%" readonly/>
+                                                        <input type="text" class="large m-wrap" name="payRecord.payPrecent" value="${perenct}" readonly/>%
                                                     </div>
                                                 </div>
                                             </div>
