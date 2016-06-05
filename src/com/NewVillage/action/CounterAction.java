@@ -193,14 +193,18 @@ public class CounterAction extends ActionSupport implements SessionAware {
     }
 
 
-    public String PowerDesignReply(){
-        Timestamp date = new Timestamp(System.currentTimeMillis());
+    public String replypower(){
+
         try{
             powerDesignReply.setStatus("1");
-            powerDesignReply.setCreateTime(date);
-            powerDesignReply.setCustReplyTime(date);
-            powerDesignReply.setReplyTime(date);
-            powerDesignReply.setSignoffTime(date);
+
+            powerDesignReply.setCreateTime(new Timestamp(System.currentTimeMillis()));
+
+            powerDesignReply.setCustReplyTime(new Timestamp(System.currentTimeMillis()));
+
+            powerDesignReply.setReplyTime(new Timestamp(System.currentTimeMillis()));
+
+            powerDesignReply.setSignoffTime(new Timestamp(System.currentTimeMillis()));
             Employee emp=(Employee)session.get("employee");
             powerDesignReply.setReplyPerId(emp.getEmpId());
             powerDesignReplyDao.addPowerDesignReply(powerDesignReply);
@@ -209,12 +213,14 @@ public class CounterAction extends ActionSupport implements SessionAware {
             //通过默认的数据 创建应收费用表单
             BusinessCost businessCost=new BusinessCost();
             businessCost.setStatus("0");
-            businessCost.setCreateTime(date);
+
+            businessCost.setCreateTime(new Timestamp(System.currentTimeMillis()));
             businessCost.setNewId(powerDesignReply.getNewId());
             List<PowerDesign> list=powerDesignDao.allPowerDesignsByNewID(powerDesignReply.getNewId());
             PowerDesign powerDesign=list.get(0);
             double charge=powerDesign.getPowerNum()*500+powerDesign.getPowerLineNum()*30;
             businessCost.setCharge(charge);
+            businessCost.setRefund(0.0);
             businessCost.setCostItem("电源数量："+powerDesign.getPowerNum()+" 电线数量："+powerDesign.getPowerLineNum());
             costDao.addBusinessCost(businessCost);
             BusinessCost cost=costDao.queryBusinessCostByNewID(powerDesign.getNewId());

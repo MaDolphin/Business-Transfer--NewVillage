@@ -34,8 +34,13 @@
             <result name="addNewVillageSuccess" type="redirectAction">CounterShowNewVillage</result>
             <result name="addNewVillageError" type="redirectAction">CounterAddNewVillage</result>
             <result name="PowerDesign">/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
+
+        </action>
+
+        <action name="replypower" class="CounterAction" method="replypower">
             <result name="ReplySuccess" type="redirectAction">Counter_QueryPowerDesign</result>
         </action>
+
         <!--JSP directing-->
         <action name="CounterAddNewVillage">
             <result>/WEB-INF/pages/Counter_AddNewVillage.jsp</result>
@@ -114,6 +119,7 @@
             <result name="PowerDesign">/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
             <result name="ExaminSuccess" type="redirectAction">Approval_QueryPowerDesign</result>
         </action>
+
         <!--JSP directing-->
         <action name="Examination">
             <result>/WEB-INF/pages/Approval_Examin.jsp</result>

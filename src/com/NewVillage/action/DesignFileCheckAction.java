@@ -388,13 +388,13 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
             examination.setCreateTime(time);
             examination.setExTime(time);
             examinationDao.addExamination(examination);
-            /*//List<Examination> examinations=examinationDao.queryExaminationByNewID(examination.getNewId());
-            System.out.println(examinations);*/
+            List<Examination> examinations=examinationDao.queryExaminationByNewID(examination.getNewId());
+            System.out.println(examinations);
             if(examination.getExResult().equals("不通过")){
                 //创建消息 通知方案小组 方案未通过
                 Message message=new Message();
-                /*if (examinations!=null)
-                    message.setRefund(examinations.get(0).getExOpinion());*/
+                if (examinations!=null)
+                    message.setRefund(examinations.get(0).getExOpinion());
                 message.setStatus("0");
                 message.setEmpId(powerDesign.getPowerDesignPerId());
                 message.setNewId(examination.getNewId());
@@ -418,10 +418,9 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
                 //更改流程记录单中审核单号
                 String hql="from ProcessRecord u where u.newId='"+examination.getNewId()+"'";
                 List<ProcessRecord> processRecords=processRecordDao.QueryProcess(hql);
-                //ProcessRecord processRecord=processRecords.get(0);
-                /*if (examinations!=null)
-                    processRecord.setExId(examinations.get(0).getExId());*/
-                //processRecordDao.editProcess(processRecord);
+                ProcessRecord processRecord=processRecords.get(0);
+                processRecord.setExId(examinations.get(0).getExId());
+                processRecordDao.editProcess(processRecord);
             }
             flag="ExaminSuccess";
         }catch (Exception ex){

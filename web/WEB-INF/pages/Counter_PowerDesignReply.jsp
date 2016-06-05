@@ -54,7 +54,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="portlet_tab1" style="margin-left: -50px">
                                     <!-- BEGIN FORM-->
-                                    <form action="Counter_PowerDesignReply.action" target="rightFrame" class="form-horizontal" >
+                                    <form action="replypower.action" target="rightFrame" class="form-horizontal" >
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group " >
@@ -71,8 +71,8 @@
                                                     <label class="control-label">回访方式</label>
                                                     <div class="controls">
                                                         <select class="large m-wrap" name="powerDesignReply.replyType">
-                                                            <option>电话</option>
-                                                            <option>营业厅</option>
+                                                            <option>0</option>
+                                                            <option>1</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -88,7 +88,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row-fluid">
+                                        <%--<div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group">
                                                     <label class="control-label">回访时间</label>
@@ -97,7 +97,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>--%>
                                         <div class="row-fluid">
                                             <div class="span6 ">
                                                 <div class="control-group">

@@ -125,8 +125,8 @@ public class FinanceAction extends ActionSupport implements SessionAware{
     public String ExaminCost(){
 
         try{
-//            Timestamp time=new Timestamp(System.currentTimeMillis());
-//            businessCost.setCreateTime(time);
+            Timestamp time=new Timestamp(System.currentTimeMillis());
+            businessCost.setCreateTime(time);
             BusinessCost businessCost1 = costdao.QueryCostByID(this.businessCost.getCostId());
             businessCost1.setStatus("1");
             costdao.updateCost(businessCost1);
