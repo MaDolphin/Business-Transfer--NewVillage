@@ -145,7 +145,7 @@ public class CheckAction extends ActionSupport{
     public String searchCheckInfo() throws Exception{
 
         List<Inspect> list=new ArrayList<>();
-        list=checkDao.searchInspectManage(Integer.valueOf(session.get("nid").toString()),"0");
+        list=checkDao.searchInspectManage(Integer.valueOf(session.get("nid").toString()));
         session.put("Inspectlist",list);
         return "success";
     }
