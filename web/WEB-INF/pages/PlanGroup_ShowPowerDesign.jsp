@@ -74,6 +74,9 @@
                                     <td class="hidden-480">${power.newId}</td>
                                     <td class="hidden-480">${power.createTime}</td>
                                     <td class="hidden-480">${power.powerDesignPerId}</td>
+                                    <c:if test="${power.status == -1}">
+                                        <td><span class="label label-default">已注销</span></td>
+                                    </c:if>
                                     <c:if test="${power.status == 0}">
                                         <td><span class="label label-warning">已创建</span></td>
                                     </c:if>

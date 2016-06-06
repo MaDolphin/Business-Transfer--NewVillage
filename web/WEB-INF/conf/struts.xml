@@ -32,7 +32,7 @@
             <interceptor name="CounterInterceptor" class="com.NewVillage.interceptor.CounterInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="counterdefaultstack">
-                <interceptor-ref name="CounterInterceptor"></interceptor-ref>
+                <!--<interceptor-ref name="CounterInterceptor"></interceptor-ref>-->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -80,7 +80,7 @@
             <interceptor name="InvestigatorInterceptor" class="com.NewVillage.interceptor.InvestigatorInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="investigatordefaultstack">
-                <interceptor-ref name="InvestigatorInterceptor"></interceptor-ref>
+                <!--<interceptor-ref name="InvestigatorInterceptor"></interceptor-ref>-->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -120,7 +120,7 @@
             <interceptor name="PlanGroupInterceptor" class="com.NewVillage.interceptor.PlanGroupInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="planGroupdefaultstack">
-                <interceptor-ref name="PlanGroupInterceptor"></interceptor-ref>
+                <!--<interceptor-ref name="PlanGroupInterceptor"></interceptor-ref>-->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -165,7 +165,7 @@
             <interceptor name="ApprovalInterceptor" class="com.NewVillage.interceptor.ApprovalInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="approvaldefaultstack">
-                <interceptor-ref name="ApprovalInterceptor"></interceptor-ref>
+                <!--<interceptor-ref name="ApprovalInterceptor"></interceptor-ref>-->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -203,7 +203,7 @@
             <interceptor name="FinanceInterceptor" class="com.NewVillage.interceptor.FinanceInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="financedefaultstack">
-                <interceptor-ref name="FinanceInterceptor"></interceptor-ref>
+                <!--<interceptor-ref name="FinanceInterceptor"></interceptor-ref>-->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -233,7 +233,7 @@
             <interceptor name="OverseerInterceptor" class="com.NewVillage.interceptor.OverseerInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="overseerdefaultstack">
-                <interceptor-ref name="OverseerInterceptor"></interceptor-ref>
+                <!--<interceptor-ref name="OverseerInterceptor"></interceptor-ref>-->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -271,7 +271,7 @@
             <interceptor name="CheckerInterceptor" class="com.NewVillage.interceptor.CheckerInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="checkerdefaultstack">
-                <interceptor-ref name="CheckerInterceptor"></interceptor-ref>
+                <!--<interceptor-ref name="CheckerInterceptor"></interceptor-ref>-->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -311,7 +311,7 @@
             <interceptor name="InspectionerInterceptor" class="com.NewVillage.interceptor.InspectionerInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="inspectionerdefaultstack">
-                <interceptor-ref name="InspectionerInterceptor"></interceptor-ref>
+                <!--<interceptor-ref name="InspectionerInterceptor"></interceptor-ref>-->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -360,7 +360,7 @@
             <interceptor name="AcceptGroupInterceptor" class="com.NewVillage.interceptor.AcceptGroupInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="acceptGroupdefaultstack">
-                <interceptor-ref name="AcceptGroupInterceptor"></interceptor-ref>
+                <!--<interceptor-ref name="AcceptGroupInterceptor"></interceptor-ref>-->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -403,7 +403,7 @@
             <interceptor name="FilerInterceptor" class="com.NewVillage.interceptor.FilerInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="filerdefaultstack">
-                <interceptor-ref name="FilerInterceptor"></interceptor-ref>
+                <!--<interceptor-ref name="FilerInterceptor"></interceptor-ref>-->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
