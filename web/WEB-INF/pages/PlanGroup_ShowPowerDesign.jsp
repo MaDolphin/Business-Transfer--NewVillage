@@ -74,9 +74,6 @@
                                     <td class="hidden-480">${power.newId}</td>
                                     <td class="hidden-480">${power.createTime}</td>
                                     <td class="hidden-480">${power.powerDesignPerId}</td>
-                                    <c:if test="${power.status == -1}">
-                                        <td><span class="label label-default">已注销</span></td>
-                                    </c:if>
                                     <c:if test="${power.status == 0}">
                                         <td><span class="label label-warning">已创建</span></td>
                                     </c:if>
@@ -85,6 +82,9 @@
                                     </c:if>
                                     <c:if test="${power.status == 2}">
                                         <td><span class="label label-success">确定方案</span></td>
+                                    </c:if>
+                                    <c:if test="${power.status == 3}">
+                                        <td><span class="label label-success">答复完成</span></td>
                                     </c:if>
                                     <td class="hidden-480">
                                         <a href="PlanGroupPowerDesignDetail.action?powerId=${power.powerId}" target="rightFrame"
