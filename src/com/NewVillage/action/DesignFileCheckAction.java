@@ -263,7 +263,7 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
     public String addDesignFileCheckRecord(){
         try {
             DesignFileCheck designFileCheck = new DesignFileCheck();
-            if(designFileCheckDao.queryDesignFileCheckByNewId(designFileCheck.getNewId())==null) {
+            if(designFileCheckDao.queryDesignFileCheckByNewId(newId)==null) {
                 Timestamp date = new Timestamp(System.currentTimeMillis());
                 designFileCheck.setCheckTime(date);
                 designFileCheck.setRegisterTime(date);

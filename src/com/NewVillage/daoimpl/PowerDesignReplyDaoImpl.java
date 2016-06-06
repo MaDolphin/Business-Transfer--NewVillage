@@ -44,4 +44,14 @@ public class PowerDesignReplyDaoImpl extends HibernateDaoSupport implements Powe
             return false;
         }
     }
+
+    @Override
+    public PowerDesignReply queryPowerDesignReplyByReplyId(int replyId) {
+        List<PowerDesignReply> list=(List<PowerDesignReply>) getHibernateTemplate().find("from PowerDesignReply u where u.replyId=?",new Object[]{replyId});
+        if(list.size()>0) {
+            return (PowerDesignReply) list.get(0);
+        }else{
+            return null;
+        }
+    }
 }

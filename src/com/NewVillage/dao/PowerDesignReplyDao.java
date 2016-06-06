@@ -11,5 +11,5 @@ public interface PowerDesignReplyDao {
     public PowerDesignReply queryPowerDesignReplyByID(int newId);
     List<PowerDesignReply> allPowerDesignReply();
     public boolean updatePowerDesignReply(PowerDesignReply powerDesignReply);
-
+    public PowerDesignReply queryPowerDesignReplyByReplyId(int replyId);
 }

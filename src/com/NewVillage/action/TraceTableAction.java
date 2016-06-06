@@ -339,10 +339,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
         }
         return result="querySuccess";
     }
-    public String queryPowerDesignReplyByID(){
 
-        return result= "queryPowerDesignReplySuccess";
-    }
     public String allPowerDesignReply(){
         try{
             List<PowerDesignReply> powerDesignReply=powerDesignReplyDao.allPowerDesignReply();
@@ -356,7 +353,7 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
 
     public String updatePowerDesignReplyStatus(){
         try{
-            PowerDesignReply powerDesignReply=powerDesignReplyDao.queryPowerDesignReplyByID(replyId);
+            PowerDesignReply powerDesignReply=powerDesignReplyDao.queryPowerDesignReplyByReplyId(replyId);
             powerDesignReply.setStatus("2");
             powerDesignReplyDao.updatePowerDesignReply(powerDesignReply);
             return result="updatePowerDesignReplyStatusSuccess";
