@@ -150,7 +150,6 @@
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-user"></i>
-                    <span class="title">设计文件审核</span>
                     <span class="title">进程跟踪信息</span>
                     <span class="arrow "></span>
                 </a>

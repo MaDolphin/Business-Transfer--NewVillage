@@ -34,7 +34,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        工程进度跟踪：
+                        查看收费进度：
                     </h3>
                     <ul class="breadcrumb">
                         <li>

@@ -271,7 +271,12 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
             designFileCheck.setNewId(newId);
             designFileCheck.setStatus("1");
             designFileCheck.setCreateTime(date);
-            designFileCheckDao.addDesignFileCheckRecord(designFileCheck);
+            if( designFileCheckDao.addDesignFileCheckRecord(designFileCheck)){
+                ProcessRecord processRecord1 = processRecordDao.queryProcessRecordByNewVillage(designFileCheck.getNewId());
+                DesignFileCheck designFileCheck1=designFileCheckDao.queryDesignFileCheckByNewId(designFileCheck.getNewId());
+                processRecord1.setDesignFileId(designFileCheck1.getDesignFileId());
+                processRecordDao.editProcess(processRecord1);
+            }
         }catch (Exception ex) {
             ex.printStackTrace();
             return INPUT;

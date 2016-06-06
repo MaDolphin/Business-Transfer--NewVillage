@@ -113,6 +113,7 @@
 
     <!--张松顺-->
     <bean id="TraceTableAction" class="com.NewVillage.action.TraceTableAction">
+        <property name="processRecordDao" ref="ProcessRecordDao"></property>
         <property name="receiptDao" ref="receiptDao"></property>
         <property name="traceTableDao" ref="traceTableDao"></property>
         <property name="powerDesignReplyDao" ref="PowerDesignReplyDao"></property>

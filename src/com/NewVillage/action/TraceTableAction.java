@@ -1,10 +1,12 @@
 package com.NewVillage.action;
 
 import com.NewVillage.dao.PowerDesignReplyDao;
+import com.NewVillage.dao.ProcessRecordDao;
 import com.NewVillage.dao.ReceiptDao;
 import com.NewVillage.dao.TraceTableDao;
 import com.NewVillage.entity.PayRecord;
 import com.NewVillage.entity.PowerDesignReply;
+import com.NewVillage.entity.ProcessRecord;
 import com.NewVillage.entity.TraceTable;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
@@ -41,8 +43,17 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
     private String result;
     private int replyId;
     private ReceiptDao receiptDao;
+    private ProcessRecordDao processRecordDao;
     private PayRecord payRecord;
     private int payId;
+
+    public ProcessRecordDao getProcessRecordDao() {
+        return processRecordDao;
+    }
+
+    public void setProcessRecordDao(ProcessRecordDao processRecordDao) {
+        this.processRecordDao = processRecordDao;
+    }
 
     public ReceiptDao getReceiptDao() {
         return receiptDao;
@@ -256,13 +267,20 @@ public class TraceTableAction extends ActionSupport implements SessionAware{
             traceTable.setNewId(newId);
             traceTable.setStatus("1");
             traceTable.setCreateTime(date);
-            traceTableDao.addTraceTableRecord(traceTable);
+            if( traceTableDao.addTraceTableRecord(traceTable)){
+                ProcessRecord processRecord1 = processRecordDao.queryProcessRecordByNewVillage(traceTable.getNewId());
+                TraceTable traceTable1=traceTableDao.queryTraceTableRecordByNewId(traceTable.getNewId());
+                processRecord1.setTraceId(traceTable1.getTraceId());
+                processRecordDao.editProcess(processRecord1);
+            }
         }catch (Exception ex) {
             ex.printStackTrace();
             return INPUT;
         }
         return result="addSuccess";
     }
+
+
 
     public String deleteTraceTableRecord(){
         TraceTable traceTable=traceTableDao.queryTraceTableRecordByID(traceId);

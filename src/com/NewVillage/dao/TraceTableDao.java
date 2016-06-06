@@ -11,9 +11,10 @@ import java.util.List;
 //进度跟踪Dao
 public interface TraceTableDao {
     public List<TraceTable> QueryAllScheduleCondition();
-    public void addTraceTableRecord(TraceTable traceTable);
+    public boolean addTraceTableRecord(TraceTable traceTable);
     public boolean deleteTraceTableRecord(TraceTable traceTable);
     public TraceTable queryTraceTableRecordByID(int recordId);
     public boolean existTraceTableRecordById(int recordId);
     public boolean updateTraceTableRecord(TraceTable traceTable);
+    public TraceTable queryTraceTableRecordByNewId(int newId);
 }

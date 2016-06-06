@@ -23,12 +23,14 @@ public class DesignFileCheckDaoImpl extends HibernateDaoSupport implements Desig
     }
 
     @Override
-    public void addDesignFileCheckRecord(DesignFileCheck designFileCheck) {
+    public boolean addDesignFileCheckRecord(DesignFileCheck designFileCheck) {
         try{
             this.getHibernateTemplate().save(designFileCheck);
+            return true;
         }catch (Exception ex){
             ex.printStackTrace();
         }
+        return false;
     }
 
     @Override
@@ -66,6 +68,16 @@ public class DesignFileCheckDaoImpl extends HibernateDaoSupport implements Desig
         }catch (RuntimeException e){
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public DesignFileCheck queryDesignFileCheckByNewId(int newId) {
+        List<DesignFileCheck> list = (List<DesignFileCheck>) (getHibernateTemplate().find("from DesignFileCheck t where t.newId=?",new Object[]{newId}));
+        if(list.size()>0){
+            return (DesignFileCheck) list.get(0);
+        }else {
+            return null;
         }
     }
 }

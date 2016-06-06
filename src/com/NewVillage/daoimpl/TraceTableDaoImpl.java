@@ -22,11 +22,13 @@ public class TraceTableDaoImpl extends HibernateDaoSupport implements TraceTable
     }
 
     @Override
-    public void addTraceTableRecord(TraceTable traceTable) {
+    public boolean addTraceTableRecord(TraceTable traceTable) {
         try{
             this.getHibernateTemplate().save(traceTable);
+            return true;
         }catch (Exception ex){
             ex.printStackTrace();
+            return false;
         }
     }
 
@@ -65,6 +67,16 @@ public class TraceTableDaoImpl extends HibernateDaoSupport implements TraceTable
         }catch (RuntimeException e){
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public TraceTable queryTraceTableRecordByNewId(int newId) {
+        List<TraceTable> list = (List<TraceTable>) (getHibernateTemplate().find("from TraceTable t where t.newId=?",new Object[]{newId}));
+        if(list.size()>0){
+            return (TraceTable) list.get(0);
+        }else {
+            return null;
         }
     }
 }
