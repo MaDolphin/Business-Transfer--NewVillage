@@ -93,7 +93,7 @@
                                     </c:if>
                                     <td class="hidden-480">
                                         <c:if test="${Inspectlist.status =='0'}">
-                                            <a href="javascript:if(confirm('确认填写报验信息?'))window.location='Inspect.action?cid=${Inspectionlist.checkId}&nid=${Inspectionlist.newId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 填写信息</a>
+                                            <a href="javascript:if(confirm('确认填写报验信息?'))window.location='Inspect.action?cid=${Inspectlist.checkId}&nid=${Inspectlist.newId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 填写信息</a>
                                         </c:if>
                                     </td>
                                 </tr>

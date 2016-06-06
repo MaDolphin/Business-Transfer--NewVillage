@@ -78,7 +78,7 @@ public class InspectionAction {
         inspectionDao.addInspect(inspection);
         Inspect inspect=new Inspect();
         System.out.print(Integer.valueOf(session.get("nid").toString()));
-        inspect=checkDao.searchInspect(Integer.valueOf(cid)).get(0);
+        inspect=checkDao.searchInspect(Integer.valueOf(session.get("cid").toString())).get(0);
         inspect.setStatus("1");
         inspect.setCheckTime(inspect.getCheckTime());
         checkDao.updateObject(inspect);

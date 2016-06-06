@@ -23,6 +23,8 @@ public class CheckAction extends ActionSupport{
     private String checkResult;
     private int id;
     private int nid;
+    private int cid;
+    private int Iid;
 
     private Date checkTime;
     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -88,6 +90,22 @@ public class CheckAction extends ActionSupport{
         this.nid = nid;
     }
 
+    public int getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
+    }
+
+    public int getIid() {
+        return Iid;
+    }
+
+    public void setIid(int iid) {
+        Iid = iid;
+    }
+
     ActionContext actionContext= ActionContext.getContext();
     Map session=actionContext.getSession();
     public String add() throws Exception{
@@ -105,6 +123,16 @@ public class CheckAction extends ActionSupport{
         Inspect inspect=new Inspect();
         inspect = checkDao.searchInspectId(Integer.valueOf(session.get("nid").toString())).get(0);
         processRecord.setCheckId(inspect.getCheckId());
+        checkDao.updateObject(processRecord);
+        return "success";
+    }
+    public String SetInspectionId() throws Exception{
+        ProcessRecord processRecord=new ProcessRecord();
+        processRecord=checkDao.searchProcessRecord(Integer.valueOf(session.get("nid").toString())).get(0);
+        Inspection inspection=new Inspection();
+        inspection = checkDao.searchInspectionId(Integer.valueOf(session.get("nid").toString())).get(0);
+        processRecord.setInsId(inspection.getInsId());
+        checkDao.updateObject(processRecord);
         return "success";
     }
     public String searchInfo() throws Exception{
@@ -117,7 +145,7 @@ public class CheckAction extends ActionSupport{
     public String searchCheckInfo() throws Exception{
 
         List<Inspect> list=new ArrayList<>();
-        list=checkDao.searchInspectManage(Integer.valueOf(session.get("nid").toString()));
+        list=checkDao.searchInspectManage(Integer.valueOf(session.get("nid").toString()),"0");
         session.put("Inspectlist",list);
         return "success";
     }
@@ -138,7 +166,9 @@ public class CheckAction extends ActionSupport{
     public String pass() throws Exception{
 
         session.put("id",id);
+        session.put("cid",cid);
         session.put("nid",nid);
+        session.put("Iid",Iid);
         return "success";
     }
 }

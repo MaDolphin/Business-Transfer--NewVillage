@@ -1,10 +1,7 @@
 package com.NewVillage.daoimpl;
 
 import com.NewVillage.dao.CheckDao;
-import com.NewVillage.entity.DesignFileCheck;
-import com.NewVillage.entity.Inspect;
-import com.NewVillage.entity.Inspection;
-import com.NewVillage.entity.ProcessRecord;
+import com.NewVillage.entity.*;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
@@ -47,41 +44,93 @@ public class CheckDaoImpl extends HibernateDaoSupport implements CheckDao {
         return list;
     }
     public List<Inspect> searchInspect(int id){
-        List<Inspect> list=null;
-        String queryString="from Inspect i where i.checkId="+id+"";
-        Query query = session.createQuery(queryString);
-        list= query.list();
-        return list;
+        try {
+            List<Inspect> list=(List<Inspect>) this.getHibernateTemplate().find("from Inspect i where i.checkId=?",new Object[]{id});
+            return list;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+//        List<Inspect> list=null;
+//        String queryString="from Inspect i where i.checkId="+id+"";
+//        Query query = session.createQuery(queryString);
+//        list= query.list();
+//        return list;
     }
     public List<Inspect> searchInspectId(int id){
-        List<Inspect> list=null;
-        String queryString="from Inspect i where i.newId="+id+"";
-        Query query = session.createQuery(queryString);
-        list= query.list();
-        return list;
+        try {
+            List<Inspect> list=(List<Inspect>) this.getHibernateTemplate().find("from Inspect i where i.newId=?",new Object[]{id});
+            return list;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
     }
-    public List<Inspection> searchInspection(int id){
-        List<Inspection> list=null;
-        String queryString="from Inspection i where i.insId="+id+"";
-        Query query = session.createQuery(queryString);
-        list= query.list();
-        return list;
+    public List<CheckInfo> searchCheckInfoId(int id){
+        try {
+            List<CheckInfo> list=(List<CheckInfo>) this.getHibernateTemplate().find("from CheckInfo i where i.newId=?",new Object[]{id});
+            return list;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+    }
+    public List<Inspection> searchInspectionId(int id){
+        try {
+            List<Inspection> list=(List<Inspection>) this.getHibernateTemplate().find("from Inspection i where i.newId=?",new Object[]{id});
+            return list;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+    }
+    public List<Inspection> searchInspection(int id) {
+        try {
+            List<Inspection> list = (List<Inspection>) this.getHibernateTemplate().find("from Inspection i where i.insId=?", new Object[]{id});
+            return list;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+//        }
+//        List<Inspection> list=null;
+//        String queryString="from Inspection i where i.insId="+id+"";
+//        Query query = session.createQuery(queryString);
+//        list= query.list();
+//        return list;
+        }
     }
 
-    public List<Inspect> searchInspectManage(int id){
-        List<Inspect> list=null;
-        String queryString="from Inspect i where i.newId ="+id+" and i.status='0'";
-        Query query = session.createQuery(queryString);
-        list= query.list();
-        return list;
+    public List<Inspect> searchInspectManage(int id,String status){
+//        List<Inspect> list=null;
+//        String queryString="from Inspect i where i.newId ="+id+" and i.status='0'";
+//        Query query = session.createQuery(queryString);
+//        list= query.list();
+//        return list;
+        try {
+            List<Inspect> list=(List<Inspect>) this.getHibernateTemplate().find("from Inspect i where i.newId=? and i.status=?",new Object[]{id,status});
+            return list;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     public List<Inspection> searchInspectionManage(int id){
-        List<Inspection> list=null;
-        String queryString="from Inspection i where i.newId="+id+" and i.status='0'";
-        Query query = session.createQuery(queryString);
-        list= query.list();
-        return list;
+        try {
+            List<Inspection> list=(List<Inspection>) this.getHibernateTemplate().find("from Inspection i where i.newId=? and i.status='0' or i.status='1'",new Object[]{id});
+            return list;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+//        List<Inspection> list=null;
+//        String queryString="from Inspection i where i.newId="+id+" and i.status='0'";
+//        Query query = session.createQuery(queryString);
+//        list= query.list();
+//        return list;
     }
     public List<Inspection> searchNopassCheckInfo(int id){
         List<Inspection> list=null;

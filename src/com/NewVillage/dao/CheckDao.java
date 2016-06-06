@@ -1,9 +1,6 @@
 package com.NewVillage.dao;
 
-import com.NewVillage.entity.DesignFileCheck;
-import com.NewVillage.entity.Inspect;
-import com.NewVillage.entity.Inspection;
-import com.NewVillage.entity.ProcessRecord;
+import com.NewVillage.entity.*;
 
 import java.util.List;
 
@@ -16,11 +13,14 @@ public interface CheckDao {
     public List<DesignFileCheck> searchObject(String id);
     public List<Inspect> searchInspect(int id);
     public List<Inspection> searchInspection(int id);
-    public List<Inspect> searchInspectManage(int id);
+    public List<Inspect> searchInspectManage(int id,String status);
     public List<Inspection> searchInspectionManage(int id);
     public List<DesignFileCheck> searchInfo();
     public List<Inspection> searchNopassCheckInfo(int id);
     public List<ProcessRecord> searchProcessRecord(int id);
     public List<Inspect> searchInspectId(int id);
+    public List<Inspection> searchInspectionId(int id);
+    public List<CheckInfo> searchCheckInfoId(int id);
+//    public List<Inspect> searchInspectManage(int id,String status);
 
     }

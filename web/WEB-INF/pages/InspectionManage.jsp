@@ -105,10 +105,10 @@
                                     </c:if>
                                     <td class="hidden-480">
                                         <c:if test="${Inspectionlist.status =='0'}">
-                                            <a href="javascript:if(confirm('确认填写验收信息?'))window.location='CheckInfo.action?id=${Inspectionlist.insId}&nid=${Inspectionlist.newId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 填写验收信息</a>
+                                            <a href="javascript:if(confirm('确认填写验收信息?'))window.location='CheckInfo.action?Iid=${Inspectionlist.insId}&nid=${Inspectionlist.newId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 填写验收信息</a>
                                         </c:if>
                                         <c:if test="${Inspectionlist.status =='1'}">
-                                            <a href="javascript:if(confirm('确认填写验收信息?'))window.location='CheckInfo.action?id=${Inspectionlist.insId}&nid=${Inspectionlist.newId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 填写验收信息</a>
+                                            <a href="javascript:if(confirm('确认填写验收信息?'))window.location='CheckInfo.action?Iid=${Inspectionlist.insId}&nid=${Inspectionlist.newId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 填写验收信息</a>
                                         </c:if>
                                         <%--<c:if test="${Inspectionlist.status =='2'}">--%>
                                             <%--<a href="#"><i class="icon-trash"></i> 验收合格</a>--%>

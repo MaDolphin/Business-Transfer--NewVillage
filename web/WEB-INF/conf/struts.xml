@@ -345,6 +345,10 @@
 
         <!--添加报验资料信息-->
         <action name="Inspection_*" class="com.NewVillage.action.InspectionAction" method="{1}">
+            <result name="success" type="chain">SetInspectionId</result>
+            <interceptor-ref name="inspectionerdefaultstack"></interceptor-ref>
+        </action>
+        <action name="SetInspectionId" class="com.NewVillage.action.CheckAction" method="SetInspectionId">
             <result name="success">WEB-INF/pages/InspectAdd.jsp</result>
             <result name="input">WEB-INF/pages/InspectAdd.jsp</result>
             <interceptor-ref name="inspectionerdefaultstack"></interceptor-ref>

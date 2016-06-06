@@ -2,10 +2,7 @@ package com.NewVillage.action;
 
 import com.NewVillage.dao.CheckDao;
 import com.NewVillage.dao.CheckInfoDao;
-import com.NewVillage.entity.CheckInfo;
-import com.NewVillage.entity.DesignFileCheck;
-import com.NewVillage.entity.Employee;
-import com.NewVillage.entity.Inspection;
+import com.NewVillage.entity.*;
 import com.opensymphony.xwork2.ActionContext;
 
 import java.sql.Timestamp;
@@ -62,13 +59,21 @@ public class CheckInfoAction {
         checkInfo.setCreateTime(timestamp);
 //        checkInfo.setStatus(status);
         checkInfoDao.addCheckInfo(checkInfo);
-        int Id=Integer.valueOf(session.get("id").toString());
+
+        int Id=Integer.valueOf(session.get("Iid").toString());
         Inspection inspection=new Inspection();
         inspection=checkDao.searchInspection(Id).get(0);
         System.out.print(checkInfo.getQualified());
         inspection.setStatus(checkInfo.getQualified());
         checkDao.updateObject(inspection);
-this.result="true";
+        this.result="true";
+
+        ProcessRecord processRecord=new ProcessRecord();
+        processRecord=checkDao.searchProcessRecord(Integer.valueOf(session.get("nid").toString())).get(0);
+        CheckInfo checkInfo=new CheckInfo();
+        checkInfo = checkDao.searchCheckInfoId(Integer.valueOf(session.get("nid").toString())).get(0);
+        processRecord.setCheckInfoId(checkInfo.getCheckInfoId());
+        checkDao.updateObject(processRecord);
         return "success";
     }
 }
