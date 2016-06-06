@@ -1,6 +1,7 @@
 package com.NewVillage.daoimpl;
 
 import com.NewVillage.dao.PowerDesignReplyDao;
+import com.NewVillage.entity.PowerDesign;
 import com.NewVillage.entity.PowerDesignReply;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
@@ -21,7 +22,10 @@ public class PowerDesignReplyDaoImpl extends HibernateDaoSupport implements Powe
 
     @Override
     public PowerDesignReply queryPowerDesignReplyByID(int newId) {
-        PowerDesignReply powerDesignReply = (PowerDesignReply) (getHibernateTemplate().get(PowerDesignReply.class,newId));
+        PowerDesignReply powerDesignReply=new PowerDesignReply();
+        List<PowerDesignReply> list=(List<PowerDesignReply>) getHibernateTemplate().find("from PowerDesignReply u where u.newId=?",new Object[]{newId});
+        if(list!=null);
+            powerDesignReply = list.get(0);
         return powerDesignReply;
     }
 

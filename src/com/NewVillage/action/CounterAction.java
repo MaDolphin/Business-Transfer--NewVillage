@@ -233,7 +233,7 @@ public class CounterAction extends ActionSupport implements SessionAware {
             String hql="from ProcessRecord u where u.newId='"+powerDesignReply.getNewId()+"'";
             List<ProcessRecord> processRecords=processRecordDao.QueryProcess(hql);
             ProcessRecord processRecord=processRecords.get(0);
-            //processRecord.setReplyId(reply.getReplyId());
+            processRecord.setReplyId(reply.getReplyId());
             processRecord.setCostId(cost.getCostId());
             processRecordDao.editProcess(processRecord);
         }catch (Exception ex){
