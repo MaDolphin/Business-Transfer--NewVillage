@@ -34,7 +34,7 @@ public class PlanGroupInterceptor implements Interceptor {
         Map<String, Object> session= invocation.getInvocationContext().getSession();
         if(session.get("employee")!=null){
             Employee employee = (Employee) session.get("employee");
-            if("方案小组".equals(employee.getEmpDep())){
+            if("方案小组".equals(employee.getEmpDep()) || "审批员".equals(employee.getEmpDep()) || "业务员".equals(employee.getEmpDep())){
                 return invocation.invoke();
             }
             else{
