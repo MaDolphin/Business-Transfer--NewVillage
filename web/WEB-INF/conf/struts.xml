@@ -27,6 +27,20 @@
 
     <!-- 1.业务员 1.3业务受理 1.8答复供电方案 -->
     <package name="Counter" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="CounterInterceptor" class="com.NewVillage.interceptor.CounterInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="counterdefaultstack">
+                <interceptor-ref name="CounterInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="login">index.jsp</result>
+        </global-results>
+
         <!--action method-->
         <action name="Counter_*" class="CounterAction" method="{1}">
             <result name="addUserSuccess"></result>
@@ -34,79 +48,133 @@
             <result name="addNewVillageSuccess" type="redirectAction">CounterShowNewVillage</result>
             <result name="addNewVillageError" type="redirectAction">CounterAddNewVillage</result>
             <result name="PowerDesign">/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
-
+            <interceptor-ref name="counterdefaultstack"></interceptor-ref>
         </action>
 
         <action name="replypower" class="CounterAction" method="replypower">
             <result name="ReplySuccess" type="redirectAction">Counter_QueryPowerDesign</result>
+            <interceptor-ref name="counterdefaultstack"></interceptor-ref>
         </action>
 
         <!--JSP directing-->
         <action name="CounterAddNewVillage">
             <result>/WEB-INF/pages/Counter_AddNewVillage.jsp</result>
+            <interceptor-ref name="counterdefaultstack"></interceptor-ref>
         </action>
 
         <action name="CounterShowNewVillage" class="CounterAction" method="InitCounterShowNewVillage">
             <result>/WEB-INF/pages/Counter_ShowNewVillage.jsp</result>
+            <interceptor-ref name="counterdefaultstack"></interceptor-ref>
         </action>
 
         <action name="PowerDesignReply">
             <result>/WEB-INF/pages/Counter_PowerDesignReply.jsp</result>
+            <interceptor-ref name="counterdefaultstack"></interceptor-ref>
         </action>
     </package>
 
     <!-- 2.勘查员 1.4现场勘查  -->
     <package name="Investigator" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="InvestigatorInterceptor" class="com.NewVillage.interceptor.InvestigatorInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="investigatordefaultstack">
+                <interceptor-ref name="InvestigatorInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="login">index.jsp</result>
+        </global-results>
+
         <!--action method-->
         <action name="Investigator_*" class="InvestigatorAction" method="{1}">
             <result name="addInvestigationSiteSuccess" type="redirectAction">InvestigatorShowInvestigationWork</result>
             <result name="addInvestigationSiteError" type="redirectAction">InvestigatorAddInvestigationSite</result>
             <result name="AcceptInvestigationWorkSuccess" type="redirectAction">InvestigatorDetailNewVillage</result>
+            <interceptor-ref name="investigatordefaultstack"></interceptor-ref>
         </action>
         <!--JSP directing-->
         <action name="InvestigatorShowInvestigationWork" class="InvestigatorAction" method="InitInvestigationWork">
             <result name="success">/WEB-INF/pages/Investigator_ShowInvestigationWork.jsp</result>
+            <interceptor-ref name="investigatordefaultstack"></interceptor-ref>
         </action>
 
         <action name="InvestigatorAddInvestigationSite" class="InvestigatorAction" method="InitInvestigationSite">
             <result>/WEB-INF/pages/Investigator_AddInvestigationSite.jsp</result>
+            <interceptor-ref name="investigatordefaultstack"></interceptor-ref>
         </action>
 
         <action name="InvestigatorDetailNewVillage">
             <result>/WEB-INF/pages/Investigator_DetailNewVillage.jsp</result>
+            <interceptor-ref name="investigatordefaultstack"></interceptor-ref>
         </action>
     </package>
 
     <!-- 3.方案小组 1.6拟定供电方案-->
     <package name="PlanGroup" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="PlanGroupInterceptor" class="com.NewVillage.interceptor.PlanGroupInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="planGroupdefaultstack">
+                <interceptor-ref name="PlanGroupInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="login">index.jsp</result>
+        </global-results>
+
         <!--action method-->
         <action name="PlanGroup_*" class="PlanGroupAction" method="{1}">
             <result name="addPowerDesignSuccess" type="redirectAction">PlanGroupShowPowerDesign</result>
             <result name="addPowerDesignError" type="redirectAction">PlanGroupAddPowerDesign</result>
             <result name="acceptMessageSuccess" type="redirectAction">PlanGroupShowMessage</result>
+            <interceptor-ref name="planGroupdefaultstack"></interceptor-ref>
         </action>
         <!--JSP directing-->
         <action name="PlanGroupPowerDesignDetail" class="PlanGroupAction" method="InitPowerDesignDetail">
             <result name="success">/WEB-INF/pages/PlanGroup_PowerDesignDetail.jsp</result>
+            <interceptor-ref name="planGroupdefaultstack"></interceptor-ref>
         </action>
 
         <action name="PlanGroupShowMessage" class="PlanGroupAction" method="InitMessageShow">
             <result name="success">/WEB-INF/pages/PlanGroup_ShowMessage.jsp</result>
+            <interceptor-ref name="planGroupdefaultstack"></interceptor-ref>
         </action>
 
         <action name="PlanGroupShowPowerDesign" class="PlanGroupAction" method="InitPowerDesignShow">
             <result name="success">/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
+            <interceptor-ref name="planGroupdefaultstack"></interceptor-ref>
         </action>
 
         <action name="PlanGroupAddPowerDesign" class="PlanGroupAction" method="InitPowerDesignAdd">
             <result name="success">/WEB-INF/pages/PlanGroup_AddPowerDesign.jsp</result>
+            <interceptor-ref name="planGroupdefaultstack"></interceptor-ref>
         </action>
     </package>
 
     <!-- 4.审批员 1.7审批 1.12设计文件审核 -->
     <package name="Approval" extends="struts-default">
-        <!--action method-->
 
+        <interceptors>
+            <interceptor name="ApprovalInterceptor" class="com.NewVillage.interceptor.ApprovalInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="approvaldefaultstack">
+                <interceptor-ref name="ApprovalInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="login">index.jsp</result>
+        </global-results>
+
+        <!--action method-->
         <action name="Approval_*" class="DesignFileCheckAction" method="{1}">
 
             <result name="queryAllRecordsSuccess">WEB-INF/pages/Approval_queryNewDesignFile.jsp</result>
@@ -118,16 +186,32 @@
 
             <result name="PowerDesign">/WEB-INF/pages/PlanGroup_ShowPowerDesign.jsp</result>
             <result name="ExaminSuccess" type="redirectAction">Approval_QueryPowerDesign</result>
+            <interceptor-ref name="approvaldefaultstack"></interceptor-ref>
         </action>
 
         <!--JSP directing-->
         <action name="Examination">
             <result>/WEB-INF/pages/Approval_Examin.jsp</result>
+            <interceptor-ref name="approvaldefaultstack"></interceptor-ref>
         </action>
     </package>
 
     <!-- 5.财务 1.9确定费用 1.10业务收费 -->
     <package name="Finance" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="FinanceInterceptor" class="com.NewVillage.interceptor.FinanceInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="financedefaultstack">
+                <interceptor-ref name="FinanceInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="login">index.jsp</result>
+        </global-results>
+
         <!--action method-->
         <action name="Finance_*" class="FinanceAction" method="{1}">
             <result name="success">/WEB-INF/pages/Finance_ShowBusinessCost.jsp</result>
@@ -137,16 +221,33 @@
             <result name="examincost" type="redirectAction">Finance_QueryCost</result>
             <result name="paysuccess" type="redirectAction">Finance_QueryCost</result>
             <result name="recordfull" type="redirectAction">Finance_QueryCost</result>
+            <interceptor-ref name="financedefaultstack"></interceptor-ref>
         </action>
         <!--JSP directing-->
     </package>
 
     <!-- 6.记录员 1.11供电工程进度跟踪 -->
     <package name="Overseer" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="OverseerInterceptor" class="com.NewVillage.interceptor.OverseerInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="overseerdefaultstack">
+                <interceptor-ref name="OverseerInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="login">index.jsp</result>
+        </global-results>
+
         <!--action method-->
         <action name="Overseer_Home" >
             <result>WEB-INF/pages/Overseer_Home.jsp</result>
+            <interceptor-ref name="overseerdefaultstack"></interceptor-ref>
         </action>
+
         <action name="Overseer_*" class="TraceTableAction" method="{1}">
             <result name="updatePayRecordStatusSuccess" type="chain">Overseer_QueryAllRecord</result>
             <result name="queryAllRecordsSuccess">WEB-INF/pages/Overseer_showPayRecord.jsp</result>
@@ -157,6 +258,7 @@
             <result name="updateSuccess" type="chain">Overseer_queryTraceTableRecordByIDAfterUpdate</result>
             <result name="QueryAllScheduleConditionSuccess">WEB-INF/pages/Overseer_showTrace.jsp</result>
             <result name="input">WEB-INF/pages/Overseer_Home.jsp</result>
+            <interceptor-ref name="overseerdefaultstack"></interceptor-ref>
         </action>
 
         <!--JSP directing-->
@@ -164,48 +266,84 @@
 
     <!-- 7.检查员 1.13中间检查 -->
     <package name="Checker" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="CheckerInterceptor" class="com.NewVillage.interceptor.CheckerInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="checkerdefaultstack">
+                <interceptor-ref name="CheckerInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="login">index.jsp</result>
+        </global-results>
+
         <!--action method-->
         <action name="check" class="com.NewVillage.action.CheckAction" method="pass">
             <result >WEB-INF/pages/CheckAdd.jsp</result>
+            <interceptor-ref name="checkerdefaultstack"></interceptor-ref>
         </action>
 
         <action name="CheckManage" class="com.NewVillage.action.CheckAction" method="searchInfo">
             <result >WEB-INF/pages/CheckDesignFileCheck.jsp</result>
             <!--<result >check.action</result>-->
+            <interceptor-ref name="checkerdefaultstack"></interceptor-ref>
         </action>
 
         <action name="Check_*" class="com.NewVillage.action.CheckAction" method="{1}">
             <result name="success">WEB-INF/pages/CheckAdd.jsp</result>
             <result name="input">WEB-INF/pages/CheckAdd.jsp</result>
+            <interceptor-ref name="checkerdefaultstack"></interceptor-ref>
         </action>
         <!--JSP directing-->
     </package>
 
     <!-- 8.报验员 1.14竣工报验 -->
     <package name="Inspectioner" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="InspectionerInterceptor" class="com.NewVillage.interceptor.InspectionerInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="inspectionerdefaultstack">
+                <interceptor-ref name="InspectionerInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="login">index.jsp</result>
+        </global-results>
+
         <!--action method-->
         <action name="Inspect" class="com.NewVillage.action.CheckAction" method="pass">
             <result >WEB-INF/pages/InspectAdd.jsp</result>
+            <interceptor-ref name="inspectionerdefaultstack"></interceptor-ref>
         </action>
         <!--总报验界面-->
         <action name="CheckInfoMainManage">
             <result >WEB-INF/pages/CheckInfoMainManage.jsp</result>
+            <interceptor-ref name="inspectionerdefaultstack"></interceptor-ref>
         </action>
 
         <!--最新的报验-->
         <action name="InspectionManage" class="com.NewVillage.action.CheckAction" method="searchCheckInfo">
             <result >WEB-INF/pages/CheckInfoManage.jsp</result>
+            <interceptor-ref name="inspectionerdefaultstack"></interceptor-ref>
         </action>
 
         <!--不合格的报验-->
         <action name="Nopass" class="com.NewVillage.action.CheckAction" method="searchNopassCheckInfo">
             <result >WEB-INF/pages/CheckInfoManage.jsp</result>
+            <interceptor-ref name="inspectionerdefaultstack"></interceptor-ref>
         </action>
 
         <!--添加报验资料信息-->
         <action name="Inspection_*" class="com.NewVillage.action.InspectionAction" method="{1}">
             <result name="success">WEB-INF/pages/InspectAdd.jsp</result>
             <result name="input">WEB-INF/pages/InspectAdd.jsp</result>
+            <interceptor-ref name="inspectionerdefaultstack"></interceptor-ref>
         </action>
         <!--JSP directing-->
     </package>
@@ -213,29 +351,62 @@
     <!-- 9.验收小组 1.15竣工验收 -->
     <!--<package name="AcceptGroup" extends="struts-default">-->
     <package name="AcceptGroup" extends="json-default">
+
+        <interceptors>
+            <interceptor name="AcceptGroupInterceptor" class="com.NewVillage.interceptor.AcceptGroupInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="acceptGroupdefaultstack">
+                <interceptor-ref name="AcceptGroupInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="login">index.jsp</result>
+        </global-results>
+
         <!--action method-->
         <action name="CheckInfo" class="com.NewVillage.action.CheckAction" method="pass">
             <result >WEB-INF/pages/CheckInfoAdd.jsp</result>
+            <interceptor-ref name="acceptGroupdefaultstack"></interceptor-ref>
         </action>
 
         <action name="CheckInfoManage" class="com.NewVillage.action.CheckAction" method="searchInspectionInfo">
             <result >WEB-INF/pages/InspectionManage.jsp</result>
+            <interceptor-ref name="acceptGroupdefaultstack"></interceptor-ref>
         </action>
 
         <action name="CheckInfo_*" class="com.NewVillage.action.CheckInfoAction" method="{1}">
             <result type="json"></result>
+            <interceptor-ref name="acceptGroupdefaultstack"></interceptor-ref>
         </action>
         <!--JSP directing-->
         <action name="ApprovalExamin">
             <result>WEB-INF/pages/Approval_Examin.jsp</result>
+            <interceptor-ref name="acceptGroupdefaultstack"></interceptor-ref>
         </action>
+
         <action name="CounterPowerDesignReply">
             <result>WEB-INF/pages/Counter_PowerDesignReply.jsp</result>
+            <interceptor-ref name="acceptGroupdefaultstack"></interceptor-ref>
         </action>
     </package>
 
     <!-- 10.归档员 1.16信息归档 1.17归档 -->
     <package name="Filer" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="FilerInterceptor" class="com.NewVillage.interceptor.FilerInterceptor"></interceptor>
+            <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
+            <interceptor-stack name="filerdefaultstack">
+                <interceptor-ref name="FilerInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="login">index.jsp</result>
+        </global-results>
         <!--action method-->
 
         <!--JSP directing-->
