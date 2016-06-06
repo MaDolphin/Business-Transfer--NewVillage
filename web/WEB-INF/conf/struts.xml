@@ -339,7 +339,7 @@
 
         <!--不合格的报验-->
         <action name="Nopass" class="com.NewVillage.action.CheckAction" method="searchNopassCheckInfo">
-            <result >WEB-INF/pages/CheckInfoManage.jsp</result>
+            <result >WEB-INF/pages/CheckInfoManage2.jsp</result>
             <interceptor-ref name="inspectionerdefaultstack"></interceptor-ref>
         </action>
 

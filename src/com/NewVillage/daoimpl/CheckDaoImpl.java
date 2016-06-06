@@ -133,11 +133,18 @@ public class CheckDaoImpl extends HibernateDaoSupport implements CheckDao {
 //        return list;
     }
     public List<Inspection> searchNopassCheckInfo(int id){
-        List<Inspection> list=null;
-        String queryString="from Inspection i where i.newId="+id+" and i.status='1'";
-        Query query = session.createQuery(queryString);
-        list= query.list();
-        return list;
+        try {
+            List<Inspection> list=(List<Inspection>) this.getHibernateTemplate().find("from Inspection i where i.newId=? and i.status='2'",new Object[]{id});
+            return list;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            throw e;
+        }
+//        List<Inspection> list=null;
+//        String queryString="from Inspection i where i.newId="+id+" and i.status='1'";
+//        Query query = session.createQuery(queryString);
+//        list= query.list();
+//        return list;
     }
     public List<DesignFileCheck> searchInfo(){
         List<DesignFileCheck> list=null;
@@ -147,10 +154,15 @@ public class CheckDaoImpl extends HibernateDaoSupport implements CheckDao {
         return list;
     }
     public List<ProcessRecord> searchProcessRecord(int id){
-        List<ProcessRecord> list=null;
-        String queryString="from ProcessRecord p where p.newId="+id+"";
-        Query query = session.createQuery(queryString);
-        list= query.list();
-        return list;
+        try{
+            List<ProcessRecord> list=null;
+            String queryString="from ProcessRecord p where p.newId="+id+"";
+            Query query = session.createQuery(queryString);
+            list= query.list();
+            return list;
+        }catch (Exception e){
+            return null;
+        }
+
     }
 }
