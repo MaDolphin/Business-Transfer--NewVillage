@@ -34,7 +34,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        新建进程进度跟踪记录：
+                        进程进度跟踪记录：
                     </h3>
                     <ul class="breadcrumb">
                         <li>

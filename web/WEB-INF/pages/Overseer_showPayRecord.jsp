@@ -84,7 +84,7 @@
                             </c:if>
                             <td class="hidden-480">
                                 <c:if test="${payRecord.status =='1'}">
-                                    <a href="javascript:if(confirm('确认完成记录该回复信息?'))window.location='Overseer_updatePayRecord.action?payId=${payRecord.payId}'" class="label label-success">记录完成</a>
+                                    <a href="javascript:if(confirm('确认完成记录该收费信息?'))window.location='Overseer_updatePayRecord.action?payId=${payRecord.payId}'" class="label label-success">记录完成</a>
                                 </c:if>
                             </td>
                         </tr>

@@ -33,7 +33,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <h3 class="page-title">
-                        新建进程进度跟踪记录：
+                        进程进度跟踪记录：
                     </h3>
                     <ul class="breadcrumb">
                         <li>
@@ -45,7 +45,7 @@
                             <a href="#">进度跟踪</a>
                             <span class="icon-angle-right"></span>
                         </li>
-                        <li><a href="#">新建进程进度跟踪记录</a></li>
+                        <li><a href="#">编辑进程进度跟踪记录</a></li>
                     </ul>
                 </div>
             </div>
