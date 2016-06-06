@@ -32,13 +32,13 @@
             <interceptor name="CounterInterceptor" class="com.NewVillage.interceptor.CounterInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="counterdefaultstack">
-                <!--<interceptor-ref name="CounterInterceptor"></interceptor-ref>-->
+                <interceptor-ref name="CounterInterceptor"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
 
         <global-results>
-            <result name="login">index.jsp</result>
+            <result name="login">WEB-INF/pages/Error.jsp</result>
         </global-results>
 
         <!--action method-->
@@ -69,7 +69,7 @@
 
         <action name="PowerDesignReply">
             <result>/WEB-INF/pages/Counter_PowerDesignReply.jsp</result>
-            <interceptor-ref name="counterdefaultstack"></interceptor-ref>
+            <!--<interceptor-ref name="counterdefaultstack"></interceptor-ref>-->
         </action>
     </package>
 
@@ -86,7 +86,7 @@
         </interceptors>
 
         <global-results>
-            <result name="login">index.jsp</result>
+            <result name="login">WEB-INF/pages/Error.jsp</result>
         </global-results>
 
         <!--action method-->
@@ -120,13 +120,13 @@
             <interceptor name="PlanGroupInterceptor" class="com.NewVillage.interceptor.PlanGroupInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="planGroupdefaultstack">
-                <!--<interceptor-ref name="PlanGroupInterceptor"></interceptor-ref>-->
+                <interceptor-ref name="PlanGroupInterceptor"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
 
         <global-results>
-            <result name="login">index.jsp</result>
+            <result name="login">WEB-INF/pages/Error.jsp</result>
         </global-results>
 
         <!--action method-->
@@ -165,13 +165,13 @@
             <interceptor name="ApprovalInterceptor" class="com.NewVillage.interceptor.ApprovalInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="approvaldefaultstack">
-                <!--<interceptor-ref name="ApprovalInterceptor"></interceptor-ref>-->
+                <interceptor-ref name="ApprovalInterceptor"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
 
         <global-results>
-            <result name="login">index.jsp</result>
+            <result name="login">WEB-INF/pages/Error.jsp</result>
         </global-results>
 
         <!--action method-->
@@ -203,13 +203,13 @@
             <interceptor name="FinanceInterceptor" class="com.NewVillage.interceptor.FinanceInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="financedefaultstack">
-                <!--<interceptor-ref name="FinanceInterceptor"></interceptor-ref>-->
+                <interceptor-ref name="FinanceInterceptor"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
 
         <global-results>
-            <result name="login">index.jsp</result>
+            <result name="login">WEB-INF/pages/Error.jsp</result>
         </global-results>
 
         <!--action method-->
@@ -233,13 +233,13 @@
             <interceptor name="OverseerInterceptor" class="com.NewVillage.interceptor.OverseerInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="overseerdefaultstack">
-                <!--<interceptor-ref name="OverseerInterceptor"></interceptor-ref>-->
+                <interceptor-ref name="OverseerInterceptor"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
 
         <global-results>
-            <result name="login">index.jsp</result>
+            <result name="login">WEB-INF/pages/Error.jsp</result>
         </global-results>
 
         <!--action method-->
@@ -271,13 +271,13 @@
             <interceptor name="CheckerInterceptor" class="com.NewVillage.interceptor.CheckerInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="checkerdefaultstack">
-                <!--<interceptor-ref name="CheckerInterceptor"></interceptor-ref>-->
+                <interceptor-ref name="CheckerInterceptor"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
 
         <global-results>
-            <result name="login">index.jsp</result>
+            <result name="login">WEB-INF/pages/Error.jsp</result>
         </global-results>
 
         <!--action method-->
@@ -311,13 +311,13 @@
             <interceptor name="InspectionerInterceptor" class="com.NewVillage.interceptor.InspectionerInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="inspectionerdefaultstack">
-                <!--<interceptor-ref name="InspectionerInterceptor"></interceptor-ref>-->
+                <interceptor-ref name="InspectionerInterceptor"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
 
         <global-results>
-            <result name="login">index.jsp</result>
+            <result name="login">WEB-INF/pages/Error.jsp</result>
         </global-results>
 
         <!--action method-->
@@ -360,13 +360,13 @@
             <interceptor name="AcceptGroupInterceptor" class="com.NewVillage.interceptor.AcceptGroupInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="acceptGroupdefaultstack">
-                <!--<interceptor-ref name="AcceptGroupInterceptor"></interceptor-ref>-->
+                <interceptor-ref name="AcceptGroupInterceptor"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
 
         <global-results>
-            <result name="login">index.jsp</result>
+            <result name="login">WEB-INF/pages/Error.jsp</result>
         </global-results>
 
         <!--action method-->
@@ -387,12 +387,12 @@
         <!--JSP directing-->
         <action name="ApprovalExamin">
             <result>WEB-INF/pages/Approval_Examin.jsp</result>
-            <interceptor-ref name="acceptGroupdefaultstack"></interceptor-ref>
+            <!--<interceptor-ref name="acceptGroupdefaultstack"></interceptor-ref>-->
         </action>
 
         <action name="CounterPowerDesignReply">
             <result>WEB-INF/pages/Counter_PowerDesignReply.jsp</result>
-            <interceptor-ref name="acceptGroupdefaultstack"></interceptor-ref>
+            <!--<interceptor-ref name="acceptGroupdefaultstack"></interceptor-ref>-->
         </action>
     </package>
 
@@ -403,13 +403,13 @@
             <interceptor name="FilerInterceptor" class="com.NewVillage.interceptor.FilerInterceptor"></interceptor>
             <!-- 定义公共的拦截器链，在action标签中只需要引用拦截器链 -->
             <interceptor-stack name="filerdefaultstack">
-                <!--<interceptor-ref name="FilerInterceptor"></interceptor-ref>-->
+                <interceptor-ref name="FilerInterceptor"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
 
         <global-results>
-            <result name="login">index.jsp</result>
+            <result name="login">WEB-INF/pages/Error.jsp</result>
         </global-results>
         <!--action method-->
 
