@@ -78,22 +78,22 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${Inspectlist}" var="Inspectionlist">
+                            <c:forEach items="${Inspectlist}" var="Inspectlist">
                                 <tr class="odd gradeX">
                                     <td><input type="checkbox" class="checkboxes" value="1"/></td>
-                                    <td class="hidden-480">${Inspectionlist.checkId}</td>
-                                    <td class="hidden-480">${Inspectionlist.newId}</td>
-                                    <td class="hidden-480">${Inspectionlist.checkPerId}</td>
-                                    <td class="hidden-480">${Inspectionlist.checkTime}</td>
-                                    <c:if test="${Inspectionlist.status == '0'}">
+                                    <td class="hidden-480">${Inspectlist.checkId}</td>
+                                    <td class="hidden-480">${Inspectlist.newId}</td>
+                                    <td class="hidden-480">${Inspectlist.checkPerId}</td>
+                                    <td class="hidden-480">${Inspectlist.checkTime}</td>
+                                    <c:if test="${Inspectlist.status == '0'}">
                                         <td><span class="label label-warning">未审批</span></td>
                                     </c:if>
-                                    <c:if test="${Inspectionlist.status == '1'}">
+                                    <c:if test="${Inspectlist.status == '1'}">
                                         <td><span class="label label-info">已审批</span></td>
                                     </c:if>
                                     <td class="hidden-480">
-                                        <c:if test="${Inspectionlist.status =='0'}">
-                                            <a href="javascript:if(confirm('确认填写报验信息?'))window.location='Inspect.action?id=${Inspectionlist.checkId}&nid=${Inspectionlist.newId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 填写信息</a>
+                                        <c:if test="${Inspectlist.status =='0'}">
+                                            <a href="javascript:if(confirm('确认填写报验信息?'))window.location='Inspect.action?cid=${Inspectionlist.checkId}&nid=${Inspectionlist.newId}'" class="btn btn-warning btn-sm"><i class="icon-trash"></i> 填写信息</a>
                                         </c:if>
                                     </td>
                                 </tr>

@@ -1,10 +1,7 @@
 package com.NewVillage.action;
 
 import com.NewVillage.dao.CheckDao;
-import com.NewVillage.entity.DesignFileCheck;
-import com.NewVillage.entity.Employee;
-import com.NewVillage.entity.Inspect;
-import com.NewVillage.entity.Inspection;
+import com.NewVillage.entity.*;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
@@ -94,19 +91,20 @@ public class CheckAction extends ActionSupport{
     ActionContext actionContext= ActionContext.getContext();
     Map session=actionContext.getSession();
     public String add() throws Exception{
-//        DesignFileCheck designFileCheck=new DesignFileCheck();
-//        List<DesignFileCheck> list=new ArrayList();
-//        list=checkDao.searchObject("2");
-//        designFileCheck=list.get(0);
-//        inspect.setNewId(designFileCheck.getNewId());
-
         Employee employee= (Employee) session.get("employee");
-
         inspect.setCheckPerId(String.valueOf(employee.getEmpId()));
         inspect.setCreateTime(timestamp);
         inspect.setNewId(Integer.valueOf(session.get("nid").toString()));
         inspect.setStatus("0");
         checkDao.addCheck(inspect);
+        return "success";
+    }
+    public String SetCheckId() throws Exception{
+        ProcessRecord processRecord=new ProcessRecord();
+        processRecord=checkDao.searchProcessRecord(Integer.valueOf(session.get("nid").toString())).get(0);
+        Inspect inspect=new Inspect();
+        inspect = checkDao.searchInspectId(Integer.valueOf(session.get("nid").toString())).get(0);
+        processRecord.setCheckId(inspect.getCheckId());
         return "success";
     }
     public String searchInfo() throws Exception{

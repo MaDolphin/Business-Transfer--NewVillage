@@ -14,7 +14,7 @@
                 <property name="hibernate.c3p0.max_size">20</property>
                 <property name="hibernate.c3p0.timeout">1800</property>
                 <property name="hibernate.c3p0.max_statements">50</property>
-                <property name="hibernate.c3p0.testConnectionOnCheckout">true</property>
+                <!--<property name="hibernate.c3p0.testConnectionOnCheckout">true</property>-->
 
                 <!-- 显示sql语句 -->
                 <property name="show_sql">true</property>

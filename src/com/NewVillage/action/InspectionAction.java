@@ -23,6 +23,7 @@ public class InspectionAction {
     CheckDao checkDao;
     private Date accTime;
     private Date insTime;
+    private String cid;
     private Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
     public Inspection getInspection() {
@@ -57,32 +58,30 @@ public class InspectionAction {
         this.checkDao = checkDao;
     }
 
+    public String getCid() {
+        return cid;
+    }
+
+    public void setCid(String cid) {
+        this.cid = cid;
+    }
+
     ActionContext actionContext= ActionContext.getContext();
     Map session=actionContext.getSession();
 
     public String add() throws Exception{
-//        DesignFileCheck designFileCheck=new DesignFileCheck();
-//        List<DesignFileCheck> list=new ArrayList();
-//
-//        list=checkDao.searchObject("2");
-//        designFileCheck=list.get(0);
-//        inspection.setNewId(designFileCheck.getNewId());
-//
         Employee employee= (Employee) session.get("employee");
         inspection.setInsPerId(employee.getEmpId());
         inspection.setNewId(Integer.valueOf(session.get("nid").toString()));
-
         inspection.setStatus("0");
         inspection.setCreateTime(timestamp);
         inspectionDao.addInspect(inspection);
-
         Inspect inspect=new Inspect();
         System.out.print(Integer.valueOf(session.get("nid").toString()));
-        inspect=checkDao.searchInspect(Integer.valueOf(session.get("id").toString())).get(0);
+        inspect=checkDao.searchInspect(Integer.valueOf(cid)).get(0);
         inspect.setStatus("1");
         inspect.setCheckTime(inspect.getCheckTime());
         checkDao.updateObject(inspect);
-
         return "success";
     }
 }

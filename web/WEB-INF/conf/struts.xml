@@ -293,6 +293,10 @@
         </action>
 
         <action name="Check_*" class="com.NewVillage.action.CheckAction" method="{1}">
+            <result name="success" type="chain">SetCheckId</result>
+            <interceptor-ref name="checkerdefaultstack"></interceptor-ref>
+        </action>
+        <action name="SetCheckId" class="com.NewVillage.action.CheckAction" method="SetCheckId">
             <result name="success">WEB-INF/pages/CheckAdd.jsp</result>
             <result name="input">WEB-INF/pages/CheckAdd.jsp</result>
             <interceptor-ref name="checkerdefaultstack"></interceptor-ref>
