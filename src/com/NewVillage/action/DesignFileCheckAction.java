@@ -263,19 +263,21 @@ public class DesignFileCheckAction extends ActionSupport implements SessionAware
     public String addDesignFileCheckRecord(){
         try {
             DesignFileCheck designFileCheck = new DesignFileCheck();
-            Timestamp date=new Timestamp(System.currentTimeMillis());
-            designFileCheck.setCheckTime(date);
-            designFileCheck.setRegisterTime(date);
-            designFileCheck.setSubmittedTime(date);
-            designFileCheck.setCheckOpinion("未通过");
-            designFileCheck.setNewId(newId);
-            designFileCheck.setStatus("1");
-            designFileCheck.setCreateTime(date);
-            if( designFileCheckDao.addDesignFileCheckRecord(designFileCheck)){
-                ProcessRecord processRecord1 = processRecordDao.queryProcessRecordByNewVillage(designFileCheck.getNewId());
-                DesignFileCheck designFileCheck1=designFileCheckDao.queryDesignFileCheckByNewId(designFileCheck.getNewId());
-                processRecord1.setDesignFileId(designFileCheck1.getDesignFileId());
-                processRecordDao.editProcess(processRecord1);
+            if(designFileCheckDao.queryDesignFileCheckByNewId(designFileCheck.getNewId())==null) {
+                Timestamp date = new Timestamp(System.currentTimeMillis());
+                designFileCheck.setCheckTime(date);
+                designFileCheck.setRegisterTime(date);
+                designFileCheck.setSubmittedTime(date);
+                designFileCheck.setCheckOpinion("未通过");
+                designFileCheck.setNewId(newId);
+                designFileCheck.setStatus("1");
+                designFileCheck.setCreateTime(date);
+                if (designFileCheckDao.addDesignFileCheckRecord(designFileCheck)) {
+                    ProcessRecord processRecord1 = processRecordDao.queryProcessRecordByNewVillage(designFileCheck.getNewId());
+                    DesignFileCheck designFileCheck1 = designFileCheckDao.queryDesignFileCheckByNewId(designFileCheck.getNewId());
+                    processRecord1.setDesignFileId(designFileCheck1.getDesignFileId());
+                    processRecordDao.editProcess(processRecord1);
+                }
             }
         }catch (Exception ex) {
             ex.printStackTrace();
